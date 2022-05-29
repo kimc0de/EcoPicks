@@ -1,0 +1,106 @@
+/* APP CARD */
+
+#app-card .card-body {
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+#app-card h2 {
+  font-size: 1.5rem;
+}
+
+#app-card .app-logo {
+  flex: none;
+  object-fit: cover;
+  width: 100px;
+  height: 100px;
+  margin-right: 16px;
+  border-radius: 15px;
+}
+
+#app-card .app-slogan {
+  height: 65px;
+  max-height: 70px !important;
+}
+
+@media (max-width: 1200px){
+
+}
+
+.category-social {
+  background-color: var(--social-light);
+  border-radius: 15px;
+}
+
+.category-badge-social {
+  background-color: var(--social-dark);
+  border-radius: 15px;
+  padding: 0.25rem 1rem;
+}
+
+.category-lifestyle {
+  background-color: var(--lifestyle-light);
+  border-radius: 15px;
+}
+
+.category-badge-lifestyle {
+  background-color: var(--lifestyle-dark);
+  border-radius: 15px;
+  padding: 0.25rem 1rem;
+}
+
+.category-badge-shopping {
+  background-color: var(--shopping-dark);
+  border-radius: 15px;
+  padding: 0.25rem 1rem;
+}
+
+.category-shopping {
+  background-color: var(--shopping-light);
+  border-radius: 15px;
+}
+
+.category-food {
+  background-color: var(--food-light);
+  border-radius: 15px;
+}
+
+.category-badge-food {
+  background-color: var(--food-dark);
+  border-radius: 15px;
+  padding: 0.25rem 1rem;
+}
+
+.category-household {
+  background-color: var(--household-light);
+  border-radius: 15px;
+}
+
+.category-badge-household {
+  background-color: var(--household-dark);
+  border-radius: 15px;
+  padding: 0.25rem 1rem;
+}
+
+.category-transport {
+  background-color: var(--transport-light);
+  border-radius: 15px;
+}
+
+.category-badge-transport {
+  background-color: var(--transport-dark);
+  border-radius: 15px;
+  padding: 0.25rem 1rem;
+}
+
+.category-finance {
+  background-color: var(--finance-light);
+  border-radius: 15px;
+}
+
+.category-badge-finance {
+  background-color: var(--finance-dark);
+  border-radius: 15px;
+  padding: 0.25rem 1rem;
+}
+
