@@ -1,7 +1,7 @@
 const request = require("supertest");
 const app = require("../main");
 const mongoDB = require("mongoose");
-const GreenPickApp = require("../models/greenPickApp");
+const EcopicksBrand = require("../models/ecopicksBrand");
 
 describe("Test the greenPickAppController", () => {
   beforeAll(() => {
@@ -14,11 +14,11 @@ describe("Test the greenPickAppController", () => {
 
   test("Add greenPick app", () => {
     const newGreenPickApp = { "category": "shopping", "name": "Stefi", "website": "www.example.com", "slogan": "Short Slogan", "description": "This is a description." };
-    const testApp = new GreenPickApp(newGreenPickApp);
+    const testApp = new EcopicksBrand(newGreenPickApp);
 
     testApp.save()
       .then(() => {
-        GreenPickApp.find({})
+        EcopicksBrand.find({})
           .then(result => {
             expect(result.length).toBe(1);
             expect(result[0]).toHaveProperty('_id');
@@ -30,10 +30,10 @@ describe("Test the greenPickAppController", () => {
   });
 
   test("Edit GreenPick app", () => {
-    GreenPickApp.find({})
+    EcopicksBrand.find({})
       .then(result => {
         let updatedName = "Updated name";
-        GreenPickApp.findByIdAndUpdate(result[0]._id, {
+        EcopicksBrand.findByIdAndUpdate(result[0]._id, {
           $set: { name: updatedName }
         }, { new: true }).then(updatedApp => {
           expect(updatedApp.name).toBe(updatedName);
@@ -42,7 +42,7 @@ describe("Test the greenPickAppController", () => {
   });
 
   test("Request details page", () => {
-    GreenPickApp.find({})
+    EcopicksBrand.find({})
       .then(result => {
         request(app)
           .get(`/app/${result[0]._id}`)
@@ -53,11 +53,11 @@ describe("Test the greenPickAppController", () => {
   });
 
   test("Delete GreenPick app", () => {
-    GreenPickApp.find({})
+    EcopicksBrand.find({})
       .then(result => {
-        GreenPickApp.findByIdAndRemove(result[0]._id)
+        EcopicksBrand.findByIdAndRemove(result[0]._id)
           .then(() => {
-            GreenPickApp.find({})
+            EcopicksBrand.find({})
               .then(docs => {
                 expect(docs.length).toBe(0);
               });

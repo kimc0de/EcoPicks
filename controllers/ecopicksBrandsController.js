@@ -1,4 +1,4 @@
-const GreenPickApp = require("../models/greenPickApp");
+const EcopicksBrands = require("../models/ecopicksBrand");
 const User = require("../models/user");
 const { respondNoResourceFound, redirectIfUnauthorized } = require("./errorController");
 const Category = require("../models/category");
@@ -13,7 +13,7 @@ module.exports = {
 
     if (editAppId) {
       try {
-        editApp = await GreenPickApp.findById(editAppId);
+        editApp = await EcopicksBrands.findById(editAppId);
       } catch (error) {
         console.error(error);
         respondNoResourceFound(req, res);
@@ -28,7 +28,7 @@ module.exports = {
 
   saveGreenPickApp: async (req, res) => {
     let userId = req.user._id;
-    
+
     let appImg;
     if (req.file) {
       let imgBuffer = fs.readFileSync(req.file.path);
@@ -38,7 +38,7 @@ module.exports = {
     }
 
     try {
-      let newApp = new GreenPickApp({
+      let newApp = new EcopicksBrands({
         category: req.body.category,
         name: req.body.name,
         website: req.body.website,
@@ -75,7 +75,7 @@ module.exports = {
     };
 
     try {
-      const app = await GreenPickApp.findByIdAndUpdate(appId, {
+      const app = await EcopicksBrands.findByIdAndUpdate(appId, {
         $set: appParams
       }, { new: true });
       res.render("greenPickApp/confirmation", { app: app });
@@ -86,13 +86,13 @@ module.exports = {
   },
 
   /**
-   * Delete Green Pick app 
+   * Delete Green Pick app
    */
   deleteGreenPickApp: async (req, res) => {
     let appId = req.params.id;
 
     try {
-      let app = await GreenPickApp.findByIdAndRemove(appId);
+      let app = await EcopicksBrands.findByIdAndRemove(appId);
       let user = await User.findByIdAndUpdate(app.userId, {
         $pull: { apps: app._id }
       }, { new: true });
@@ -111,7 +111,7 @@ module.exports = {
   getDetailsPage: async (req, res) => {
     let id = req.params.id;
     try {
-      const app = await GreenPickApp.findById(id);
+      const app = await EcopicksBrands.findById(id);
       const category = await Category.findById(app.category);
 
       res.render('./greenPickApp/detailsPage',
@@ -129,7 +129,7 @@ module.exports = {
 
   /**
    * Green Pick app adding favourite app
-   */ 
+   */
   addFavouriteApp: async (req, res, next) => {
 
     redirectIfUnauthorized(req, res);
@@ -152,10 +152,10 @@ module.exports = {
 
   /**
    * Green Pick app getting favourite app
-   */ 
+   */
   getFavouriteApps: async (req, res) => {
     try {
-      let favApps = await GreenPickApp.find({ userId: req.user._id });
+      let favApps = await EcopicksBrands.find({ userId: req.user._id });
       req.data = favApps;
     } catch (error) {
       console.error(error);

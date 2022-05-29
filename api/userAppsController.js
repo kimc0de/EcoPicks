@@ -1,5 +1,5 @@
 const httpStatus = require('http-status-codes');
-const GreenPickApp = require('../models/greenPickApp');
+const EcopicksBrand = require('../models/ecopicksBrand');
 const {respondNoResourceFound} = require('../controllers/errorController');
 const {redirectIfUnauthorized} = require('../controllers/errorController');
 
@@ -9,7 +9,7 @@ module.exports = {
 		redirectIfUnauthorized(req, res);
 
 		try {
-			let apps = await GreenPickApp.find({ userId: req.user._id });
+			let apps = await EcopicksBrand.find({ userId: req.user._id });
 			req.data = apps;
 			console.log(req.data);
 		} catch (error) {

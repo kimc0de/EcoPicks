@@ -1,5 +1,5 @@
 const Category = require("../models/category");
-const GreenPickApp = require("../models/greenPickApp");
+const EcopicksBrand = require("../models/ecopicksBrand");
 const {respondNoResourceFound} = require("./errorController");
 
 /**
@@ -11,7 +11,7 @@ module.exports = {
    * TODO: limit the apps show on index page
    */
   getAllApps: (req, res, next) => {
-    GreenPickApp.find((error, apps) => {
+    EcopicksBrand.find((error, apps) => {
       try {
         req.data = apps;
       }

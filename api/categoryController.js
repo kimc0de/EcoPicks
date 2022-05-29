@@ -1,5 +1,5 @@
 const httpStatus = require('http-status-codes');
-const GreenPickApp = require("../models/greenPickApp");
+const EcopicksBrand = require("../models/ecopicksBrand");
 const Category = require("../models/category");
 const { respondNoResourceFound } = require("../controllers/errorController");
 
@@ -19,7 +19,7 @@ module.exports = {
   getAppsByCategory: async (req, res, next) => {
     try {
       if (req.params.categoryName == 'all') {
-        let allApps = await GreenPickApp.find({});
+        let allApps = await EcopicksBrand.find({});
         let apps = [];
 
         let promise = allApps.map(async (a) => {
@@ -39,7 +39,7 @@ module.exports = {
       } else {
         let categories = await Category.find({ name: req.params.categoryName });
 
-        let allApps = await GreenPickApp.find({ category: categories[0]._id });
+        let allApps = await EcopicksBrand.find({ category: categories[0]._id });
         let apps = [];
 
         allApps.forEach((a) => {

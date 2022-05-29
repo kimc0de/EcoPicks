@@ -1,8 +1,8 @@
 const app = require("./main");
 
 const mongoose = require("mongoose");
-mongoose.connect(process.env.MONGODB_URI ||
-    "mongodb://localhost:27017/green_pick",
+mongoose.connect("mongodb+srv://admin-kim:ecopicks@ecopickscluster0.gdhlt9s.mongodb.net/ecopicks" ||
+    "mongodb://localhost:27017/ecopicks",
     {useNewUrlParser: true}
 );
 

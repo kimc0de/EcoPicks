@@ -1,5 +1,5 @@
 const mongoose = require("mongoose"),
-    greenPickAppSchema = mongoose.Schema({
+    ecopicksBrandSchema = mongoose.Schema({
         category: {type: mongoose.Schema.Types.ObjectId, ref: "categories", required: true},
         name: {type: String, required: true},
         website: {type: String, required: true},
@@ -9,4 +9,4 @@ const mongoose = require("mongoose"),
         userId: {type: mongoose.Schema.Types.ObjectId, ref: "users", required: true}
     });
 
-module.exports = mongoose.model("greenPickApp", greenPickAppSchema);
+module.exports = mongoose.model("ecopicksBrand", ecopicksBrandSchema);
