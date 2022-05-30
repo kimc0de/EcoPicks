@@ -10,13 +10,13 @@
     </div>
     <div id="confirmation-bottom">
       <% let h1 = typeof app === 'undefined' ? "Thank you!" : "Successfully saved!";
-      let info = typeof app === 'undefined' ? "Your application can now be viewed on Green Pick!" : "Your changes are now visible on Green Pick."; %>
+      let info = typeof app === 'undefined' ? "Your recommended brand can now be viewed on Ecopicks!" : "Your changes are now visible on Ecopicks."; %>
       <h1 class="font-weight-bold"><%= h1 %></h1>
       <p class="mb-2 mt-2 ml-2 mr-2"><%= info %></p>
-      <!-- Add another GreenPick -->
+      <!-- Suggest another brand -->
       <div class="add-another-button">
         <% let buttonLink = typeof app === 'undefined' ? "/user/add" : `/app/${app._id}`;
-        let buttonText = typeof app === 'undefined' ? "Add another GreenPick" : "View your GreenPick application"; %>
+        let buttonText = typeof app === 'undefined' ? "Recommend another brand" : "View your recommendation"; %>
         <a href="<%= buttonLink %>">
           <button class="btn btn-outline-primary">
             <%= buttonText %>

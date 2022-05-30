@@ -83,7 +83,7 @@ app.component('homepage-base', {
     <h2 id="suggestedAppsHeader">
       Suggested Apps:
     </h2>
-    <h3 v-if="appsIsEmpty" class="pb-5">There is no green pick application for this category</h3>
+    <h3 v-if="appsIsEmpty" class="pb-5">There is no brands found for this category</h3>
     <div v-else id="app-card" class="row">
       <app-card
       v-bind:apps="apps"></app-card>

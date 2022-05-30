@@ -1,5 +1,5 @@
 {
-  "name": "greenpick",
+  "name": "ecopicks",
   "version": "1.0.0",
   "description": "Web application for sustainable alternatives",
   "main": "server.js",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kimc0de/GreenPick.git"
+    "url": "git+https://github.com/kimc0de/EcoPicks.git"
   },
   "author": "Daria, Kim, Ly, Stefi",
   "license": "ISC",

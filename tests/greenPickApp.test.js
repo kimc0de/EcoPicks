@@ -3,7 +3,7 @@ const app = require("../main");
 const mongoDB = require("mongoose");
 const EcopicksBrand = require("../models/ecopicksBrand");
 
-describe("Test the greenPickAppController", () => {
+describe("Test the ecopicksAppController", () => {
   beforeAll(() => {
     mongoDB.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true });
   });
@@ -12,7 +12,7 @@ describe("Test the greenPickAppController", () => {
     mongoDB.disconnect(done);
   });
 
-  test("Add greenPick app", () => {
+  test("Add ecopicks app", () => {
     const newGreenPickApp = { "category": "shopping", "name": "Stefi", "website": "www.example.com", "slogan": "Short Slogan", "description": "This is a description." };
     const testApp = new EcopicksBrand(newGreenPickApp);
 

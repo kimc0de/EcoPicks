@@ -3,7 +3,7 @@ let action = app ? `/app/${app.id}/edit?_method=PUT` : `/user/add`; %>
 <form action="<%= action %>" <% if (!appImageExists) { %>enctype="multipart/form-data" <% } %>method="post">
   <div id="new-app" class="container">
 
-    <% let title = app ? "Edit your GreenPick" : "Add a new GreenPick" %>
+    <% let title = app ? "Edit your suggested brand" : "Recommend a new brand" %>
 
     <section>
       <div class="row justify-content-center align-items-center">

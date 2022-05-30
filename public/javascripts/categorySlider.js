@@ -13,7 +13,7 @@ $(document).ready(() => {
         let apps = data.data.apps;
         if (apps.length == 0) {
           $("#homepage-apps").append(
-            `<h3> There is no green pick application for this category </h3>`
+            `<h3> There is no brands found for this category </h3>`
           );
         }
         apps.forEach((app) => {
