@@ -2,14 +2,14 @@ const User = require("../models/user");
 const Category = require("../models/category");
 const { respondNoResourceFound, redirectIfUnauthorized } = require("./errorController");
 const passport = require("passport");
-const GreenPickApp = require("../models/greenPickApp");
+const Brand = require("../models/ecopicksBrand");
 
 module.exports = {
   getAllApps: async (req, res, next) => {
     redirectIfUnauthorized(req, res);
 
     try {
-      let apps = await GreenPickApp.find({ userId: req.user._id });
+      let apps = await Brand.find({ userId: req.user._id });
       req.data = apps;
       console.log(req.data);
     } catch (error) {

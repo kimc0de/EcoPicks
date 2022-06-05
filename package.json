@@ -1,5 +1,5 @@
 {
-  "name": "greenpick",
+  "name": "ecopicks",
   "version": "1.0.0",
   "description": "Web application for sustainable alternatives",
   "main": "server.js",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kimc0de/GreenPick.git"
+    "url": "git+https://github.com/kimc0de/EcoPicks.git"
   },
   "author": "Daria, Kim, Ly, Stefi",
   "license": "ISC",
@@ -39,8 +39,7 @@
     "nodemon": "^2.0.7",
     "passport": "^0.4.1",
     "passport-local-mongoose": "^6.1.0",
-    "path": "^0.12.7",
-    "vue": "^3.1.1"
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

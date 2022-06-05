@@ -1,9 +1,9 @@
 <% let appImageExists = app && app.image && app.image.substring(0,4) == 'data';
-let action = app ? `/app/${app.id}/edit?_method=PUT` : `/user/add`; %>
+let action = app ? `/brand/${app.id}/edit?_method=PUT` : `/user/add`; %>
 <form action="<%= action %>" <% if (!appImageExists) { %>enctype="multipart/form-data" <% } %>method="post">
   <div id="new-app" class="container">
 
-    <% let title = app ? "Edit your GreenPick" : "Add a new GreenPick" %>
+    <% let title = app ? "Edit your recommended brand" : "Recommend a new brand" %>
 
     <section>
       <div class="row justify-content-center align-items-center">
@@ -31,7 +31,7 @@ let action = app ? `/app/${app.id}/edit?_method=PUT` : `/user/add`; %>
         <% categories.forEach(category => {
           let selected = app && (app.category.equals(category._id)) ? 'selected="selected"' : ''; %>
           <option value="<%= (category._id) %>" <%= selected %>>
-            <% let categoryName = category.name.charAt(0).toUpperCase() + category.name.slice(1); %>
+            <% let categoryName = category.name.toUpperCase(); %>
             <%= categoryName %>
             </option>
         <% }); %>
@@ -75,7 +75,7 @@ let action = app ? `/app/${app.id}/edit?_method=PUT` : `/user/add`; %>
       </div>
       <% if (app) { %>
       <div class="order-md-first col-12 col-md-6 pr-0 pr-md-2">
-        <a href="/app/<%= app._id %>/delete?_method=DELETE" id="delete-button" class="btn btn-lg btn-outline-danger w-100"
+        <a href="/brand/<%= app._id %>/delete?_method=DELETE" id="delete-button" class="btn btn-lg btn-outline-danger w-100"
            onclick="return confirm('Are you sure you want to delete this application?')">
           Delete
         </a>

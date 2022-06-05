@@ -1,16 +1,16 @@
 const httpStatus = require('http-status-codes');
 const {respondNoResourceFound, redirectIfUnauthorized} = require("../controllers/errorController");
-const GreenPickApp = require("../models/greenPickApp");
+const EcopicksBrand = require("../models/ecopicksBrand");
 
 module.exports = {
-  
-  getFavouriteAppsByUser: async (req, res, next) => {
+
+  getAllSavedBrands: async (req, res, next) => {
     try {
       if (!req.user) {
         redirectIfUnauthorized(req, res)
       } else {
-        let favApps = req.user.favApps;
-        res.locals = await GreenPickApp.find({apps: favApps._id});
+        let savedBrands = req.user.savedBrands;
+        res.locals = await EcopicksBrand.find({apps: savedBrands._id});
         next()
       }
     } catch (error) {
@@ -18,13 +18,11 @@ module.exports = {
       respondNoResourceFound(req, res);
     }
   },
-  
-  
+
   respondJSON: (req, res) => {
     res.json({
       status: httpStatus.OK,
       data: res.locals
     });
   },
-  
 }

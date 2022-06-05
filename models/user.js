@@ -4,8 +4,8 @@ const mongoose = require("mongoose"),
   userSchema = mongoose.Schema({
     username: { type: String, required: true, unique: true },
     email: { type: String, required: true, unique: true, lowercase: true },
-    apps: [{ type: mongoose.Schema.Types.ObjectId, ref: "greenPickApp" }],
-    favApps: [{ type: mongoose.Schema.Types.ObjectId, ref: "greenPickApp" }]
+    savedBrands: [{ type: mongoose.Schema.Types.ObjectId, ref: "ecopicksBrand" }],
+    recommendedBrands: [{type: mongoose.Schema.Types.ObjectId, ref: "recommendedBrand"}]
   });
 
 userSchema.plugin(passportLocalMongoose, {

@@ -3,7 +3,7 @@
 
 <div id="profile-page" class="container d-flex flex-column align-items-center">
 
-  <img id="profile-image" src="/images/greenpick/profilePic1.png">
+  <img id="profile-image" src="/images/ecopicksLogo/profilePic1.png">
   <h2 id="user-name"><%= user.username %></h2>
 
   <div class="d-flex flex-row">
@@ -41,8 +41,8 @@
         }
         data.forEach(app => {
           let category = getCategoryById(app.category); %>
-        <div class="col-12 col-md-6 col-lg-6" onclick="location.href='/app/<%= app._id %>';">
-          <div class="card-body <%= category.className %> d-flex">
+        <div class="col-12 col-md-6 col-lg-6" onclick="location.href='/brand/<%= app._id %>';">
+          <div class="card-body <%= category.lightColor %> d-flex">
             <img class="app-logo" src="<%= app.image %>">
             <div class="w-100">
               <h2><%= app.name; %></h2>
@@ -51,9 +51,9 @@
               <div class="row justify-content-between mx-0">
                 <div class="badge rounded-pill text-light <%= category.badgeName %>"><%= category.name %></div>
                 <div class="d-flex flex-row" >
-                <a class="app-card-button" href="<%= `/app/${app._id}/edit` %>"> Edit </a>
-                <a class="app-card-button" href="<%= `/app/${app._id}/delete?_method=DELETE` %>"
-                   onclick="return confirm('Are you sure you want to delete this application?')">
+                <a class="app-card-button" href="<%= `/brand/${app._id}/edit` %>"> Edit </a>
+                <a class="app-card-button" href="<%= `/brand/${app._id}/delete?_method=DELETE` %>"
+                   onclick="return confirm('Are you sure you want to delete this brand?')">
                   Delete
                 </a>
                 </div>
@@ -69,7 +69,7 @@
     <div id="favourite-apps" class="app-list">
       <div class="d-flex flex-row justify-content-center">
         <p class="number-of-apps">0 </p>
-        <p class="text-in-app-list"> Fantastic! These are your favourite Green picks!</p>
+        <p class="text-in-app-list"> Fantastic! These are your favourite Ecopicks!</p>
       </div>
     </div>
 

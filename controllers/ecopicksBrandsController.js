@@ -1,58 +1,54 @@
-const GreenPickApp = require("../models/greenPickApp");
+const EcopicksBrands = require("../models/ecopicksBrand");
 const User = require("../models/user");
 const { respondNoResourceFound, redirectIfUnauthorized } = require("./errorController");
 const Category = require("../models/category");
 const fs = require("fs");
 
 module.exports = {
-  renderNewApp: async (req, res) => {
+  renderNewBrand: async (req, res) => {
     redirectIfUnauthorized(req, res);
 
-    let editAppId = req.params.id;
-    let editApp;
+    let editBrandId = req.params.id;
+    let editBrand;
 
-    if (editAppId) {
+    if (editBrandId) {
       try {
-        editApp = await GreenPickApp.findById(editAppId);
+        editBrand = await EcopicksBrands.findById(editBrandId);
       } catch (error) {
         console.error(error);
         respondNoResourceFound(req, res);
       }
     }
 
-    res.render("greenPickApp/newApp", {
+    res.render("ecopicksBrands/recommendNewBrand", {
       categories: await Category.find({}),
-      app: editApp
+      app: editBrand
     });
   },
 
-  saveGreenPickApp: async (req, res) => {
-    let userId = req.user._id;
-    
-    let appImg;
+  recommendBrand: async (req, res) => {
+    let brandImage;
     if (req.file) {
       let imgBuffer = fs.readFileSync(req.file.path);
-      appImg = `data:${req.file.mimetype};base64,` + imgBuffer.toString('base64');
+      brandImage = `data:${req.file.mimetype};base64,` + imgBuffer.toString('base64');
     } else {
-      appImg = '/images/greenpick/logo3.svg';
+      brandImage = '/images/greenpick/logo3.svg';
     }
 
     try {
-      let newApp = new GreenPickApp({
+      let newBrand = new EcopicksBrands({
         category: req.body.category,
         name: req.body.name,
         website: req.body.website,
         slogan: req.body.slogan,
         description: req.body.description,
-        image: appImg,
-        userId: userId
+        image: brandImage,
       });
 
-      let savedApp = await newApp.save();
-      await User.findByIdAndUpdate(userId, {
-        $addToSet: { apps: savedApp }
+      await newBrand.save().then(() => {
+        res.render("ecopicksBrands/confirmation");
       });
-      res.render("greenPickApp/confirmation");
+
     } catch (error) {
       console.error(error);
       respondNoResourceFound(req, res);
@@ -60,9 +56,9 @@ module.exports = {
   },
 
   /**
-   * Edit Green Pick app
+   * Edit Ecopicks brand
    */
-  editGreenPickApp: async (req, res) => {
+  editEcopicksBrand: async (req, res) => {
     let appId = req.params.id;
 
     let appParams = {
@@ -75,10 +71,10 @@ module.exports = {
     };
 
     try {
-      const app = await GreenPickApp.findByIdAndUpdate(appId, {
+      const brand = await EcopicksBrands.findByIdAndUpdate(appId, {
         $set: appParams
       }, { new: true });
-      res.render("greenPickApp/confirmation", { app: app });
+      res.render("ecopicksBrands/confirmation", { app: brand });
     } catch (error) {
       console.error(error);
       respondNoResourceFound(req, res);
@@ -86,17 +82,17 @@ module.exports = {
   },
 
   /**
-   * Delete Green Pick app 
+   * Delete Ecopicks brand
    */
-  deleteGreenPickApp: async (req, res) => {
-    let appId = req.params.id;
+  deleteEcopicksBrand: async (req, res) => {
+    let brandId = req.params.id;
 
     try {
-      let app = await GreenPickApp.findByIdAndRemove(appId);
-      let user = await User.findByIdAndUpdate(app.userId, {
-        $pull: { apps: app._id }
+      let brand = await EcopicksBrands.findByIdAndRemove(brandId);
+      let user = await User.findByIdAndUpdate(brand.userId, {
+        $pull: { recommendedBrands: brand._id }
       }, { new: true });
-      req.flash("success", `Your GreenPick "${app.name}" has been deleted.`);
+      req.flash("success", `Your Ecopicks "${brand.name}" has been deleted.`);
       res.redirect(`/user`);
     } catch (error) {
       console.error(error);
@@ -106,20 +102,20 @@ module.exports = {
 
 
   /**
-   * Green Pick app details page
+   * Ecopicks brand details page
    */
   getDetailsPage: async (req, res) => {
     let id = req.params.id;
     try {
-      const app = await GreenPickApp.findById(id);
-      const category = await Category.findById(app.category);
+      const brand = await EcopicksBrands.findById(id);
+      const category = await Category.findById(brand.category);
 
-      res.render('./greenPickApp/detailsPage',
+      res.render('./ecopicksBrands/detailsPage',
         {
           id: id,
-          app: app,
-          categoryClass: category.className,
-          appImg: app.image
+          app: brand,
+          categoryClass: category.lightColor,
+          appImg: brand.image
         });
     } catch (error) {
       console.error(error);
@@ -128,18 +124,18 @@ module.exports = {
   },
 
   /**
-   * Green Pick app adding favourite app
-   */ 
-  addFavouriteApp: async (req, res, next) => {
+   * Save brand to saved collection
+   */
+  saveBrand: async (req, res, next) => {
 
     redirectIfUnauthorized(req, res);
 
     let userId = req.user._id;
-    let appId = req.params.id;
+    let brandId = req.params.id;
 
     try {
       await User.findByIdAndUpdate(userId, {
-        $addToSet: { favApps: appId }
+        $addToSet: { savedBrands: brandId }
       });
       res.redirect("back");
     } catch (error) {
@@ -151,12 +147,12 @@ module.exports = {
   },
 
   /**
-   * Green Pick app getting favourite app
-   */ 
-  getFavouriteApps: async (req, res) => {
+   * Getting saved brands collection
+   */
+  getSavedBrands: async (req, res) => {
     try {
-      let favApps = await GreenPickApp.find({ userId: req.user._id });
-      req.data = favApps;
+      let savedBrands = await EcopicksBrands.find({ userId: req.user._id });
+      req.data = savedBrands;
     } catch (error) {
       console.error(error);
       respondNoResourceFound(req, res);
