@@ -45,11 +45,10 @@ module.exports = {
         image: brandImage,
       });
 
-      let savedBrand = await newBrand.save();
-      await User.findByIdAndUpdate(userId, {
-        $addToSet: { apps: savedBrand }
+      await newBrand.save().then(() => {
+        res.render("ecopicksBrands/confirmation");
       });
-      res.render("ecopicksBrands/confirmation");
+
     } catch (error) {
       console.error(error);
       respondNoResourceFound(req, res);
@@ -115,7 +114,7 @@ module.exports = {
         {
           id: id,
           app: brand,
-          categoryClass: category.className,
+          categoryClass: category.lightColor,
           appImg: brand.image
         });
     } catch (error) {

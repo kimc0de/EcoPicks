@@ -1,5 +1,12 @@
 <div id="homepage">
   <%- include('./components/searchBar') %>
 
-  <homepage-base></homepage-base>
+  <div class="container">
+    <h2 id="suggestedAppsHeader">
+      Suggested Apps:
+    </h2>
+    <div id="homepage-apps">
+      <%- include ('./components/brandCard') %>
+    </div>
+  </div>
 </div>

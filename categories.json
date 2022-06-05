@@ -1,6 +1,6 @@
 [
   {
-    "name": "food&drink",
+    "name": "food & drink",
     "lightColor": "category-light-food",
     "darkColor": "category-dark-food"
   },
@@ -25,7 +25,7 @@
     "darkColor": "category-dark-household"
   },
   {
-    "name": "beauty&wellness",
+    "name": "beauty & wellness",
     "lightColor": "category-light-beauty",
     "darkColor": "category-dark-beauty"
   }

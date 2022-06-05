@@ -13,7 +13,7 @@
     let category = getCategoryById(brand.category);
   %>
     <div class="col col-lg-4 col-md-6 col-12" onclick="location.href='/brand/<%=brand._id%>';">
-      <div class="card-body <%= category.lightColor%> d-flex">
+      <div class="card-body <%= category.lightColor %> d-flex">
         <img class="app-logo" src="<%= brand.image %>">
         <div>
           <h2><%= brand.name; %></h2>

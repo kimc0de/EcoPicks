@@ -3,7 +3,7 @@ let action = app ? `/brand/${app.id}/edit?_method=PUT` : `/user/add`; %>
 <form action="<%= action %>" <% if (!appImageExists) { %>enctype="multipart/form-data" <% } %>method="post">
   <div id="new-app" class="container">
 
-    <% let title = app ? "Edit your suggested brand" : "Recommend a new brand" %>
+    <% let title = app ? "Edit your recommended brand" : "Recommend a new brand" %>
 
     <section>
       <div class="row justify-content-center align-items-center">
@@ -31,7 +31,7 @@ let action = app ? `/brand/${app.id}/edit?_method=PUT` : `/user/add`; %>
         <% categories.forEach(category => {
           let selected = app && (app.category.equals(category._id)) ? 'selected="selected"' : ''; %>
           <option value="<%= (category._id) %>" <%= selected %>>
-            <% let categoryName = category.name.charAt(0).toUpperCase() + category.name.slice(1); %>
+            <% let categoryName = category.name.toUpperCase(); %>
             <%= categoryName %>
             </option>
         <% }); %>
