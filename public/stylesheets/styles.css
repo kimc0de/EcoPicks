@@ -24,14 +24,12 @@
   --food-light: #9EC2A8;
   --lifestyle-dark: #F1CA32;
   --lifestyle-light: #FBF1CA;
-  --shopping-dark: #D77D3B;
-  --shopping-light: #F5DECD;
+  --fashion-dark: #D77D3B;
+  --fashion-light: #F5DECD;
   --household-dark: #803364;
   --household-light: #DFCBD7;
-  --transport-dark: #335380;
-  --transport-light: #CCD3DE;
-  --finance-dark: #10B1E3;
-  --finance-light: #C3EBF8;
+  --beauty-dark: #335380;
+  --beauty-light: #CCD3DE;
 }
 
 body {

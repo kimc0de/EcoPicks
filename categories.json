@@ -1,37 +1,32 @@
 [
   {
-    "name": "food",
-    "className": "category-food",
-    "badgeName": "category-badge-food"
+    "name": "food&drink",
+    "lightColor": "category-light-food",
+    "darkColor": "category-dark-food"
+  },
+  {
+    "name": "fashion",
+    "lightColor": "category-light-fashion",
+    "darkColor": "category-dark-fashion"
   },
   {
     "name": "lifestyle",
-    "className": "category-lifestyle",
-    "badgeName": "category-badge-lifestyle"
-  },
-  {
-    "name": "shopping",
-    "className": "category-shopping",
-    "badgeName": "category-badge-shopping"
+    "lightColor": "category-light-lifestyle",
+    "darkColor": "category-dark-lifestyle"
   },
   {
     "name": "social",
-    "className": "category-social",
-    "badgeName": "category-badge-social"
+    "lightColor": "category-light-social",
+    "darkColor": "category-dark-social"
   },
   {
     "name": "household",
-    "className": "category-household",
-    "badgeName": "category-badge-household"
+    "lightColor": "category-light-household",
+    "darkColor": "category-dark-household"
   },
   {
-    "name": "transport",
-    "className": "category-transport",
-    "badgeName": "category-badge-transport"
-  },
-  {
-    "name": "finance",
-    "className": "category-finance",
-    "badgeName": "category-badge-finance"
+    "name": "beauty&wellness",
+    "lightColor": "category-light-beauty",
+    "darkColor": "category-dark-beauty"
   }
 ]
