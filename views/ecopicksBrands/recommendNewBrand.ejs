@@ -1,5 +1,5 @@
 <% let appImageExists = app && app.image && app.image.substring(0,4) == 'data';
-let action = app ? `/app/${app.id}/edit?_method=PUT` : `/user/add`; %>
+let action = app ? `/brand/${app.id}/edit?_method=PUT` : `/user/add`; %>
 <form action="<%= action %>" <% if (!appImageExists) { %>enctype="multipart/form-data" <% } %>method="post">
   <div id="new-app" class="container">
 
@@ -75,7 +75,7 @@ let action = app ? `/app/${app.id}/edit?_method=PUT` : `/user/add`; %>
       </div>
       <% if (app) { %>
       <div class="order-md-first col-12 col-md-6 pr-0 pr-md-2">
-        <a href="/app/<%= app._id %>/delete?_method=DELETE" id="delete-button" class="btn btn-lg btn-outline-danger w-100"
+        <a href="/brand/<%= app._id %>/delete?_method=DELETE" id="delete-button" class="btn btn-lg btn-outline-danger w-100"
            onclick="return confirm('Are you sure you want to delete this application?')">
           Delete
         </a>

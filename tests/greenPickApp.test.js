@@ -45,7 +45,7 @@ describe("Test the ecopicksAppController", () => {
     EcopicksBrand.find({})
       .then(result => {
         request(app)
-          .get(`/app/${result[0]._id}`)
+          .get(`/brand/${result[0]._id}`)
           .expect(200);
       }).catch(error => {
         throw error;

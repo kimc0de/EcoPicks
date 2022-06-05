@@ -9,15 +9,15 @@
     });
     return result;
   } %>
-  <% data.forEach(app => {
-    let category = getCategoryById(app.category);
+  <% data.forEach(brand => {
+    let category = getCategoryById(brand.category);
   %>
-    <div class="col col-lg-4 col-md-6 col-12" onclick="location.href='/app/<%=app._id%>';">
+    <div class="col col-lg-4 col-md-6 col-12" onclick="location.href='/brand/<%=brand._id%>';">
       <div class="card-body <%= category.className%> d-flex">
-        <img class="app-logo" src="<%= app.image %>">
+        <img class="app-logo" src="<%= brand.image %>">
         <div>
-          <h2><%= app.name; %></h2>
-          <p class="app-slogan"><%= app.slogan %></p>
+          <h2><%= brand.name; %></h2>
+          <p class="app-slogan"><%= brand.slogan %></p>
           <div class="badge rounded-pill text-light <%=category.badgeName %>"><%= category.name %></div>
         </div>
       </div>

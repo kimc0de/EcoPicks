@@ -15,7 +15,7 @@
       <p class="mb-2 mt-2 ml-2 mr-2"><%= info %></p>
       <!-- Suggest another brand -->
       <div class="add-another-button">
-        <% let buttonLink = typeof app === 'undefined' ? "/user/add" : `/app/${app._id}`;
+        <% let buttonLink = typeof app === 'undefined' ? "/user/add" : `/brand/${app._id}`;
         let buttonText = typeof app === 'undefined' ? "Recommend another brand" : "View your recommendation"; %>
         <a href="<%= buttonLink %>">
           <button class="btn btn-outline-primary">

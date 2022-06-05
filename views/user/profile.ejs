@@ -41,7 +41,7 @@
         }
         data.forEach(app => {
           let category = getCategoryById(app.category); %>
-        <div class="col-12 col-md-6 col-lg-6" onclick="location.href='/app/<%= app._id %>';">
+        <div class="col-12 col-md-6 col-lg-6" onclick="location.href='/brand/<%= app._id %>';">
           <div class="card-body <%= category.className %> d-flex">
             <img class="app-logo" src="<%= app.image %>">
             <div class="w-100">
@@ -51,9 +51,9 @@
               <div class="row justify-content-between mx-0">
                 <div class="badge rounded-pill text-light <%= category.badgeName %>"><%= category.name %></div>
                 <div class="d-flex flex-row" >
-                <a class="app-card-button" href="<%= `/app/${app._id}/edit` %>"> Edit </a>
-                <a class="app-card-button" href="<%= `/app/${app._id}/delete?_method=DELETE` %>"
-                   onclick="return confirm('Are you sure you want to delete this application?')">
+                <a class="app-card-button" href="<%= `/brand/${app._id}/edit` %>"> Edit </a>
+                <a class="app-card-button" href="<%= `/brand/${app._id}/delete?_method=DELETE` %>"
+                   onclick="return confirm('Are you sure you want to delete this brand?')">
                   Delete
                 </a>
                 </div>

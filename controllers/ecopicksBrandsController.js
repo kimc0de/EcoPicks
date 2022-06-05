@@ -26,9 +26,7 @@ module.exports = {
     });
   },
 
-  saveEcopicksBrand: async (req, res) => {
-    let userId = req.user._id;
-
+  recommendBrand: async (req, res) => {
     let brandImage;
     if (req.file) {
       let imgBuffer = fs.readFileSync(req.file.path);
@@ -45,7 +43,6 @@ module.exports = {
         slogan: req.body.slogan,
         description: req.body.description,
         image: brandImage,
-        userId: userId
       });
 
       let savedBrand = await newBrand.save();
@@ -86,17 +83,17 @@ module.exports = {
   },
 
   /**
-   * Delete Ecopicks app
+   * Delete Ecopicks brand
    */
   deleteEcopicksBrand: async (req, res) => {
-    let appId = req.params.id;
+    let brandId = req.params.id;
 
     try {
-      let app = await EcopicksBrands.findByIdAndRemove(appId);
-      let user = await User.findByIdAndUpdate(app.userId, {
-        $pull: { apps: app._id }
+      let brand = await EcopicksBrands.findByIdAndRemove(brandId);
+      let user = await User.findByIdAndUpdate(brand.userId, {
+        $pull: { recommendedBrands: brand._id }
       }, { new: true });
-      req.flash("success", `Your Ecopicks "${app.name}" has been deleted.`);
+      req.flash("success", `Your Ecopicks "${brand.name}" has been deleted.`);
       res.redirect(`/user`);
     } catch (error) {
       console.error(error);
@@ -130,7 +127,7 @@ module.exports = {
   /**
    * Save brand to saved collection
    */
-  addSavedBrand: async (req, res, next) => {
+  saveBrand: async (req, res, next) => {
 
     redirectIfUnauthorized(req, res);
 
@@ -153,10 +150,10 @@ module.exports = {
   /**
    * Getting saved brands collection
    */
-  getFavouriteApps: async (req, res) => {
+  getSavedBrands: async (req, res) => {
     try {
-      let savedApps = await EcopicksBrands.find({ userId: req.user._id });
-      req.data = savedApps;
+      let savedBrands = await EcopicksBrands.find({ userId: req.user._id });
+      req.data = savedBrands;
     } catch (error) {
       console.error(error);
       respondNoResourceFound(req, res);

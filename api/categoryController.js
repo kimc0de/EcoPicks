@@ -16,7 +16,7 @@ module.exports = {
     }
   },
 
-  getAppsByCategory: async (req, res, next) => {
+  getBrandsByCategory: async (req, res, next) => {
     try {
       if (req.params.categoryName == 'all') {
         let allApps = await EcopicksBrand.find({});
