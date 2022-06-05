@@ -21,6 +21,10 @@ header .nav-link {
   margin: 0 1rem;
 }
 
+header .nav-link:hover {
+  text-decoration: underline;
+}
+
 header .nav-link.btn {
   width: 150px;
   margin: 0 15px;
@@ -53,7 +57,7 @@ header .nav-link.btn-outline-primary {
 
 header .nav-link.btn-outline-primary:hover {
   color: white !important;
-  background-color: var(--button-primary);
+  background-color: var(--button-hover);
 }
 
 /* Burger menu icon */
