@@ -20,19 +20,19 @@ module.exports = {
       }
     }
 
-    res.render("ecopicksBrands/recommendNewBrand", {
+    res.render("ecopicksBrands/addNewBrand", {
       categories: await Category.find({}),
       app: editBrand
     });
   },
 
-  recommendBrand: async (req, res) => {
+  addNewBrand: async (req, res) => {
     let brandImage;
     if (req.file) {
       let imgBuffer = fs.readFileSync(req.file.path);
       brandImage = `data:${req.file.mimetype};base64,` + imgBuffer.toString('base64');
     } else {
-      brandImage = '/images/greenpick/logo3.svg';
+      brandImage = '/images/ecopicksLogo/logo2.svg';
     }
 
     try {
@@ -42,7 +42,7 @@ module.exports = {
         website: req.body.website,
         slogan: req.body.slogan,
         description: req.body.description,
-        image: brandImage,
+        image: brandImage
       });
 
       await newBrand.save().then(() => {

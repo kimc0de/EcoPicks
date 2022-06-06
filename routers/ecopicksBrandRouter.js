@@ -4,7 +4,7 @@ const router = require('express').Router();
 
 // routes to add new app page
 router.get("/user/add", ecopicksBrandController.renderNewBrand);
-router.post("/user/add", upload.single('image'), ecopicksBrandController.recommendBrand);
+router.post("/user/add", upload.single('image'), ecopicksBrandController.addNewBrand);
 
 // routes to edit app page
 router.get("/brand/:id/edit", ecopicksBrandController.renderNewBrand);
