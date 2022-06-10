@@ -21,10 +21,14 @@
 #app-card .app-slogan {
   height: 65px;
   max-height: 70px !important;
+  overflow: auto;
 }
 
-@media (max-width: 1200px){
 
+@media (max-width: 768px){
+  #app-card .card-wrapper {
+    padding: 0 1.5rem;
+  }
 }
 
 .category-light-social {

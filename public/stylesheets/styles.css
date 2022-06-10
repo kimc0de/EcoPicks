@@ -31,6 +31,12 @@
   --beauty-dark: #335380;
   --beauty-light: #CCD3DE;
 
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+
   font-size: 16px;
 }
 
