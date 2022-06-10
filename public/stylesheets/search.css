@@ -64,32 +64,3 @@
         margin: 1rem 1rem;
     }
 }
-/*.textField_input::placeholder {*/
-/*    color: transparent;*/
-/*}*/
-
-/*!* before focus *!*/
-/*.textField_input:placeholder-shown ~ .textField_label {*/
-/*    font-size: 1rem;*/
-/*    top: 1rem;*/
-/*    left: 1rem;*/
-/*    cursor: text;*/
-/*}*/
-
-/*!* after focus *!*/
-/*label,*/
-/*.textField_input:focus ~ .textField_label {*/
-/*    position: absolute;*/
-/*    top: 0;*/
-/*    left: 1rem;*/
-/*    margin: 0 1rem;*/
-/*    display: block;*/
-/*    transition: 0.2s;*/
-/*    font-size: 0.8rem;*/
-/*    color: var(--text-placeholder);*/
-/*    padding: 0.5rem 1rem;*/
-/*}*/
-
-/*.textField_input:focus ~ .textField_label {*/
-/*    color: var(--text-primary);*/
-/*}*/
