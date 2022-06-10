@@ -67,3 +67,6 @@ input:focus-visible {
   text-decoration: underline;
 }
 
+.visually-hidden {
+  display: none;
+}

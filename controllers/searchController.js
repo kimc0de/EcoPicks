@@ -5,36 +5,50 @@ const {respondNoResourceFound} = require("./errorController");
 
 module.exports = {
     renderSearchPage: (req, res) => {
-        if (req.query.format === "json") {
-            res.json(req.data);
-        } else {
-            res.render("search/search");
-        }
+        res.render("search/search", {
+            query: res.locals.query,
+            // results: res.locals.results,
+        });
     },
 
-    getSearchResults: async (req,res) => {
-        try {
-            const queryString = req.body.query;
-            const queryStrings = queryString.split(" ");
-            let allQueries = [];
-            queryStrings.forEach(element => {
-                allQueries.push({name : {$regex : String(element), $options : "i"}});
-            });
-
-            const allBrands = await EcopicksBrands.find({$or : allQueries});
-
-            if(!allBrands || allBrands.length === 0 ) res.status(400).send({error : "No brand was found"});
-
-            res.status(200).send(allBrands);
-
-        } catch (error) {
-            respondNoResourceFound(req, res);
+    getSearchResults: (req, res, next) => {
+        if(req.query.q) {
+            try {
+                res.locals.query = req.query.q;
+                next();
+            } catch(error) {
+                console.log(error);
+                respondNoResourceFound(req, res);
+            }
+        } else {
+            // adding warning when search field is empty
+           next();
         }
     },
 }
 
 /**
  *
+ try {
+    const queryString = req.body.search_field;
+    const queryStrings = queryString.split(" ");
+    let allQueries = [];
+    queryStrings.forEach(element => {
+        allQueries.push({name: {$regex: String(element), $options: "i"}});
+    });
+
+    const allBrands = EcopicksBrands.find({$or: allQueries});
+
+    if (!allBrands || allBrands.length === 0) res.status(400).send({error: "No brand was found"});
+
+    // res.locals.results = allBrands;
+    res.status(200).send(allBrands);
+
+    next();
+} catch (error) {
+    console.log(error);
+    respondNoResourceFound(req, res);
+}
  let allProducts = [];
  queryStrings.forEach(element => {
             allProducts.push({keywords : { $all: String(element)}});

@@ -1,18 +1,25 @@
-<form class="container" id="search" action="/search" method="post">
+<form class="container" id="search" method="get">
     <h1 class="text-center">Search Page</h1>
     <div id="search_section" class="row input-group d-flex justify-content-center">
         <!-- Search bar-->
-        <input id="search_bar" class="col-lg-9 col-md-8 textField_input" autocomplete="true" name="search_bar" type="text" value="<%= search_query %>" placeholder="Search for a brand or a product">
-        <label for="search_bar" class="textField_label"> Search for a brand or a product </label>
+        <div id="search_bar" class="col-lg-9 col-md-8">
+        <label for="search_field" class="textField_label"> Search for a brand or a product </label>
+        <input type="search" id="search_field" class="textField_input" autocomplete="true"
+               name="q" value="<%= query%>" type="search" placeholder="Search for a brand or a product">
+        <div role="button" tabindex="0" id="clear_button" aria-label="Clear">
+            <i aria-hidden="true" class="fas fa-times-circle"></i>
+        </div>
+        </div>
         <button type="submit" id="search_button" class="btn btn-primary col-lg-2 col-md-2">
-            <i class="fas fa-search"></i>
+            <i aria-hidden="true" class="fas fa-search"></i>
             <span>Search</span>
         </button>
     </div>
-    <div>
-        Results:
-        <div>
-            <% console.log(matches)%>
-        </div>
-    </div>
 </form>
+
+<div>
+    Results:
+    <div>
+        <%= query%>
+    </div>
+</div>

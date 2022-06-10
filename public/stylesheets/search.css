@@ -10,11 +10,37 @@
 #search_button {
     height: 3.5rem; /* match textField_input height */
     margin: 0.5rem 1rem;
+    font-size: 1.2rem;
+}
+
+#search_field {
+    margin: 0.5rem 0;
+    border-radius: 5px;
 }
 
 #search_bar {
-    margin: 0.5rem 1rem;
-    border-radius: 5px;
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+
+#clear_button {
+    position: absolute;
+    display: flex;
+    right: 1rem;
+    top: 27%;
+    margin: 0rem 1rem;
+    border: none;
+    height: auto;
+    width: auto;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+#clear_button svg{
+    width: 2rem;
+    height: 2rem;
+    color: var(--button-primary);
 }
 
 .textField_input {
@@ -28,32 +54,36 @@
     padding: 0 1rem;
 }
 
-.textField_input::placeholder {
-    color: transparent;
+.textField_label {
+    display: none;
 }
 
-/* before focus */
-.textField_input:placeholder-shown ~ .textField_label {
-    font-size: 1rem;
-    top: 1rem;
-    left: 1rem;
-    cursor: text;
-}
+/*.textField_input::placeholder {*/
+/*    color: transparent;*/
+/*}*/
 
-/* after focus */
-label,
-.textField_input:focus ~ .textField_label {
-    position: absolute;
-    top: 0;
-    left: 1rem;
-    margin: 0 1rem;
-    display: block;
-    transition: 0.2s;
-    font-size: 0.8rem;
-    color: var(--text-placeholder);
-    padding: 0.5rem 1rem;
-}
+/*!* before focus *!*/
+/*.textField_input:placeholder-shown ~ .textField_label {*/
+/*    font-size: 1rem;*/
+/*    top: 1rem;*/
+/*    left: 1rem;*/
+/*    cursor: text;*/
+/*}*/
 
-.textField_input:focus ~ .textField_label {
-    color: var(--text-primary);
-}
+/*!* after focus *!*/
+/*label,*/
+/*.textField_input:focus ~ .textField_label {*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 1rem;*/
+/*    margin: 0 1rem;*/
+/*    display: block;*/
+/*    transition: 0.2s;*/
+/*    font-size: 0.8rem;*/
+/*    color: var(--text-placeholder);*/
+/*    padding: 0.5rem 1rem;*/
+/*}*/
+
+/*.textField_input:focus ~ .textField_label {*/
+/*    color: var(--text-primary);*/
+/*}*/
