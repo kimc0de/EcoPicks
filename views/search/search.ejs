@@ -17,9 +17,13 @@
     </div>
 </form>
 
-<div>
-    Results:
+<div class="container">
+    <%if (results) { %>
+    <%= results.length %> Results for <%= query%>
     <div>
-        <%= query%>
+        <%- include ('../components/searchResults') %>
     </div>
+    <% } else if (noResults) { %>
+        <p>No results</p>
+    <% } else {}%>
 </div>

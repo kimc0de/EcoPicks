@@ -4,29 +4,79 @@ const httpStatus = require("http-status-codes");
 const {respondNoResourceFound} = require("./errorController");
 
 module.exports = {
-    renderSearchPage: (req, res) => {
+    renderSearchPage: async (req, res) => {
         res.render("search/search", {
             query: res.locals.query,
-            // results: res.locals.results,
+            results: res.locals.results,
+            categories: await Category.find({}),
+            noResults: res.locals.noResults,
         });
     },
 
-    getSearchResults: (req, res, next) => {
+    getSearchResults: async (req, res, next) => {
         if(req.query.q) {
             try {
                 res.locals.query = req.query.q;
-                next();
-            } catch(error) {
+                // Get query string from url
+                const queryString = req.query.q;
+                const queryStrings = queryString.split(" ");
+
+                // query for product names
+                let allProducts = [];
+                queryStrings.forEach(element => {
+                    allProducts.push({keywords : { $all: String(element)}});
+                });
+                // Find categories that have the keywords
+                const allCategories = await Category.find({$or : allProducts});
+
+                // An array of queries based on product names
+                let productQueries = [];
+                allCategories.forEach(element => {
+                    productQueries.push({category: String(element._id)});
+                })
+
+                // An array of queries based on brand names
+                let brandQueries = [];
+                queryStrings.forEach(element => {
+                    brandQueries.push({name: {$regex: String(element), $options: "i"}});
+                });
+
+                // Get search results
+                const finalResults = await EcopicksBrands.find({$or: [...brandQueries, ...productQueries]});
+
+                res.locals.results = finalResults;
+                res.locals.noResults = false;
+
+            } catch (error) {
                 console.log(error);
-                respondNoResourceFound(req, res);
+                res.locals.noResults = true;
             }
-        } else {
-            // adding warning when search field is empty
-           next();
         }
+        next();
     },
 }
 
+//
+// if (allBrands && allBrands.length > 0) {
+//     res.locals.results = allBrands;
+//     res.locals.noResults = false;
+// }
+// if (allProds && allProds.length > 0) {
+//     res.locals.results = allProds;
+//     res.locals.noResults = false;
+// }
+// if (allProds && allProds.length > 0 && allBrands && allBrands.length > 0){
+//     const resultsArray = allProds.concat(allBrands);
+//     // filter duplicates
+//     const finalResults = resultsArray.filter((thing, index, self) =>
+//             index === self.findIndex((t) => (
+//                 t.name === thing.name
+//             ))
+//     )
+//
+//     res.locals.results = finalResults;
+//     res.locals.noResults = false;
+// }
 /**
  *
  try {
