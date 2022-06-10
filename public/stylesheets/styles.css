@@ -7,6 +7,7 @@
 
   --background-profile: #CDDDCE;
   --background-message: #EEF8F3;
+  --background-color-beige: #F7F7F2;
 
   --input-primary: #E1ECE2;
   --icon: #9BBF9F;
@@ -38,6 +39,7 @@ body {
   width: 100%;
   position: absolute;
   overflow-x: hidden;
+  background-color: var(--background-color-beige);
 }
 
 main {

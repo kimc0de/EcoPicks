@@ -17,13 +17,15 @@
     </div>
 </form>
 
-<div class="container">
-    <%if (results) { %>
-    <%= results.length %> Results for <%= query%>
-    <div>
-        <%- include ('../components/searchResults') %>
-    </div>
-    <% } else if (noResults) { %>
-        <p>No results</p>
-    <% } else {}%>
+<div class="container mt-auto mt-sm-4 mb-sm-4">
+    <% if (results) { %>
+        <h2 id="total-results" class="m-auto mt-sm-2 mb-sm-4"><%= results.length %> Results for "<%= query%>"</h2>
+        <% if (results.length > 0) { %>
+            <%- include ('../components/searchResults') %>
+        <% } else { %>
+            <p> Do you want to recommend a brand to us?
+                <span><a href="/user/add">Click here</a></span> to send your recommendation.
+            </p>
+        <% } %>
+    <% } %>
 </div>
