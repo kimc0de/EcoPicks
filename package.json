@@ -21,9 +21,9 @@
     "node": "18.2.0"
   },
   "bugs": {
-    "url": "https://github.com/kimc0de/GreenPick/issues"
+    "url": "https://github.com/kimc0de/Ecopicks/issues"
   },
-  "homepage": "https://github.com/kimc0de/GreenPick#readme",
+  "homepage": "https://github.com/kimc0de/Ecopicks#readme",
   "dependencies": {
     "@popperjs/core": "^2.9.2",
     "@shelf/jest-mongodb": "^1.2.4",
