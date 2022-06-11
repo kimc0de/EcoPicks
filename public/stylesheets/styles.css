@@ -7,6 +7,7 @@
 
   --background-profile: #CDDDCE;
   --background-message: #EEF8F3;
+  --background-color-beige: #F7F7F2;
 
   --input-primary: #E1ECE2;
   --icon: #9BBF9F;
@@ -29,6 +30,14 @@
   --household-light: #DFCBD7;
   --beauty-dark: #335380;
   --beauty-light: #CCD3DE;
+
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+
+  font-size: 16px;
 }
 
 body {
@@ -36,6 +45,7 @@ body {
   width: 100%;
   position: absolute;
   overflow-x: hidden;
+  background-color: var(--background-color-beige);
 }
 
 main {
@@ -47,7 +57,7 @@ a:focus-visible,
 button:focus-visible,
 input:focus-visible {
   border-radius: 5px;
-  box-shadow: 0 0 0px 1px rgb(63, 163, 255), 0 0 0px 2px #fff, 0 0 0px 6px rgba(63, 163, 255, 0.5) !important;
+  box-shadow: 0 0 0 1px rgb(63, 163, 255), 0 0 0 2px #fff, 0 0 0 4px rgba(63, 163, 255, 0.5) !important;
 }
 
 .btn-primary {
@@ -65,3 +75,6 @@ input:focus-visible {
   text-decoration: underline;
 }
 
+.visually-hidden {
+  display: none;
+}

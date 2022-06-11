@@ -17,6 +17,9 @@
   },
   "author": "Daria, Kim, Ly, Stefi",
   "license": "ISC",
+  "engines": {
+    "node": "18.2.0"
+  },
   "bugs": {
     "url": "https://github.com/kimc0de/GreenPick/issues"
   },
