@@ -13,6 +13,8 @@
   --icon: #9BBF9F;
   --line: #9FCFA4;
 
+  --green-light: #E5EEE5;
+
   --text-primary: #456E4F;
   --text-secondary: #606060;
   --text-placeholder: #A7A7A7;
@@ -37,7 +39,9 @@
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
 
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: 400;
+  font-family: 'Roboto Mono', sans-serif !important;
 }
 
 body {
@@ -77,4 +81,10 @@ input:focus-visible {
 
 .visually-hidden {
   display: none;
+}
+
+.close_btn svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  color: var(--button-primary);
 }

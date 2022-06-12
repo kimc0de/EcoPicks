@@ -1,41 +1,55 @@
 header {
-  height: var(--header-height);
+  height: auto;
   background-color: #FFFFFF;
   position: sticky;
   width: 100%;
+  padding: 20px;
   border-bottom: 1px solid var(--line);
 }
 
 header .navbar {
-  height: var(--header-height);
-  width: 90%;
-  padding: 10px;
-  margin: 0 auto;
+  height: auto;
+  width: auto;
+  margin: 0 1rem;
   position: relative;
 }
 
 header .nav-link {
   color: var(--text-primary) !important;
-  font-size: 1.2rem;
   font-weight: 400;
   margin: 0 1rem;
 }
 
-header .nav-link:hover {
-  text-decoration: underline;
-}
-
 header .nav-link.btn {
   width: 150px;
-  margin: 0 15px;
-  font-weight: 400;
-  font-family: 'Roboto Mono', sans-serif;
-  font-size: 1.2rem;
 }
 
 header .nav-item {
-  margin: 5px;
+  margin: 0.5rem;
   text-align: center;
+}
+
+header .nav-item:not(.nav-btn):hover {
+  background-color: var(--green-light);
+  text-decoration: underline;
+  border-radius: 5px;
+}
+
+#navbar-top .navbar-nav{
+  flex-direction: row !important;
+}
+
+/* Account dropdown*/
+#navbar-top-account .dropdown-menu {
+  position: absolute;
+  top: 90%;
+  left: unset;
+  right: 0;
+  z-index: 2;
+}
+
+#navbar-top-account .dropdown-item:hover {
+  background-color: var(--green-light) !important;
 }
 
 /* Sign up button */
@@ -73,88 +87,92 @@ header .collapse.show,
   margin-top: 10px;
 }
 
-header .nav-line {
-  border-right: 1px solid var(--line);
-}
-
 #user-icon,
 #profile-text {
   vertical-align: middle;
   display: inline-block;
-  margin: 0px 5px;
+  margin: 0 5px;
 }
 
 #user-icon {
   height: 24px; /* span doesnt have same size as svg, change height to have desired position */
 }
 
-@media (max-width: 1199px) {
-  header,
-  header .navbar {
-    height: auto;
-  }
 
-  header .nav-item {
-    width: 100%;
-  }
-
-  header .nav-link.btn {
-    width: auto;
-  }
-
-  header .nav-line {
-    border-right: none;
-    border-bottom: 1px solid var(--line);
+@media (min-width: 992px) {
+  header #header-mobile{
+    display: none;
   }
 }
 
-@media (max-width: 576px) {
-  header .navbar-toggler-icon {
-    width: 1.5em;
-    height: 1.5em;
-    border-radius: 2px;
-  }
-
-  header img {
-    width: 75%;
-    height: 75%;
-  }
-
-  header .navbar-dark .navbar-nav .nav-link {
-    font-size: 1rem;
-    padding: 0.3rem 1rem;
+@media (max-width: 991px) {
+  header #header{
+    display: none;
   }
 }
 
-@media (max-width: 420px) {
-  header .navbar-dark .navbar-nav .nav-link {
-    font-size: 0.8rem;
-  }
+/*@media (max-width: 1199px) {*/
+/*  header,*/
+/*  header .navbar {*/
+/*    height: auto;*/
+/*  }*/
 
-  header .nav-item {
-    margin: 0px 0px;
-  }
+/*  header .nav-item {*/
+/*    width: 100%;*/
+/*  }*/
 
-  header .navbar-toggler-icon {
-    width: 1em;
-    height: 1em;
-  }
+/*  header .nav-link.btn {*/
+/*    width: auto;*/
+/*  }*/
+/*}*/
 
-  header img {
-    width: 70%;
-    height: 70%;
-  }
+/*@media (max-width: 576px) {*/
+/*  header .navbar-toggler-icon {*/
+/*    width: 2.5rem;*/
+/*    height: 2.5rem;*/
+/*    border-radius: 2px;*/
+/*  }*/
 
-  header #brand-logo{
-    width: 70%;
-  }
-  #user-icon {
-    height: 18px;
-    margin-right: 0px;
-  }
+/*  header img {*/
+/*    width: 75%;*/
+/*    height: 75%;*/
+/*  }*/
 
-  #user-icon svg{
-    height: 15px;
-    width: 15px;
-  }
-}
+/*  header .navbar-dark .navbar-nav .nav-link {*/
+/*    font-size: 1rem;*/
+/*    padding: 0.3rem 1rem;*/
+/*  }*/
+/*}*/
+
+/*@media (max-width: 420px) {*/
+/*  header .navbar-dark .navbar-nav .nav-link {*/
+/*    font-size: 0.8rem;*/
+/*  }*/
+
+/*  header .nav-item {*/
+/*    margin: 0px 0px;*/
+/*  }*/
+
+/*  header .navbar-toggler-icon {*/
+/*    width: 1em;*/
+/*    height: 1em;*/
+/*  }*/
+
+/*  header img {*/
+/*    width: 70%;*/
+/*    height: 70%;*/
+/*  }*/
+
+/*  header #brand-logo{*/
+/*    width: 70%;*/
+/*  }*/
+/*  #user-icon {*/
+/*    height: 18px;*/
+/*    margin-right: 0px;*/
+/*  }*/
+
+/*  #user-icon svg{*/
+/*    height: 15px;*/
+/*    width: 15px;*/
+/*  }*/
+/*}*/
