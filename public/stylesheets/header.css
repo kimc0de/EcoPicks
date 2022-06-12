@@ -1,15 +1,13 @@
 header {
   height: auto;
-  background-color: #FFFFFF;
   position: sticky;
   width: 100%;
-  padding: 20px;
+  padding: 1rem 2rem;
   border-bottom: 1px solid var(--line);
+  background-color: var(--green-medium-light);
 }
 
 header .navbar {
-  height: auto;
-  width: auto;
   margin: 0 1rem;
   position: relative;
 }
@@ -74,19 +72,6 @@ header .nav-link.btn-outline-primary:hover {
   background-color: var(--button-hover);
 }
 
-/* Burger menu icon */
-header .navbar-toggler-icon {
-  width: 2.5em;
-  height: 2.5em;
-  background-color: var(--button-primary);
-  border-radius: 5px;
-}
-
-header .collapse.show,
-.collapsing {
-  margin-top: 10px;
-}
-
 #user-icon,
 #profile-text {
   vertical-align: middle;
@@ -106,9 +91,73 @@ header .collapse.show,
 }
 
 @media (max-width: 991px) {
+  header {
+    padding: 0.5rem;
+  }
+
   header #header{
     display: none;
   }
+}
+
+@media (max-width: 768px) {
+  #header-mobile .navbar-collapse {
+    top: 10%;
+  }
+}
+/* Mobile navigation menu dropdown */
+#header-mobile .navbar-collapse {
+  position: fixed;
+  background-color: var(--background-color-beige);
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+#header-mobile .collapsing {
+  height: unset;
+  overflow: unset;
+  transition: unset;
+}
+
+#header-mobile .navbar-nav {
+  align-items: flex-start;
+}
+
+#header-mobile .navbar-toggler-icon {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+#header-mobile .navbar-toggler {
+  border: 1px solid var(--button-primary);
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+#menu-label {
+  position: relative;
+  top: 2px;
+  color: var(--text-primary);
+}
+
+#brand-logo-mobile-large {
+  height: 4%;
+}
+
+#close-menu {
+  position: absolute;
+  right: 1.5rem;
+  top: 1rem;
+}
+
+#navbarContent .horizontal-line {
+  width: 100%;
+}
+
+#navbarContent .horizontal-line hr {
+  margin: 0;
 }
 
 /*@media (max-width: 1199px) {*/

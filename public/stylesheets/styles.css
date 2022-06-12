@@ -14,8 +14,9 @@
   --line: #9FCFA4;
 
   --green-light: #E5EEE5;
+  --green-medium-light: #CDDDCE;
 
-  --text-primary: #456E4F;
+  --text-primary: #0D4813;
   --text-secondary: #606060;
   --text-placeholder: #A7A7A7;
 
@@ -39,7 +40,7 @@
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
 
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   font-family: 'Roboto Mono', sans-serif !important;
 }
@@ -50,6 +51,12 @@ body {
   position: absolute;
   overflow-x: hidden;
   background-color: var(--background-color-beige);
+}
+
+@media (min-width: 768px) {
+  :root {
+    font-size: 18px;
+  }
 }
 
 main {
