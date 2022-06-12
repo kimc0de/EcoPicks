@@ -2,20 +2,18 @@ header {
   height: auto;
   position: sticky;
   width: 100%;
-  padding: 1rem 2rem;
   border-bottom: 1px solid var(--line);
   background-color: var(--green-medium-light);
-}
-
-header .navbar {
-  margin: 0 1rem;
-  position: relative;
 }
 
 header .nav-link {
   color: var(--text-primary) !important;
   font-weight: 400;
   margin: 0 1rem;
+}
+
+header .nav-link:active {
+  background-color: var(--green-light);
 }
 
 header .nav-link.btn {
@@ -35,6 +33,36 @@ header .nav-item:not(.nav-btn):hover {
 
 #navbar-top .navbar-nav{
   flex-direction: row !important;
+}
+
+#header-top {
+  margin: 0 1rem;
+  padding: 1rem;
+  position: relative;
+}
+
+#header-bottom {
+  background-color: var(--background-color-beige);
+}
+
+#header-bottom .nav-link {
+  position: relative;
+}
+
+#header-bottom .nav-link.active::after {
+  content: "";
+  position: absolute;
+  top: 80%;
+  width: 80%;
+  left: 10%;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(111.3deg, #425A49 9.6%, #E5EEE5 93.6%);
+}
+
+#header-bottom a.active {
+  /* Scale text when link active */
+  transform: scale(1.5);
 }
 
 /* Account dropdown*/
@@ -83,9 +111,14 @@ header .nav-link.btn-outline-primary:hover {
   height: 24px; /* span doesnt have same size as svg, change height to have desired position */
 }
 
+@media(max-width: 1200px) {
+  #header-bottom .nav-link {
+    margin: auto;
+  }
+}
 
 @media (min-width: 992px) {
-  header #header-mobile{
+  #header-mobile{
     display: none;
   }
 }
@@ -95,7 +128,7 @@ header .nav-link.btn-outline-primary:hover {
     padding: 0.5rem;
   }
 
-  header #header{
+  #header{
     display: none;
   }
 }
