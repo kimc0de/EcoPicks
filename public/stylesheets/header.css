@@ -1,41 +1,53 @@
 header {
-  height: var(--header-height);
-  background-color: #FFFFFF;
+  height: auto;
   position: sticky;
   width: 100%;
+  padding: 1rem 2rem;
   border-bottom: 1px solid var(--line);
+  background-color: var(--green-medium-light);
 }
 
 header .navbar {
-  height: var(--header-height);
-  width: 90%;
-  padding: 10px;
-  margin: 0 auto;
+  margin: 0 1rem;
   position: relative;
 }
 
 header .nav-link {
   color: var(--text-primary) !important;
-  font-size: 1.2rem;
   font-weight: 400;
   margin: 0 1rem;
 }
 
-header .nav-link:hover {
-  text-decoration: underline;
-}
-
 header .nav-link.btn {
   width: 150px;
-  margin: 0 15px;
-  font-weight: 400;
-  font-family: 'Roboto Mono', sans-serif;
-  font-size: 1.2rem;
 }
 
 header .nav-item {
-  margin: 5px;
+  margin: 0.5rem;
   text-align: center;
+}
+
+header .nav-item:not(.nav-btn):hover {
+  background-color: var(--green-light);
+  text-decoration: underline;
+  border-radius: 5px;
+}
+
+#navbar-top .navbar-nav{
+  flex-direction: row !important;
+}
+
+/* Account dropdown*/
+#navbar-top-account .dropdown-menu {
+  position: absolute;
+  top: 90%;
+  left: unset;
+  right: 0;
+  z-index: 2;
+}
+
+#navbar-top-account .dropdown-item:hover {
+  background-color: var(--green-light) !important;
 }
 
 /* Sign up button */
@@ -60,101 +72,90 @@ header .nav-link.btn-outline-primary:hover {
   background-color: var(--button-hover);
 }
 
-/* Burger menu icon */
-header .navbar-toggler-icon {
-  width: 2.5em;
-  height: 2.5em;
-  background-color: var(--button-primary);
-  border-radius: 5px;
-}
-
-header .collapse.show,
-.collapsing {
-  margin-top: 10px;
-}
-
-header .nav-line {
-  border-right: 1px solid var(--line);
-}
-
 #user-icon,
 #profile-text {
   vertical-align: middle;
   display: inline-block;
-  margin: 0px 5px;
+  margin: 0 5px;
 }
 
 #user-icon {
   height: 24px; /* span doesnt have same size as svg, change height to have desired position */
 }
 
-@media (max-width: 1199px) {
-  header,
-  header .navbar {
-    height: auto;
-  }
 
-  header .nav-item {
-    width: 100%;
-  }
-
-  header .nav-link.btn {
-    width: auto;
-  }
-
-  header .nav-line {
-    border-right: none;
-    border-bottom: 1px solid var(--line);
+@media (min-width: 992px) {
+  header #header-mobile{
+    display: none;
   }
 }
 
-@media (max-width: 576px) {
-  header .navbar-toggler-icon {
-    width: 1.5em;
-    height: 1.5em;
-    border-radius: 2px;
+@media (max-width: 991px) {
+  header {
+    padding: 0.5rem;
   }
 
-  header img {
-    width: 75%;
-    height: 75%;
-  }
-
-  header .navbar-dark .navbar-nav .nav-link {
-    font-size: 1rem;
-    padding: 0.3rem 1rem;
+  header #header{
+    display: none;
   }
 }
 
-@media (max-width: 420px) {
-  header .navbar-dark .navbar-nav .nav-link {
-    font-size: 0.8rem;
+@media (max-width: 768px) {
+  #header-mobile .navbar-collapse {
+    top: 10%;
   }
+}
+/* Mobile navigation menu dropdown */
+#header-mobile .navbar-collapse {
+  position: fixed;
+  background-color: var(--background-color-beige);
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
 
-  header .nav-item {
-    margin: 0px 0px;
-  }
+#header-mobile .collapsing {
+  height: unset;
+  overflow: unset;
+  transition: unset;
+}
 
-  header .navbar-toggler-icon {
-    width: 1em;
-    height: 1em;
-  }
+#header-mobile .navbar-nav {
+  align-items: flex-start;
+}
 
-  header img {
-    width: 70%;
-    height: 70%;
-  }
+#header-mobile .navbar-toggler-icon {
+  width: 1.5em;
+  height: 1.5em;
+}
 
-  header #brand-logo{
-    width: 70%;
-  }
-  #user-icon {
-    height: 18px;
-    margin-right: 0px;
-  }
+#header-mobile .navbar-toggler {
+  border: 1px solid var(--button-primary);
+  border-radius: 5px;
+  text-decoration: none;
+}
 
-  #user-icon svg{
-    height: 15px;
-    width: 15px;
-  }
+#menu-label {
+  position: relative;
+  top: 2px;
+  color: var(--text-primary);
+}
+
+#brand-logo-mobile-large {
+  height: 4%;
+}
+
+#close-menu {
+  position: absolute;
+  right: 1.5rem;
+  top: 1rem;
+}
+
+#navbarContent .horizontal-line {
+  width: 100%;
+}
+
+#navbarContent .horizontal-line hr {
+  margin: 0;
 }

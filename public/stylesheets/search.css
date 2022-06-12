@@ -11,6 +11,7 @@
     height: 3rem; /* match textField_input height */
     margin: 0.5rem 1rem;
     font-size: 1.2rem;
+    border-radius: 5px;
 }
 
 #search_field {
@@ -29,18 +30,12 @@
     display: flex;
     right: 1rem;
     top: 30%;
-    margin: 0rem 1rem;
+    margin: 0 1rem;
     border: none;
     height: auto;
     width: auto;
     cursor: pointer;
     background-color: transparent;
-}
-
-#clear_button svg{
-    width: 1.5rem;
-    height: 1.5rem;
-    color: var(--button-primary);
 }
 
 .textField_input {

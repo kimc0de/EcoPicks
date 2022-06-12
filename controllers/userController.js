@@ -46,9 +46,9 @@ module.exports = {
 
   authenticate: passport.authenticate("local", {
     failureRedirect: "/login",
-    failureFlash: "Failed to login.",
+    failureFlash: "Your email or password is incorrect.",
     successRedirect: "/",
-    successFlash: "Logged in!"
+    successFlash: "You're successfully logged in!"
   }),
 
   logout: (req, res, next) => {

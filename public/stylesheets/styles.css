@@ -13,7 +13,10 @@
   --icon: #9BBF9F;
   --line: #9FCFA4;
 
-  --text-primary: #456E4F;
+  --green-light: #E5EEE5;
+  --green-medium-light: #CDDDCE;
+
+  --text-primary: #0D4813;
   --text-secondary: #606060;
   --text-placeholder: #A7A7A7;
 
@@ -38,6 +41,8 @@
   --breakpoint-xl: 1200px;
 
   font-size: 16px;
+  font-weight: 400;
+  font-family: 'Roboto Mono', sans-serif !important;
 }
 
 body {
@@ -46,6 +51,12 @@ body {
   position: absolute;
   overflow-x: hidden;
   background-color: var(--background-color-beige);
+}
+
+@media (min-width: 768px) {
+  :root {
+    font-size: 18px;
+  }
 }
 
 main {
@@ -77,4 +88,10 @@ input:focus-visible {
 
 .visually-hidden {
   display: none;
+}
+
+.close_btn svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  color: var(--button-primary);
 }

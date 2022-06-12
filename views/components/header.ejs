@@ -1,58 +1,111 @@
 <header>
-  <nav class="navbar navbar-expand-xl navbar-dark">
-    <!--  Logo  -->
-    <a id="brand-logo" href="/">
-      <img src="/images/ecopicksLogo/logo1.svg" alt="ecopicks logo image">
-    </a>
+  <div id="header">
+    <nav class="navbar">
+      <!--  Logo  -->
+      <a id="brand-logo" class="navbar-brand" href="/">
+        <img src="/images/ecopicksLogo/logo1.svg" alt="ecopicks logo image">
+      </a>
 
+      <div id="navbar-top">
+        <% if(!loggedIn) { %>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/search">Search</a>
+          </li>
+          <li class="nav-item nav-btn">
+            <a class="nav-link btn btn-outline-primary" href="/login">Log In</a>
+          </li>
+          <li class="nav-item nav-btn">
+            <a class="nav-link btn btn-primary" href="/signup">Sign Up</a>
+          </li>
+        </ul>
+        <% } else { %>
+
+        <ul class="navbar-nav ml-auto align-items-center">
+          <li class="nav-item">
+            <a class="nav-link" href="/search">Search</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/user/add">Recommend a brand</a>
+          </li>
+
+          <li class="nav-item" id="navbar-top-account">
+            <a type="button" href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+             My Account
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/user">Profile</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="/logout">Log out</a></li>
+            </ul>
+          </li>
+        </ul>
+        <% } %>
+      </div>
+    </nav>
+  </div>
+
+  <div id="header-mobile">
+    <nav class="navbar">
     <!--  Button to toggle menu on mobile screen -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Menu button">
-      <span class="navbar-toggler-icon"></span>
+    <button id="menu-button"
+            class="navbar-toggler" type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Menu navigation button">
+
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3.75 22.5H26.25V20H3.75V22.5ZM3.75 16.25H26.25V13.75H3.75V16.25ZM3.75 7.5V10H26.25V7.5H3.75Z" fill="#0D4813"/>
+        </svg>
+        <span id="menu-label">Menu</span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <!--  Logo  -->
+    <a id="brand-logo-mobile" href="/">
+      <img src="/images/ecopicksLogo/logo2.svg" alt="ecopicks logo image">
+    </a>
 
-      <% if(!loggedIn) { %>
+    <!--  Search button    -->
+    <a class="navbar-toggler" aria-label="Search button" href="/search">
+      <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19.375 17.5H18.3875L18.0375 17.1625C19.2625 15.7375 20 13.8875 20 11.875C20 7.3875 16.3625 3.75 11.875 3.75C7.3875 3.75 3.75 7.3875 3.75 11.875C3.75 16.3625 7.3875 20 11.875 20C13.8875 20 15.7375 19.2625 17.1625 18.0375L17.5 18.3875V19.375L23.75 25.6125L25.6125 23.75L19.375 17.5ZM11.875 17.5C8.7625 17.5 6.25 14.9875 6.25 11.875C6.25 8.7625 8.7625 6.25 11.875 6.25C14.9875 6.25 17.5 8.7625 17.5 11.875C17.5 14.9875 14.9875 17.5 11.875 17.5Z" fill="#0D4813"/>
+      </svg>
+      <span id="menu-label">Search</span>
+    </a>
+
+    <div class="collapse navbar-collapse" id="navbarContent">
+
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="/search">Search</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link btn btn-outline-primary my-1 my-lg-0" href="/login">Log In</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link btn btn-primary my-1 my-lg-0" href="/signup">Sign Up</a>
-        </li>
-      </ul>
-      <% } else { %>
-
-      <ul class="navbar-nav ml-auto align-items-center">
-        <li class="nav-item nav-line">
-          <a class="nav-link" href="/search">Search</a>
-        </li>
-        <li class="nav-item nav-line">
-          <a class="nav-link" href="/user/add">Add alternative</a>
-        </li>
-        <li class="nav-item nav-line">
-          <a class="nav-link" href="/user">
-            <span id="user-icon">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">-->
-                <path
-                  d="M17.3152 15.3542C14.6056 14.6805 12.0835 14.0899 13.3048 11.6056C17.0237 4.04388 14.2905 0 10.3643 0C6.3602 0 3.6955 4.19915 7.42387 11.6056C8.68216 14.1044 6.06473 14.6949 3.41343 15.3542C0.992201 15.9566 0.901592 17.2514 0.909471 19.5152L0.912623 20.3636H19.8145L19.8176 19.5415C19.8271 17.2607 19.7451 15.9592 17.3152 15.3542Z"
-                  fill="#639C70" />-->
-              </svg>
-            </span>
-            <span id="profile-text">
-              Profile
-            </span>
+          <a class="navbar-brand" href="/">
+            <img id="brand-logo-mobile-large" src="/images/ecopicksLogo/logo1.svg" alt="ecopicks logo image">
           </a>
+          <button id="close-menu" type="button" class="btn-close close_btn" aria-label="Close"></button>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/logout">Log out</a>
-        </li>
-      </ul>
+        <li class="horizontal-line"><hr></li>
+      <% if(!loggedIn) { %>
+          <li class="nav-item nav-btn">
+            <a class="nav-link btn btn-outline-primary" href="/login">Log In</a>
+          </li>
+          <li class="nav-item nav-btn">
+            <a class="nav-link btn btn-primary" href="/signup">Sign Up</a>
+          </li>
+      <% } else { %>
+          <li class="nav-item">
+            <a class="nav-link" href="/search">Search</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/user/add">Recommend a brand</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/user"> Profile </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">Log out</a>
+          </li>
       <% } %>
+      </ul>
     </div>
-  </nav>
+    </nav>
+  </div>
 </header>

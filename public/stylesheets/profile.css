@@ -10,7 +10,6 @@
 }
 
 #profile-page #user-name {
-  font-family: 'Roboto Mono', sans-serif;
   font-size: 2rem;
   margin-top: 2vh;
 }
@@ -24,7 +23,6 @@
 }
 
 #profile-page #edit-profile {
-  font-family: 'Roboto Mono', sans-serif;
   color:var(--text-placeholder);
   font-size: 1rem;
   margin-right: 5px;
@@ -43,7 +41,6 @@
 }
 
 #profile-page .toggle-button {
-  font-family: 'Roboto Mono', sans-serif;
   border: none;
   width: 50%;
   height: 35px;
@@ -67,7 +64,6 @@
 
 #profile-page .number-of-apps {
   color: var(--food-dark);
-  font-family: 'Roboto Mono', sans-serif;
   font-size: 60px;
   margin-right: 13vh;
   margin-left: 15vh;
@@ -75,12 +71,10 @@
 
 #profile-page .text-in-app-list {
   color: #7B7B7B;
-  font-family: 'Roboto Mono', sans-serif;
   margin-top: 3.5vh;
 }
 
 #profile-page .app-card-button {
-  font-family: 'Roboto Mono', sans-serif;
   color: var(--food-dark);
   font-size: 0.8rem;
   padding-right: 15px;

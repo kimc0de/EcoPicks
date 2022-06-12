@@ -1,0 +1,9 @@
+#flash-message .alert {
+    margin: 0 !important;
+    text-align: center;
+}
+
+#flash-message .close_btn {
+    position: absolute;
+    right: 1.5rem;
+}
