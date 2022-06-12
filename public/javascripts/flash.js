@@ -7,7 +7,11 @@ flashMessage.addEventListener('closed.bs.alert', function () {
     document.getElementById('main').focus();
 })
 
-// Auto-dismiss after 5s
-setTimeout(() =>{
-    successFlashMessage.parentElement.remove();
-}, 4000);
+window.addEventListener('load', () => {
+    if (successFlashMessage) {
+        // Auto-dismiss after 5s
+        setTimeout(() =>{
+            successFlashMessage.parentElement.remove();
+        }, 4000);
+    }
+})
