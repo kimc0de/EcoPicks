@@ -106,6 +106,10 @@ header .btn {
   transition: unset;
 }
 
+#header-mobile .navbar {
+  padding: 0.5rem;
+}
+
 #header-mobile .navbar-nav {
   align-items: flex-start;
 }
@@ -134,6 +138,10 @@ header .btn {
   text-align: left;
 }
 
+#nav-logo {
+  margin: 0.5rem 0;
+}
+
 #header-mobile .nav-link:hover,
 #header-mobile .nav-link.active{
   background-color: var(--green-medium-light);
@@ -150,10 +158,6 @@ header .btn {
   position: relative;
   top: 2px;
   color: var(--text-primary);
-}
-
-#brand-logo-mobile-large {
-  height: 4%;
 }
 
 #close-menu {
