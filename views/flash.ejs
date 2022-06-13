@@ -20,7 +20,7 @@
                 <button type="button" class="btn-close close_btn" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
       <% } else if (flashMessages.error) { %>
-              <div class="alert alert-danger d-flex align-items-center fade show" role="alert">
+              <div id="flash-error" class="alert alert-danger d-flex align-items-center fade show" role="alert">
                   <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
                   <div>
                       <%= flashMessages.error %>
