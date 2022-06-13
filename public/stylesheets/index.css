@@ -44,6 +44,7 @@
   --main-z-index: 1;
   --header-z-index: 2;
   --header-overlay-z-index: 3;
+  --skip-link-z-index: 4;
 
   font-size: 16px;
   font-weight: 400;
@@ -89,19 +90,30 @@ input:focus-visible {
   box-shadow: 0 0 0 1px rgb(63, 163, 255), 0 0 0 2px #fff, 0 0 0 4px rgba(63, 163, 255, 0.5) !important;
 }
 
+/* Overwrite Bootstrap styles */
+a {
+  color: var(--text-primary) !important;
+}
+
 .btn-primary {
-  background-color: var(--button-primary);
-  border-color: var(--button-primary);
+  background-color: var(--button-primary) !important;
+  border-color: var(--button-primary) !important;
   color: white !important;
 }
 
 .btn-primary:hover {
-  background-color: var(--button-hover);
-  border-color: var(--button-hover);
+  background-color: var(--button-hover) !important;
+  border-color: var(--button-hover) !important;
 }
 
-.btn:hover {
-  text-decoration: underline;
+.btn-outline-primary {
+  border-color: var(--button-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--button-primary) !important;
+  color: white !important;
 }
 
 .visually-hidden {
@@ -114,4 +126,22 @@ input:focus-visible {
   color: var(--button-primary);
 }
 
+#skip-link {
+  color: var(--text-primary);
+  background-color: var(--green-medium-light);
+  padding: 0.5rem 0;
+  position: absolute;
+  transform: translateY(-100%);
+  transition: transform 0.3s;
+  z-index: var(--skip-link-z-index);
+  text-align: center;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 12rem;
+}
 
+#skip-link:focus {
+  transform: translateY(50%);
+}

@@ -7,30 +7,17 @@ header {
 }
 
 header .nav-link {
-  color: var(--text-primary) !important;
-  font-weight: 400;
+  /*overwrite bootstrap nav-link*/
+  padding: 0.5rem 1rem !important;
   margin: 0 1rem;
 }
 
-header .nav-link:active {
-  background-color: var(--green-light);
+header .btn {
+  padding: 0.5rem 1.5rem;
+  margin: 0 1rem;
 }
 
-header .nav-link.btn {
-  width: 150px;
-}
-
-header .nav-item {
-  margin: 0.5rem;
-  text-align: center;
-}
-
-header .nav-item:not(.nav-btn):hover {
-  background-color: var(--green-light);
-  text-decoration: underline;
-  border-radius: 5px;
-}
-
+#header-large,
 #navbar-top .navbar-nav{
   flex-direction: row !important;
 }
@@ -43,6 +30,7 @@ header .nav-item:not(.nav-btn):hover {
 
 #header-bottom {
   background-color: var(--background-color-beige);
+  padding: 0.5rem 0;
 }
 
 #header-bottom .nav-link {
@@ -78,42 +66,14 @@ header .nav-item:not(.nav-btn):hover {
   background-color: var(--green-light);
 }
 
-/* Sign up button */
-header .nav-link.btn-primary {
-  background-color: var(--button-primary);
-  border-color: var(--button-primary);
-  color: white !important;
-}
-
-header .nav-link.btn-primary:hover {
-  background-color: var(--button-hover);
-}
-
-/* Log in button */
-header .nav-link.btn-outline-primary {
-  border-color: var(--button-primary);
-  color: var(--text-primary) !important;
-}
-
-header .nav-link.btn-outline-primary:hover {
-  color: white !important;
-  background-color: var(--button-hover);
-}
-
-#user-icon,
-#profile-text {
-  vertical-align: middle;
-  display: inline-block;
-  margin: 0 5px;
-}
-
-#user-icon {
-  height: 24px; /* span doesnt have same size as svg, change height to have desired position */
-}
-
 @media(max-width: 1200px) {
   #header-bottom .nav-link {
     margin: auto;
+  }
+
+  #header-bottom .nav-link.active {
+    /* Scale text when link active */
+    transform: scale(1.2);
   }
 }
 
@@ -128,7 +88,7 @@ header .nav-link.btn-outline-primary:hover {
     padding: 0.5rem;
   }
 
-  #header{
+  #header-large{
     display: none;
   }
 }
@@ -138,6 +98,7 @@ header .nav-link.btn-outline-primary:hover {
     top: 10%;
   }
 }
+
 /* Mobile navigation menu dropdown */
 #header-mobile .navbar-collapse {
   position: fixed;
