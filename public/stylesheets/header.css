@@ -6,12 +6,6 @@ header {
   background-color: var(--green-medium-light);
 }
 
-header .nav-link:not(.nav-btn):hover {
-  background-color: var(--green-light);
-  text-decoration: underline;
-  transform: scale(1.2);
-}
-
 header .nav-link {
   /*overwrite bootstrap nav-link*/
   padding: 0.5rem 1rem !important;
@@ -23,11 +17,18 @@ header .nav-link {
 header .btn {
   padding: 0.5rem 1.5rem;
   margin: 0 1rem;
+  width: 150px;
 }
 
 #header-large,
 #navbar-top .navbar-nav{
   flex-direction: row !important;
+}
+
+#header-large .nav-link:not(.nav-btn):hover {
+  background-color: var(--green-light);
+  text-decoration: underline;
+  transform: scale(1.2);
 }
 
 #header-top {
