@@ -31,15 +31,17 @@
   <link href="/stylesheets/editProfile.css" rel="stylesheet" type="text/css" />
   <link href="/stylesheets/profile.css" rel="stylesheet" type="text/css" />
   <link href="/stylesheets/flash.css" rel="stylesheet" type="text/css" />
+  <link href="/stylesheets/footer.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div>
     <%- include ('./components/header') %>
-    <%- include('./flash'); -%>
+    <%- include ('./flash'); -%>
     <main id="main">
       <%- body %>
     </main>
+    <%- include ('./components/footer') %>
   </div>
 
   <!-- jQuery, Popper.js, and Bootstrap JS -->

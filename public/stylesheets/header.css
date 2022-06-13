@@ -75,7 +75,7 @@ header .nav-item:not(.nav-btn):hover {
 }
 
 #navbar-top-account .dropdown-item:hover {
-  background-color: var(--green-light) !important;
+  background-color: var(--green-light);
 }
 
 /* Sign up button */
