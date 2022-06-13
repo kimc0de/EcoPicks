@@ -40,8 +40,8 @@ module.exports = {
     res.render("user/login");
   },
 
-  renderSignUp: (req, res) => {
-    res.render("user/signup");
+  renderRegister: (req, res) => {
+    res.render("user/register");
   },
 
   authenticate: passport.authenticate("local", {
@@ -58,7 +58,7 @@ module.exports = {
     next();
   },
 
-  validateSignUp: (req, res, next) => {
+  validateRegister: (req, res, next) => {
     //validate password repeat
     let password = req.body.password;
     let passwordRepeat = req.body.password_repeat;
@@ -67,7 +67,7 @@ module.exports = {
       next();
     } else {
       req.flash("error", `Please make sure your passwords match.`);
-      res.redirect("/signup");
+      res.redirect("/registration");
     }
   },
 
@@ -86,7 +86,7 @@ module.exports = {
         next();
       } else if (error) {
         console.error(`Error creating user: ${error.message}`);
-        res.locals.redirect = "/signup";
+        res.locals.redirect = "/registration";
         let errormessage = ``;
         if (error.message.includes('email')) {
           errormessage += `An account for this email already exists. `;

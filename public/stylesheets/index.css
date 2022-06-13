@@ -91,9 +91,6 @@ input:focus-visible {
 }
 
 /* Overwrite Bootstrap styles */
-a {
-  color: var(--text-primary) !important;
-}
 
 .btn-primary {
   background-color: var(--button-primary) !important;

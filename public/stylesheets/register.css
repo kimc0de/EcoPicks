@@ -1,23 +1,23 @@
-.signup-form {
+.register-form {
   padding-top: 2rem;
   padding-bottom: 8rem;
 }
 
-.signup-form-field {
+.register-form-field {
   padding-bottom: 1rem;
 }
 
-.signup-form img {
+.register-form img {
   width: 125px;
   margin: 0 auto;
   display: block;
 }
 
-.signup-form .btn.btn-primary {
+.register-form .btn.btn-primary {
   width: 100%;
   margin-top: 1rem;
 }
 
-.signup-form input {
+.register-form input {
   border-color: var(--button-primary);
 }

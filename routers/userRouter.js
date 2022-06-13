@@ -4,9 +4,9 @@ const router = require('express').Router();
 // Profile
 router.get("/user", userController.getAllApps, userController.renderProfile);
 
-// Signup
-router.get("/signup", userController.renderSignUp);
-router.post("/signup", userController.validateSignUp, userController.createUser, userController.redirectView);
+// Register
+router.get("/registration", userController.renderRegister);
+router.post("/registration", userController.validateRegister, userController.createUser, userController.redirectView);
 
 // Login
 router.get("/login", userController.renderLogin);

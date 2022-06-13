@@ -6,10 +6,18 @@ header {
   background-color: var(--green-medium-light);
 }
 
+header .nav-link:not(.nav-btn):hover {
+  background-color: var(--green-light);
+  text-decoration: underline;
+  transform: scale(1.2);
+}
+
 header .nav-link {
   /*overwrite bootstrap nav-link*/
   padding: 0.5rem 1rem !important;
   margin: 0 1rem;
+  color: var(--text-primary) !important;
+  border-radius: 5px;
 }
 
 header .btn {
