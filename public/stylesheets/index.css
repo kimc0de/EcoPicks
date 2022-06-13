@@ -65,7 +65,11 @@ body {
 }
 
 main {
-  padding-bottom: 6rem;
+  padding-bottom: 2rem;
+  z-index: var(--main-z-index);
+}
+
+form > * {
   z-index: var(--main-z-index);
 }
 
