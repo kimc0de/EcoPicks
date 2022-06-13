@@ -29,6 +29,7 @@ footer {
 #footer .nav-link:hover {
     border-radius: 5px;
     background-color: var(--green-light);
+    transform: scale(1.2);
 }
 
 @media (max-width : 767px) {

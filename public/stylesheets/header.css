@@ -7,11 +7,7 @@ header {
 }
 
 header .nav-link {
-  /*overwrite bootstrap nav-link*/
-  padding: 0.5rem 1rem !important;
-  margin: 0 1rem;
   color: var(--text-primary) !important;
-  border-radius: 5px;
 }
 
 header .btn {
@@ -25,9 +21,16 @@ header .btn {
   flex-direction: row !important;
 }
 
+#header-large .nav-link {
+  /*overwrite bootstrap nav-link*/
+  padding: 0.5rem 1rem !important;
+  margin: 0 1rem;
+}
+
 #header-large .nav-link:not(.nav-btn):hover {
   background-color: var(--green-light);
   text-decoration: underline;
+  border-radius: 5px;
   transform: scale(1.2);
 }
 
@@ -86,28 +89,6 @@ header .btn {
   }
 }
 
-@media (min-width: 992px) {
-  #header-mobile{
-    display: none;
-  }
-}
-
-@media (max-width: 991px) {
-  header {
-    padding: 0.5rem;
-  }
-
-  #header-large{
-    display: none;
-  }
-}
-
-@media (max-width: 768px) {
-  #header-mobile .navbar-collapse {
-    top: 10%;
-  }
-}
-
 /* Mobile navigation menu dropdown */
 #header-mobile .navbar-collapse {
   position: fixed;
@@ -129,6 +110,20 @@ header .btn {
   align-items: flex-start;
 }
 
+#header-mobile .btn {
+  margin: 0;
+}
+
+#header-mobile .nav-btn {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1rem;
+}
+
+#header-mobile .nav-link {
+  padding: 1rem;
+}
+
 #header-mobile .navbar-toggler-icon {
   width: 1.5em;
   height: 1.5em;
@@ -137,7 +132,12 @@ header .btn {
 #header-mobile .nav-item {
   width: 100%;
   text-align: left;
-  margin: 0.5rem 0;
+}
+
+#header-mobile .nav-link:hover,
+#header-mobile .nav-link.active{
+  background-color: var(--green-medium-light);
+  text-decoration: underline;
 }
 
 #header-mobile .navbar-toggler {
@@ -169,3 +169,20 @@ header .btn {
 #navbarContent .horizontal-line hr {
   margin: 0;
 }
+
+@media (min-width: 992px) {
+  #header-mobile{
+    display: none;
+  }
+}
+
+@media (max-width: 991px) {
+  header {
+    padding: 0.5rem;
+  }
+
+  #header-large{
+    display: none;
+  }
+}
+
