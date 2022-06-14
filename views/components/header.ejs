@@ -1,9 +1,9 @@
 <header>
-  <div id="header">
-    <nav class="navbar">
+  <div id="header-large">
+    <nav class="navbar" id="header-top" aria-label="Navigation">
       <!--  Logo  -->
       <a id="brand-logo" class="navbar-brand" href="/">
-        <img src="/images/ecopicksLogo/logo1.svg" alt="ecopicks logo image">
+        <img src="/images/ecopicksLogo/logo1.svg" alt="Ecopicks homepage">
       </a>
 
       <div id="navbar-top">
@@ -13,10 +13,10 @@
             <a class="nav-link" href="/search">Search</a>
           </li>
           <li class="nav-item nav-btn">
-            <a class="nav-link btn btn-outline-primary" href="/login">Log In</a>
+            <a class="btn btn-outline-primary" href="/login">Log In</a>
           </li>
           <li class="nav-item nav-btn">
-            <a class="nav-link btn btn-primary" href="/signup">Sign Up</a>
+            <a class="btn btn-primary" href="/registration">Register</a>
           </li>
         </ul>
         <% } else { %>
@@ -32,7 +32,8 @@
 
           <li class="nav-item" id="navbar-top-account">
             <a type="button" href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-             My Account
+              <i class="fas fa-user"></i>
+              <span> My Account</span>
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="/user">Profile</a></li>
@@ -44,6 +45,32 @@
         <% } %>
       </div>
     </nav>
+
+    <div aria-label="Category navigation" id="header-bottom">
+        <ul class="nav justify-content-center">
+          <li class="nav-item">
+            <a class="nav-link" href="#">All</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Food & Drink</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Fashion</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Lifestyle</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Social</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Household</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Beauty & Wellness</a>
+          </li>
+        </ul>
+    </div>
   </div>
 
   <div id="header-mobile">
@@ -62,7 +89,7 @@
 
     <!--  Logo  -->
     <a id="brand-logo-mobile" href="/">
-      <img src="/images/ecopicksLogo/logo2.svg" alt="ecopicks logo image">
+      <img src="/images/ecopicksLogo/logo2.svg" alt="Ecopicks homepage">
     </a>
 
     <!--  Search button    -->
@@ -76,19 +103,47 @@
     <div class="collapse navbar-collapse" id="navbarContent">
 
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
+        <li id="nav-logo" class="nav-item">
           <a class="navbar-brand" href="/">
-            <img id="brand-logo-mobile-large" src="/images/ecopicksLogo/logo1.svg" alt="ecopicks logo image">
+            <img src="/images/ecopicksLogo/logo1.svg" alt="ecopicks logo image">
           </a>
           <button id="close-menu" type="button" class="btn-close close_btn" aria-label="Close"></button>
         </li>
         <li class="horizontal-line"><hr></li>
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <!--  Categories links      -->
+        <li class="nav-item">
+          <a class="nav-link" href="#">All</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Food & Drink</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Fashion</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Lifestyle</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Social</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Household</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Beauty & Wellness</a>
+        </li>
+
+        <!-- Auth    -->
+        <li class="horizontal-line"><hr></li>
       <% if(!loggedIn) { %>
           <li class="nav-item nav-btn">
-            <a class="nav-link btn btn-outline-primary" href="/login">Log In</a>
+            <a class="btn btn-outline-primary" href="/login">Log In</a>
           </li>
           <li class="nav-item nav-btn">
-            <a class="nav-link btn btn-primary" href="/signup">Sign Up</a>
+            <a class="btn btn-primary" href="/registration">Register</a>
           </li>
       <% } else { %>
           <li class="nav-item">
@@ -98,7 +153,10 @@
             <a class="nav-link" href="/user/add">Recommend a brand</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/user"> Profile </a>
+            <a class="nav-link" href="/user">
+              <i class="fas fa-user"></i>
+              <span>Profile </span>
+            </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/logout">Log out</a>

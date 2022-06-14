@@ -11,7 +11,6 @@ module.exports = {
 		try {
 			let apps = await RecommendedBrand.find({ userId: req.user._id });
 			req.data = apps;
-			console.log(req.data);
 		} catch (error) {
 			console.error(error);
 			respondNoResourceFound(req, res);

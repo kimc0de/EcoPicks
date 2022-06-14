@@ -1,5 +1,6 @@
 // Close flash message
 const flashMessage = document.getElementById("flash-message");
+const errorFlashMessage = document.getElementById("flash-error");
 const successFlashMessage = document.getElementById("flash-success");
 
 flashMessage.addEventListener('closed.bs.alert', function () {
@@ -7,7 +8,15 @@ flashMessage.addEventListener('closed.bs.alert', function () {
     document.getElementById('main').focus();
 })
 
-// Auto-dismiss after 5s
-setTimeout(() =>{
-    successFlashMessage.parentElement.remove();
-}, 4000);
+window.addEventListener('load', () => {
+    if(!successFlashMessage && !errorFlashMessage) {
+        flashMessage.remove();
+    }
+
+    if (successFlashMessage) {
+        // Auto-dismiss after 5s
+        setTimeout(() =>{
+            successFlashMessage.parentElement.remove();
+        }, 4000);
+    }
+})
