@@ -1,25 +1,25 @@
 <!-- App cards-->
 <div class="row" id="app-card">
-  <% let getCategoryById = (categoryId) => {
-    let result;
-    categories.forEach(category => {
-      if(category._id.equals(categoryId)) {
-        result = category;
-      }
-    });
-    return result;
-  } %>
-  <% data.forEach(brand => {
-    let category = getCategoryById(brand.category);
-  %>
-    <div class="col col-lg-4 col-md-6 col-12" onclick="location.href='/brand/<%=brand._id%>';">
-      <div class="card-body <%= category.lightColor %> d-flex">
-        <img class="app-logo" src="<%= brand.image %>">
-        <div>
-          <h2><%= brand.name %></h2>
-          <p class="app-slogan"><%= brand.slogan %></p>
+    <% let getCategoryById = (categoryId) => {
+        let result;
+        categories.forEach(category => {
+            if(category._id.equals(categoryId)) {
+                result = category;
+            }
+        });
+        return result;
+    } %>
+    <% results.forEach(brand => {
+        let category = getCategoryById(brand.category._id);
+    %>
+    <div class="col col-lg-4 col-md-6 col-12 card-wrapper" onclick="location.href='/brand/<%=brand._id%>';">
+        <div class="card-body <%= category.lightColor %> d-flex">
+            <img class="app-logo" src="<%= brand.image %>">
+            <div>
+                <h2><%= brand.name; %></h2>
+                <p class="app-slogan"><%= brand.slogan %></p>
+            </div>
         </div>
-      </div>
     </div>
-  <% })%>
+    <% })%>
 </div>

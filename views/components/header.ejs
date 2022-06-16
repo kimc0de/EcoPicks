@@ -1,6 +1,7 @@
 <header>
   <div id="header-large">
     <nav class="navbar" id="header-top" aria-label="Navigation">
+      <a id="skip-link" class="btn-outline-primary" href="#main">Skip to main content</a>
       <!--  Logo  -->
       <a id="brand-logo" class="navbar-brand" href="/">
         <img src="/images/ecopicksLogo/logo1.svg" alt="Ecopicks homepage">
@@ -46,29 +47,9 @@
       </div>
     </nav>
 
-    <div aria-label="Category navigation" id="header-bottom">
+    <div id="header-bottom">
         <ul class="nav justify-content-center">
-          <li class="nav-item">
-            <a class="nav-link" href="#">All</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Food & Drink</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Fashion</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Lifestyle</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Social</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Household</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Beauty & Wellness</a>
-          </li>
+          <%- include ('./categoryNavigation') %>
         </ul>
     </div>
   </div>
@@ -114,27 +95,7 @@
           <a class="nav-link" href="/">Home</a>
         </li>
         <!--  Categories links      -->
-        <li class="nav-item">
-          <a class="nav-link" href="#">All</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Food & Drink</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Fashion</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Lifestyle</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Social</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Household</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Beauty & Wellness</a>
-        </li>
+        <%- include ('./categoryNavigation') %>
 
         <!-- Auth    -->
         <li class="horizontal-line"><hr></li>

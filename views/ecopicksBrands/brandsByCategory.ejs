@@ -1,0 +1,16 @@
+<div class="container mt-sm-4 mb-sm-4">
+    <% if (results) { %>
+        <% if (categoryName) {%>
+        <p id="total-results" class="mt-sm-4 mb-sm-4 pl-sm-2 pr-sm-2 ml-lg-0 mr-lg-0"><%= results.length %> results for category "<%= categoryName %>"</p>
+        <% } else {%>
+        <p id="total-results" class="mt-sm-4 mb-sm-4 pl-sm-2 pr-sm-2 ml-lg-0 mr-lg-0"><%= results.length %> results for all brands</p>
+        <% } %>
+    <% if (results.length > 0) { %>
+            <%- include ('../components/brandCard') %>
+        <% } else { %>
+            <p> Do you want to recommend a brand in this category to us?
+                <span><a href="/user/add">Click here</a></span> to send your recommendation.
+            </p>
+        <% } %>
+    <% } %>
+</div>

@@ -110,7 +110,7 @@ module.exports = {
       const brand = await EcopicksBrands.findById(id);
       const category = await Category.findById(brand.category);
 
-      res.render('./ecopicksBrands/detailsPage',
+      res.render('ecopicksBrands/detailsPage',
         {
           id: id,
           app: brand,
@@ -151,8 +151,7 @@ module.exports = {
    */
   getSavedBrands: async (req, res) => {
     try {
-      let savedBrands = await EcopicksBrands.find({ userId: req.user._id });
-      req.data = savedBrands;
+      req.data = await EcopicksBrands.find({ userId: req.user._id });
     } catch (error) {
       console.error(error);
       respondNoResourceFound(req, res);
