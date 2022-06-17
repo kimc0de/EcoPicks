@@ -171,11 +171,12 @@ header .btn {
   top: 1.2rem;
 }
 
-#navbarContent .horizontal-line {
+.horizontal-line {
   width: 100%;
+  background-color: var(--line);
 }
 
-#navbarContent .horizontal-line hr {
+.horizontal-line hr {
   margin: 0;
 }
 
