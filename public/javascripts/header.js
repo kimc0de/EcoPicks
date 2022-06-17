@@ -1,4 +1,6 @@
-// Close menu toggler mobile
+/**
+ * Close button for menu navigation on mobile
+ */
 const closeButton = document.getElementById('close-menu');
 const navbarContent = document.getElementById('navbarContent');
 const navbarToggler = document.getElementById('menu-button');
@@ -13,17 +15,34 @@ closeButton.addEventListener('click', function () {
     }
 })
 
-// Categories navigation - set active style for active link
+/**
+ * Active style for category navigation
+ */
+// Desktop
 const headerBottom = document.getElementById('header-bottom');
 const categoryNav = headerBottom.getElementsByClassName('bottom-nav-link');
 
-for (let i = 0; i < categoryNav.length; i++) {
-    categoryNav[i].addEventListener("click", function(e) {
-        for (let j = 0; j < categoryNav.length; j++) {
-            if(categoryNav[j].classList.contains("active")){
-                categoryNav[j].className = categoryNav[j].className.replace(" active", "");
-            }
+document.body.onload = () => {
+    let current = location.pathname.split('/')[2];
+    if (current === "") return;
+
+    for (let i = 0, length = categoryNav.length; i < length; i++) {
+        if (categoryNav[i].getAttribute("href").split('/')[2] === current) {
+            categoryNav[i].className += " active";
         }
-        this.className += " active";
-    });
+    }
+};
+// Mobile
+const headerMobile = document.getElementById("header-mobile");
+const categoryNavMobile = headerMobile.getElementsByClassName('bottom-nav-link');
+
+document.body.onload = () => {
+    let current = location.pathname.split('/')[2];
+    if (current === "") return;
+
+    for (let i = 0, length = categoryNavMobile.length; i < length; i++) {
+        if (categoryNavMobile[i].getAttribute("href").split('/')[2] === current) {
+            categoryNavMobile[i].className += " active";
+        }
+    }
 }
