@@ -142,10 +142,15 @@ header .btn {
   margin: 0.5rem 0;
 }
 
-#header-mobile .nav-link:not(.active):hover,
+#header-mobile .nav-link:not(.active):hover {
+  background-color: var(--green-medium-light);
+  text-decoration: underline;
+}
+
 #header-mobile .nav-link.active{
   background-color: var(--green-medium-light);
   text-decoration: underline;
+  font-size: 1.5rem;
 }
 
 #header-mobile .navbar-toggler {
