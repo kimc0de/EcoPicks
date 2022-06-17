@@ -21,28 +21,30 @@ closeButton.addEventListener('click', function () {
 // Desktop
 const headerBottom = document.getElementById('header-bottom');
 const categoryNav = headerBottom.getElementsByClassName('bottom-nav-link');
-
-document.body.onload = () => {
-    let current = location.pathname.split('/')[2];
-    if (current === "") return;
-
-    for (let i = 0, length = categoryNav.length; i < length; i++) {
-        if (categoryNav[i].getAttribute("href").split('/')[2] === current) {
-            categoryNav[i].className += " active";
-        }
-    }
-};
 // Mobile
 const headerMobile = document.getElementById("header-mobile");
 const categoryNavMobile = headerMobile.getElementsByClassName('bottom-nav-link');
 
-document.body.onload = () => {
+function applyActiveStyle () {
     let current = location.pathname.split('/')[2];
     if (current === "") return;
 
-    for (let i = 0, length = categoryNavMobile.length; i < length; i++) {
-        if (categoryNavMobile[i].getAttribute("href").split('/')[2] === current) {
-            categoryNavMobile[i].className += " active";
+    if(categoryNav) {
+        for (let i = 0, length = categoryNav.length; i < length; i++) {
+            if (categoryNav[i].getAttribute("href").split('/')[2] === current) {
+                categoryNav[i].className += " active";
+            }
+        }
+    }
+
+    if(categoryNavMobile) {
+        for (let i = 0, length = categoryNavMobile.length; i < length; i++) {
+            if (categoryNavMobile[i].getAttribute("href").split('/')[2] === current) {
+                categoryNavMobile[i].className += " active";
+            }
         }
     }
 }
+
+document.body.onload = applyActiveStyle;
+window.onresize = applyActiveStyle;
