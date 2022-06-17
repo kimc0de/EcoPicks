@@ -1,4 +1,6 @@
-// Close menu toggler mobile
+/**
+ * Close button for menu navigation on mobile
+ */
 const closeButton = document.getElementById('close-menu');
 const navbarContent = document.getElementById('navbarContent');
 const navbarToggler = document.getElementById('menu-button');
@@ -13,17 +15,28 @@ closeButton.addEventListener('click', function () {
     }
 })
 
-// Categories navigation - set active style for active link
-const headerBottom = document.getElementById('header-bottom');
-const categoryNav = headerBottom.getElementsByClassName('bottom-nav-link');
+/**
+ * Active style for category navigation
+ */
+// Desktop
+const header = document.getElementById('header');
+const categoryNav = header.getElementsByClassName('category-nav-link');
 
-for (let i = 0; i < categoryNav.length; i++) {
-    categoryNav[i].addEventListener("click", function(e) {
-        for (let j = 0; j < categoryNav.length; j++) {
-            if(categoryNav[j].classList.contains("active")){
-                categoryNav[j].className = categoryNav[j].className.replace(" active", "");
+function applyActiveStyle () {
+    let current = location.pathname.split('/')[2];
+    if (current === "") return;
+
+    if(categoryNav) {
+        for (let i = 0, length = categoryNav.length; i < length; i++) {
+            if (categoryNav[i].getAttribute("href").split('/')[2] === current) {
+                categoryNav[i].className += " active";
+                categoryNav[i].setAttribute("aria-current", "page");
+            } else {
+                categoryNav[i].removeAttribute("aria-current");
             }
         }
-        this.className += " active";
-    });
+    }
 }
+
+document.body.onload = applyActiveStyle;
+window.onresize = applyActiveStyle;

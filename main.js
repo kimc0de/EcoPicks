@@ -64,6 +64,7 @@ app.use(require('./routers/homeRouter'));
 app.use(require('./routers/ecopicksBrandRouter'));
 app.use(require('./routers/apiRouter'));
 app.use(require('./routers/searchRouter'));
+app.use(require('./routers/categoryRouter'));
 app.use(require('./routers/errorRouter'));
 
 module.exports = app;

@@ -1,6 +1,7 @@
 [
   {
     "name": "food & drink",
+    "endpoint": "food-drink",
     "lightColor": "category-light-food",
     "darkColor": "category-dark-food",
     "keywords": [
@@ -12,6 +13,7 @@
   },
   {
     "name": "fashion",
+    "endpoint": "fashion",
     "lightColor": "category-light-fashion",
     "darkColor": "category-dark-fashion",
     "keywords": [
@@ -24,6 +26,7 @@
   },
   {
     "name": "lifestyle",
+    "endpoint": "lifestyle",
     "lightColor": "category-light-lifestyle",
     "darkColor": "category-dark-lifestyle",
     "keywords": [
@@ -33,6 +36,7 @@
   },
   {
     "name": "social",
+    "endpoint": "social",
     "lightColor": "category-light-social",
     "darkColor": "category-dark-social",
     "keywords": [
@@ -41,6 +45,7 @@
   },
   {
     "name": "household",
+    "endpoint": "household",
     "lightColor": "category-light-household",
     "darkColor": "category-dark-household",
     "keywords": [
@@ -50,6 +55,7 @@
   },
   {
     "name": "beauty & wellness",
+    "endpoint": "beauty-wellness",
     "lightColor": "category-light-beauty",
     "darkColor": "category-dark-beauty",
     "keywords": [

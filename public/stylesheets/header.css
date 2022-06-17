@@ -27,7 +27,7 @@ header .btn {
   margin: 0 1rem;
 }
 
-#header-large .nav-link:not(.nav-btn):hover {
+#header-large .nav-link:not(.nav-btn):not(.active):hover {
   background-color: var(--green-light);
   text-decoration: underline;
   border-radius: 5px;
@@ -142,10 +142,15 @@ header .btn {
   margin: 0.5rem 0;
 }
 
-#header-mobile .nav-link:hover,
+#header-mobile .nav-link:not(.active):hover {
+  background-color: var(--green-medium-light);
+  text-decoration: underline;
+}
+
 #header-mobile .nav-link.active{
   background-color: var(--green-medium-light);
   text-decoration: underline;
+  font-size: 1.5rem;
 }
 
 #header-mobile .navbar-toggler {
@@ -166,11 +171,12 @@ header .btn {
   top: 1.2rem;
 }
 
-#navbarContent .horizontal-line {
+.horizontal-line {
   width: 100%;
+  background-color: var(--line);
 }
 
-#navbarContent .horizontal-line hr {
+.horizontal-line hr {
   margin: 0;
 }
 
