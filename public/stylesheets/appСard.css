@@ -1,15 +1,25 @@
-/* APP CARD */
+/* brand CARD */
 
-#app-card .card-body {
+#brand-card .card-body {
   margin-bottom: 1rem;
   cursor: pointer;
 }
 
-#app-card h2 {
-  font-size: 1.2rem;
+#brand-card {
+  padding-left: 0;
 }
 
-#app-card .app-logo {
+#brand-card li {
+  list-style-type: none;
+}
+
+#brand-card .brand-name {
+  color: black;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+#brand-card .brand-logo {
   flex: none;
   object-fit: cover;
   width: 100px;
@@ -18,16 +28,18 @@
   border-radius: 15px;
 }
 
-#app-card .app-slogan {
+#brand-card .brand-slogan {
   height: 65px;
-  max-height: 70px !important;
+  max-height: 70px;
   overflow: auto;
+  color: black;
 }
 
-
 @media (max-width: 768px){
-  #app-card .card-wrapper {
+  #brand-card .card-wrapper {
     padding: 0 1.5rem;
+    color: black;
+    text-decoration: none;
   }
 }
 
@@ -99,7 +111,7 @@
 
 
 #categories-title,
-#suggestedAppsHeader {
+#suggestedbrandsHeader {
   font-weight: 600;
   font-size: 1.2rem;
   margin-bottom: 2rem;
@@ -108,7 +120,7 @@
 
 @media (min-width: 768px) {
   #categories-title,
-  #suggestedAppsHeader {
+  #suggestedbrandsHeader {
     font-size: 1.8rem;
     margin-bottom: 2.5rem;
     margin-top: 2.5rem;

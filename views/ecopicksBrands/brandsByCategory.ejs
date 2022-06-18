@@ -1,9 +1,9 @@
 <div class="container mt-sm-4 mb-sm-4" id="brandsByCategory">
     <% if (results) { %>
         <% if (categoryName) {%>
-        <p class="total-results"><%= results.length %> brands for "<%= categoryName %>"</p>
+        <h1 class="total-results"><%= results.length %> brands for "<%= categoryName %>"</h1>
         <% } else {%>
-        <p class="total-results"><%= results.length %> results for all brands</p>
+        <h1 class="total-results"><%= results.length %> results for all brands</h1>
         <% } %>
     <% if (results.length > 0) { %>
             <%- include ('../components/brandCard') %>
