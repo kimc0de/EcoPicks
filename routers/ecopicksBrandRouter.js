@@ -15,6 +15,5 @@ router.delete("/brand/:id/delete", ecopicksBrandController.deleteEcopicksBrand);
 
 // route to details page
 router.get("/brand/:id", ecopicksBrandController.getDetailsPage);
-router.post("/brand/:id", ecopicksBrandController.saveBrand, ecopicksBrandController.getSavedBrands);
 
 module.exports = router;

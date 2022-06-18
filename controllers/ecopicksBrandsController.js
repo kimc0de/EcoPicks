@@ -113,9 +113,9 @@ module.exports = {
       res.render('ecopicksBrands/detailsPage',
         {
           id: id,
-          app: brand,
+          brand: brand,
           categoryClass: category.lightColor,
-          appImg: brand.image
+          brandImg: brand.image
         });
     } catch (error) {
       console.error(error);
@@ -123,38 +123,4 @@ module.exports = {
     }
   },
 
-  /**
-   * Save brand to saved collection
-   */
-  saveBrand: async (req, res, next) => {
-
-    redirectIfUnauthorized(req, res);
-
-    let userId = req.user._id;
-    let brandId = req.params.id;
-
-    try {
-      await User.findByIdAndUpdate(userId, {
-        $addToSet: { savedBrands: brandId }
-      });
-      res.redirect("back");
-    } catch (error) {
-      console.error(error);
-      respondNoResourceFound(req, res);
-    }
-
-    next();
-  },
-
-  /**
-   * Getting saved brands collection
-   */
-  getSavedBrands: async (req, res) => {
-    try {
-      req.data = await EcopicksBrands.find({ userId: req.user._id });
-    } catch (error) {
-      console.error(error);
-      respondNoResourceFound(req, res);
-    }
-  }
 }
