@@ -1,11 +1,15 @@
-#brandsByCategory .total-results {
-    font-weight: bold;
+#brandsByCategory h1.total-results {
+    font-size: 1.5rem;
     margin: 1rem 0;
-    padding: 1rem 0;
+    padding: 1rem;
+}
+
+#brandsByCategory a {
+    text-decoration: none;
 }
 
 @media (max-width: 768px) {
-    #brandsByCategory .total-results {
-        padding: 1rem 1rem;
+    #brandsByCategory h1.total-results {
+        padding: 1rem;
     }
 }

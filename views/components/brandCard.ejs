@@ -1,5 +1,5 @@
-<!-- App cards-->
-<div class="row" id="app-card">
+<!-- brand cards-->
+<ul class="row" id="brand-card">
     <% let getCategoryById = (categoryId) => {
         let result;
         categories.forEach(category => {
@@ -12,14 +12,18 @@
     <% results.forEach(brand => {
         let category = getCategoryById(brand.category._id);
     %>
-    <div class="col col-12 col-md-6 col-xl-4 card-wrapper" onclick="location.href='/brand/<%=brand._id%>';">
-        <div class="card-body <%= category.lightColor %> d-flex">
-            <img class="app-logo" src="<%= brand.image %>">
+    <li class="col col-12 col-md-6 col-xl-4 card-wrapper">
+        <div tabindex="0"
+             class="card-body <%= category.lightColor %> d-flex"
+             onclick="location.href='/brand/<%=brand._id%>';"
+             aria-label="brand card"
+             data-id="<%=brand._id%>">
+            <img class="brand-logo" src="<%= brand.image %>" alt="Logo of <%= brand.name %>">
             <div>
-                <h2><%= brand.name; %></h2>
-                <p class="app-slogan"><%= brand.slogan %></p>
+                <a href="/brand/<%=brand._id%>" class="brand-name" tabindex="-1" aria-label="Brand's name: <%= brand.name %>"><%= brand.name %></a>
+                <p class="brand-slogan"><%= brand.slogan %></p>
             </div>
         </div>
-    </div>
+    </li>
     <% })%>
-</div>
+</ul>
