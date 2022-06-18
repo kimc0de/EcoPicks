@@ -8,7 +8,6 @@
 }
 
 #search_button {
-    height: 3rem; /* match textField_input height */
     margin: 0.5rem 1rem;
     font-size: 1.2rem;
     border-radius: 5px;
@@ -22,7 +21,6 @@
 #search_bar {
     position: relative;
     display: flex;
-    width: 100%;
 }
 
 #clear_button {
@@ -57,5 +55,9 @@
     #total-results {
         font-size: 1.5rem;
         margin: 1rem 1rem;
+    }
+
+    #search_bar {
+        padding: 0;
     }
 }

@@ -51,6 +51,11 @@
   font-family: 'Roboto Mono', sans-serif !important;
 }
 
+#main {
+  padding-bottom: 3rem;
+  padding-top: 1rem;
+}
+
 body {
   height: 100%;
   width: 100%;

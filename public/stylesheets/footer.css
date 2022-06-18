@@ -4,7 +4,8 @@ footer {
     border-top: 1px solid var(--line);
     background-color: var(--green-medium-light);
     position: relative;
-    grid-area: footer;
+    bottom: 0;
+    left: 0;
 }
 
 #footer {
