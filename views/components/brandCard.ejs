@@ -13,10 +13,14 @@
         let category = getCategoryById(brand.category._id);
     %>
     <li class="col col-12 col-md-6 col-xl-4 card-wrapper">
-        <div tabindex="0" class="card-body <%= category.lightColor %> d-flex" onclick="location.href='/brand/<%=brand._id%>';" aria-label="brand card">
+        <div tabindex="0"
+             class="card-body <%= category.lightColor %> d-flex"
+             onclick="location.href='/brand/<%=brand._id%>';"
+             aria-label="brand card"
+             data-id="<%=brand._id%>">
             <img class="brand-logo" src="<%= brand.image %>" alt="Logo of <%= brand.name %>">
             <div>
-                <a href="/brand/<%=brand._id%>" class="brand-name" aria-label="Brand's name: <%= brand.name %>"><%= brand.name %></a>
+                <a href="/brand/<%=brand._id%>" class="brand-name" tabindex="-1" aria-label="Brand's name: <%= brand.name %>"><%= brand.name %></a>
                 <p class="brand-slogan"><%= brand.slogan %></p>
             </div>
         </div>
