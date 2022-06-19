@@ -8,7 +8,7 @@ $("#save-button").click((event => {
     if (!isSaved) {
         $.get(`/api/brand/${brandId}/save`, (results = {}) =>{ // make AJAX request with the brand ID to save
             if(results.data && results.data.success) {
-                $("#save-button span").text("Saved");
+                $("#save-button span").text("Unsave");
                 $("#save-button").addClass("saved");
             } else {
                 alert(`Please log in to save brand.`);

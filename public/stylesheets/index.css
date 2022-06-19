@@ -96,6 +96,12 @@ input:focus-visible {
 
 /* Overwrite Bootstrap styles */
 
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
 .btn-primary {
   background-color: var(--button-primary) !important;
   border-color: var(--button-primary) !important;
