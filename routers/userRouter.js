@@ -3,7 +3,7 @@ const userMessage = require('../controllers/userMessageController');
 const router = require('express').Router();
 
 // Profile
-router.get("/user", userController.getAllApps, userController.renderProfile);
+router.get("/user", userController.renderProfile);
 
 // Register
 router.get("/registration", userController.renderRegister);

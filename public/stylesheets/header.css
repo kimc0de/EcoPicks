@@ -34,6 +34,11 @@ header .btn {
   transform: scale(1.2);
 }
 
+#header-top a.btn:hover{
+  text-decoration: underline;
+  transform: scale(1.2);
+}
+
 #header-top {
   margin: 0 1rem;
   padding: 1rem;

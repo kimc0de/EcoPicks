@@ -74,10 +74,18 @@
   margin-top: 3.5vh;
 }
 
-#profile-page .app-card-button {
-  color: var(--food-dark);
-  font-size: 0.8rem;
-  padding-right: 15px;
+#profile-page .unsave-button:hover {
+  transform: scale(1.2);
+}
+
+#profile-page .unsave-button > svg {
+  stroke: var(--text-primary);
+  fill: var(--text-primary);
+}
+
+#profile-page .unsave-button:hover > svg {
+  stroke: white;
+  fill: white;
 }
 
 @media (max-width: 576px) {

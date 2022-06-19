@@ -4,10 +4,6 @@
     padding: 1rem;
 }
 
-#brandsByCategory a {
-    text-decoration: none;
-}
-
 @media (max-width: 768px) {
     #brandsByCategory h1.total-results {
         padding: 1rem;
