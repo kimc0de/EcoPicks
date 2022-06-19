@@ -12,7 +12,7 @@
     <% savedBrands.forEach(brand => {
         let category = getCategoryById(brand.category._id);
     %>
-    <li class="col col-12 col-md-6 col-xl-4 card-wrapper">
+    <li class="col col-12 col-md-6 card-wrapper">
         <div tabindex="0"
              class="card-body <%= category.lightColor %> d-flex"
              onclick="location.href='/brand/<%=brand._id%>';"
@@ -24,9 +24,8 @@
                 <p class="brand-slogan"><%= brand.slogan %></p>
                 <div class="row justify-content-between mx-0">
                     <div class="d-flex flex-row" >
-                        <a class="app-card-button" href="<%= `/brand/${brand._id}/delete?_method=DELETE` %>"
-                           onclick="return confirm('Are you sure you want to delete this brand?')">
-                            Remove
+                        <a class="app-card-button" href="<%= `/api/brand/${brand._id}/remove` %>">
+                            Unsave
                         </a>
                     </div>
                 </div>

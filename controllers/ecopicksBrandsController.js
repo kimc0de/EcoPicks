@@ -110,13 +110,28 @@ module.exports = {
       const brand = await EcopicksBrands.findById(id);
       const category = await Category.findById(brand.category);
 
-      res.render('ecopicksBrands/detailsPage',
-        {
-          id: id,
-          brand: brand,
-          categoryClass: category.lightColor,
-          brandImg: brand.image
-        });
+      if (req.user) {
+        let userSavedBrands = req.user.savedBrands;
+        let isSaved = userSavedBrands.includes(brand._id);
+
+        res.render('ecopicksBrands/detailsPage',
+            {
+              id: id,
+              brand: brand,
+              categoryClass: category.lightColor,
+              brandImg: brand.image,
+              isSaved: isSaved,
+            });
+      } else {
+        res.render('ecopicksBrands/detailsPage',
+            {
+              id: id,
+              brand: brand,
+              categoryClass: category.lightColor,
+              brandImg: brand.image,
+              isSaved: false,
+            });
+      }
     } catch (error) {
       console.error(error);
       respondNoResourceFound(req, res);

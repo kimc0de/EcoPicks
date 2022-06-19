@@ -10,7 +10,7 @@ router.post("/user/add", upload.single('image'), ecopicksBrandController.addNewB
 router.get("/brand/:id/edit", ecopicksBrandController.renderNewBrand);
 router.put("/brand/:id/edit", ecopicksBrandController.editEcopicksBrand);
 
-// route to delete app page
+// route to delete app page @TODO: remove this route
 router.delete("/brand/:id/delete", ecopicksBrandController.deleteEcopicksBrand);
 
 // route to details page

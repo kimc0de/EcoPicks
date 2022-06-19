@@ -5,36 +5,22 @@ const passport = require("passport");
 const EcopicksBrands = require("../models/ecopicksBrand");
 
 module.exports = {
-  getAllApps: async (req, res, next) => {
+  renderProfile: async (req, res, next) => {
     redirectIfUnauthorized(req, res);
 
     try {
-      let apps = await EcopicksBrands.find({ userId: req.user._id });
-      req.data = apps;
-      console.log(req.data);
-    } catch (error) {
-      console.error(error);
-      respondNoResourceFound(req, res);
-    }
-    next();
-  },
-
-  renderProfile: async (req, res, next) => {
-    // redirectIfUnauthorized(req, res);
-
-    let userId = req.user._id;
-
-    try {
+      let userId = req.user._id;
       const user = await User.findById(userId);
       res.render("user/profile", {
         user: user,
         categories: await Category.find({}),
         data: req.data,
-        savedBrands: await EcopicksBrands.find({ savedBy: req.user._id }),
+        savedBrands: await EcopicksBrands.find({ savedBy: userId }),
       });
+      next();
     } catch (error) {
-      console.log(`Error :${error.message}`);
-      next(error);
+        console.log(`Error :${error.message}`);
+        next(error);
     }
   },
 
