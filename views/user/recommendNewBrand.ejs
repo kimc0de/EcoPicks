@@ -1,24 +1,20 @@
-<form action="/user/add" method="post">
+<form action="/user/recommendation" method="post">
     <div id="new-app" class="container">
+        <h1 class="title-div">Recommend a sustainable brand</h1>
+
         <section>
-            <div class="row justify-content-center align-items-center">
-                <h1 class="title-div">Recommend a sustainable brand</h1>
-            </div>
+            <label for="brand-name" class="form-group question-field">Name of the brand </label>
+            <input class="form-control" type="text" id="brand-name" name="brandName" placeholder="...type here" required>
         </section>
 
         <section>
-            <label class="form-group question-field">Name of the application or brand: </label>
-            <input class="form-control" type="text" name="name" placeholder="...type here" required="true">
-        </section>
-
-        <section>
-            <label class="form-group question-field">Website</label>
-            <input class="form-control" type="text" name="website" placeholder="...type here" required="true">
+            <label for="brand-website" class="form-group question-field">Brand's website</label>
+            <input class="form-control" type="text" id="brand-website" name="website" placeholder="...type here" required>
         </section>
 
         <section id="app-description">
-            <h3 class="form-group question-field">What else do you know about this brand? </h3>
-            <textarea class="form-control" name="description" placeholder="...type here" rows="4"></textarea>
+            <label for="brand-description" class="form-group question-field">What else do you know about this brand? </label>
+            <textarea class="form-control" id="brand-description" name="description" placeholder="...type here" rows="4"></textarea>
         </section>
 
         <section id="complete-submit" class="row justify-content-between no-gutters">

@@ -2,7 +2,8 @@ const User = require("../models/user");
 const Category = require("../models/category");
 const { respondNoResourceFound, redirectIfUnauthorized } = require("./errorController");
 const passport = require("passport");
-const EcopicksBrands = require("../models/ecopicksBrand");
+const EcopicksBrand = require("../models/ecopicksBrand");
+const RecommendedBrand = require("../models/recommendedBrand");
 
 module.exports = {
   renderProfile: async (req, res, next) => {
@@ -15,7 +16,8 @@ module.exports = {
         user: user,
         categories: await Category.find({}),
         data: req.data,
-        savedBrands: await EcopicksBrands.find({ savedBy: userId }),
+        savedBrands: await EcopicksBrand.find({ savedBy: userId }),
+        recommenedBrands: res.locals.recommendedBrands,
       });
       next();
     } catch (error) {
@@ -135,5 +137,45 @@ module.exports = {
     let redirectPath = res.locals.redirect;
     if (redirectPath) res.redirect(redirectPath);
     else next();
-  }
+  },
+
+  renderRecommendPage: (req, res) => {
+    redirectIfUnauthorized(req, res);
+    res.render("user/recommendNewBrand");
+  },
+
+  saveUserRecommendation: async (req, res) => {
+    redirectIfUnauthorized(req, res);
+
+    try {
+      let currentUser = req.user;
+      let newRecommendation = new RecommendedBrand({
+        brandName: req.body.brandName,
+        website: req.body.website,
+        description: req.body.description || "",
+        userId: currentUser._id,
+        approved: false,
+      });
+
+      await newRecommendation.save();
+      await  User.findByIdAndUpdate(currentUser._id, {
+          $addToSet: {recommendedBrands: newRecommendation._id}
+        }).then (() => {
+        res.render("ecopicksBrands/confirmation");
+      })
+    } catch (error) {
+      respondNoResourceFound(req, res);
+    }
+  },
+
+  getAllRecommendedBrands: async (req, res, next) => {
+    redirectIfUnauthorized(req, res);
+
+    try {
+      res.locals.recommendedBrands = await RecommendedBrand.find({ userId: req.user._id });
+      next();
+    } catch (error) {
+      respondNoResourceFound(req, res);
+    }
+  },
 };

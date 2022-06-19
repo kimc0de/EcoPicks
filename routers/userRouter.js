@@ -3,7 +3,7 @@ const userMessage = require('../controllers/userMessageController');
 const router = require('express').Router();
 
 // Profile
-router.get("/user", userController.renderProfile);
+router.get("/user", userController.getAllRecommendedBrands, userController.renderProfile);
 
 // Register
 router.get("/registration", userController.renderRegister);
@@ -22,5 +22,9 @@ router.put("/user/update", userController.update, userController.redirectView);
 
 // Send message
 router.post("/user/contact", userMessage.sendNewMessage);
+
+// Send recommendation
+router.get("/user/recommendation", userController.renderRecommendPage);
+router.post("/user/recommendation", userController.saveUserRecommendation)
 
 module.exports = router;

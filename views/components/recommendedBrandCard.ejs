@@ -1,0 +1,14 @@
+<!-- User's recommended brand cards showing on the profile page-->
+<ul class="row" id="recommended-brand-card">
+    <% if(recommendedBrands) { recommendedBrands.forEach(brand => { %>
+    <li class="col col-12 col-md-6 col-xl-4 card-wrapper">
+        <div tabindex="0" class="card-body" aria-label="Recommend brand card">
+            <div class="position-relative">
+                <h1 class="brand-name" aria-label="Brand's name: <%= brand.brandName %>"><%= brand.brandName %></h1>
+                <a class="" href="<%=brand.website%>"><%=brand.website%></a>
+                <p>This brand is in review.</p>
+            </div>
+        </div>
+    </li>
+    <% })}%>
+</ul>
