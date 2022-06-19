@@ -1,0 +1,31 @@
+<form action="/user/add" method="post">
+    <div id="new-app" class="container">
+        <section>
+            <div class="row justify-content-center align-items-center">
+                <h1 class="title-div">Recommend a sustainable brand</h1>
+            </div>
+        </section>
+
+        <section>
+            <label class="form-group question-field">Name of the application or brand: </label>
+            <input class="form-control" type="text" name="name" placeholder="...type here" required="true">
+        </section>
+
+        <section>
+            <label class="form-group question-field">Website</label>
+            <input class="form-control" type="text" name="website" placeholder="...type here" required="true">
+        </section>
+
+        <section id="app-description">
+            <h3 class="form-group question-field">What else do you know about this brand? </h3>
+            <textarea class="form-control" name="description" placeholder="...type here" rows="4"></textarea>
+        </section>
+
+        <section id="complete-submit" class="row justify-content-between no-gutters">
+            <div class="col pl-0 mb-2">
+                <button id="complete-button" class="btn btn-lg btn-primary w-100" type="submit">Send</button>
+            </div>
+        </section>
+    </div>
+</form>
+
