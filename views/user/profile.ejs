@@ -17,8 +17,8 @@
   </div>
 
   <div class="d-flex flex-row toggle-container">
-    <button class="toggle-button active" data-list-id="your-apps">Your apps</button>
-    <button class="toggle-button" data-list-id="favourite-apps">Favourites</button>
+    <button class="toggle-button active" data-list-id="your-apps">My saved brands</button>
+    <button class="toggle-button" data-list-id="favourite-apps">My recommendations</button>
   </div>
 
   <div class="app-lists">
@@ -26,7 +26,7 @@
     <div id="your-apps" class="app-list active">
       <div class="d-flex flex-row justify-content-center">
         <p class="number-of-apps"><%= savedBrands.length %></p>
-        <p class="text-in-app-list">Wonderful! Those are sustainable apps that you have added.</p>
+        <p class="text-in-app-list">Wonderful! These are sustainable brands that you saved.</p>
       </div>
       <%- include ('../components/savedBrandCard') %>
 
@@ -35,7 +35,7 @@
     <div id="favourite-apps" class="app-list">
       <div class="d-flex flex-row justify-content-center">
         <p class="number-of-apps">0 </p>
-        <p class="text-in-app-list"> Fantastic! These are your favourite Ecopicks!</p>
+        <p class="text-in-app-list"> Fantastic! These are your recommendations to us!</p>
       </div>
     </div>
 
