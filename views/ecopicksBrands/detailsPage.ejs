@@ -15,22 +15,22 @@
     </p>
   </div>
   <div class="bottom-part d-flex justify-content-center">
-      <button id="website-button" class="btn btn-outline-primary m-3" onclick="location.href='<%=brand.website%>'">
-        <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <a id="website-button" class="btn btn-outline-primary m-3" onclick="location.href='<%=brand.website%>'">
+        <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path clip-rule="evenodd" d="M12.0002 1.33337C17.8873 1.33337 22.6668 6.11293 22.6668 12C22.6668 17.8872 17.8873 22.6667 12.0002 22.6667C6.11305 22.6667 1.3335 17.8872 1.3335 12C1.3335 6.11293 6.11305 1.33337 12.0002 1.33337ZM14.2731 15.5556H9.72639C10.2117 17.7423 11.0073 19.2125 12.0002 20.6614C13.0615 19.1138 13.8144 17.6303 14.2731 15.5556ZM7.91127 15.5556H3.85172C4.95038 18.0667 7.14416 19.9752 9.85616 20.6365C8.92461 19.096 8.27127 17.3849 7.91127 15.5556ZM20.1486 15.5556H16.0891C15.7415 17.3227 15.1157 19.0107 14.1557 20.6169C16.8331 19.9387 19.0597 18.0436 20.1486 15.5556ZM7.69972 10.2223H3.28905C3.05172 11.3894 3.05172 12.6089 3.28905 13.7778H7.65794C7.55216 12.5965 7.56816 11.4027 7.69972 10.2223ZM14.5095 10.2223H9.48994C9.34327 11.4009 9.3255 12.5974 9.44283 13.7778H14.5566C14.6748 12.5974 14.6553 11.4018 14.5095 10.2223V10.2223ZM20.7113 10.2223H16.2997C16.4313 11.4027 16.4473 12.5965 16.3424 13.7778H20.7113C20.9424 12.6356 20.9539 11.424 20.7113 10.2223V10.2223ZM9.90594 3.35204C7.17083 4.00271 4.9575 5.91737 3.85172 8.44449H7.98772C8.37439 6.62937 9.03483 4.90226 9.90594 3.35204ZM11.9993 3.30937C11.0313 4.88271 10.3015 6.37871 9.80994 8.44449H14.1895C13.7148 6.44804 13.0011 4.93515 11.9993 3.30937ZM14.1042 3.37071C15.0046 4.98137 15.6446 6.71293 16.0117 8.44449H20.1486C19.0535 5.94137 16.8046 4.03737 14.1042 3.37071Z"/>
         </svg>
         <span>Website</span>
-      </button>
+      </a>
     <%if (isSaved) { %>
       <button id="save-button" class="btn btn-outline-primary m-3 saved" data-id="<%=brand._id%>">
-        <svg data-id="<%=brand._id%>" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg aria-hidden="true" data-id="<%=brand._id%>" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path data-id="<%=brand._id%>" d="M6.01 5.00062V5C6.01 4.44575 6.4588 4 7 4H17C17.5477 4 18 4.45228 18 5V19.4835L12.3939 17.0809L12 16.912L11.6061 17.0809L6.00095 19.4831L6.01 5.00062Z"/>
         </svg>
         <span data-id="<%=brand._id%>">Unsave</span>
       </button>
       <%} else {%>
       <button id="save-button" class="btn btn-outline-primary m-3" data-id="<%=brand._id%>">
-        <svg data-id="<%=brand._id%>" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg aria-hidden="true" data-id="<%=brand._id%>" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path data-id="<%=brand._id%>" d="M6.01 5.00062V5C6.01 4.44575 6.4588 4 7 4H17C17.5477 4 18 4.45228 18 5V19.4835L12.3939 17.0809L12 16.912L11.6061 17.0809L6.00095 19.4831L6.01 5.00062Z"/>
         </svg>
         <span data-id="<%=brand._id%>">Save</span>
