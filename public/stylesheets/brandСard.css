@@ -13,10 +13,11 @@
   list-style-type: none;
 }
 
-#brand-card .brand-name {
+#brand-card a.brand-name {
   color: black;
   font-size: 1.2rem;
   font-weight: 600;
+  text-decoration: none;
 }
 
 #brand-card .brand-logo {
