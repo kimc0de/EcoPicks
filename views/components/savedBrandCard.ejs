@@ -12,25 +12,26 @@
     <% savedBrands.forEach(brand => {
         let category = getCategoryById(brand.category._id);
     %>
-    <li class="col col-12 col-md-6 card-wrapper">
-        <div tabindex="0"
-             class="card-body <%= category.lightColor %> d-flex"
-             onclick="location.href='/brand/<%=brand._id%>';"
-             aria-label="brand card"
-             data-id="<%=brand._id%>">
-            <img class="brand-logo" src="<%= brand.image %>" alt="Logo of <%= brand.name %>">
-            <div>
-                <a href="/brand/<%=brand._id%>" class="brand-name" tabindex="-1" aria-label="Brand's name: <%= brand.name %>"><%= brand.name %></a>
-                <p class="brand-slogan"><%= brand.slogan %></p>
-                <div class="row justify-content-between mx-0">
-                    <div class="d-flex flex-row" >
-                        <a class="app-card-button" href="<%= `/api/brand/${brand._id}/remove` %>">
-                            Unsave
-                        </a>
-                    </div>
+    <li class="col col-12 col-md-6 col-xl-4 card-wrapper">
+            <div tabindex="0"
+                 class="card-body <%= category.lightColor %> d-flex"
+                 onclick="location.href='/brand/<%=brand._id%>';"
+                 aria-label="brand card"
+                 data-id="<%=brand._id%>">
+                <img class="brand-logo" src="<%= brand.image %>" alt="Logo of <%= brand.name %>">
+                <div class="position-relative">
+                    <a href="/brand/<%=brand._id%>" class="brand-name" tabindex="-1" aria-label="Brand's name: <%= brand.name %>"><%= brand.name %></a>
+                    <p class="brand-slogan"><%= brand.slogan %></p>
+                    <a role="button" class="btn btn-outline-primary p-1 unsave-button saved"
+                       href="<%= `/api/brand/${brand._id}/remove` %>">
+                        <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17 3H7C5.9 3 5.01 3.9 5.01 5L5 21L12 18L19 21V5C19 3.9 18.1 3 17 3Z"/>
+                        </svg>
+                        <span>Unsave</span>
+                    </a>
                 </div>
             </div>
-        </div>
+
     </li>
     <% })%>
 </ul>

@@ -64,7 +64,7 @@ module.exports = {
             await User.findByIdAndUpdate(userId, {
                 $pull: { savedBrands: brand._id }
             }, { new: true });
-            req.flash("success", `Your Ecopicks "${brand.name}" has been removed from saved collection.`);
+            req.flash("success", `"${brand.name}" has been removed from saved collection.`);
             res.redirect('/user');
             next();
         } catch (error) {
