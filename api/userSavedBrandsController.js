@@ -68,7 +68,6 @@ module.exports = {
             res.redirect('/user');
             next();
         } catch (error) {
-            console.error(error);
             respondNoResourceFound(req, res);
         }
     },
