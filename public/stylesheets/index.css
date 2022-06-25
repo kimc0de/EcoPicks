@@ -101,6 +101,9 @@ input:focus-visible {
 }
 
 /* Overwrite Bootstrap styles */
+a {
+  color: var(--text-primary);
+}
 
 .btn {
   display: inline-flex;
