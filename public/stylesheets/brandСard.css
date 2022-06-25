@@ -1,6 +1,7 @@
 /* brand CARD */
 
 #brand-card .card-body {
+  position: relative;
   margin-bottom: 1rem;
   cursor: pointer;
 }
@@ -152,6 +153,11 @@
 
 #brand-card .recommended-card-wrapper {
   min-width: 25rem;
+}
+
+#brand-card .saved-icon {
+  position: absolute;
+  right: 1rem;
 }
 
 @media (min-width: 768px) {
