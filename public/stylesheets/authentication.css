@@ -1,5 +1,7 @@
 .auth-form {
   padding: 3rem 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .auth-form .page-title {
@@ -29,4 +31,17 @@
 
 .auth-form input {
   border-color: var(--button-primary);
+}
+
+.auth-form input[type=checkbox] {
+  border-color: var(--button-primary);
+  transform: scale(1.5);
+}
+
+#show-password {
+  margin: 0 0.5rem;
+}
+
+.auth-form .show-password-label{
+  align-self: flex-end;
 }
