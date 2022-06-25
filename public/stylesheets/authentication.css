@@ -46,6 +46,6 @@
 }
 
 /* Microsoft edge default reveal password button */
-.auth-form input[type=password] {
+.auth-form input[type=password]::-ms-reveal {
   display: none;
 }
