@@ -8,7 +8,9 @@ const RecommendedBrand = require("../models/recommendedBrand");
 module.exports = {
   renderProfile: async (req, res) => {
     redirectIfUnauthorized(req, res);
-
+    if (req.query.format === "json") {
+      res.json(res.locals.currentUser.savedBrands);
+    }
     try {
       let userId = req.user._id;
       const user = await User.findById(userId);
