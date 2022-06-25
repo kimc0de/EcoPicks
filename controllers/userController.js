@@ -187,15 +187,20 @@ module.exports = {
     try {
       let brandId = req.params.id;
       let deletedBrand = await RecommendedBrand.findById(brandId);
-      // Remove from user's recommended collection
-      await User.findByIdAndUpdate(deletedBrand.userId, {
-        $pull: {recommendedBrands: deletedBrand._id}
-      }, {new: true});
-      // Keep the recommendation but only remove userId
-      await RecommendedBrand.findByIdAndUpdate(brandId,
-        {userId: null}, {new: true});
-      req.flash("success", `Your recommended brand has been deleted.`);
-      res.redirect("/user");
+      if(!deletedBrand.approved) {
+        // Remove from user's recommended collection
+        await User.findByIdAndUpdate(deletedBrand.userId, {
+          $pull: {recommendedBrands: deletedBrand._id}
+        }, {new: true});
+        // Keep the recommendation but only remove userId
+        await RecommendedBrand.findByIdAndUpdate(brandId,
+          {userId: null}, {new: true});
+        req.flash("success", `Your recommended brand has been deleted.`);
+        res.redirect("/user");
+      } else {
+          req.flash("error", `Please do not delete Ecopicks approved brand`);
+          res.redirect("/user");
+      }
     } catch (error) {
         console.log(error);
         respondNoResourceFound(req, res);
