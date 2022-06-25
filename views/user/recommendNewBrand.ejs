@@ -1,15 +1,15 @@
 <form action="/user/recommendation" method="post" class="container col-12 col-md-8">
     <div id="recommendation-page" class="container">
         <h1 class="page-title">Recommend a sustainable brand</h1>
-        <p id="required-instruction">All fields marked with * are required</p>
+        <p id="required-instruction">All fields marked with <span class="asterisk"> *</span> are required</p>
         <section>
-            <label for="brand-name" class="form-group question-field">Brand's name *</label>
-            <input class="form-control" type="text" id="brand-name" name="brandName" required>
+            <label for="brand-name" class="form-group question-field">Brand's name <span aria-hidden="true" class="asterisk"> *</span></label>
+            <input class="form-control" type="text" id="brand-name" name="brandName" aria-required="true">
         </section>
 
         <section>
-            <label for="brand-website" class="form-group question-field">Brand's website or social media link *</label>
-            <input class="form-control" type="text" id="brand-website" name="website" required>
+            <label for="brand-website" class="form-group question-field">Brand's website or social media link <span aria-hidden="true" class="asterisk"> *</span></label>
+            <input class="form-control" type="text" id="brand-website" name="website" aria-required="true">
         </section>
 
         <section id="app-description">
