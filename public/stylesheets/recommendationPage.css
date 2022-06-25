@@ -15,6 +15,7 @@
 
 #required-instruction{
     color: var(--text-primary);
+    margin: 1rem 0;
 }
 
 #recommendation-page input,
