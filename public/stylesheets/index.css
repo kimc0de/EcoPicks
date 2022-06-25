@@ -2,6 +2,7 @@
   --header-height: 125px;
   --header-mini: 100px;
 
+  --asterisk : #98221E;
   --button-primary: #5E7966;
   --button-hover: #425A49;
 
@@ -73,6 +74,10 @@ body {
 main {
   padding-bottom: 2rem;
   z-index: var(--main-z-index);
+}
+
+.asterisk {
+  color: var(--asterisk);
 }
 
 form > * {
