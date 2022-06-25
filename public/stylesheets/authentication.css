@@ -34,7 +34,6 @@
 }
 
 .auth-form input[type=checkbox] {
-  border-color: var(--button-primary);
   transform: scale(1.5);
 }
 
@@ -44,4 +43,9 @@
 
 .auth-form .show-password-label{
   align-self: flex-end;
+}
+
+/* Microsoft edge default reveal password button */
+.auth-form input[type=password] {
+  display: none;
 }
