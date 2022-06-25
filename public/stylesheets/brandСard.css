@@ -124,17 +124,14 @@
   margin-top: 2rem;
 }
 
-#recommended-brand-card li {
-  list-style-type: none;
-}
-
-#recommended-brand-card .card-body {
+#brand-card .recommended-card-body {
   border-radius: 15px;
   border: 1px solid var(--text-primary);
-  min-width: 20rem;
+  margin-bottom: 1rem;
+  padding: 1rem 1.5rem;
 }
 
-#recommended-brand-card .brand-name {
+#brand-card .recommended-brand-name {
   font-size: 1.2rem;
 }
 

@@ -1,12 +1,16 @@
 <!-- User's recommended brand cards showing on the profile page-->
-<ul class="row" id="recommended-brand-card">
+<ul class="row recommened-brand-card" id="brand-card">
     <% if(recommendedBrands) { recommendedBrands.forEach(brand => { %>
-    <li class="col col-12 col-md-6 col-xl-4 card-wrapper">
-        <div tabindex="0" class="card-body" aria-label="Recommend brand card">
+    <li class="col col-12 col-md-6 recommended-card-wrapper">
+        <div tabindex="0" class="recommended-card-body" aria-label="Recommend brand card">
             <div class="position-relative">
-                <h1 class="brand-name" aria-label="Brand's name: <%= brand.brandName %>"><%= brand.brandName %></h1>
+                <h1 class="recommended-brand-name" aria-label="Brand's name: <%= brand.brandName %>"><%= brand.brandName %></h1>
                 <a class="" href="<%=brand.website%>"><%=brand.website%></a>
-                <p>This brand is in review.</p>
+                <p class="pt-2">This brand is under review.</p>
+                <a role="button" href="/user/recommendation/<%= brand._id%>/delete?_method=DELETE"
+                   onclick="return confirm('Are you sure you want to delete this recommendation?')">
+                    Delete
+                </a>
             </div>
         </div>
     </li>

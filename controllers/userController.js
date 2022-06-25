@@ -6,7 +6,7 @@ const EcopicksBrand = require("../models/ecopicksBrand");
 const RecommendedBrand = require("../models/recommendedBrand");
 
 module.exports = {
-  renderProfile: async (req, res, next) => {
+  renderProfile: async (req, res) => {
     redirectIfUnauthorized(req, res);
 
     try {
@@ -17,12 +17,11 @@ module.exports = {
         categories: await Category.find({}),
         data: req.data,
         savedBrands: await EcopicksBrand.find({ savedBy: userId }),
-        recommenedBrands: res.locals.recommendedBrands,
+        recommendedBrands: res.locals.recommendedBrands,
       });
-      next();
     } catch (error) {
         console.log(`Error :${error.message}`);
-        next(error);
+        respondNoResourceFound(req, res)
     }
   },
 
@@ -178,4 +177,28 @@ module.exports = {
       respondNoResourceFound(req, res);
     }
   },
+
+  /**
+   * Delete recommended brand
+   */
+  deleteRecommendedBrand: async (req, res) => {
+    redirectIfUnauthorized(req, res);
+
+    try {
+      let brandId = req.params.id;
+      let deletedBrand = await RecommendedBrand.findById(brandId);
+      // Remove from user's recommended collection
+      await User.findByIdAndUpdate(deletedBrand.userId, {
+        $pull: {recommendedBrands: deletedBrand._id}
+      }, {new: true});
+      // Keep the recommendation but only remove userId
+      await RecommendedBrand.findByIdAndUpdate(brandId,
+        {userId: null}, {new: true});
+      req.flash("success", `Your recommended brand has been deleted.`);
+      res.redirect("/user");
+    } catch (error) {
+        console.log(error);
+        respondNoResourceFound(req, res);
+      };
+  }
 };

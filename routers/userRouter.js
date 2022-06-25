@@ -26,5 +26,6 @@ router.post("/user/contact", userMessage.sendNewMessage);
 // Send recommendation
 router.get("/user/recommendation", userController.renderRecommendPage);
 router.post("/user/recommendation", userController.saveUserRecommendation)
+router.delete("/user/recommendation/:id/delete", userController.deleteRecommendedBrand)
 
 module.exports = router;
