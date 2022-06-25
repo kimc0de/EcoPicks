@@ -1,6 +1,7 @@
 #search h1 {
     margin: 1.5rem auto auto;
     color: var(--text-primary);
+    font-size: 2rem;
 }
 
 #search_section {
