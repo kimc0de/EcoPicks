@@ -1,16 +1,33 @@
 <!-- User's recommended brand cards showing on the profile page-->
 <ul class="row recommened-brand-card" id="brand-card">
     <% if(recommendedBrands) { recommendedBrands.forEach(brand => { %>
-    <li class="col col-12 col-md-6 recommended-card-wrapper">
+    <li class="col col-12 col-lg-6 recommended-card-wrapper">
         <div tabindex="0" class="recommended-card-body" aria-label="Recommend brand card">
-            <div class="position-relative">
-                <h1 class="recommended-brand-name" aria-label="Brand's name: <%= brand.brandName %>"><%= brand.brandName %></h1>
-                <a class="" href="<%=brand.website%>"><%=brand.website%></a>
-                <p class="pt-2">This brand is under review.</p>
-                <a role="button" href="/user/recommendation/<%= brand._id%>/delete?_method=DELETE"
-                   onclick="return confirm('Are you sure you want to delete this recommendation?')">
-                    Delete
-                </a>
+            <div class="position-relative row">
+                <%if (!brand.approved) { %>
+                <div class="col-8">
+                    <div class="recommended-brand-name"><%= brand.brandName %></div>
+                    <a class="recommended-link" href="<%=brand.website%>"><%=brand.website%></a>
+                    <div class="pt-2">This brand is under review</div>
+                </div>
+                <div class="col-4 delete-button" >
+                    <a class="btn btn-outline-primary" role="button" href="/user/recommendation/<%= brand._id%>/delete?_method=DELETE"
+                       onclick="return confirm('Are you sure you want to delete this recommendation?')">
+                        Delete
+                    </a>
+                </div>
+                <% } else { %>
+                <div class="col-8">
+                    <div class="recommended-brand-name" aria-label="Brand's name: <%= brand.brandName %>"><%= brand.brandName %></div>
+                    <div class="pt-2">This brand is approved</div>
+                    <a class="pt-2 recommended-link" href="#">See this brand on Ecopicks</a>
+                </div>
+                <div class="col-4 approve-icon">
+                    <svg  width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M24 4C12.96 4 4 12.96 4 24C4 35.04 12.96 44 24 44C35.04 44 44 35.04 44 24C44 12.96 35.04 4 24 4ZM20 34L10 24L12.82 21.18L20 28.34L35.18 13.16L38 16L20 34Z" fill="#0D4813"/>
+                    </svg>
+                </div>
+                <% } %>
             </div>
         </div>
     </li>

@@ -133,6 +133,25 @@
 
 #brand-card .recommended-brand-name {
   font-size: 1.2rem;
+  font-weight: bold;
+}
+
+#brand-card .recommended-link{
+  color: var(--text-primary);
+}
+
+#brand-card .approve-icon,
+#brand-card .delete-button {
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  right: 0;
+  bottom: 0;
+  align-items: center;
+}
+
+#brand-card .recommended-card-wrapper {
+  min-width: 25rem;
 }
 
 @media (min-width: 768px) {
