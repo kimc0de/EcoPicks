@@ -4,7 +4,7 @@ const {
     redirectIfUnauthorized,
     respondNoResourceFound
 } = require("../controllers/errorController");
-const EcopicksBrands = require("../models/ecopicksBrand");
+const EcopicksBrand = require("../models/ecopicksBrand");
 const User = require("../models/user");
 
 module.exports = {
@@ -12,8 +12,7 @@ module.exports = {
   getAllSavedBrands: (req, res, next) => {
       redirectIfUnauthorized(req, res);
         try {
-            let savedBrands = req.user.savedBrands;
-            res.locals.savedBrands = savedBrands;
+            res.locals.savedBrands = req.user.savedBrands;
             next();
         } catch (error) {
             respondNoResourceFound(req, res);
@@ -38,7 +37,7 @@ module.exports = {
              .catch((error) => {
                  next(error);
              });
-         EcopicksBrands.findByIdAndUpdate(brandId, {
+         EcopicksBrand.findByIdAndUpdate(brandId, {
              $addToSet: {savedBy: currentUser._id}
          })
              .then(() => {
@@ -58,7 +57,7 @@ module.exports = {
         try {
             let userId = req.user._id
             let brandId = req.params.id;
-            let brand = await EcopicksBrands.findByIdAndUpdate(brandId,{
+            let brand = await EcopicksBrand.findByIdAndUpdate(brandId,{
                 $pull: {savedBy: userId}
             }, { new: true });
             await User.findByIdAndUpdate(userId, {

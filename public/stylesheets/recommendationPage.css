@@ -1,0 +1,67 @@
+#recommendation-page {
+    padding: 1rem;
+}
+
+#recommendation-page section {
+    margin: 2rem 0;
+}
+
+#recommendation-page .page-title {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin: 1rem;
+    text-align: center;
+}
+
+#required-instruction{
+    color: var(--text-primary);
+}
+
+#recommendation-page input,
+#recommendation-page textarea {
+    border-radius: 5px;
+    background: var(--input-primary);
+}
+
+#recommendation-page .question-field {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+#buttons-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#buttons-section button {
+    min-width: 45%;
+    margin: 0 1rem;
+}
+
+#cancel-button:hover,
+#send-button:hover {
+    font-size: 1.1rem;
+    text-decoration: underline;
+    transform: scale(1.1);
+}
+
+#cancel-button:hover {
+    background-color: white !important;
+    color: var(--text-primary) !important;
+}
+
+#send-button:hover {
+    background-color: var(--button-hover) !important;
+    border-color: var(--button-hover) !important;
+}
+
+@media (max-width: 576px) {
+    #recommendation-page .question-field {
+        font-size: inherit;
+    }
+
+    #recommendation-page .btn {
+        font-size: inherit;
+    }
+}

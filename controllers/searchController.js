@@ -1,7 +1,5 @@
-const EcopicksBrands = require("../models/ecopicksBrand");
+const EcopicksBrand = require("../models/ecopicksBrand");
 const Category = require("../models/category");
-const httpStatus = require("http-status-codes");
-const {respondNoResourceFound} = require("./errorController");
 
 module.exports = {
     renderSearchPage: async (req, res) => {
@@ -42,9 +40,7 @@ module.exports = {
                 });
 
                 // Get search results
-                const finalResults = await EcopicksBrands.find({$or: [...brandQueries, ...productQueries]});
-
-                res.locals.results = finalResults;
+                res.locals.results = await EcopicksBrand.find({$or: [...brandQueries, ...productQueries]});
                 res.locals.noResults = false;
 
             } catch (error) {

@@ -1,0 +1,26 @@
+<form action="/user/recommendation" method="post" class="container col-12 col-md-8">
+    <div id="recommendation-page" class="container">
+        <h1 class="page-title">Recommend a sustainable brand</h1>
+        <p id="required-instruction">All fields marked with * are required</p>
+        <section>
+            <label for="brand-name" class="form-group question-field">Brand's name *</label>
+            <input class="form-control" type="text" id="brand-name" name="brandName" required>
+        </section>
+
+        <section>
+            <label for="brand-website" class="form-group question-field">Brand's website or social media link *</label>
+            <input class="form-control" type="text" id="brand-website" name="website" required>
+        </section>
+
+        <section id="app-description">
+            <label for="brand-description" class="form-group question-field">What else do you know about this brand? </label>
+            <textarea class="form-control" id="brand-description" name="description" rows="4"></textarea>
+        </section>
+
+        <section id="buttons-section">
+            <button id="cancel-button" onclick="history.back()" class="btn btn-outline-primary" type="button" >Cancel</button>
+            <button id="send-button" class="btn btn-primary" type="submit">Send</button>
+        </section>
+    </div>
+</form>
+

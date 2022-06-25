@@ -2,10 +2,11 @@ const User = require("../models/user");
 const Category = require("../models/category");
 const { respondNoResourceFound, redirectIfUnauthorized } = require("./errorController");
 const passport = require("passport");
-const EcopicksBrands = require("../models/ecopicksBrand");
+const EcopicksBrand = require("../models/ecopicksBrand");
+const RecommendedBrand = require("../models/recommendedBrand");
 
 module.exports = {
-  renderProfile: async (req, res, next) => {
+  renderProfile: async (req, res) => {
     redirectIfUnauthorized(req, res);
 
     try {
@@ -15,12 +16,12 @@ module.exports = {
         user: user,
         categories: await Category.find({}),
         data: req.data,
-        savedBrands: await EcopicksBrands.find({ savedBy: userId }),
+        savedBrands: await EcopicksBrand.find({ savedBy: userId }),
+        recommendedBrands: res.locals.recommendedBrands,
       });
-      next();
     } catch (error) {
         console.log(`Error :${error.message}`);
-        next(error);
+        respondNoResourceFound(req, res)
     }
   },
 
@@ -135,5 +136,74 @@ module.exports = {
     let redirectPath = res.locals.redirect;
     if (redirectPath) res.redirect(redirectPath);
     else next();
+  },
+
+  renderRecommendPage: (req, res) => {
+    redirectIfUnauthorized(req, res);
+    res.render("user/recommendNewBrand");
+  },
+
+  saveUserRecommendation: async (req, res) => {
+    redirectIfUnauthorized(req, res);
+
+    try {
+      let currentUser = req.user;
+      let newRecommendation = new RecommendedBrand({
+        brandName: req.body.brandName,
+        website: req.body.website,
+        description: req.body.description || "",
+        userId: currentUser._id,
+        approved: false,
+      });
+
+      await newRecommendation.save();
+      await  User.findByIdAndUpdate(currentUser._id, {
+          $addToSet: {recommendedBrands: newRecommendation._id}
+        }).then (() => {
+        res.render("ecopicksBrands/confirmation");
+      })
+    } catch (error) {
+      respondNoResourceFound(req, res);
+    }
+  },
+
+  getAllRecommendedBrands: async (req, res, next) => {
+    redirectIfUnauthorized(req, res);
+
+    try {
+      res.locals.recommendedBrands = await RecommendedBrand.find({ userId: req.user._id });
+      next();
+    } catch (error) {
+      respondNoResourceFound(req, res);
+    }
+  },
+
+  /**
+   * Delete recommended brand
+   */
+  deleteRecommendedBrand: async (req, res) => {
+    redirectIfUnauthorized(req, res);
+
+    try {
+      let brandId = req.params.id;
+      let deletedBrand = await RecommendedBrand.findById(brandId);
+      if(!deletedBrand.approved) {
+        // Remove from user's recommended collection
+        await User.findByIdAndUpdate(deletedBrand.userId, {
+          $pull: {recommendedBrands: deletedBrand._id}
+        }, {new: true});
+        // Keep the recommendation but only remove userId
+        await RecommendedBrand.findByIdAndUpdate(brandId,
+          {userId: null}, {new: true});
+        req.flash("success", `Your recommended brand has been deleted.`);
+        res.redirect("/user");
+      } else {
+          req.flash("error", `Please do not delete Ecopicks approved brand`);
+          res.redirect("/user");
+      }
+    } catch (error) {
+        console.log(error);
+        respondNoResourceFound(req, res);
+      };
   }
 };

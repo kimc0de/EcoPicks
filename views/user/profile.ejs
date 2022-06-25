@@ -34,9 +34,10 @@
 
     <div id="favourite-apps" class="app-list">
       <div class="d-flex flex-row justify-content-center">
-        <p class="number-of-apps">0 </p>
+        <p class="number-of-apps"><%=recommendedBrands.length %></p>
         <p class="text-in-app-list"> Fantastic! These are your recommendations to us!</p>
       </div>
+      <%- include ('../components/recommendedBrandCard') %>
     </div>
 
   </div>

@@ -1,4 +1,4 @@
-const EcopicksBrands = require("../models/ecopicksBrand");
+const EcopicksBrand = require("../models/ecopicksBrand");
 const User = require("../models/user");
 const { respondNoResourceFound, redirectIfUnauthorized } = require("./errorController");
 const Category = require("../models/category");
@@ -13,7 +13,7 @@ module.exports = {
 
     if (editBrandId) {
       try {
-        editBrand = await EcopicksBrands.findById(editBrandId);
+        editBrand = await EcopicksBrand.findById(editBrandId);
       } catch (error) {
         console.error(error);
         respondNoResourceFound(req, res);
@@ -36,7 +36,7 @@ module.exports = {
     }
 
     try {
-      let newBrand = new EcopicksBrands({
+      let newBrand = new EcopicksBrand({
         category: req.body.category,
         name: req.body.name,
         website: req.body.website,
@@ -71,7 +71,7 @@ module.exports = {
     };
 
     try {
-      const brand = await EcopicksBrands.findByIdAndUpdate(appId, {
+      const brand = await EcopicksBrand.findByIdAndUpdate(appId, {
         $set: appParams
       }, { new: true });
       res.render("ecopicksBrands/confirmation", { app: brand });
@@ -88,8 +88,8 @@ module.exports = {
     let brandId = req.params.id;
 
     try {
-      let brand = await EcopicksBrands.findByIdAndRemove(brandId);
-      let user = await User.findByIdAndUpdate(brand.userId, {
+      let brand = await EcopicksBrand.findByIdAndRemove(brandId);
+      await User.findByIdAndUpdate(brand.userId, {
         $pull: { recommendedBrands: brand._id }
       }, { new: true });
       req.flash("success", `Your Ecopicks "${brand.name}" has been deleted.`);
@@ -107,7 +107,7 @@ module.exports = {
   getDetailsPage: async (req, res) => {
     let id = req.params.id;
     try {
-      const brand = await EcopicksBrands.findById(id);
+      const brand = await EcopicksBrand.findById(id);
       const category = await Category.findById(brand.category);
 
       if (req.user) {
