@@ -1,26 +1,25 @@
-<form action="/user/recommendation" method="post">
-    <div id="new-app" class="container">
-        <h1 class="title-div">Recommend a sustainable brand</h1>
-
+<form action="/user/recommendation" method="post" class="container col-12 col-md-8">
+    <div id="recommendation-page" class="container">
+        <h1 class="page-title">Recommend a sustainable brand</h1>
+        <p id="required-instruction">All fields marked with * are required</p>
         <section>
-            <label for="brand-name" class="form-group question-field">Name of the brand </label>
-            <input class="form-control" type="text" id="brand-name" name="brandName" placeholder="...type here" required>
+            <label for="brand-name" class="form-group question-field">Brand's name *</label>
+            <input class="form-control" type="text" id="brand-name" name="brandName" required>
         </section>
 
         <section>
-            <label for="brand-website" class="form-group question-field">Brand's website</label>
-            <input class="form-control" type="text" id="brand-website" name="website" placeholder="...type here" required>
+            <label for="brand-website" class="form-group question-field">Brand's website or social media link *</label>
+            <input class="form-control" type="text" id="brand-website" name="website" required>
         </section>
 
         <section id="app-description">
             <label for="brand-description" class="form-group question-field">What else do you know about this brand? </label>
-            <textarea class="form-control" id="brand-description" name="description" placeholder="...type here" rows="4"></textarea>
+            <textarea class="form-control" id="brand-description" name="description" rows="4"></textarea>
         </section>
 
-        <section id="complete-submit" class="row justify-content-between no-gutters">
-            <div class="col pl-0 mb-2">
-                <button id="complete-button" class="btn btn-lg btn-primary w-100" type="submit">Send</button>
-            </div>
+        <section id="buttons-section">
+            <button id="cancel-button" onclick="history.back()" class="btn btn-outline-primary" type="button" >Cancel</button>
+            <button id="send-button" class="btn btn-primary" type="submit">Send</button>
         </section>
     </div>
 </form>
