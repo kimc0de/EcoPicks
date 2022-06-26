@@ -1,7 +1,7 @@
 <!-- User's recommended brand cards showing on the profile page-->
 <ul class="row recommened-brand-card" id="brand-card">
     <% if(recommendedBrands) { recommendedBrands.forEach(brand => { %>
-    <li class="col col-12 col-lg-6 recommended-card-wrapper">
+    <li class="col col-12 col-md-6 recommended-card-wrapper">
         <div tabindex="0" class="recommended-card-body" aria-label="Recommend brand card">
             <div class="position-relative row">
                 <%if (!brand.approved) { %>
@@ -10,17 +10,20 @@
                     <a class="recommended-link" href="<%=brand.website%>"><%=brand.website%></a>
                     <div class="pt-2">This brand is under review</div>
                 </div>
-                <div class="col-4 delete-button" >
-                    <a class="btn btn-outline-primary" role="button" href="/user/recommendation/<%= brand._id%>/delete?_method=DELETE"
+                <div class="col-4 delete-button">
+                    <a class="btn btn-outline-danger" role="button" href="/user/recommendation/<%= brand._id%>/delete?_method=DELETE"
                        onclick="return confirm('Are you sure you want to delete this recommendation?')">
-                        Delete
+                        <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 2L5 3H0V5H16V3H11L10 2H6ZM1 7V20C1 21.1 1.9 22 3 22H13C14.1 22 15 21.1 15 20V7H1ZM4 9H6V20H4V9ZM10 9H12V20H10V9Z"/>
+                        </svg>
+                        <span>Delete</span>
                     </a>
                 </div>
                 <% } else { %>
                 <div class="col-8">
                     <div class="recommended-brand-name" aria-label="Brand's name: <%= brand.brandName %>"><%= brand.brandName %></div>
-                    <div class="pt-2">This brand is approved</div>
                     <a class="pt-2 recommended-link" href="#">See this brand on Ecopicks</a>
+                    <div class="pt-2">This brand is approved</div>
                 </div>
                 <div class="col-4 approve-icon">
                     <svg  width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">

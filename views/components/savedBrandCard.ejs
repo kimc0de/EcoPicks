@@ -12,24 +12,24 @@
     <% savedBrands.forEach(brand => {
         let category = getCategoryById(brand.category._id);
     %>
-    <li class="col col-12 col-md-6 col-xl-4 card-wrapper">
+    <li class="col col-12 col-md-6 card-wrapper">
             <div tabindex="0"
-                 class="card-body <%= category.lightColor %> d-flex"
+                 class="card-body <%= category.lightColor %> d-flex position-relative"
                  onclick="location.href='/brand/<%=brand._id%>';"
                  aria-label="brand card"
                  data-id="<%=brand._id%>">
                 <img class="brand-logo" src="<%= brand.image %>" alt="Logo of <%= brand.name %>">
-                <div class="position-relative">
+                <div>
                     <a href="/brand/<%=brand._id%>" class="brand-name" tabindex="-1" aria-label="Brand's name: <%= brand.name %>"><%= brand.name %></a>
                     <p class="brand-slogan"><%= brand.slogan %></p>
-                    <a role="button" class="btn btn-outline-primary p-1 unsave-button saved"
-                       href="<%= `/api/brand/${brand._id}/remove` %>">
-                        <svg aria-hidden="false" focusable="false" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M14.4524 1.66675H5.88097C4.93812 1.66675 4.17526 2.54175 4.17526 3.61119L4.16669 19.1667L10.1667 13.6667L16.1667 19.1667V3.61119C16.1667 2.54175 15.3953 1.66675 14.4524 1.66675Z"/>
-                        </svg>
-                        <span>Unsave</span>
-                    </a>
                 </div>
+                <a role="button" class="btn btn-outline-primary p-1 unsave-button saved"
+                   href="<%= `/api/brand/${brand._id}/remove` %>">
+                    <svg aria-hidden="false" focusable="false" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14.4524 1.66675H5.88097C4.93812 1.66675 4.17526 2.54175 4.17526 3.61119L4.16669 19.1667L10.1667 13.6667L16.1667 19.1667V3.61119C16.1667 2.54175 15.3953 1.66675 14.4524 1.66675Z"/>
+                    </svg>
+                    <span>Unsave</span>
+                </a>
             </div>
 
     </li>
