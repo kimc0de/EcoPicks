@@ -12,6 +12,7 @@
     margin: 0.5rem 1rem;
     font-size: 1.2rem;
     border-radius: 5px;
+    display: inline-block;
 }
 
 #search_field {

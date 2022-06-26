@@ -7,7 +7,7 @@
         <input id="search_field" class="textField_input" autocomplete="true"
                name="q" value="<%= query%>" type="search" placeholder="Search for a brand or a product">
         </div>
-        <button type="submit" id="search_button" class="btn btn-primary col-lg-2 col-md-4">
+        <button type="submit" id="search_button" class="btn btn-primary col-12 col-md-3 col-xl-2">
             <i aria-hidden="true" class="fas fa-search"></i>
             <span>Search</span>
         </button>
@@ -21,7 +21,7 @@
             <%- include ('../components/brandCard') %>
         <% } else { %>
             <p> Do you want to recommend a brand to us?
-                <span><a href="/user/add">Click here</a></span> to send your recommendation.
+                <span><a href="/user/recommendation">Click here</a></span> to send your recommendation.
             </p>
         <% } %>
     <% } %>
