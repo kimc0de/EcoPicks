@@ -115,23 +115,31 @@ module.exports = {
   },
 
   update: (req, res, next) => {
-    let userId = req.user._id,
-      userParams = {
+    let userId = req.user._id;
+    let userParams = {
         username: req.body.username,
         email: req.body.email
       };
-    User.findByIdAndUpdate(userId, {
-      $set: userParams
-    })
-      .then(() => {
-        res.locals.redirect = `/user/edit`;
-        req.flash("success", `Your changes have been saved!`);
-        next();
+    let emailExist = User.findOne({email: req.body.email});
+
+    if (emailExist && userParams.email !== req.user.email) { // prevent duplicate emails
+      req.flash('error', `The new email "${req.body.email}" is already associated with another account.`);
+      res.locals.redirect = `/user/edit`;
+      next();
+    } else {
+      User.findByIdAndUpdate(userId, {
+        $set: userParams
       })
-      .catch(error => {
-        console.log(`Error updating user by ID:${error.message}`);
-        next(error);
-      });
+        .then(() => {
+          res.locals.redirect = `/user/edit`;
+          req.flash("success", `Your changes have been saved!`);
+          next();
+        })
+        .catch(error => {
+          console.log(`Error updating user by ID:${error.message}`);
+          next(error);
+        });
+    }
   },
 
   redirectView: (req, res, next) => {
