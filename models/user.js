@@ -9,7 +9,7 @@ const mongoose = require("mongoose"),
   });
 
 userSchema.plugin(passportLocalMongoose, {
-    usernameField: "username"
+    usernameField: "email"
 });
 
 module.exports = mongoose.model("users", userSchema);
