@@ -59,6 +59,15 @@
   color: var(--text-dark);
 }
 
+#profile-page .edit-profile {
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+#profile-page .edit-profile:hover{
+  transform: scale(1.2);
+}
+
 #profile-page .edit-profile-link {
   font-size: 1.2rem;
   padding-left: 5px;

@@ -5,7 +5,7 @@
       <h1 class="user-name"><%= user.username %></h1>
     </div>
 
-    <div class="d-flex justify-content-center align-items-center">
+    <div class="d-flex justify-content-center align-items-center edit-profile">
       <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="12" cy="12" r="12" fill="#0D4813"/>
         <g clip-path="url(#clip0_77_168)">
@@ -21,16 +21,16 @@
     </div>
 
     <div class="d-flex flex-row profile-summary">
-      <div class="summary-background" id="number-of-saved-brands" aria-label="Number of my saved brands">
-        <div class="summary-nr" aria-labelledby="number-of-saved-brands">
+      <div class="summary-background" tabindex="0" aria-label="Number of my saved brands">
+        <div class="summary-nr">
           <strong><%= savedBrands.length %></strong>
-          <span class="d-block">saved</span>
+          <div>saved <span class="visually-hidden">brands</span></div>
         </div>
       </div>
-      <div class="summary-background" id="number-of-recommended-brands" aria-label="Number of my recommendations">
-        <div class="summary-nr" aria-labelledby="number-of-recommended-brands">
+      <div class="summary-background">
+        <div class="summary-nr" tabindex="0" aria-label="Number of my recommendations">
           <strong><%=recommendedBrands.length %></strong>
-          <span class="d-block">recommended</span>
+          <div class="d-block">recommended <span class="visually-hidden">brands</span></div>
         </div>
       </div>
     </div>

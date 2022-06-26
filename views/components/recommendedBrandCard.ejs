@@ -2,7 +2,7 @@
 <ul class="row recommened-brand-card" id="brand-card">
     <% if(recommendedBrands) { recommendedBrands.forEach(brand => { %>
     <li class="col col-12 col-md-6 recommended-card-wrapper">
-        <div tabindex="0" class="recommended-card-body" aria-label="Recommend brand card">
+        <div tabindex="0" class="recommended-card-body" aria-label="Recommended brand card for <%=brand.brandName%>">
             <div class="position-relative row">
                 <%if (!brand.approved) { %>
                 <div class="col-8">
@@ -12,7 +12,9 @@
                 </div>
                 <div class="col-4 delete-button">
                     <a class="btn btn-outline-danger" role="button" href="/user/recommendation/<%= brand._id%>/delete?_method=DELETE"
-                       onclick="return confirm('Are you sure you want to delete this recommendation?')">
+                       onclick="return confirm('Are you sure you want to delete this recommendation?')"
+                       aria-label="Delete <%= brand.brandName %>"
+                    >
                         <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M6 2L5 3H0V5H16V3H11L10 2H6ZM1 7V20C1 21.1 1.9 22 3 22H13C14.1 22 15 21.1 15 20V7H1ZM4 9H6V20H4V9ZM10 9H12V20H10V9Z"/>
                         </svg>
@@ -21,12 +23,12 @@
                 </div>
                 <% } else { %>
                 <div class="col-8">
-                    <div class="recommended-brand-name" aria-label="Brand's name: <%= brand.brandName %>"><%= brand.brandName %></div>
+                    <span class="recommended-brand-name d-block"><%= brand.brandName %></span>
                     <a class="pt-2 recommended-link" href="#">See this brand on Ecopicks</a>
                     <div class="pt-2">This brand is approved</div>
                 </div>
                 <div class="col-4 approve-icon">
-                    <svg  width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg alt="approved icon" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M24 4C12.96 4 4 12.96 4 24C4 35.04 12.96 44 24 44C35.04 44 44 35.04 44 24C44 12.96 35.04 4 24 4ZM20 34L10 24L12.82 21.18L20 28.34L35.18 13.16L38 16L20 34Z" fill="#0D4813"/>
                     </svg>
                 </div>
