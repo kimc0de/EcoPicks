@@ -17,9 +17,11 @@
   --green-light: #E5EEE5;
   --green-medium-light: #CDDDCE;
 
-  --text-primary: #0A320E;
+  --text-dark: #0A320E;
+  --text-primary: #0D4813;
   --text-secondary: #606060;
   --text-placeholder: #A7A7A7;
+  --danger : #dc3545;
 
   /*  Categories colors */
   --social-dark: #C94744;
@@ -73,6 +75,8 @@ body {
 
 main {
   padding-bottom: 2rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
   z-index: var(--main-z-index);
 }
 
@@ -102,6 +106,10 @@ input:focus-visible {
 
 /* Overwrite Bootstrap styles */
 a {
+  color: var(--text-primary);
+}
+
+a:hover {
   color: var(--text-primary);
 }
 
