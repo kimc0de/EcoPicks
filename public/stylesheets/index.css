@@ -100,11 +100,11 @@ input:focus-visible {
 
 /* Overwrite Bootstrap styles */
 a {
-  color: var(--text-dark);
+  color: var(--text-primary);
 }
 
 a:hover {
-  color: var(--text-dark);
+  color: var(--text-primary);
 }
 
 .btn {
