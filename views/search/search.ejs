@@ -1,5 +1,6 @@
-<form class="container" id="search" method="get">
-    <h1 class="text-center">Search Page</h1>
+<div id="search-page">
+    <form class="container" id="search-form" method="get">
+    <h1 class="text-center page-title">Find a sustainable alternative</h1>
     <div id="search_section" class="row input-group d-flex justify-content-center">
         <!-- Search bar-->
         <div id="search_bar" class="col-md-8 col-12">
@@ -12,17 +13,46 @@
             <span>Search</span>
         </button>
     </div>
-</form>
+    </form>
 
-<div class="container mt-sm-4 mb-sm-4">
-    <% if (results) { %>
-        <h2 id="total-results" class="mt-sm-4 mb-sm-4 pl-sm-2 pr-sm-2 ml-lg-0 mr-lg-0"><%= results.length %> Results for "<%= query%>"</h2>
-        <% if (results.length > 0) { %>
-            <%- include ('../components/brandCard') %>
+    <div class="container mt-sm-4 mb-sm-4">
+        <% if (results) { %>
+            <% if (results.length > 0) { %>
+                <h2 class="mt-sm-4 mb-sm-4 pl-sm-2 pr-sm-2 ml-lg-0 mr-lg-0 total-results"><%= results.length %> Results for "<%= query%>"</h2>
+                <%- include ('../components/brandCard') %>
+            <% } else { %>
+                <div class="no-results-section">
+                    <h2 class="no-results">We're sorry... No results were found for "<%= query%>"</h2>
+                    <div>
+                        <h3 class="suggestions">Search suggestions</h3>
+                        <ul>
+                            <li>Please make sure all words are spelled correctly</li>
+                            <li>Try different keywords with the same meaning</li>
+                            <li>Try more general keywords</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="suggestions">Do you want to recommend a brand to us?</h3>
+                        <span><a href="/user/recommendation">Go to recommendation page</a></span>
+                    </div>
+                    <div>
+                        <h3 class="suggestions">If you need more help, contact us with the link below.</h3>
+                        <span><a href="/contact">Go to contact page</a></span>
+                    </div>
+
+                    <div>
+                        <h2 class="total-results mt-5">You might be interested in these following brands</h2>
+                        <%if (popularBrands && popularBrands.length > 0) { %>
+                            <%- include ('../components/popularBrandCard') %>
+                        <%}%>
+                    </div>
+                </div>
+            <% } %>
         <% } else { %>
-            <div> Do you want to recommend a brand to us?
-                <span><a href="/user/recommendation">Go to recommendation page</a></span>
-            </div>
-        <% } %>
-    <% } %>
+                <h2 class="total-results mt-5">Check out some popular brands</h2>
+                <%if (popularBrands && popularBrands.length > 0) { %>
+                    <%- include ('../components/popularBrandCard') %>
+                <%}%>
+        <%}%>
+    </div>
 </div>
