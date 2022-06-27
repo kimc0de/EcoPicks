@@ -2,7 +2,7 @@
 <ul class="row recommened-brand-card" id="brand-card">
     <% if(recommendedBrands) { recommendedBrands.forEach(brand => { %>
     <li class="col col-12 col-md-6 recommended-card-wrapper">
-        <div tabindex="0" class="recommended-card-body" aria-label="Recommended brand card for <%=brand.brandName%>">
+        <div class="recommended-card-body">
             <div class="position-relative row">
                 <%if (!brand.approved) { %>
                 <div class="col-8">
