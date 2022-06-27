@@ -12,17 +12,18 @@
     <% results.forEach(brand => {
         let category = getCategoryById(brand.category._id);
     %>
-    <li class="col col-12 col-md-6 col-xl-4 card-wrapper">
-        <div tabindex="0"
-             class="card-body <%= category.lightColor %> d-flex"
-             onclick="location.href='/brand/<%=brand._id%>';"
-             aria-label="brand card"
-             data-id="<%=brand._id%>">
-            <img class="brand-logo" src="<%= brand.image %>" alt="Logo of <%= brand.name %>">
-            <div>
-                <a href="/brand/<%=brand._id%>" class="brand-name" tabindex="-1" aria-label="Brand's name: <%= brand.name %>"><%= brand.name %></a>
-                <p class="brand-slogan"><%= brand.slogan %></p>
+    <li class="col col-12 col-md-6 col-xl-4 card-wrapper" >
+        <div
+            class="card-body <%= category.lightColor %> d-flex"
+            onclick="location.href='/brand/<%=brand._id%>';"
+            data-id="<%=brand._id%>"
+        >
+            <div class="order-2">
+                <a href="/brand/<%=brand._id%>" class="brand-name"><%= brand.name %></a>
+                <div class="brand-slogan"><%= brand.slogan %></div>
             </div>
+            <img class="brand-logo order-1" src="<%= brand.image %>" alt="Logo of <%= brand.name %>">
+
             <% if(loggedIn && currentUser.savedBrands.length !== 0 && currentUser.savedBrands.includes(brand._id)) { %>
             <div class="saved-icon">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

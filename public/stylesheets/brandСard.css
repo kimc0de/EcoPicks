@@ -6,9 +6,14 @@
   cursor: pointer;
 }
 
-#brand-card .card-body:focus-visible {
+#brand-card .card-body:focus-within {
   border-radius: 5px;
   box-shadow: 0 0 0 2px rgb(63, 163, 255), 0 0 0 4px #fff, 0 0 0 6px rgba(63, 163, 255, 0.5) !important;
+}
+
+#brand-card .brand-name:focus-visible {
+  box-shadow: none !important;
+  outline: none !important;
 }
 
 #brand-card {
@@ -19,7 +24,7 @@
   list-style-type: none;
 }
 
-#brand-card a.brand-name {
+#brand-card .brand-name {
   color: black;
   font-size: 1.2rem;
   font-weight: 600;
@@ -40,6 +45,8 @@
   max-height: 70px;
   overflow: auto;
   color: black;
+  font-weight: normal;
+  font-size: 1rem;
 }
 
 @media (max-width: 768px){
