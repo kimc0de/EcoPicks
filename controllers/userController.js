@@ -110,22 +110,40 @@ module.exports = {
   renderEdit: (req, res) => {
     redirectIfUnauthorized(req, res);
     res.render('user/edit', {
-      user: req.user
+      user: req.user,
+      correctPassword: res.locals.correctPassword,
     });
   },
 
   update: (req, res, next) => {
     let userId = req.user._id;
+
+    // if(req.body.oldPassword !== "" && req.body.newPassword !== "" && req.body.newPasswordRepeat !== "") {
+    //   User.findById(userId).then(foundUser => {
+    //     foundUser.changePassword(req.body.oldPassword, req.body.newPassword)
+    //         .then(() => {
+    //           res.locals.redirect = `/user/edit`;
+    //           req.flash("success", `Your changes have been saved!`);
+    //         })
+    //         .catch((error) => {
+    //           console.log(`Error updating user by ID:${error.message}`);
+    //           req.flash('error', `Error updating password. ${error.message}`)
+    //         })
+    //   }).catch((error) => {
+    //     console.log(`Error updating user by ID:${error.message}`);
+    //     next(error);
+    //   });
+    // }
+
     let userParams = {
         username: req.body.username,
-        email: req.body.email
+        email: req.body.email,
       };
     let emailExist = User.findOne({email: req.body.email});
 
     if (emailExist && userParams.email !== req.user.email) { // prevent duplicate emails
       req.flash('error', `The new email "${req.body.email}" is already associated with another account.`);
       res.locals.redirect = `/user/edit`;
-      next();
     } else {
       User.findByIdAndUpdate(userId, {
         $set: userParams
