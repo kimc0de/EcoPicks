@@ -12,11 +12,10 @@ module.exports = {
   getPopularBrands: (req, res, next) => {
     EcopicksBrand.find({popular: true},(error, brands) => {
       try {
-        const brandsList = brands.slice(0, 9);
+        const brandsList = brands.sort(() => Math.random() - Math.random()).slice(0, 6)
         res.locals.popularBrands = brandsList;
       }
       catch(error) {
-        console.log(error);
         respondNoResourceFound(req, res);
       }
 
