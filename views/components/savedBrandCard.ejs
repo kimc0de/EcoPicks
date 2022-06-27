@@ -18,11 +18,12 @@
                  onclick="location.href='/brand/<%=brand._id%>';"
                  aria-label="brand card of <%=brand.name%>"
                  data-id="<%=brand._id%>">
-                <img class="brand-logo" src="<%= brand.image %>" alt="Logo of <%= brand.name %>">
-                <div>
+                <div class="order-2">
                     <a href="/brand/<%=brand._id%>" class="brand-name" tabindex="-1" aria-label="Brand's name: <%= brand.name %>"><%= brand.name %></a>
                     <p class="brand-slogan"><%= brand.slogan %></p>
                 </div>
+                <img class="brand-logo order-1" src="<%= brand.image %>" alt="Logo of <%= brand.name %>">
+
                 <a role="button" class="btn btn-outline-primary p-1 unsave-button saved"
                    href="<%= `/api/brand/${brand._id}/remove` %>"
                    aria-label="Unsave brand <%=brand.name%>"
