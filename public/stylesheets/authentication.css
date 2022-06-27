@@ -49,3 +49,7 @@
 .auth-form input[type=password]::-ms-reveal {
   display: none;
 }
+
+.auth-form .required-instruction {
+  margin: 1rem 0;
+}
