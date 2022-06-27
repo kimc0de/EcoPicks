@@ -1,6 +1,6 @@
 <header id="header">
   <nav id="header-large">
-    <div class="navbar" id="header-top" aria-label="Main navigation">
+    <div class="navbar" id="header-top">
       <a id="skip-link" class="btn-outline-primary" href="#main">Skip to main content</a>
       <!--  Logo  -->
       <a id="brand-logo" class="navbar-brand" href="/">
@@ -45,11 +45,11 @@
       </div>
     </div>
 
-    <div id="header-bottom" aria-label="Categories navigation">
+    <nav id="header-bottom">
         <ul class="nav justify-content-center">
           <%- include ('./categoryNavigation') %>
         </ul>
-    </div>
+    </nav>
   </nav>
 
   <nav id="header-mobile">
@@ -95,7 +95,7 @@
               <a class="nav-link" href="/search">Search</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/user/add">Recommend a brand</a>
+              <a class="nav-link" href="/user/recommendation">Recommend a brand</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/user">

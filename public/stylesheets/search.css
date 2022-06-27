@@ -49,10 +49,6 @@
     padding: 0 1rem;
 }
 
-.textField_label {
-    display: none;
-}
-
 @media (max-width: 768px){
     #total-results {
         font-size: 1.5rem;

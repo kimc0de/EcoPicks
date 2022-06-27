@@ -3,8 +3,8 @@
     <div id="search_section" class="row input-group d-flex justify-content-center">
         <!-- Search bar-->
         <div id="search_bar" class="col-md-8 col-12">
-        <label for="search_field" class="textField_label"> Search for a brand or a product </label>
-        <input id="search_field" class="textField_input" autocomplete="true"
+        <label for="search_field" class="visually-hidden"> Search for a brand or a product </label>
+        <input id="search_field" class="textField_input" autocomplete="off"
                name="q" value="<%= query%>" type="search" placeholder="Search for a brand or a product">
         </div>
         <button type="submit" id="search_button" class="btn btn-primary col-12 col-md-3 col-xl-2">
@@ -20,9 +20,9 @@
         <% if (results.length > 0) { %>
             <%- include ('../components/brandCard') %>
         <% } else { %>
-            <p> Do you want to recommend a brand to us?
-                <span><a href="/user/recommendation">Click here</a></span> to send your recommendation.
-            </p>
+            <div> Do you want to recommend a brand to us?
+                <span><a href="/user/recommendation">Go to recommendation page</a></span>
+            </div>
         <% } %>
     <% } %>
 </div>
