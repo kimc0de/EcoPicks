@@ -17,7 +17,8 @@
   --green-light: #E5EEE5;
   --green-medium-light: #CDDDCE;
 
-  --text-primary: #0E2603;
+  --text-dark: #0E2603;
+  --text-primary: #0D4813;
   --text-secondary: #606060;
   --text-placeholder: #A7A7A7;
   --danger : #dc3545;
@@ -99,11 +100,11 @@ input:focus-visible {
 
 /* Overwrite Bootstrap styles */
 a {
-  color: var(--text-primary);
+  color: var(--text-dark);
 }
 
 a:hover {
-  color: var(--text-primary);
+  color: var(--text-dark);
 }
 
 .btn {
@@ -125,7 +126,7 @@ a:hover {
 
 .btn-outline-primary {
   border-color: var(--button-primary) !important;
-  color: var(--text-primary) !important;
+  color: var(--text-dark) !important;
 }
 
 .btn-outline-primary:hover {
@@ -140,7 +141,7 @@ a:hover {
 }
 
 #skip-link {
-  color: var(--text-primary);
+  color: var(--text-dark);
   background-color: var(--green-medium-light);
   padding: 0.5rem 0;
   position: absolute;

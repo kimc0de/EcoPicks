@@ -7,7 +7,7 @@ header {
 }
 
 header .nav-link {
-  color: var(--text-primary) !important;
+  color: var(--text-dark) !important;
 }
 
 header .btn {
