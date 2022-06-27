@@ -54,11 +54,6 @@
   font-family: 'Roboto Mono', sans-serif !important;
 }
 
-#main {
-  padding-bottom: 3rem;
-  min-height: 100vh;
-}
-
 body {
   height: 100%;
   width: 100%;
@@ -75,9 +70,8 @@ body {
 
 main {
   padding-bottom: 2rem;
-  padding-right: 1rem;
-  padding-left: 1rem;
   z-index: var(--main-z-index);
+  min-height: 100vh;
 }
 
 .asterisk {
