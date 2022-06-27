@@ -1,20 +1,20 @@
 <form action="/user/recommendation" method="post" class="container col-12 col-md-8">
     <div id="recommendation-page" class="container">
         <h1 class="page-title">Recommend a sustainable brand</h1>
-        <p id="required-instruction">All fields marked with <span class="asterisk"> *</span> are required</p>
+        <div id="required-instruction">Required fields are marked with an asterisk <span aria-hidden="true">(<span class="asterisk">*</span>)</span></div>
         <section>
             <label for="brand-name" class="form-group question-field">Brand's name <span aria-hidden="true" class="asterisk"> *</span></label>
-            <input class="form-control" type="text" id="brand-name" name="brandName" aria-required="true">
+            <input class="form-control" type="text" id="brand-name" name="brandName" aria-required="true" autocomplete="on">
         </section>
 
         <section>
             <label for="brand-website" class="form-group question-field">Brand's website or social media link <span aria-hidden="true" class="asterisk"> *</span></label>
-            <input class="form-control" type="text" id="brand-website" name="website" aria-required="true">
+            <input class="form-control" type="text" id="brand-website" name="website" aria-required="true" autocomplete="on">
         </section>
 
         <section id="app-description">
-            <label for="brand-description" class="form-group question-field">What else do you know about this brand? </label>
-            <textarea class="form-control" id="brand-description" name="description" rows="4"></textarea>
+            <label for="brand-description" class="form-group question-field">What else do you know about this brand? (Optional)</label>
+            <textarea class="form-control" id="brand-description" name="description" rows="4" aria-required="false"  autocomplete="on"></textarea>
         </section>
 
         <section id="buttons-section">
