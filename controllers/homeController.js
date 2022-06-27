@@ -9,11 +9,11 @@ module.exports = {
   /**
    * Get all app from data base
    */
-  getHomePageBrands: (req, res, next) => {
-    EcopicksBrand.find((error, brands) => {
+  getPopularBrands: (req, res, next) => {
+    EcopicksBrand.find({popular: true},(error, brands) => {
       try {
         const brandsList = brands.slice(0, 9);
-        req.data = brandsList;
+        res.locals.popularBrands = brandsList;
       }
       catch(error) {
         console.log(error);

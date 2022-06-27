@@ -6,7 +6,8 @@ const mongoose = require("mongoose"),
         name: {type: String, required: true},
         slogan: {type: String, required: true},
         website: {type: String, required: true},
-        savedBy: [{type: mongoose.Schema.Types.ObjectId, ref: "users"}]
+        savedBy: [{type: mongoose.Schema.Types.ObjectId, ref: "users"}],
+        popular: {type: Boolean, default: false},
     });
 
 module.exports = mongoose.model("ecopicksBrand", ecopicksBrandSchema);
