@@ -1,0 +1,19 @@
+#about-page .headings {
+    color: var(--text-primary);
+}
+
+#about-page .about-page-title {
+    top: 45%;
+    left: 3rem;
+}
+
+@media (min-width: 1440px) {
+    #about-page .about-page-title {
+        font-size: 3rem;
+        left: 5rem;
+    }
+
+    #about-page .about-page-content {
+        margin: auto 4rem;
+    }
+}

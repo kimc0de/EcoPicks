@@ -1,6 +1,4 @@
 const Category = require("../models/category");
-const EcopicksBrand = require("../models/ecopicksBrand");
-const {respondNoResourceFound} = require("./errorController");
 
 /**
  * Render the index.ejs file (index page).
@@ -16,5 +14,8 @@ module.exports = {
         userId: req.params.userId
       });
     }
+  },
+  renderAboutPage: (req, res) => {
+    res.render("pages/about");
   }
 }
