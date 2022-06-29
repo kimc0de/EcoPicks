@@ -138,4 +138,20 @@ module.exports = {
     }
   },
 
+  /**
+   * Get all popular brands from data base
+   */
+  getPopularBrands: (req, res, next) => {
+    EcopicksBrand.find({popular: true},(error, brands) => {
+      try {
+        const brandsList = brands.sort(() => Math.random() - Math.random()).slice(0, 6)
+        res.locals.popularBrands = brandsList;
+      }
+      catch(error) {
+        respondNoResourceFound(req, res);
+      }
+
+      next();
+    })
+  },
 }

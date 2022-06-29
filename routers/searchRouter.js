@@ -1,8 +1,9 @@
 const searchController = require('../controllers/searchController');
-const homeController = require('../controllers/homeController');
+const ecopicksBrandsController = require('../controllers/ecopicksBrandsController');
+
 var router = require('express').Router();
 
-router.get("/search", homeController.getPopularBrands, searchController.getSearchResults, searchController.renderSearchPage);
+router.get("/search", ecopicksBrandsController.getPopularBrands, searchController.getSearchResults, searchController.renderSearchPage);
 // router.post("/search", searchController.getSearchResults);
 
 module.exports = router;

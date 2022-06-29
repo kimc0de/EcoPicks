@@ -6,23 +6,6 @@ const {respondNoResourceFound} = require("./errorController");
  * Render the index.ejs file (index page).
  */
 module.exports = {
-  /**
-   * Get all app from data base
-   */
-  getPopularBrands: (req, res, next) => {
-    EcopicksBrand.find({popular: true},(error, brands) => {
-      try {
-        const brandsList = brands.sort(() => Math.random() - Math.random()).slice(0, 6)
-        res.locals.popularBrands = brandsList;
-      }
-      catch(error) {
-        respondNoResourceFound(req, res);
-      }
-
-      next();
-    })
-  },
-
   renderIndex: async (req, res) => {
     if (req.query.format === "json") {
       res.json(req.data);

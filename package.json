@@ -15,7 +15,7 @@
     "type": "git",
     "url": "git+https://github.com/kimc0de/EcoPicks.git"
   },
-  "author": "Daria, Kim, Ly, Stefi",
+  "author": "Kim",
   "license": "ISC",
   "engines": {
     "node": "18.2.0"

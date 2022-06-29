@@ -1,10 +1,9 @@
 const EcopicksBrand = require("../models/ecopicksBrand");
 const Category = require("../models/category");
-const {respondNoResourceFound} = require("./errorController");
 
 module.exports = {
     renderSearchPage: async (req, res) => {
-        res.render("search/search", {
+        res.render("pages/search", {
             query: res.locals.query,
             results: res.locals.results,
             categories: await Category.find({}),
