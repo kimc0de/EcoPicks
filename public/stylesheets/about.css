@@ -26,6 +26,10 @@
     margin: 1rem 0;
 }
 
+#about-page .section ul{
+    padding-left: 0;
+}
+
 @media (min-width: 1440px) {
     #about-page .about-page-title {
         font-size: 3rem;
