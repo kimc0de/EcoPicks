@@ -1,14 +1,14 @@
 const Category = require("../models/category");
 
 /**
- * Render the index.ejs file (index page).
+ * Render the homepage.ejs file (index page).
  */
 module.exports = {
   renderIndex: async (req, res) => {
     if (req.query.format === "json") {
       res.json(req.data);
     } else {
-      res.render("index", {
+      res.render("pages/homepage", {
         categories: await Category.find({}),
         data: req.data,
         userId: req.params.userId

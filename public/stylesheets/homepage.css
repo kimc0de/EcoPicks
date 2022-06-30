@@ -1,0 +1,24 @@
+#homepage .headings {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+#homepage .homepage-title {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    text-align: center;
+    padding: 0 3rem;
+    font-size: 2.5rem;
+}
+
+#homepage .popular-title,
+#homepage .categories-title {
+    margin: 2rem 0;
+}
+
+#homepage .category-image {
+    width: 300px;
+    height: 300px;
+}

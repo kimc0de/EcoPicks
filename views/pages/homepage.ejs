@@ -1,0 +1,62 @@
+<div id="homepage">
+  <section class="position-relative">
+    <h1 class="headings homepage-title position-absolute">Discover sustainable brands and products on Ecopicks</h1>
+    <picture>
+      <source media="(min-width: 1024px)" srcset="/images/ecopicks/homepage-cover-large.png">
+      <source media="(min-width: 768px)" srcset="/images/ecopicks/homepage-cover-medium.png">
+      <img src="/images/ecopicks/homepage-cover-small.png" style="width:100%;" alt="Green leaves on a light background">
+    </picture>
+  </section>
+
+  <section class="container-fluid">
+    <h2 class="headings categories-title">Browse sustainable brand by categories</h2>
+    <div class="row justify-content-center">
+        <a class="col col-12 col-md-4 d-flex justify-content-center" href="/category/food-drink" aria-label="Food and drink">
+            <figure>
+                <img class="category-image" src="/images/categories/food-drink.png" alt="Different oat meals, breads, sandwiches, marmalade cups, coffee and juice on a dining table">
+                <figcaption>Food & Drink</figcaption>
+            </figure>
+        </a>
+        <a class="col col-12 col-md-4 d-flex justify-content-center" href="/category/food-drink" aria-label="Fashion">
+            <figure>
+                <img class="category-image" src="/images/categories/fashion.png" alt="Different style t-shirts on a clothing rack">
+                <figcaption>Fashion</figcaption>
+            </figure>
+        </a>
+        <a class="col col-12 col-md-4 d-flex justify-content-center" href="/category/lifestyle" aria-label="Lifestyle">
+            <figure>
+                <img class="category-image" src="/images/categories/lifestyle.png" alt="Coffee cup, flowers, book and pumpkin on a warm color background">
+                <figcaption>Lifestyle</figcaption>
+            </figure>
+        </a>
+
+        <a class="col col-12 col-md-4 d-flex justify-content-center" href="/category/social" aria-label="Social">
+            <figure>
+                <img class="category-image" src="/images/categories/social.png" alt="People socialize via the internet">
+                <figcaption>Social</figcaption>
+            </figure>
+        </a>
+        <a class="col col-12 col-md-4 d-flex justify-content-center" href="/category/household" aria-label="Household">
+            <figure>
+                <img class="category-image" src="/images/categories/household.png" alt="Different household appliances on kitchen background">
+                <figcaption>Household</figcaption>
+            </figure>
+        </a>
+        <a class="col col-12 col-md-4 d-flex justify-content-center" href="/category/beauty-wellness" aria-label="Beauty and wellness">
+            <figure>
+                <img class="category-image" src="/images/categories/beauty-wellness.png" alt="beauty and wellness products on a green background">
+                <figcaption>Beauty & Wellness</figcaption>
+            </figure>
+        </a>
+    </div>
+  </section>
+
+  <%if (popularBrands && popularBrands.length > 0) { %>
+  <section class="container-fluid">
+      <h2 class="headings popular-title">Popular brands on Ecopicks</h2>
+      <div>
+          <%- include ('../components/popularBrandCard') %>
+      </div>
+  </section>
+  <%}%>
+</div>
