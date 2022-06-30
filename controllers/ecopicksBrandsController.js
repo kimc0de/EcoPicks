@@ -32,7 +32,7 @@ module.exports = {
       let imgBuffer = fs.readFileSync(req.file.path);
       brandImage = `data:${req.file.mimetype};base64,` + imgBuffer.toString('base64');
     } else {
-      brandImage = '/images/ecopicksLogo/logo2.svg';
+      brandImage = '/images/ecopicks/logo2.svg';
     }
 
     try {
