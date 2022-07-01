@@ -1,0 +1,75 @@
+<div class="container mt-5 mb-5 pl-3 pr-3" id="edit-profile">
+    <h1 class="mt-3 mb-3 text-center">Edit profile</h1>
+
+    <div id="edit-section" class="mt-5 container">
+        <div class="row mb-4">
+            <div class="d-flex align-items-start">
+                <label id="username-label" for="edit-username" class="edit-label mb-2">User name</label>
+                <span class="d-none success-icon ml-3">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.9998 2.66675C8.63584 2.66675 2.6665 8.63608 2.6665 16.0001C2.6665 23.3641 8.63584 29.3334 15.9998 29.3334C23.3638 29.3334 29.3332 23.3641 29.3332 16.0001C29.3332 8.63608 23.3638 2.66675 15.9998 2.66675ZM13.3332 23.2187L7.05717 16.9427L8.9425 15.0574L13.3332 19.4481L23.0572 9.72408L24.9425 11.6094L13.3332 23.2187Z" fill="#425A49"/>
+                    </svg>
+                </span>
+            </div>
+            <div class="warning-message d-none">Please do not leave the field empty</div>
+            <div class="d-flex flex-row justify-content-between align-items-center" id="showing-username">
+                <div id="user-name"><%= user.username %></div>
+                <button class="btn btn-outline-primary edit-btn" id="username-edit-button">Edit</button>
+            </div>
+            <div id="editing-username" class="d-none">
+                <form action="<%=`/user/update/username`%>" method="POST" id="edit-username-form">
+                    <div class="d-flex flex-sm-row flex-column">
+                        <input type="text" id="edit-username" name="username" class="form-control edit-input" value="<%= user.username %>">
+                        <div class="d-flex flex-row justify-content-end">
+                            <button class="btn btn-outline-primary ms-2 me-2 mt-2 mt-sm-0 cancel-button" id="edit-username-cancel-button">Cancel</button>
+                            <button class="btn btn-primary mt-2 mt-sm-0 save-button" id="edit-username-save-button" type="submit">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <hr class="horizontal-line mt-3">
+        </div>
+    </div>
+
+<!--            <div class="row mb-4">-->
+<!--                <div class="col-sm-4 edit-label">-->
+<!--                    <label for="edit-email" class="edit-label">Email</label>-->
+<!--                </div>-->
+<!--                <div class="col-sm-8">-->
+<!--                    <input type="text" id="edit-email" name="email" class="form-control edit-input" value="<%= user.email%>">-->
+<!--                    <p>You will be logged out after changing your email</p>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="row mb-4">-->
+<!--                <div class="col-sm-4 edit-label">-->
+<!--                    <label for="old-pw" class="edit-label">Old password</label>-->
+<!--                </div>-->
+<!--                <div class="col-sm-8">-->
+<!--                    <input type="password" id="old-pw" name="oldPassword" autocomplete="old-password" class="form-control edit-input" >-->
+<!--                </div>-->
+
+<!--                <div class="col-sm-4 edit-label">-->
+<!--                    <label for="new-pw" class="edit-label">New password</label>-->
+<!--                </div>-->
+<!--                <div class="col-sm-8">-->
+<!--                    <input type="password" id="new-pw" name="newPassword" autocomplete="new-password" class="form-control edit-input" >-->
+<!--                </div>-->
+
+<!--                <div class="col-sm-4 edit-label">-->
+<!--                    <label for="new-pw-repeat" class="edit-label">Repeat new password</label>-->
+<!--                </div>-->
+<!--                <div class="col-sm-8">-->
+<!--                    <input type="password" id="new-pw-repeat" name="newPasswordRepeat" autocomplete="new-password" class="form-control edit-input" >-->
+<!--                </div>-->
+<!--            </div>-->
+
+
+
+<!--        <div class=" d-flex flex-row justify-content-center mt-5 mb-5">-->
+<!--            <a role="button" class="btn btn-outline-primary edit-btn" href="/user">Cancel</a>-->
+<!--            <button type="submit" class="btn btn-primary edit-btn">Save</button>-->
+<!--        </div>-->
+
+
+</div>

@@ -7,19 +7,25 @@
   font-size: 2rem;
 }
 
+#edit-profile .success-icon {
+  padding-left: 1rem;
+}
+
 #edit-profile .edit-label {
   font-size: 1.5rem;
 }
 
-#edit-profile .edit-btn {
-  min-width: 10rem;
-  margin: 0 1rem;
-  height: 40px;
+#edit-profile .display {
+  display: unset;
 }
 
-#edit-profile .edit-btn:hover {
-  font-size: 1.1rem;
-  transform: scale(1.1);
+#edit-profile .warning-message {
+  color: var(--danger);
+}
+
+#edit-profile .cancel-button,
+#edit-profile .save-button{
+  min-width: 5rem;
 }
 
 #edit-profile .edit-input {
@@ -40,19 +46,14 @@
 
 @media (min-width: 992px) {
   #edit-section {
-    padding: 0px 150px;
+    padding: 0 150px;
   }
 }
 
 @media (min-width: 1200px) {
   #edit-section {
-    padding: 0px 200px;
+    padding: 0 200px;
   }
 }
 
-@media (max-width: 991px) {
-  #edit-profile .edit-btn {
-    width: 40%;
-  }
-}
 

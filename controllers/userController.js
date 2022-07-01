@@ -82,9 +82,6 @@ module.exports = {
         if (error.message.includes('email')) {
           errormessage += `An account for this email already exists. `;
         }
-        if (error.message.includes('username')) {
-          errormessage += `This username is taken.`;
-        }
         if (errormessage.length === 0) {
           errormessage = `Failed to create user account. ➥${error.message}.`;
         }
@@ -109,10 +106,34 @@ module.exports = {
 
   renderEdit: (req, res) => {
     redirectIfUnauthorized(req, res);
-    res.render('user/edit', {
+    res.render('user/editProfile', {
       user: req.user,
       correctPassword: res.locals.correctPassword,
     });
+  },
+
+  updateUsername: (req, res) => {
+    redirectIfUnauthorized(req, res);
+
+    let userId = req.user._id;
+    let username = req.body.username;
+
+    if (username && username !== '') {
+      User.findByIdAndUpdate(userId, {
+        username: username
+      }, (error, data) => {
+          if(error) {
+            console.log(`Error updating username. Error message: ${error.message}`)
+          } else {
+            if (req.xhr) {
+              res.json({'result' : 'success', 'username': username});
+              req.flash("success", "Changes are saved");
+            }
+            res.locals.data = data;
+          }
+      })
+    }
+
   },
 
   update: (req, res, next) => {
@@ -144,6 +165,7 @@ module.exports = {
     if (emailExist && userParams.email !== req.user.email) { // prevent duplicate emails
       req.flash('error', `The new email "${req.body.email}" is already associated with another account.`);
       res.locals.redirect = `/user/edit`;
+      next();
     } else {
       User.findByIdAndUpdate(userId, {
         $set: userParams
@@ -232,6 +254,6 @@ module.exports = {
     } catch (error) {
         console.log(error);
         respondNoResourceFound(req, res);
-      };
+      }
   }
 };
