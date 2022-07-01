@@ -18,9 +18,7 @@ footer {
 }
 
 #footer ul {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
+    justify-content: center;
 }
 
 #footer .nav-link {
