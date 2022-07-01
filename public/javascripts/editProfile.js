@@ -1,10 +1,11 @@
 let editing_username = $('#editing-username');
 let showing_username = $('#showing-username');
 let edit_username_form = $('#edit-username-form');
-let warning = $('.warning-message');
 let username_label = $('#username-label');
 
 $(() => {
+    let warning = $('#edit-username-section .warning-message');
+
     $("#username-edit-button").on('click', () => {
         showing_username.toggleClass('d-none');
         editing_username.toggleClass('d-none');
@@ -18,6 +19,7 @@ $(() => {
     })
     $('#edit-username-form').on('submit', (e) => {
         e.preventDefault();
+
         if($.trim($('#edit-username').val()).length !== 0) {
             warning.addClass('d-none'); //hide warning when form is submited again
 
