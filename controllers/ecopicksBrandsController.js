@@ -32,7 +32,7 @@ module.exports = {
       let imgBuffer = fs.readFileSync(req.file.path);
       brandImage = `data:${req.file.mimetype};base64,` + imgBuffer.toString('base64');
     } else {
-      brandImage = '/images/ecopicksLogo/logo2.svg';
+      brandImage = '/images/ecopicks/logo2.svg';
     }
 
     try {
@@ -138,4 +138,20 @@ module.exports = {
     }
   },
 
+  /**
+   * Get all popular brands from data base
+   */
+  getPopularBrands: (req, res, next) => {
+    EcopicksBrand.find({popular: true},(error, brands) => {
+      try {
+        const brandsList = brands.sort(() => Math.random() - Math.random()).slice(0, 6)
+        res.locals.popularBrands = brandsList;
+      }
+      catch(error) {
+        respondNoResourceFound(req, res);
+      }
+
+      next();
+    })
+  },
 }

@@ -1,7 +1,23 @@
-#search h1 {
+#search-page .page-title {
     margin: 1.5rem auto auto;
     color: var(--text-primary);
     font-size: 2rem;
+}
+
+#search-page .total-results {
+    font-size: 1.5rem;
+    margin: 1rem 1rem;
+}
+
+#search-page .no-results {
+    font-size: 1.8rem;
+    margin: 1.2rem 0;
+    text-align: center;
+}
+
+#search-page .suggestions {
+    margin: 1rem 0;
+    font-size: 1.2rem;
 }
 
 #search_section {
@@ -23,6 +39,10 @@
 #search_bar {
     position: relative;
     display: flex;
+}
+
+#search_bar {
+    padding: 0;
 }
 
 #clear_button {
@@ -49,17 +69,9 @@
     padding: 0 1rem;
 }
 
-.textField_label {
-    display: none;
-}
-
-@media (max-width: 768px){
-    #total-results {
+@media (min-width: 768px){
+    #search-page .total-results {
         font-size: 1.5rem;
-        margin: 1rem 1rem;
-    }
-
-    #search_bar {
-        padding: 0;
+        margin: 1.2rem 0;
     }
 }

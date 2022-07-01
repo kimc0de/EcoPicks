@@ -1,0 +1,81 @@
+#homepage .headings {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+#homepage .homepage-title {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    text-align: center;
+    padding: 0 3rem;
+    font-size: 2.5rem;
+}
+
+#homepage .category-image {
+    padding: 0 1rem;
+    width: 500px;
+    height: 500px;
+}
+
+#homepage .categories-title {
+    margin: 2rem;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+#homepage .popular-title {
+    margin: 2rem;
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+#homepage .food-drink-image {
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+#homepage .fashion-image {
+    clip-path: polygon(30% 0, 100% 15%, 100% 85%, 30% 100%, 0 90%, 0 10%);
+}
+
+#homepage .lifestyle-image {
+    clip-path: polygon(30% 0%, 100% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 100%, 0% 30%);
+}
+
+#homepage .social-image {
+    clip-path: polygon(0 0, 68% 0, 100% 28%, 100% 100%, 28% 100%, 0 65%);
+}
+
+#homepage .household-image {
+    clip-path: polygon(68% 0, 100% 29%, 100% 100%, 50% 100%, 0 84%, 0 37%, 15% 7%);
+}
+
+#homepage .beauty-wellness-image {
+    clip-path: polygon(68% 0, 100% 29%, 100% 85%, 50% 100%, 0 84%, 0 37%, 25% 6%);
+}
+
+#categories-images .category-image-link {
+    text-decoration: none;
+    text-align: center;
+    font-size: 2rem;
+    padding: 1rem 0;
+}
+
+#categories-images .fig-caption {
+    padding-top: 1rem;
+}
+
+@media (min-width: 992px) {
+    #homepage .category-image {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+@media (max-width: 576px) {
+    #homepage .category-image {
+        width: 400px;
+        height: 400px;
+    }
+}

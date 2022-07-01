@@ -17,11 +17,11 @@
   --green-light: #E5EEE5;
   --green-medium-light: #CDDDCE;
 
-  --text-dark: #0A320E;
+  --text-dark: #0E2603;
   --text-primary: #0D4813;
   --text-secondary: #606060;
   --text-placeholder: #A7A7A7;
-  --danger : #dc3545;
+  --danger : #8B1A10;
 
   /*  Categories colors */
   --social-dark: #C94744;
@@ -54,11 +54,6 @@
   font-family: 'Roboto Mono', sans-serif !important;
 }
 
-#main {
-  padding-bottom: 3rem;
-  min-height: 100vh;
-}
-
 body {
   height: 100%;
   width: 100%;
@@ -75,9 +70,8 @@ body {
 
 main {
   padding-bottom: 2rem;
-  padding-right: 1rem;
-  padding-left: 1rem;
   z-index: var(--main-z-index);
+  min-height: 100vh;
 }
 
 .asterisk {
@@ -132,16 +126,12 @@ a:hover {
 
 .btn-outline-primary {
   border-color: var(--button-primary) !important;
-  color: var(--text-primary) !important;
+  color: var(--text-dark) !important;
 }
 
 .btn-outline-primary:hover {
   background-color: var(--button-primary) !important;
   color: white !important;
-}
-
-.visually-hidden {
-  display: none;
 }
 
 .close_btn svg {
@@ -151,7 +141,7 @@ a:hover {
 }
 
 #skip-link {
-  color: var(--text-primary);
+  color: var(--text-dark);
   background-color: var(--green-medium-light);
   padding: 0.5rem 0;
   position: absolute;

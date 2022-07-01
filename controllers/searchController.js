@@ -3,11 +3,12 @@ const Category = require("../models/category");
 
 module.exports = {
     renderSearchPage: async (req, res) => {
-        res.render("search/search", {
+        res.render("pages/search", {
             query: res.locals.query,
             results: res.locals.results,
             categories: await Category.find({}),
             noResults: res.locals.noResults,
+            popularBrands: res.locals.popularBrands,
         });
     },
 

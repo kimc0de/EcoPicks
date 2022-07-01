@@ -5,7 +5,7 @@ module.exports = {
   respondNoResourceFound: (req, res) => {
     let errorCode = httpStatus.StatusCodes.NOT_FOUND;
     res.status(errorCode);
-    res.render('error');
+    res.render('pages/error');
   },
 
   respondInternalError: (error, req, res) => {

@@ -22,15 +22,15 @@ footer {
 }
 
 #footer .nav-link {
-    text-decoration: underline;
     position: relative;
-    color: var(--text-primary);
+    color: var(--text-dark);
 }
 
 #footer .nav-link:hover {
     border-radius: 5px;
     background-color: var(--green-light);
     transform: scale(1.2);
+    text-decoration: underline;
 }
 
 @media (max-width : 767px) {

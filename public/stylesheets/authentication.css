@@ -1,5 +1,5 @@
 .auth-form {
-  padding: 3rem 0;
+  padding: 3rem 1rem;
   display: flex;
   flex-direction: column;
 }
@@ -48,4 +48,8 @@
 /* Microsoft edge default reveal password button */
 .auth-form input[type=password]::-ms-reveal {
   display: none;
+}
+
+.auth-form .required-instruction {
+  margin: 1rem 0;
 }
