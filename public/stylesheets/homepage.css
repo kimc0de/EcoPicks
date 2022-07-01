@@ -13,6 +13,11 @@
     font-size: 2.5rem;
 }
 
+#homepage .category-image {
+    width: 500px;
+    height: 500px;
+}
+
 #homepage .categories-title {
     margin: 2rem;
     text-align: center;
@@ -23,11 +28,6 @@
     margin: 2rem;
     text-align: center;
     font-size: 2.5rem;
-}
-
-#homepage .category-image {
-    width: 500px;
-    height: 500px;
 }
 
 #homepage .food-drink-image {
@@ -72,16 +72,9 @@
     }
 }
 
-@media (min-width: 576px) {
+@media (max-width: 576px) {
     #homepage .category-image {
-        width: 300px;
-        height: 300px;
-    }
-}
-
-@media (min-width: 0px) {
-    #homepage .category-image {
-        width: 200px;
-        height: 200px;
+        width: 400px;
+        height: 400px;
     }
 }
