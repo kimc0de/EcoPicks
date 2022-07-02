@@ -15,6 +15,20 @@
   font-size: 1.5rem;
 }
 
+#edit-profile .password-label {
+  font-size: 1rem;
+}
+
+#edit-profile .invalid-field {
+  border-color: red !important;
+}
+
+#edit-profile .error {
+  border-color: transparent;
+  background-color: transparent;
+  font-size: 0.9rem;
+}
+
 #edit-profile .display {
   display: unset;
 }

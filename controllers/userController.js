@@ -141,6 +141,7 @@ module.exports = {
     redirectIfUnauthorized(req, res);
 
     let userId = req.user._id;
+    let currentUserEmail = req.user.email;
     let newEmail = req.body.email;
 
       User.findByIdAndUpdate(userId, {
@@ -148,7 +149,7 @@ module.exports = {
       })
           .then((data) => {
             if (req.xhr) {
-              res.json({'result': 'success', 'email': newEmail});
+              res.json({'result': 'success', 'currentEmail': currentUserEmail,'newEmail': newEmail});
             } else {
               res.locals.data = data;
             }
