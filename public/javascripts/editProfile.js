@@ -217,9 +217,6 @@ $(() => {
     });
 
     oldPassword_inputField.on('keyup', () => {
-        if($.trim(oldPassword_inputField.val()).length === 0) {
-            passwordsValid = false;
-        }
         oldPassword_inputField.removeClass('invalid-field');
         oldPassword_error.addClass('d-none');
     })
@@ -230,6 +227,7 @@ $(() => {
             newPassword_inputField.val() !== newPasswordRepeat_inputField.val()
         ) {
             showPasswordMatchError();
+            passwordsValid = false;
         }
         else {
            hidePasswordMatchError();
@@ -241,6 +239,7 @@ $(() => {
             newPassword_inputField.val() !== newPasswordRepeat_inputField.val()
         ) {
            showPasswordMatchError();
+           passwordsValid = false;
         }
         else {
            hidePasswordMatchError();
@@ -264,17 +263,22 @@ $(() => {
             newPasswordRepeat_error.removeClass('d-none');
         }
 
-        let formData = edit_password_form.serialize();
-        let formAction = edit_password_form.attr('action');
+        if (passwordsValid) {
+            let formData = edit_password_form.serialize();
+            let formAction = edit_password_form.attr('action');
 
-        let req = $.ajax({
-            url: formAction,
-            data: formData,
-            type: 'PUT',
-        });
+            let req = $.ajax({
+                url: formAction,
+                data: formData,
+                type: 'PUT',
+            });
 
-        req.done(() => {
+            req.done(() => {
 
-        })
+            })
+        } else {
+            console.log('passwords not valid');
+        }
+
     })
 })
