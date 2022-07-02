@@ -7,7 +7,7 @@ let edit_username_form = $('#edit-username-form');
 let username_label = $('#username-label');
 
 $(() => {
-    let warning = $('#edit-username-section .warning-message');
+    let errorMessage = $('#edit-username-section .error-message');
 
     // Edit button -> show editing form
     $("#username-edit-button").on('click', () => {
@@ -19,7 +19,7 @@ $(() => {
     $('#edit-username-cancel-button').on('click', (e) => {
         e.preventDefault();
         $('#edit-username-form').trigger("reset"); //reset form
-        warning.addClass('d-none'); //hide warning
+        errorMessage.addClass('d-none'); //hide warning
         showing_username.toggleClass('d-none');
         editing_username.toggleClass('d-none');
     })
@@ -29,7 +29,7 @@ $(() => {
         e.preventDefault();
 
         if($.trim($('#edit-username').val()).length !== 0) { // Check form field not empty
-            warning.addClass('d-none'); //hide warning when form is submitted again
+            errorMessage.addClass('d-none'); //hide warning when form is submitted again
 
             let formData = edit_username_form.serialize();
             let formAction = edit_username_form.attr('action');
@@ -55,8 +55,8 @@ $(() => {
                 $('#user-name').text(data.username);
             })
         } else { // If username field is empty, show warning message
-            warning.removeClass('d-none');
-            warning.addClass('d-block');
+            errorMessage.removeClass('d-none');
+            errorMessage.addClass('d-block');
         }
     })
 })
@@ -70,7 +70,16 @@ let edit_email_form = $('#edit-email-form');
 let email_label = $('#email-label');
 
 $(() => {
-    let warning = $('#edit-email-section .warning-message');
+    $(window).on('keydown',function(event){
+        if(event.keyCode === 13) {
+            event.preventDefault();
+            return false;
+        }
+    });
+})
+
+$(() => {
+    let errorMessage = $('#edit-email-section .error-message');
 
     // Edit button -> show editing form
     $("#email-edit-button").on('click', () => {
@@ -83,7 +92,7 @@ $(() => {
         e.preventDefault();
 
         $('#edit-email-form').trigger("reset"); //reset form
-        warning.addClass('d-none'); //hide warning
+        errorMessage.addClass('d-none'); //hide warning
 
         showing_email.toggleClass('d-none');
         editing_email.toggleClass('d-none');
@@ -94,7 +103,7 @@ $(() => {
         e.preventDefault();
 
         if($.trim($('#edit-email').val()).length !== 0) { // Check form field not empty
-            warning.addClass('d-none'); //hide warning when form is submitted again
+            errorMessage.addClass('d-none'); //hide warning when form is submitted again
 
             let formData = edit_email_form.serialize();
             let formAction = edit_email_form.attr('action');
@@ -124,14 +133,14 @@ $(() => {
                         $(location).attr('href','/login')
                     },3000);
                 } else {
-                    warning.text(`Your new email "${data.email}" is already associated with another account.`)
-                    warning.removeClass('d-none');
-                    warning.addClass('d-block');
+                    errorMessage.text(`Your new email "${data.email}" is already associated with another account.`)
+                    errorMessage.removeClass('d-none');
+                    errorMessage.addClass('d-block');
                 }
             })
         } else { // If username field is empty, show warning message
-            warning.removeClass('d-none');
-            warning.addClass('d-block');
+            errorMessage.removeClass('d-none');
+            errorMessage.addClass('d-block');
         }
     })
 })

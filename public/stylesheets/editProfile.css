@@ -19,10 +19,6 @@
   display: unset;
 }
 
-#edit-profile .warning-message {
-  color: var(--danger);
-}
-
 #edit-profile .cancel-button,
 #edit-profile .save-button{
   min-width: 5rem;
