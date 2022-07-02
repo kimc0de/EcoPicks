@@ -20,6 +20,7 @@ router.get("/users", userController.getAllUsers);
 router.get("/user/edit", userController.renderEdit);
 router.put("/user/update", userController.update, userController.redirectView);
 router.put("/user/update/username", userController.updateUsername);
+router.put("/user/update/email", userController.updateUserEmail);
 
 // Send message
 router.post("/user/contact", userMessage.sendNewMessage);

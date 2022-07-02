@@ -79,8 +79,8 @@ module.exports = {
         console.error(`Error creating user: ${error.message}`);
         res.locals.redirect = "/registration";
         let errormessage = ``;
-        if (error.message.includes('email')) {
-          errormessage += `An account for this email already exists. `;
+        if (error.message.includes('username')) {
+          errormessage += `This email is already associated with an account. `;
         }
         if (errormessage.length === 0) {
           errormessage = `Failed to create user account. ➥${error.message}.`;
@@ -123,7 +123,8 @@ module.exports = {
         username: username
       }, (error, data) => {
           if(error) {
-            console.log(`Error updating username. Error message: ${error.message}`)
+            console.log(`Error updating username. Error message: ${error.message}`);
+            req.flash('error', `Sorry! There is a problem updating your username. Please try again!`);
           } else {
             if (req.xhr) {
               res.json({'result' : 'success', 'username': username});
@@ -134,6 +135,31 @@ module.exports = {
       })
     }
 
+  },
+
+  updateUserEmail: (req, res) => {
+    redirectIfUnauthorized(req, res);
+
+    let userId = req.user._id;
+    let newEmail = req.body.email;
+
+      User.findByIdAndUpdate(userId, {
+        email: newEmail
+      })
+          .then((data) => {
+            if (req.xhr) {
+              res.json({'result': 'success', 'email': newEmail});
+            } else {
+              res.locals.data = data;
+            }
+          })
+          .catch(error => {
+            if (req.xhr) {
+              res.json({'result': 'failed', 'email': `${newEmail}`, 'error': error.message});
+            } else {
+              req.flash('error', 'Sorry! There is a problem updating your username. Please try again!');
+            }
+          })
   },
 
   update: (req, res, next) => {
