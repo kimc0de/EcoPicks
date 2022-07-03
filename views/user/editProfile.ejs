@@ -32,12 +32,12 @@
                 <form action="<%=`/user/update/username`%>" method="POST" id="edit-username-form">
                     <div class="d-flex flex-column">
                         <input type="text" id="edit-username" name="username" class="form-control edit-input" autocomplete="off" aria-required="true" value="<%= user.username %>">
+                        <!-- Error message -->
                         <div class="error alert alert-danger d-flex align-items-center d-none ps-0 pe-0 pt-0 pb-0 mt-1 mb-1" role="alert">
                             <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-                            <div class="error-message">
-                                Please provide a username
-                            </div>
+                            <div class="error-message"></div>
                         </div>
+                        <!-- Error message -->
                         <div class="d-flex flex-row justify-content-end mt-2">
                             <button class="btn btn-outline-primary ms-2 me-2 cancel-button" id="edit-username-cancel-button">Cancel</button>
                             <button class="btn btn-primary save-button" id="edit-username-save-button" type="submit">Save</button>
@@ -73,12 +73,12 @@
                             </div>
                         </div>
                         <input type="text" id="edit-email" name="email" class="form-control edit-input" autocomplete="off" aria-required="true" value="<%= user.email %>">
+                        <!-- Error message -->
                         <div class="error alert alert-danger d-flex align-items-center d-none ps-0 pe-0 pt-0 pb-0 mt-1 mb-1" role="alert">
                             <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-                            <div class="error-message">
-                                Please provide an email address
-                            </div>
+                            <div class="error-message"></div>
                         </div>
+                        <!-- Error message -->
                         <div class="d-flex flex-row justify-content-end  mt-2">
                             <button class="btn btn-outline-primary ms-2 me-2 cancel-button" id="edit-email-cancel-button">Cancel</button>
                             <button class="btn btn-primary save-button" id="edit-email-save-button" type="submit">Save</button>
@@ -109,34 +109,34 @@
                         <div>
                             <label id="current-password-label" for="current-password" class="password-label">Current Password</label>
                             <input type="password" id="current-password" name="currentPassword" class="form-control edit-input mb-2" aria-required="true" autocomplete="current-password">
+                            <!-- Error message -->
                             <div class="error alert alert-danger d-flex align-items-center d-none ps-0 pe-0 pt-0 pb-0 mt-1 mb-1" role="alert">
                                 <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-                                <div class="error-message">
-                                    Please provide your current password.
-                                </div>
+                                <div class="error-message"></div>
                             </div>
+                            <!-- Error message -->
                         </div>
 
                         <div class="mt-3">
                             <label id="new-password-label" for="new-password" class="password-label">New Password</label>
                             <input type="password" id="new-password" name="newPassword" class="form-control edit-input mb-2" aria-required="true" autocomplete="off">
+                            <!-- Error message -->
                             <div class="error alert alert-danger d-flex align-items-center d-none ps-0 pe-0 pt-0 pb-0 mt-1 mb-1" role="alert">
                                 <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-                                <div class="error-message">
-                                    Please choose a new password.
-                                </div>
+                                <div class="error-message"></div>
                             </div>
+                            <!-- Error message -->
                         </div>
 
                         <div class="mt-3">
                             <label id="new-password-repeat-label" for="new-password-repeat" class="password-label">New Password Repeat</label>
                             <input type="password" id="new-password-repeat" name="newPasswordRepeat" class="form-control edit-input mb-2" aria-required="true" autocomplete="off">
+                            <!-- Error message -->
                             <div class="error alert alert-danger d-flex align-items-center d-none ps-0 pe-0 pt-0 pb-0 mt-1 mb-1" role="alert">
                                 <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-                                <div class="error-message">
-                                    Please repeat your new password.
-                                </div>
+                                <div class="error-message"></div>
                             </div>
+                            <!-- Error message -->
                         </div>
 
                         <div class="d-flex flex-column mt-1">

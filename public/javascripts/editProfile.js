@@ -1,4 +1,16 @@
 /**
+ * Prevent default for Enter key
+ */
+$(() => {
+    $(window).on('keydown',function(event){
+        if(event.keyCode === 13) {
+            event.preventDefault();
+            return false;
+        }
+    });
+})
+
+/**
  * Hide and show password for edit password
  */
 $(() => {
@@ -87,6 +99,7 @@ $(() => {
             errorMessage.removeClass('d-none');
             errorMessage.addClass('d-block');
             username_inputField.addClass('invalid-field');
+            errorMessage.find('.error-message').text('Please provide a username');
         }
     })
 })
@@ -99,15 +112,6 @@ let showing_email = $('#showing-email');
 let edit_email_form = $('#edit-email-form');
 let email_label = $('#email-label');
 let email_inputField = $('#edit-email');
-
-$(() => {
-    $(window).on('keydown',function(event){
-        if(event.keyCode === 13) {
-            event.preventDefault();
-            return false;
-        }
-    });
-})
 
 $(() => {
     let errorMessage = $('#edit-email-section .error');
@@ -151,7 +155,7 @@ $(() => {
                 data: formData,
                 type: 'PUT',
             })
-            // when updating is done, show success icon, update username on username field
+            // When updating is done, check result success or failed and show success icon, update username on username field
             req.done((data) => {
                 if (data.result === 'success') {
                     showing_email.removeClass('d-none');
@@ -164,23 +168,24 @@ $(() => {
                         email_label.siblings('.success-icon').toggleClass('d-none');
                     }, 5000);
 
-                    //update email on page
+                    // Update email on Edit profile page
                     $('#user-email').text(data.newEmail);
 
+                    // Log out after updating
                     if(data.currentEmail !== data.newEmail) {
                         setTimeout(() => {
                             $(location).attr('href','/login')
                         },3000);
                     }
-                } else {
-                    errorMessage.find('.error-message').text(`"${data.email}" is already associated with another account.`)
+                } else { // Update failed
+                    errorMessage.find('.error-message').text(`"${data.email}" is already associated with another account.`);
                     errorMessage.removeClass('d-none');
-                    errorMessage.addClass('d-block');
+                    email_inputField.addClass('invalid-field');
                 }
             })
-        } else { // If username field is empty, show error message
+        } else { // If email field is empty, show error message
+            errorMessage.find('.error-message').text('Please provide an email address.');
             errorMessage.removeClass('d-none');
-            errorMessage.addClass('d-block');
             email_inputField.addClass('invalid-field');
         }
     })
@@ -271,16 +276,19 @@ $(() => {
         if($.trim(currentPassword_inputField.val()).length === 0) { // Check form field not empty
             currentPassword_inputField.addClass('invalid-field');
             currentPassword_error.removeClass('d-none');
+            currentPassword_error.find('.error-message').text('Please provide your current password.');
         }
 
         if($.trim(newPassword_inputField.val()).length === 0) {
             newPassword_inputField.addClass('invalid-field');
             newPassword_error.removeClass('d-none');
+            newPassword_error.find('.error-message').text('Please choose a new password.');
         }
 
         if($.trim(newPasswordRepeat_inputField.val()).length === 0) {
             newPasswordRepeat_inputField.addClass('invalid-field');
             newPasswordRepeat_error.removeClass('d-none');
+            newPasswordRepeat_error.find('.error-message').text('Please repeat your new password.');
         }
 
         if(

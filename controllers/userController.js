@@ -118,23 +118,15 @@ module.exports = {
     let userId = req.user._id;
     let username = req.body.username;
 
-    if (username && username !== '') {
-      User.findByIdAndUpdate(userId, {
-        username: username
-      }, (error, data) => {
-          if(error) {
-            console.log(`Error updating username. Error message: ${error.message}`);
-            req.flash('error', `Sorry! There is a problem updating your username. Please try again!`);
-          } else {
-            if (req.xhr) {
-              res.json({'result' : 'success', 'username': username});
-              req.flash("success", "Changes are saved");
-            }
-            res.locals.data = data;
-          }
-      })
-    }
-
+    User.findByIdAndUpdate(userId, {
+      username: username
+    }, (error) => {
+        if(error) {
+          res.json({'result' : 'failed', 'username': username, 'error': `${error.message}`});
+        } else {
+          res.json({'result' : 'success', 'username': username});
+        }
+    })
   },
 
   updateUserEmail: (req, res) => {
@@ -144,23 +136,15 @@ module.exports = {
     let currentUserEmail = req.user.email;
     let newEmail = req.body.email;
 
-      User.findByIdAndUpdate(userId, {
-        email: newEmail
-      })
-          .then((data) => {
-            if (req.xhr) {
-              res.json({'result': 'success', 'currentEmail': currentUserEmail,'newEmail': newEmail});
-            } else {
-              res.locals.data = data;
-            }
-          })
-          .catch(error => {
-            if (req.xhr) {
-              res.json({'result': 'failed', 'email': `${newEmail}`, 'error': error.message});
-            } else {
-              req.flash('error', 'Sorry! There is a problem updating your username. Please try again!');
-            }
-          })
+    User.findByIdAndUpdate(userId, {
+      email: newEmail
+    })
+        .then(() => {
+            res.json({'result': 'success', 'currentEmail': currentUserEmail,'newEmail': newEmail});
+        })
+        .catch(error => {
+            res.json({'result': 'failed', 'email': `${newEmail}`, 'error': error.message});
+        })
   },
 
   updateUserPassword: (req, res) => {
