@@ -3,18 +3,41 @@
 }
 
 #edit-profile h1 {
+  color: var(--text-primary);
   font-size: 2rem;
+}
+
+#edit-profile .success-icon {
+  padding-left: 1rem;
 }
 
 #edit-profile .edit-label {
   font-size: 1.5rem;
 }
 
-#edit-profile .edit-btn {
-  width: 30%;
-  height: 40px;
-  text-align: center;
-  border-radius: 20px;
+#edit-profile .password-label,
+#edit-profile .email-label
+{
+  font-size: 1rem;
+}
+
+#edit-profile .invalid-field {
+  border-color: red !important;
+}
+
+#edit-profile .error {
+  border-color: transparent;
+  background-color: transparent;
+  font-size: 0.9rem;
+}
+
+#edit-profile .display {
+  display: unset;
+}
+
+#edit-profile .cancel-button,
+#edit-profile .save-button{
+  min-width: 5rem;
 }
 
 #edit-profile .edit-input {
@@ -33,21 +56,27 @@
   color:  var(--text-primary);
 }
 
+#show-edit-password {
+  margin: 0 0.5rem;
+}
+
+#edit-profile .show-password-label{
+  align-self: flex-end;
+}
+
+#edit-profile input[type=checkbox] {
+  transform: scale(1.5);
+}
+
 @media (min-width: 992px) {
   #edit-section {
-    padding: 0px 150px;
+    padding: 0 150px;
   }
 }
 
 @media (min-width: 1200px) {
   #edit-section {
-    padding: 0px 200px;
-  }
-}
-
-@media (max-width: 991px) {
-  #edit-profile .edit-btn {
-    width: 40%;
+    padding: 0 200px;
   }
 }
 

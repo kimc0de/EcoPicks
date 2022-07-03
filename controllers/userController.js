@@ -79,11 +79,8 @@ module.exports = {
         console.error(`Error creating user: ${error.message}`);
         res.locals.redirect = "/registration";
         let errormessage = ``;
-        if (error.message.includes('email')) {
-          errormessage += `An account for this email already exists. `;
-        }
         if (error.message.includes('username')) {
-          errormessage += `This username is taken.`;
+          errormessage += `This email is already associated with an account. `;
         }
         if (errormessage.length === 0) {
           errormessage = `Failed to create user account. ➥${error.message}.`;
@@ -109,36 +106,90 @@ module.exports = {
 
   renderEdit: (req, res) => {
     redirectIfUnauthorized(req, res);
-    res.render('user/edit', {
-      user: req.user
+    res.render('user/editProfile', {
+      user: req.user,
+      correctPassword: res.locals.correctPassword,
     });
   },
 
-  update: (req, res, next) => {
-    let userId = req.user._id;
-    let userParams = {
-        username: req.body.username,
-        email: req.body.email
-      };
-    let emailExist = User.findOne({email: req.body.email});
+  updateUsername: (req, res) => {
+    redirectIfUnauthorized(req, res);
 
-    if (emailExist && userParams.email !== req.user.email) { // prevent duplicate emails
-      req.flash('error', `The new email "${req.body.email}" is already associated with another account.`);
-      res.locals.redirect = `/user/edit`;
-      next();
+    let userId = req.user._id;
+    let username = req.body.username;
+
+    User.findByIdAndUpdate(userId, {
+      username: username
+    }, (error) => {
+        if(error) {
+          res.json({'result' : 'failed', 'username': username, 'error': `${error.message}`});
+        } else {
+          res.json({'result' : 'success', 'username': username});
+        }
+    })
+  },
+
+  updateUserEmail: (req, res) => {
+    redirectIfUnauthorized(req, res);
+
+    let userId = req.user._id;
+    let currentUserEmail = req.user.email;
+    let newEmail = req.body.email;
+    let confirmEmail = req.body.confirmEmail;
+
+    // Validate email format
+    const isEmail = (email) => {
+      let EmailRegex = /^([a-zA-Z0-9_.+-])+@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+      return EmailRegex.test(email);
+    }
+
+    if (newEmail.trim() === '' || confirmEmail.trim() === '') {
+      res.json({'result': 'failed', 'error': 'Empty required field'});
+    } else if (newEmail === currentUserEmail) {
+      res.json({'result': 'failed', 'error': 'Invalid new email'});
+    } else if (newEmail !== confirmEmail) {
+      res.json({'result': 'failed', 'error': 'Emails do not match'});
+    } else if (newEmail.trim() !== '' && !isEmail(newEmail)) {
+      res.json({'result': 'failed', 'error': 'Invalid email format'});
     } else {
       User.findByIdAndUpdate(userId, {
-        $set: userParams
+        email: newEmail
       })
-        .then(() => {
-          res.locals.redirect = `/user/edit`;
-          req.flash("success", `Your changes have been saved!`);
-          next();
-        })
-        .catch(error => {
-          console.log(`Error updating user by ID:${error.message}`);
-          next(error);
-        });
+          .then(() => {
+            res.json({'result': 'success', 'currentEmail': currentUserEmail, 'newEmail': newEmail});
+          })
+          .catch(error => {
+            console.log(error.message);
+            res.json({'result': 'failed', 'email': `${newEmail}`, 'error': error.message});
+          })
+    }
+  },
+
+  updateUserPassword: (req, res) => {
+    redirectIfUnauthorized(req, res);
+
+    let userId = req.user._id;
+    let currentPassword = req.body.currentPassword;
+    let newPassword = req.body.newPassword;
+    let newPasswordRepeat = req.body.newPasswordRepeat;
+
+    if (currentPassword.trim() === '' || newPassword.trim() === '' || newPasswordRepeat.trim() === '')  {
+      res.json({'result': 'failed', 'error': 'Empty required fields.'});
+    } else if (currentPassword === newPassword) {
+      res.json({'result': 'failed', 'error': 'Invalid new password'});
+    } else {
+      User.findById(userId).then(foundUser => {
+
+        foundUser.changePassword(currentPassword, newPassword)
+            .then(() => {
+              res.json({'result': 'success'});
+            })
+            .catch((error) => {
+                res.json({'result': 'failed', 'error': `${error.message}`});
+            })
+      }).catch((error) => {
+          res.json({'result': 'failed', 'error': `${error.message}`});
+      });
     }
   },
 
@@ -214,6 +265,6 @@ module.exports = {
     } catch (error) {
         console.log(error);
         respondNoResourceFound(req, res);
-      };
+      }
   }
 };
