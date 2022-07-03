@@ -153,8 +153,13 @@ module.exports = {
     let userId = req.user._id;
     let currentPassword = req.body.currentPassword;
     let newPassword = req.body.newPassword;
+    let newPasswordRepeat = req.body.newPasswordRepeat;
 
-    if (currentPassword !== newPassword) {
+    if (currentPassword.trim() === '' || newPassword.trim() === '' || newPasswordRepeat.trim() === '')  {
+      res.json({'result': 'failed', 'error': 'Empty required fields.'});
+    } else if (currentPassword === newPassword) {
+      res.json({'result': 'failed', 'error': 'Invalid new password'});
+    } else {
       User.findById(userId).then(foundUser => {
 
         foundUser.changePassword(currentPassword, newPassword)
@@ -167,8 +172,6 @@ module.exports = {
       }).catch((error) => {
           res.json({'result': 'failed', 'error': `${error.message}`});
       });
-    } else {
-      res.json({'result': 'failed', 'error': 'Error updating user password.'});
     }
   },
 

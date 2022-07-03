@@ -88,10 +88,12 @@ $(() => {
             req.done((data) => {
                 //show success icon
                 username_label.siblings('.success-icon').toggleClass('d-none');
+
                 //hide success icon
                 setTimeout(() =>{
                     username_label.siblings('.success-icon').toggleClass('d-none');
-                }, 5000);
+                }, 3000);
+
                 //update user name on page
                 $('#user-name').text(data.username);
             })
@@ -158,15 +160,17 @@ $(() => {
             // When updating is done, check result success or failed and show success icon, update username on username field
             req.done((data) => {
                 if (data.result === 'success') {
+                    //hide editing input
                     showing_email.removeClass('d-none');
                     editing_email.addClass('d-none');
 
                     //show success icon
                     email_label.siblings('.success-icon').toggleClass('d-none');
+
                     //hide success icon
                     setTimeout(() => {
                         email_label.siblings('.success-icon').toggleClass('d-none');
-                    }, 5000);
+                    }, 3000);
 
                     // Update email on Edit profile page
                     $('#user-email').text(data.newEmail);
@@ -175,7 +179,7 @@ $(() => {
                     if(data.currentEmail !== data.newEmail) {
                         setTimeout(() => {
                             $(location).attr('href','/login')
-                        },3000);
+                        },4000);
                     }
                 } else { // Update failed
                     errorMessage.find('.error-message').text(`"${data.email}" is already associated with another account.`);
@@ -273,33 +277,6 @@ $(() => {
     edit_password_form.on('submit', (e) => {
         e.preventDefault();
 
-        if($.trim(currentPassword_inputField.val()).length === 0) { // Check form field not empty
-            currentPassword_inputField.addClass('invalid-field');
-            currentPassword_error.removeClass('d-none');
-            currentPassword_error.find('.error-message').text('Please provide your current password.');
-        }
-
-        if($.trim(newPassword_inputField.val()).length === 0) {
-            newPassword_inputField.addClass('invalid-field');
-            newPassword_error.removeClass('d-none');
-            newPassword_error.find('.error-message').text('Please choose a new password.');
-        }
-
-        if($.trim(newPasswordRepeat_inputField.val()).length === 0) {
-            newPasswordRepeat_inputField.addClass('invalid-field');
-            newPasswordRepeat_error.removeClass('d-none');
-            newPasswordRepeat_error.find('.error-message').text('Please repeat your new password.');
-        }
-
-        if(
-            $.trim(currentPassword_inputField.val()).length !== 0 &&
-            $.trim(newPassword_inputField.val()).length !== 0 &&
-            newPasswordRepeat_inputField.val() === currentPassword_inputField.val()) {
-            newPassword_inputField.addClass('invalid-field');
-            newPassword_error.removeClass('d-none');
-            newPassword_error.find('.error-message').text('New password cannot be the same as current password.');
-        }
-
         let formData = edit_password_form.serialize();
         let formAction = edit_password_form.attr('action');
 
@@ -321,7 +298,7 @@ $(() => {
                 //hide success icon
                 setTimeout(() => {
                     passwordLabel.siblings('.success-icon').toggleClass('d-none');
-                }, 5000);
+                }, 3000);
             }
             if (data.result === 'failed'){
                 if (data.error.includes('Password or username is incorrect')) {
@@ -329,10 +306,29 @@ $(() => {
                     currentPassword_error.removeClass('d-none');
                     currentPassword_error.find('.error-message').text('Incorrect current password.');
                 }
-                if (data.error.includes('No password was given')) {
-                    currentPassword_inputField.addClass('invalid-field');
-                    currentPassword_error.removeClass('d-none');
-                    currentPassword_error.find('.error-message').text('Please provide your current password.');
+                if (data.error.includes('Empty required fields')) {
+                    if($.trim(currentPassword_inputField.val()).length === 0) { // Check form field not empty
+                        currentPassword_inputField.addClass('invalid-field');
+                        currentPassword_error.removeClass('d-none');
+                        currentPassword_error.find('.error-message').text('Please provide your current password.');
+                    }
+
+                    if($.trim(newPassword_inputField.val()).length === 0) {
+                        newPassword_inputField.addClass('invalid-field');
+                        newPassword_error.removeClass('d-none');
+                        newPassword_error.find('.error-message').text('Please choose a new password.');
+                    }
+
+                    if($.trim(newPasswordRepeat_inputField.val()).length === 0) {
+                        newPasswordRepeat_inputField.addClass('invalid-field');
+                        newPasswordRepeat_error.removeClass('d-none');
+                        newPasswordRepeat_error.find('.error-message').text('Please repeat your new password.');
+                    }
+                }
+                if (data.error.includes('Invalid new password')) {
+                    newPassword_inputField.addClass('invalid-field');
+                    newPassword_error.removeClass('d-none');
+                    newPassword_error.find('.error-message').text('New password cannot be the same as current password.');
                 }
             }
         })
