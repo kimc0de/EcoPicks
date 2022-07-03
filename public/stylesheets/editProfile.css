@@ -15,7 +15,9 @@
   font-size: 1.5rem;
 }
 
-#edit-profile .password-label {
+#edit-profile .password-label,
+#edit-profile .email-label
+{
   font-size: 1rem;
 }
 

@@ -51,7 +51,7 @@
         <!--   User email     -->
         <div class="row mb-3" id="edit-email-section">
             <div class="d-flex align-items-start">
-                <label id="email-label" for="edit-email" class="edit-label mb-2">Email</label>
+                <div id="email-label" class="edit-label mb-2">Email</div>
                 <span class="d-none success-icon ml-3">
                     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M15.9998 2.66675C8.63584 2.66675 2.6665 8.63608 2.6665 16.0001C2.6665 23.3641 8.63584 29.3334 15.9998 29.3334C23.3638 29.3334 29.3332 23.3641 29.3332 16.0001C29.3332 8.63608 23.3638 2.66675 15.9998 2.66675ZM13.3332 23.2187L7.05717 16.9427L8.9425 15.0574L13.3332 19.4481L23.0572 9.72408L24.9425 11.6094L13.3332 23.2187Z" fill="#425A49"/>
@@ -72,13 +72,28 @@
                                 You will be logged out after successfully change your email.
                             </div>
                         </div>
-                        <input type="text" id="edit-email" name="email" class="form-control edit-input" autocomplete="off" aria-required="true" value="<%= user.email %>">
-                        <!-- Error message -->
-                        <div class="error alert alert-danger d-flex align-items-center d-none ps-0 pe-0 pt-0 pb-0 mt-1 mb-1" role="alert">
-                            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-                            <div class="error-message"></div>
+
+                        <div>
+                            <label id="current-email-label" for="new-email" class="email-label">New Email</label>
+                            <input type="text" id="new-email" name="email" class="form-control edit-input" autocomplete="off" aria-required="true">
+                            <!-- Error message -->
+                            <div class="error alert alert-danger d-flex align-items-center d-none ps-0 pe-0 pt-0 pb-0 mt-1 mb-1" role="alert">
+                                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                                <div class="error-message"></div>
+                            </div>
+                            <!-- Error message -->
                         </div>
-                        <!-- Error message -->
+
+                        <div class="mt-3">
+                            <label id="confirm-email-label" for="confirm-email" class="confirm-email-label">Confirm new email</label>
+                            <input type="text" id="confirm-email" name="confirmEmail" class="form-control edit-input" autocomplete="off" aria-required="true" value="">
+                            <!-- Error message -->
+                            <div class="error alert alert-danger d-flex align-items-center d-none ps-0 pe-0 pt-0 pb-0 mt-1 mb-1" role="alert">
+                                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                                <div class="error-message"></div>
+                            </div>
+                            <!-- Error message -->
+                        </div>
                         <div class="d-flex flex-row justify-content-end  mt-2">
                             <button class="btn btn-outline-primary ms-2 me-2 cancel-button" id="edit-email-cancel-button">Cancel</button>
                             <button class="btn btn-primary save-button" id="edit-email-save-button" type="submit">Save</button>

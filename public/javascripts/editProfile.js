@@ -113,10 +113,27 @@ let editing_email = $('#editing-email');
 let showing_email = $('#showing-email');
 let edit_email_form = $('#edit-email-form');
 let email_label = $('#email-label');
-let email_inputField = $('#edit-email');
+let newEmail_inputField = $('#new-email');
+let confirmEmail_inputField = $('#confirm-email');
+let newEmail_error = newEmail_inputField.siblings('.error');
+let confirmEmail_error = confirmEmail_inputField.siblings('.error');
+let errorMessages = $('#edit-email-form .error');
+
+const showEmailMatchError = () => {
+    errorMessages.removeClass('d-none');
+    newEmail_inputField.addClass('invalid-field');
+    confirmEmail_inputField.addClass('.invalid-field');
+    newEmail_error.find('.error-message').text('Emails do not match.');
+    confirmEmail_error.find('.error-message').text('Emails do not match');
+}
+
+const hideEmailMatchError = () => {
+    errorMessages.addClass('d-none');
+    newEmail_inputField.removeClass('invalid-field');
+    confirmEmail_inputField.removeClass('.invalid-field');
+}
 
 $(() => {
-    let errorMessage = $('#edit-email-section .error');
 
     // Edit button -> show editing form
     $("#email-edit-button").on('click', () => {
@@ -129,25 +146,44 @@ $(() => {
         e.preventDefault();
 
         $('#edit-email-form').trigger("reset"); //reset form
-        errorMessage.addClass('d-none'); //hide error
-        email_inputField.removeClass('invalid-field');
+        errorMessages.addClass('d-none'); //hide error
+        newEmail_inputField.removeClass('invalid-field');
+        confirmEmail_inputField.removeClass('.invalid-field');
 
         showing_email.toggleClass('d-none');
         editing_email.toggleClass('d-none');
     })
 
+    // Check matching new email and confirm email
+
+    confirmEmail_inputField.on('keyup', () => {
+        if ($.trim(newEmail_inputField.val()).length !== 0 &&
+            confirmEmail_inputField.val() !== newEmail_inputField.val()
+        ) {
+            showEmailMatchError();
+        }
+        else {
+            hideEmailMatchError();
+        }
+    })
+
+    newEmail_inputField.on('keyup', () => {
+        if ($.trim(confirmEmail_inputField.val()).length !== 0 &&
+            newEmail_inputField.val() !== confirmEmail_inputField.val()
+        ) {
+            showEmailMatchError();
+        }
+        else {
+            hideEmailMatchError();
+        }
+    })
+
     // Save editing
     edit_email_form.on('submit', (e) => {
         e.preventDefault();
-
-        email_inputField.on('keyup', () => {
-            email_inputField.removeClass('invalid-field');
-            email_inputField.siblings('.error-message').addClass('d-none');
-        })
-
-        if($.trim($('#edit-email').val()).length !== 0) { // Check form field not empty
-            errorMessage.addClass('d-none'); //hide error when form is submitted again
-            email_inputField.removeClass('invalid-field');
+            //
+            // errorMessage.addClass('d-none'); //hide error when form is submitted again
+            // newEmail_inputField.removeClass('invalid-field');
 
             let formData = edit_email_form.serialize();
             let formAction = edit_email_form.attr('action');
@@ -164,6 +200,10 @@ $(() => {
                     showing_email.removeClass('d-none');
                     editing_email.addClass('d-none');
 
+                    //reset input values
+                    newEmail_inputField.val('');
+                    confirmEmail_inputField.val('');
+
                     //show success icon
                     email_label.siblings('.success-icon').toggleClass('d-none');
 
@@ -175,23 +215,47 @@ $(() => {
                     // Update email on Edit profile page
                     $('#user-email').text(data.newEmail);
 
-                    // Log out after updating
-                    if(data.currentEmail !== data.newEmail) {
-                        setTimeout(() => {
-                            $(location).attr('href','/login')
-                        },4000);
+                    // setTimeout(() => {
+                    //     $(location).attr('href','/login')
+                    // },4000);
+                } else { // Update email failed
+                    if(data.error.includes('Empty required field')) {
+                        if($.trim($('#new-email').val()).length === 0) {
+                            newEmail_error.find('.error-message').text('Please provide a new email address.');
+                            newEmail_inputField.addClass('invalid-field');
+                            newEmail_error.removeClass('d-none');
+                        }
+
+                        if($.trim($('#confirm-email').val()).length === 0) {
+                            confirmEmail_error.find('.error-message').text('Please confirm new email address.');
+                            confirmEmail_inputField.addClass('invalid-field');
+                            confirmEmail_error.removeClass('d-none');
+                        }
                     }
-                } else { // Update failed
-                    errorMessage.find('.error-message').text(`"${data.email}" is already associated with another account.`);
-                    errorMessage.removeClass('d-none');
-                    email_inputField.addClass('invalid-field');
+                    if (data.error.includes('Invalid new email')) {
+                        newEmail_error.find('.error-message').text('New email cannot be the same as current email.');
+                        newEmail_inputField.addClass('invalid-field');
+                        newEmail_error.removeClass('d-none');
+                    }
+
+                    if (data.error.includes('Emails do not match')) {
+                        showEmailMatchError();
+                    }
+
+                    if(data.error.includes('Invalid email format')) {
+                        newEmail_error.find('.error-message').text('Invalid email format.');
+                        newEmail_inputField.addClass('invalid-field');
+                        newEmail_error.removeClass('d-none');
+                    }
+                    console.log(data);
                 }
             })
-        } else { // If email field is empty, show error message
-            errorMessage.find('.error-message').text('Please provide an email address.');
-            errorMessage.removeClass('d-none');
-            email_inputField.addClass('invalid-field');
-        }
+        // }
+        // else { // If email field is empty, show error message
+        //     errorMessage.find('.error-message').text('Please provide an email address.');
+        //     errorMessage.removeClass('d-none');
+        //     email_inputField.addClass('invalid-field');
+        // }
     })
 })
 
@@ -248,7 +312,7 @@ $(() => {
     currentPassword_inputField.on('keyup', () => {
         currentPassword_inputField.removeClass('invalid-field');
         currentPassword_error.addClass('d-none');
-    })
+    });
 
     // Check matching new password and new password repeat
     newPassword_inputField.on('keyup', () => {
@@ -260,7 +324,7 @@ $(() => {
         else {
            hidePasswordMatchError();
         }
-    })
+    });
 
     newPasswordRepeat_inputField.on('keyup', () => {
         if ($.trim(newPassword_inputField.val()).length !== 0 &&
@@ -271,7 +335,7 @@ $(() => {
         else {
            hidePasswordMatchError();
         }
-    })
+    });
 
     // Save editing
     edit_password_form.on('submit', (e) => {

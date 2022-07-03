@@ -135,16 +135,34 @@ module.exports = {
     let userId = req.user._id;
     let currentUserEmail = req.user.email;
     let newEmail = req.body.email;
+    let confirmEmail = req.body.confirmEmail;
 
-    User.findByIdAndUpdate(userId, {
-      email: newEmail
-    })
-        .then(() => {
-            res.json({'result': 'success', 'currentEmail': currentUserEmail,'newEmail': newEmail});
-        })
-        .catch(error => {
+    // Validate email format
+    const isEmail = (email) => {
+      let EmailRegex = /^([a-zA-Z0-9_.+-])+@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+      return EmailRegex.test(email);
+    }
+
+    if (newEmail.trim() === '' || confirmEmail.trim() === '') {
+      res.json({'result': 'failed', 'error': 'Empty required field'});
+    } else if (newEmail === currentUserEmail) {
+      res.json({'result': 'failed', 'error': 'Invalid new email'});
+    } else if (newEmail !== confirmEmail) {
+      res.json({'result': 'failed', 'error': 'Emails do not match'});
+    } else if (newEmail.trim() !== '' && !isEmail(newEmail)) {
+      res.json({'result': 'failed', 'error': 'Invalid email format'});
+    } else {
+      User.findByIdAndUpdate(userId, {
+        email: newEmail
+      })
+          .then(() => {
+            res.json({'result': 'success', 'currentEmail': currentUserEmail, 'newEmail': newEmail});
+          })
+          .catch(error => {
+            console.log(error.message);
             res.json({'result': 'failed', 'email': `${newEmail}`, 'error': error.message});
-        })
+          })
+    }
   },
 
   updateUserPassword: (req, res) => {
