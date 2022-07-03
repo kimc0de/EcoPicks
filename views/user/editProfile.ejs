@@ -91,33 +91,28 @@
 
         <!--   User password   -->
         <div class="row mb-3" id="edit-password-section">
-            <div class="d-flex align-items-start justify-content-between">
-                <div class="edit-label mb-2">Password</div>
-                <span class="d-none success-icon ml-3">
-                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15.9998 2.66675C8.63584 2.66675 2.6665 8.63608 2.6665 16.0001C2.6665 23.3641 8.63584 29.3334 15.9998 29.3334C23.3638 29.3334 29.3332 23.3641 29.3332 16.0001C29.3332 8.63608 23.3638 2.66675 15.9998 2.66675ZM13.3332 23.2187L7.05717 16.9427L8.9425 15.0574L13.3332 19.4481L23.0572 9.72408L24.9425 11.6094L13.3332 23.2187Z" fill="#425A49"/>
-                    </svg>
-                </span>
+            <div class="d-flex justify-content-between">
+                <div class="d-flex align-items-start">
+                    <div id="password-label" class="edit-label mb-2">Password</div>
+                    <span class="d-none success-icon ml-3">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15.9998 2.66675C8.63584 2.66675 2.6665 8.63608 2.6665 16.0001C2.6665 23.3641 8.63584 29.3334 15.9998 29.3334C23.3638 29.3334 29.3332 23.3641 29.3332 16.0001C29.3332 8.63608 23.3638 2.66675 15.9998 2.66675ZM13.3332 23.2187L7.05717 16.9427L8.9425 15.0574L13.3332 19.4481L23.0572 9.72408L24.9425 11.6094L13.3332 23.2187Z" fill="#425A49"/>
+                        </svg>
+                    </span>
+                </div>
                 <button class="btn btn-outline-primary edit-btn" id="password-edit-button">Edit</button>
             </div>
 
             <div id="editing-password" class="d-none">
                 <form action="<%=`/user/update/password`%>" method="POST" id="edit-password-form">
                     <div class="d-flex flex-column">
-                        <div class="alert alert-warning d-flex align-items-center mt-1 pt-1 pb-1" role="alert">
-                            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>
-                            <div>
-                                You will be logged out after successfully change your password.
-                            </div>
-                        </div>
-
                         <div>
-                            <label id="old-password-label" for="old-password" class="password-label">Old Password</label>
-                            <input type="password" id="old-password" name="oldPassword" class="form-control edit-input mb-2" aria-required="true" autocomplete="old-password">
+                            <label id="current-password-label" for="current-password" class="password-label">Current Password</label>
+                            <input type="password" id="current-password" name="currentPassword" class="form-control edit-input mb-2" aria-required="true" autocomplete="current-password">
                             <div class="error alert alert-danger d-flex align-items-center d-none ps-0 pe-0 pt-0 pb-0 mt-1 mb-1" role="alert">
                                 <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
                                 <div class="error-message">
-                                    Please provide your old password.
+                                    Please provide your current password.
                                 </div>
                             </div>
                         </div>
@@ -145,6 +140,8 @@
                         </div>
 
                         <div class="d-flex flex-column mt-1">
+                            <label for="show-password" class="show-password-label"><input type="checkbox" id="show-edit-password">Show passwords</label>
+
                             <div class="d-flex flex-row justify-content-end  mt-2">
                                 <button class="btn btn-outline-primary ms-2 me-2 cancel-button" id="edit-password-cancel-button">Cancel</button>
                                 <button class="btn btn-primary save-button" id="edit-password-save-button" type="submit">Save</button>

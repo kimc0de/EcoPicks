@@ -18,9 +18,9 @@ router.get("/users", userController.getAllUsers);
 
 // Edit profile
 router.get("/user/edit", userController.renderEdit);
-router.put("/user/update", userController.update, userController.redirectView);
 router.put("/user/update/username", userController.updateUsername);
 router.put("/user/update/email", userController.updateUserEmail);
+router.put("/user/update/password", userController.updateUserPassword);
 
 // Send message
 router.post("/user/contact", userMessage.sendNewMessage);

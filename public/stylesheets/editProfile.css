@@ -54,6 +54,18 @@
   color:  var(--text-primary);
 }
 
+#show-edit-password {
+  margin: 0 0.5rem;
+}
+
+#edit-profile .show-password-label{
+  align-self: flex-end;
+}
+
+#edit-profile input[type=checkbox] {
+  transform: scale(1.5);
+}
+
 @media (min-width: 992px) {
   #edit-section {
     padding: 0 150px;
@@ -65,5 +77,4 @@
     padding: 0 200px;
   }
 }
-
 

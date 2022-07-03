@@ -1,4 +1,27 @@
 /**
+ * Hide and show password for edit password
+ */
+$(() => {
+    $("#show-edit-password").on("change", () => {
+        let type = $("#show-edit-password").prop('checked') ? 'text' : 'password';
+        let currentPassword = $("#current-password");
+        let newPassword = $("#new-password");
+        let newPasswordRepeat = $("#new-password-repeat");
+
+        if (currentPassword) {
+            currentPassword.attr('type', type);
+        }
+        if (newPassword) {
+            newPassword.attr('type', type);
+        }
+        if (newPasswordRepeat) {
+            newPasswordRepeat.attr('type', type);
+        }
+    })
+});
+
+
+/**
  * Edit user name
  */
 let editing_username = $('#editing-username');
@@ -56,7 +79,7 @@ $(() => {
                 //hide success icon
                 setTimeout(() =>{
                     username_label.siblings('.success-icon').toggleClass('d-none');
-                }, 2000);
+                }, 5000);
                 //update user name on page
                 $('#user-name').text(data.username);
             })
@@ -139,7 +162,7 @@ $(() => {
                     //hide success icon
                     setTimeout(() => {
                         email_label.siblings('.success-icon').toggleClass('d-none');
-                    }, 2000);
+                    }, 5000);
 
                     //update email on page
                     $('#user-email').text(data.newEmail);
@@ -168,12 +191,12 @@ $(() => {
  */
 let editing_password = $('#editing-password');
 let edit_password_form = $('#edit-password-form');
-let oldPassword_label = $('#oldPassword-label');
+let passwordLabel = $('#password-label');
 let passwordEditButton = $('#password-edit-button');
-let oldPassword_inputField = $('#old-password');
+let currentPassword_inputField = $('#current-password');
 let newPassword_inputField = $('#new-password');
 let newPasswordRepeat_inputField = $('#new-password-repeat');
-let oldPassword_error = oldPassword_inputField.siblings('.error');
+let currentPassword_error = currentPassword_inputField.siblings('.error');
 let newPassword_error = newPassword_inputField.siblings('.error');
 let newPasswordRepeat_error = newPasswordRepeat_inputField.siblings('.error');
 
@@ -193,9 +216,6 @@ const hidePasswordMatchError = () => {
 }
 
 $(() => {
-    let errorMessage = $('#edit-password-section .error-message');
-    let passwordsValid = false;
-
     // Edit button -> show editing form
     passwordEditButton.on('click', () => {
         editing_password.toggleClass('d-none');
@@ -208,17 +228,17 @@ $(() => {
         passwordEditButton.toggleClass('d-none');
 
         $('#edit-password-form').trigger("reset"); //reset form
-        errorMessage.addClass('d-none'); //hide error
-        oldPassword_inputField.removeClass('invalid-field');
+        $('#edit-password-section .error').addClass('d-none'); //hide all errors
+        currentPassword_inputField.removeClass('invalid-field');
         newPassword_inputField.removeClass('invalid-field');
         newPasswordRepeat_inputField.removeClass('invalid-field');
 
         editing_password.toggleClass('d-none');
     });
 
-    oldPassword_inputField.on('keyup', () => {
-        oldPassword_inputField.removeClass('invalid-field');
-        oldPassword_error.addClass('d-none');
+    currentPassword_inputField.on('keyup', () => {
+        currentPassword_inputField.removeClass('invalid-field');
+        currentPassword_error.addClass('d-none');
     })
 
     // Check matching new password and new password repeat
@@ -227,7 +247,6 @@ $(() => {
             newPassword_inputField.val() !== newPasswordRepeat_inputField.val()
         ) {
             showPasswordMatchError();
-            passwordsValid = false;
         }
         else {
            hidePasswordMatchError();
@@ -239,7 +258,6 @@ $(() => {
             newPassword_inputField.val() !== newPasswordRepeat_inputField.val()
         ) {
            showPasswordMatchError();
-           passwordsValid = false;
         }
         else {
            hidePasswordMatchError();
@@ -250,35 +268,66 @@ $(() => {
     edit_password_form.on('submit', (e) => {
         e.preventDefault();
 
-        if($.trim(oldPassword_inputField.val()).length === 0) { // Check form field not empty
-            oldPassword_inputField.addClass('invalid-field');
-            oldPassword_error.removeClass('d-none');
+        if($.trim(currentPassword_inputField.val()).length === 0) { // Check form field not empty
+            currentPassword_inputField.addClass('invalid-field');
+            currentPassword_error.removeClass('d-none');
         }
+
         if($.trim(newPassword_inputField.val()).length === 0) {
             newPassword_inputField.addClass('invalid-field');
             newPassword_error.removeClass('d-none');
         }
+
         if($.trim(newPasswordRepeat_inputField.val()).length === 0) {
             newPasswordRepeat_inputField.addClass('invalid-field');
             newPasswordRepeat_error.removeClass('d-none');
         }
 
-        if (passwordsValid) {
-            let formData = edit_password_form.serialize();
-            let formAction = edit_password_form.attr('action');
-
-            let req = $.ajax({
-                url: formAction,
-                data: formData,
-                type: 'PUT',
-            });
-
-            req.done(() => {
-
-            })
-        } else {
-            console.log('passwords not valid');
+        if(
+            $.trim(currentPassword_inputField.val()).length !== 0 &&
+            $.trim(newPassword_inputField.val()).length !== 0 &&
+            newPasswordRepeat_inputField.val() === currentPassword_inputField.val()) {
+            newPassword_inputField.addClass('invalid-field');
+            newPassword_error.removeClass('d-none');
+            newPassword_error.find('.error-message').text('New password cannot be the same as current password.');
         }
+
+        let formData = edit_password_form.serialize();
+        let formAction = edit_password_form.attr('action');
+
+        let req = $.ajax({
+            url: formAction,
+            data: formData,
+            type: 'PUT',
+        });
+
+        req.done((data) => {
+            console.log(data);
+            if (data.result === 'success') {
+                editing_password.addClass('d-none');
+                passwordEditButton.toggleClass('d-none');
+
+                //show success icon
+                passwordLabel.siblings('.success-icon').toggleClass('d-none');
+
+                //hide success icon
+                setTimeout(() => {
+                    passwordLabel.siblings('.success-icon').toggleClass('d-none');
+                }, 5000);
+            }
+            if (data.result === 'failed'){
+                if (data.error.includes('Password or username is incorrect')) {
+                    currentPassword_inputField.addClass('invalid-field');
+                    currentPassword_error.removeClass('d-none');
+                    currentPassword_error.find('.error-message').text('Incorrect current password.');
+                }
+                if (data.error.includes('No password was given')) {
+                    currentPassword_inputField.addClass('invalid-field');
+                    currentPassword_error.removeClass('d-none');
+                    currentPassword_error.find('.error-message').text('Please provide your current password.');
+                }
+            }
+        })
 
     })
 })
