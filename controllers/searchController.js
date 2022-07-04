@@ -41,7 +41,26 @@ module.exports = {
                 });
 
                 // Get search results
-                res.locals.results = await EcopicksBrand.find({$or: [...brandQueries, ...productQueries]});
+                let searchResults = await EcopicksBrand.find({$or: [...brandQueries, ...productQueries]});
+                let brands = [];
+
+                let promise = searchResults.map(async (a) => {
+                    brands.push({
+                        "_id": a._id,
+                        "category": await Category.findById(a.category),
+                        "name": a.name,
+                        "endpoint": a.endpoint,
+                        "website": a.website,
+                        "slogan": a.slogan,
+                        "description": a.description,
+                        "image": a.image,
+                        "savedBrands": a.savedBrands,
+                        "popular": a.popular,
+                    });
+                });
+
+                await Promise.all(promise);
+                res.locals.results = brands;
                 res.locals.noResults = false;
 
             } catch (error) {

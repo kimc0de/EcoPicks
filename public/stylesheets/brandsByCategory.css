@@ -9,6 +9,11 @@
     display: none;
 }
 
+#brandsByCategory .load-more {
+    /* hide for load-more function*/
+    display: none;
+}
+
 @media (max-width: 768px) {
     #brandsByCategory h1.total-results {
         padding: 1rem;
