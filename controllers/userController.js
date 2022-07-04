@@ -14,11 +14,30 @@ module.exports = {
     try {
       let userId = req.user._id;
       const user = await User.findById(userId);
+      const allBrands = await EcopicksBrand.find({ savedBy: userId })
+      let brands = [];
+
+      let promise = allBrands.map(async (a) => {
+        brands.push({
+          "_id": a._id,
+          "category": await Category.findById(a.category),
+          "name": a.name,
+          "endpoint": a.endpoint,
+          "website": a.website,
+          "slogan": a.slogan,
+          "description": a.description,
+          "image": a.image,
+          "savedBrands": a.savedBrands,
+          "popular": a.popular,
+        });
+      });
+      await Promise.all(promise);
+
       res.render("user/profile", {
         user: user,
         categories: await Category.find({}),
         data: req.data,
-        savedBrands: await EcopicksBrand.find({ savedBy: userId }),
+        savedBrands: brands,
         recommendedBrands: res.locals.recommendedBrands,
       });
     } catch (error) {
