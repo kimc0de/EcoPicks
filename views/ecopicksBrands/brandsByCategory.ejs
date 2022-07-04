@@ -1,4 +1,4 @@
-<div class="container mt-sm-4 mb-sm-4" id="brandsByCategory">
+<div class="container mt-sm-4 mb-sm-4 d-flex flex-column justify-content-center" id="brandsByCategory">
     <% if (results) { %>
         <% if (categoryName) {%>
         <h1 class="total-results"><%= results.length %> brands for "<%= categoryName %>"</h1>
@@ -13,4 +13,6 @@
             </div>
         <% } %>
     <% } %>
+
+    <button class="btn btn-outline-primary align-self-center" type="button" id="load-more">Load More</button>
 </div>
