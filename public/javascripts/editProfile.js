@@ -1,16 +1,4 @@
 /**
- * Prevent default for Enter key
- */
-$(() => {
-    $(window).on('keydown',function(event){
-        if(event.keyCode === 13) {
-            event.preventDefault();
-            return false;
-        }
-    });
-})
-
-/**
  * Hide and show password for edit password
  */
 $(() => {
