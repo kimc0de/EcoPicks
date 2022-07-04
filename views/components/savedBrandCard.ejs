@@ -1,20 +1,9 @@
 <!-- Saved brand cards showing on the profile page-->
 <ul class="row" id="brand-card">
-    <% let getCategoryById = (categoryId) => {
-        let result;
-        categories.forEach(category => {
-            if(category._id.equals(categoryId)) {
-                result = category;
-            }
-        });
-        return result;
-    } %>
-    <% savedBrands.forEach(brand => {
-        let category = getCategoryById(brand.category._id);
-    %>
+    <% savedBrands.forEach(brand => { %>
     <li class="col col-12 col-md-6 card-wrapper">
             <div
-                 class="card-body <%= category.lightColor %> d-flex position-relative"
+                 class="card-body <%= brand.category.lightColor %> d-flex position-relative"
                  onclick="location.href='/brand/<%=brand._id%>';"
                  data-id="<%=brand._id%>">
                 <div class="order-2">

@@ -141,10 +141,30 @@ module.exports = {
   /**
    * Get all popular brands from data base
    */
-  getPopularBrands: (req, res, next) => {
-    EcopicksBrand.find({popular: true},(error, brands) => {
+  getPopularBrands: async (req, res, next) => {
       try {
+        const popularBrands = await EcopicksBrand.find({popular: true});
+        let brands = [];
+
+        let promise = popularBrands.map(async (a) => {
+          brands.push({
+            "_id": a._id,
+            "category": await Category.findById(a.category),
+            "name": a.name,
+            "endpoint": a.endpoint,
+            "website": a.website,
+            "slogan": a.slogan,
+            "description": a.description,
+            "image": a.image,
+            "savedBrands": a.savedBrands,
+            "popular": a.popular,
+          });
+        });
+
+        await Promise.all(promise);
+
         const brandsList = brands.sort(() => Math.random() - Math.random()).slice(0, 6)
+
         res.locals.popularBrands = brandsList;
       }
       catch(error) {
@@ -152,6 +172,5 @@ module.exports = {
       }
 
       next();
-    })
   },
 }
