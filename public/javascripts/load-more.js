@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
             for (let i = 0; i < brandsList.length; i ++) {
                 brandsList[i].style.display = 'list-item';
             }
-            loadMoreBtn.style.display = 'none';
         } else { // otherwise, show load more button & load the first 12 items
             for (let i = 0; i < limit; i ++) {
                 brandsList[i].style.display = 'list-item';
