@@ -1,56 +1,39 @@
-const limit = 15;
+/**
+ * Load more button for brands by categories page and search results page
+ */
+document.addEventListener("DOMContentLoaded", function(event) {
+    let limit = 12;
+    if (window.location.pathname.includes('/category/') ||
+        window.location.pathname.includes('/search')
+    ) {
+        let brandsList = document.querySelectorAll('.card-wrapper');
+        let loadMoreBtn = document.querySelector('.load-more');
 
-$(() => {
-    $(window).on('load', () => {
-        if (window.location.pathname.includes('/category/')) {
-            let brandsList = $('#brandsByCategory .card-wrapper');
-            let loadMoreBtn = $('#brandsByCategory .load-more');
-            // Show the first results
-            brandsList.slice(0, limit).show();
-
-            if(brandsList.length >= limit) {
-                loadMoreBtn.show();
+        if (brandsList.length < limit) {  //show all if list is less than 12 items
+            for (let i = 0; i < brandsList.length; i ++) {
+                brandsList[i].style.display = 'list-item';
             }
-
-            loadMoreBtn.on('click keydown', () => {
-                let hiddenBrands = $('#brandsByCategory .card-wrapper:hidden');
-
-                hiddenBrands.slice(0, limit).show();
-
-                let remainBrands = $('#brandsByCategory .card-wrapper:hidden');
-
-                if(remainBrands.length === 0) {
-                    loadMoreBtn.fadeOut();
+            loadMoreBtn.style.display = 'none';
+        } else { // otherwise, show load more button & load the first 12 items
+            for (let i = 0; i < limit; i ++) {
+                brandsList[i].style.display = 'list-item';
+            }
+            loadMoreBtn.style.display = 'block';
+            // each time button is clicked, show the next 12 items
+            loadMoreBtn.addEventListener('click', () => {
+                if ((limit * 2) <= brandsList.length) {
+                    for (let i = limit; i < limit * 2; i ++) {
+                        brandsList[i].style.display = 'list-item';
+                    }
+                    limit += limit;
+                } else {
+                    for (let i = limit; i < brandsList.length; i ++) {
+                        brandsList[i].style.display = 'list-item';
+                    }
+                    // no items left, hide load more button
+                    loadMoreBtn.style.display = 'none';
                 }
             })
         }
-    })
-})
-
-$(() => {
-    $(window).on('load', () => {
-        if (window.location.pathname.includes('/search')) {
-            let brandsList = $('#search-results .card-wrapper');
-
-            let loadMoreBtn = $('#search-results .load-more');
-            // Show the first results
-            brandsList.slice(0, limit).show();
-
-            if(brandsList.length >= limit) {
-                loadMoreBtn.show();
-            }
-
-            loadMoreBtn.on('click', () => {
-                let hiddenBrands = $('#search-results .card-wrapper:hidden');
-
-                hiddenBrands.slice(0, limit).show();
-
-                let remainBrands = $('#search-results .card-wrapper:hidden');
-
-                if(remainBrands.length === 0) {
-                    loadMoreBtn.fadeOut();
-                }
-            })
-        }
-    })
-})
+    }
+});
