@@ -24,11 +24,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     for (let i = limit; i < limit * 2; i ++) {
                         brandsList[i].style.display = 'list-item';
                     }
+                    loadMoreBtn.blur();
+                    brandsList[limit].querySelector('.brand-name').focus();
                     limit += limit;
                 } else {
                     for (let i = limit; i < brandsList.length; i ++) {
                         brandsList[i].style.display = 'list-item';
                     }
+                    loadMoreBtn.blur();
+                    brandsList[limit].querySelector('.brand-name').focus();
                     // no items left, hide load more button
                     loadMoreBtn.style.display = 'none';
                 }
