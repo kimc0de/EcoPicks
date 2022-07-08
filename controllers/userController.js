@@ -47,11 +47,11 @@ module.exports = {
   },
 
   renderLogin: (req, res) => {
-    res.render("user/login");
+    res.render("pages/login");
   },
 
   renderRegister: (req, res) => {
-    res.render("user/register");
+    res.render("pages/register");
   },
 
   authenticate: passport.authenticate("local", {
