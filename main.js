@@ -60,22 +60,30 @@ passport.deserializeUser(function(id, done) {
 });
 
 // Google OAuth
+let callbackURL = "";
+
+if (app.settings.env === "development") {
+    callbackURL = "http://localhost:3000/auth/google/ecopicks";
+} else {
+    callbackURL = "http://ecopicks.herokuapp.com/auth/google/ecopicks";
+}
+
 passport.use(new GoogleStrategy({
-      clientID: process.env.CLIENT_ID,
-      clientSecret: process.env.CLIENT_SECRET,
-      callbackURL: "http://ecopicks.herokuapp.com/auth/google/ecopicks",
-      userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
+        clientID: process.env.CLIENT_ID,
+        clientSecret: process.env.CLIENT_SECRET,
+        callbackURL: callbackURL,
+        userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
     },
     function(accessToken, refreshToken, profile, cb) {
-      // find user to authenticate or create user if they don't exist
-      // findOrCreate needs mongoose-findorcreate package
-      User.findOrCreate({
-          googleId: profile.id,
-          username: profile.displayName,
-          email: profile.emails[0].value,
-      }, function (err, user) {
-        return cb(err, user);
-      });
+        // find user to authenticate or create user if they don't exist
+        // findOrCreate needs mongoose-findorcreate package
+        User.findOrCreate({
+            googleId: profile.id,
+            username: profile.displayName,
+            email: profile.emails[0].value,
+        }, function (err, user) {
+            return cb(err, user);
+        });
     }
 ));
 
