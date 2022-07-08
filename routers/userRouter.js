@@ -2,6 +2,7 @@ const userController = require('../controllers/userController');
 const userMessage = require('../controllers/userMessageController');
 const homeController = require('../controllers/homeController');
 const router = require('express').Router();
+const passport = require("passport");
 
 // Profile
 router.get("/user", userController.getAllRecommendedBrands, userController.renderProfile);
@@ -9,6 +10,15 @@ router.get("/user", userController.getAllRecommendedBrands, userController.rende
 // Register
 router.get("/registration", userController.renderRegister);
 router.post("/registration", userController.validateRegister, userController.createUser, homeController.redirectView);
+
+// Google SSO
+router.get("/auth/google", passport.authenticate("google", { scope: ["profile", "email"] }));
+router.get("/auth/google/ecopicks",
+    passport.authenticate("google", { failureRedirect: "/login" }),
+    function(req, res) {
+        // Successful authentication, redirect home.
+        res.redirect("/");
+    });
 
 // Login
 router.get("/login", userController.renderLogin);
