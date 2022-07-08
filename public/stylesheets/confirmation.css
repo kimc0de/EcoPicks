@@ -28,9 +28,14 @@
   font-size: 1.2rem;
 }
 
-#confirmation-page .action-btn button {
+#confirmation-page .action-links a {
+  margin: 0 1rem;
+  padding-top: 1rem
+}
+
+#confirmation-page .action-links {
   margin-top: 1rem;
-  min-width: 35%;
+  padding-top: 1rem;
 }
 
 @media (min-width: 768px) {
@@ -38,11 +43,6 @@
     margin-top: 3rem;
     margin-bottom: 3rem;
     padding: 0 1rem;
-  }
-
-  #confirmation-page .action-btn {
-    margin: 1rem 0;
-    padding: 1rem 0;
   }
 
   #confirmation-bottom .thank-you {
