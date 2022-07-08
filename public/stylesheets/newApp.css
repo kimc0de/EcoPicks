@@ -82,7 +82,7 @@
   width: 100%;
   padding: 10px;
   font-size: 1.25em;
-  font-weight: 700;
+  font-weight: bolder;
   color: var(--text-primary);
   display: inline-block;
   cursor: pointer;

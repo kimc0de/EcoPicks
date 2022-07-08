@@ -4,6 +4,7 @@ header {
   width: 100%;
   border-bottom: 1px solid var(--line);
   background-color: var(--green-medium-light);
+  font-size: 1.1rem;
 }
 
 header .nav-link {
