@@ -1,5 +1,6 @@
 const userController = require('../controllers/userController');
 const userMessage = require('../controllers/userMessageController');
+const homeController = require('../controllers/homeController');
 const router = require('express').Router();
 
 // Profile
@@ -7,12 +8,12 @@ router.get("/user", userController.getAllRecommendedBrands, userController.rende
 
 // Register
 router.get("/registration", userController.renderRegister);
-router.post("/registration", userController.validateRegister, userController.createUser, userController.redirectView);
+router.post("/registration", userController.validateRegister, userController.createUser, homeController.redirectView);
 
 // Login
 router.get("/login", userController.renderLogin);
 router.post("/login", userController.authenticate);
-router.get("/logout", userController.logout, userController.redirectView);
+router.get("/logout", userController.logout, homeController.redirectView);
 
 router.get("/users", userController.getAllUsers);
 

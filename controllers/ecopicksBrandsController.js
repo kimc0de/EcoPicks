@@ -26,7 +26,7 @@ module.exports = {
     });
   },
 
-  addNewBrand: async (req, res) => {
+  addNewBrand: async (req, res, next) => {
     let brandImage;
     if (req.file) {
       let imgBuffer = fs.readFileSync(req.file.path);
@@ -46,7 +46,8 @@ module.exports = {
       });
 
       await newBrand.save().then(() => {
-        res.render("ecopicksBrands/confirmation");
+        res.locals.redirect = "/confirmation";
+        next();
       });
 
     } catch (error) {
@@ -74,7 +75,7 @@ module.exports = {
       const brand = await EcopicksBrand.findByIdAndUpdate(appId, {
         $set: appParams
       }, { new: true });
-      res.render("ecopicksBrands/confirmation", { app: brand });
+      res.render("pages/confirmation", { app: brand });
     } catch (error) {
       console.error(error);
       respondNoResourceFound(req, res);
