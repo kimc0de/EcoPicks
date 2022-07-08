@@ -106,6 +106,7 @@
             <hr class="horizontal-line mt-3">
         </div>
 
+        <%if(!user.googleId) {%>
         <!--   User password   -->
         <div class="row mb-3" id="edit-password-section">
             <div class="d-flex justify-content-between">
@@ -169,5 +170,6 @@
             </div>
             <hr class="horizontal-line mt-3">
         </div>
+        <%}%>
     </div>
 </div>
