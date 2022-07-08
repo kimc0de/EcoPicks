@@ -212,12 +212,6 @@ module.exports = {
     }
   },
 
-  redirectView: (req, res, next) => {
-    let redirectPath = res.locals.redirect;
-    if (redirectPath) res.redirect(redirectPath);
-    else next();
-  },
-
   renderRecommendPage: (req, res) => {
     redirectIfUnauthorized(req, res);
     res.render("user/recommendNewBrand");
@@ -240,7 +234,7 @@ module.exports = {
       await  User.findByIdAndUpdate(currentUser._id, {
           $addToSet: {recommendedBrands: newRecommendation._id}
         }).then (() => {
-        res.render("ecopicksBrands/confirmation");
+        res.render("pages/confirmation");
       })
     } catch (error) {
       respondNoResourceFound(req, res);

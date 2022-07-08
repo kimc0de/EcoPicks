@@ -1,10 +1,11 @@
 const ecopicksBrandController = require('../controllers/ecopicksBrandsController');
 const upload = require('../imageUpload');
+const homeController = require("../controllers/homeController");
 const router = require('express').Router();
 
 // routes to add new app page
 router.get("/user/add", ecopicksBrandController.renderNewBrand);
-router.post("/user/add", upload.single('image'), ecopicksBrandController.addNewBrand);
+router.post("/user/add", upload.single('image'), ecopicksBrandController.addNewBrand, homeController.redirectView);
 
 // routes to edit app page
 router.get("/brand/:id/edit", ecopicksBrandController.renderNewBrand);

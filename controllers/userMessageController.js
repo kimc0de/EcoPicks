@@ -21,7 +21,7 @@ module.exports = {
 
             await newMessage.save().then(() => {
                 // @TODO: change to message sent confirmation page
-                res.render("ecopicksBrands/confirmation");
+                res.render("pages/confirmation");
             });
 
         } catch (error) {

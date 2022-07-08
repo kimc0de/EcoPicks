@@ -17,5 +17,17 @@ module.exports = {
   },
   renderAboutPage: (req, res) => {
     res.render("pages/about");
-  }
+  },
+
+  renderConfirmationPage: (req, res) => {
+    res.render("pages/confirmation", {
+      user: req.user
+    });
+  },
+
+  redirectView: (req, res, next) => {
+    let redirectPath = res.locals.redirect;
+    if (redirectPath) res.redirect(redirectPath);
+    else next();
+  },
 }
