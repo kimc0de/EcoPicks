@@ -20,6 +20,7 @@
 
 #brand-card {
   padding-left: 0;
+  font-size: 18px !important;
 }
 
 #brand-card li {
@@ -29,7 +30,7 @@
 #brand-card .brand-name {
   color: black;
   font-size: 1.2rem;
-  font-weight: bolder;
+  font-weight: bold;
   text-decoration: none;
 }
 

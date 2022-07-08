@@ -2,7 +2,7 @@
   --header-height: 125px;
   --header-mini: 100px;
 
-  --asterisk : #98221E;
+  --asterisk: #98221E;
   --button-primary: #5E7966;
   --button-hover: #425A49;
 
@@ -21,7 +21,7 @@
   --text-primary: #0D4813;
   --text-secondary: #606060;
   --text-placeholder: #A7A7A7;
-  --danger : #8B1A10;
+  --danger: #8B1A10;
 
   /*  Categories colors */
   --social-dark: #C94744;
@@ -48,7 +48,6 @@
   --header-z-index: 2;
   --header-overlay-z-index: 3;
   --skip-link-z-index: 4;
-
   font-size: 16px;
 }
 
@@ -58,12 +57,12 @@ body {
   position: absolute;
   overflow-x: hidden;
   background-color: var(--background-color-beige);
-  font-family: 'Comic Neue', cursive;
-  font-weight: 600;
+  font-family: 'Comic Sans MS', 'Comic Sans', 'Chalkboard', 'ChalkboardSE-Regular', sans-serif;
+  font-weight: 400;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: bolder !important;
+  font-weight: bold;
 }
 
 @media (min-width: 768px) {
