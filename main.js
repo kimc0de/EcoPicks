@@ -13,6 +13,8 @@ const express = require('express'),
 //set the view engine as ejs
 app.set("view engine", "ejs");
 
+require('dotenv').config({path: __dirname + '/.env'});
+
 //set port to the environment variable PORT value or 3000 if the former value is undefined
 app.set("port", process.env.PORT || 3000);
 
