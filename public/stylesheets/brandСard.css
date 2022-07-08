@@ -29,7 +29,7 @@
 #brand-card .brand-name {
   color: black;
   font-size: 1.2rem;
-  font-weight: 600;
+  font-weight: bolder;
   text-decoration: none;
 }
 
@@ -128,7 +128,7 @@
 
 #categories-title,
 #suggestedbrandsHeader {
-  font-weight: 600;
+  font-weight: bolder;
   font-size: 1.2rem;
   margin-bottom: 2rem;
   margin-top: 2rem;
@@ -143,7 +143,7 @@
 
 #brand-card .recommended-brand-name {
   font-size: 1.2rem;
-  font-weight: bold;
+  font-weight: bolder;
 }
 
 #brand-card .recommended-link{

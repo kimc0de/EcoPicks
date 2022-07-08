@@ -50,8 +50,6 @@
   --skip-link-z-index: 4;
 
   font-size: 16px;
-  font-weight: 400;
-  font-family: 'Roboto Mono', sans-serif !important;
 }
 
 body {
@@ -60,6 +58,12 @@ body {
   position: absolute;
   overflow-x: hidden;
   background-color: var(--background-color-beige);
+  font-family: 'Comic Neue', cursive;
+  font-weight: 600;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bolder !important;
 }
 
 @media (min-width: 768px) {
