@@ -75,12 +75,13 @@ $(() => {
             // when updating is done, show success icon, update username on username field
             req.done((data) => {
                 //show success icon and message
-                username_label.siblings('.success-icon').toggleClass('d-none');
-                username_label.siblings('.success-message').toggleClass('visually-hidden');
+                username_label.siblings('.success-icon').removeClass('d-none');
+                username_label.siblings('.success-message').removeClass('d-none');
+
                 //hide success icon and message
                 setTimeout(() =>{
-                    username_label.siblings('.success-icon').toggleClass('d-none');
-                    username_label.siblings('.success-message').toggleClass('visually-hidden');
+                    username_label.siblings('.success-icon').addClass('d-none');
+                    username_label.siblings('.success-message').addClass('visually-hidden');
                 }, 3000);
 
                 //update user name on page
@@ -195,12 +196,12 @@ $(() => {
 
                     //show success icon & message
                     email_label.siblings('.success-icon').toggleClass('d-none');
-                    email_label.siblings('.success-message').toggleClass('visually-hidden');
+                    email_label.siblings('.success-message').toggleClass('d-none');
 
                     //hide success icon
                     setTimeout(() => {
                         email_label.siblings('.success-icon').toggleClass('d-none');
-                        email_label.siblings('.success-message').toggleClass('visually-hidden');
+                        email_label.siblings('.success-message').addClass('visually-hidden');
                     }, 3000);
 
                     // Update email on Edit profile page
@@ -342,12 +343,12 @@ $(() => {
 
                 //show success icon & message
                 passwordLabel.siblings('.success-icon').toggleClass('d-none');
-                passwordLabel.siblings('.success-message').toggleClass('visually-hidden');
+                passwordLabel.siblings('.success-message').toggleClass('d-none');
 
                 //hide success icon
                 setTimeout(() => {
                     passwordLabel.siblings('.success-icon').toggleClass('d-none');
-                    passwordLabel.siblings('.success-message').toggleClass('visually-hidden');
+                    passwordLabel.siblings('.success-message').addClass('visually-hidden');
                 }, 3000);
             }
             if (data.result === 'failed'){
