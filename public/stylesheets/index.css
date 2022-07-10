@@ -57,8 +57,9 @@ body {
   position: absolute;
   overflow-x: hidden;
   background-color: var(--background-color-beige);
-  font-family: 'Comic Sans MS', 'Comic Sans', 'Chalkboard', 'ChalkboardSE-Regular', sans-serif;
+  font-family: Garamond, sans-serif;
   font-weight: 400;
+  letter-spacing: 0.03rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
