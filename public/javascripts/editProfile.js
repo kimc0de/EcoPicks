@@ -74,12 +74,14 @@ $(() => {
             })
             // when updating is done, show success icon, update username on username field
             req.done((data) => {
-                //show success icon
-                username_label.siblings('.success-icon').toggleClass('d-none');
+                //show success icon and message
+                username_label.siblings('.success-icon').removeClass('d-none');
+                username_label.siblings('.success-message').removeClass('d-none');
 
-                //hide success icon
+                //hide success icon and message
                 setTimeout(() =>{
-                    username_label.siblings('.success-icon').toggleClass('d-none');
+                    username_label.siblings('.success-icon').addClass('d-none');
+                    username_label.siblings('.success-message').addClass('visually-hidden');
                 }, 3000);
 
                 //update user name on page
@@ -192,20 +194,22 @@ $(() => {
                     newEmail_inputField.val('');
                     confirmEmail_inputField.val('');
 
-                    //show success icon
+                    //show success icon & message
                     email_label.siblings('.success-icon').toggleClass('d-none');
+                    email_label.siblings('.success-message').toggleClass('d-none');
 
                     //hide success icon
                     setTimeout(() => {
                         email_label.siblings('.success-icon').toggleClass('d-none');
+                        email_label.siblings('.success-message').addClass('visually-hidden');
                     }, 3000);
 
                     // Update email on Edit profile page
                     $('#user-email').text(data.newEmail);
 
-                    // setTimeout(() => {
-                    //     $(location).attr('href','/login')
-                    // },4000);
+                    setTimeout(() => {
+                        $(location).attr('href','/login')
+                    },5000);
                 } else { // Update email failed
                     if(data.error.includes('Empty required field')) {
                         if($.trim($('#new-email').val()).length === 0) {
@@ -235,15 +239,8 @@ $(() => {
                         newEmail_inputField.addClass('invalid-field');
                         newEmail_error.removeClass('d-none');
                     }
-                    console.log(data);
                 }
             })
-        // }
-        // else { // If email field is empty, show error message
-        //     errorMessage.find('.error-message').text('Please provide an email address.');
-        //     errorMessage.removeClass('d-none');
-        //     email_inputField.addClass('invalid-field');
-        // }
     })
 })
 
@@ -344,12 +341,14 @@ $(() => {
                 editing_password.addClass('d-none');
                 passwordEditButton.toggleClass('d-none');
 
-                //show success icon
+                //show success icon & message
                 passwordLabel.siblings('.success-icon').toggleClass('d-none');
+                passwordLabel.siblings('.success-message').toggleClass('d-none');
 
                 //hide success icon
                 setTimeout(() => {
                     passwordLabel.siblings('.success-icon').toggleClass('d-none');
+                    passwordLabel.siblings('.success-message').addClass('visually-hidden');
                 }, 3000);
             }
             if (data.result === 'failed'){
