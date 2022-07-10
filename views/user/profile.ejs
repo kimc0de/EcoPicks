@@ -6,7 +6,8 @@
     </div>
 
     <div class="d-flex justify-content-center align-items-center edit-profile">
-      <svg role="img" focusable="false" aria-labelledby="edit-link" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg role="img" focusable="false" aria-labelledby="edit-profile-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <title id="edit-profile-icon" class="d-none">A circle with a pen in the center</title>
         <circle cx="12" cy="12" r="12" fill="#0D4813"/>
         <g clip-path="url(#clip0_77_168)">
           <path d="M15.8845 10.9615L9.5635 17.281L6 18L6.719 14.436L13.0395 8.116L15.8845 10.9615ZM16.5915 10.2545L18 8.8445L15.1545 6L13.7465 7.4085L16.5915 10.2545Z" fill="white"/>
@@ -24,14 +25,14 @@
       <div class="summary-background">
         <div class="summary-nr">
           <span class="visually-hidden">Number of saved brands: </span>
-          <strong><%= savedBrands.length %></strong>
+          <span class="fw-bold"><%= savedBrands.length %></span>
           <span class="d-block" aria-hidden="true">saved</span>
         </div>
       </div>
       <div class="summary-background">
         <div class="summary-nr">
           <span class="visually-hidden">Number of my recommendations: </span>
-          <strong><%=recommendedBrands.length %></strong>
+          <span class="fw-bold"><%=recommendedBrands.length %></span>
           <span class="d-block" aria-hidden="true">recommended</span>
         </div>
       </div>
