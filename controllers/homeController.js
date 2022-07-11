@@ -25,6 +25,10 @@ module.exports = {
     });
   },
 
+  renderThankYouPage: (req, res) => {
+    res.render("pages/thankyou");
+  },
+
   redirectView: (req, res, next) => {
     let redirectPath = res.locals.redirect;
     if (redirectPath) res.redirect(redirectPath);

@@ -48,6 +48,8 @@
   --header-z-index: 2;
   --header-overlay-z-index: 3;
   --skip-link-z-index: 4;
+  --box-shadow: rgba(0,0,0,0.25);
+
   font-size: 16px;
 }
 
@@ -115,6 +117,7 @@ a:hover {
   display: inline-flex;
   align-items: center;
   justify-content: space-around;
+  box-shadow: 2px 3px 4px var(--box-shadow);
 }
 
 .btn-primary {

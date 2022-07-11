@@ -1,0 +1,29 @@
+#contact-page {
+    padding: 1rem;
+}
+
+#contact-page .page-title {
+    font-size: 2rem;
+    text-align: center;
+    color: var(--text-primary);
+    margin: 1rem;
+}
+
+#contact-page .contact-section {
+    padding: 1rem;
+}
+
+#contact-page .contact-form button{
+    min-width: 45%;
+    margin: 0 1rem;
+}
+
+#contact-page .contact-label {
+    font-weight: 600;
+}
+
+@media (min-width: 992px) {
+    #contact-page .contact-section {
+        padding: 0 3rem;
+    }
+}

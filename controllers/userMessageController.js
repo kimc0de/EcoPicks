@@ -2,26 +2,34 @@ const {respondInternalError} = require("./errorController");
 const UserMessage = require("../models/userMessage");
 
 module.exports = {
-    sendNewMessage: async (req, res) => {
-        let userId;
+    renderContact: (req, res) => {
+        res.render("pages/contact");
+    },
+
+    sendNewMessage: async (req, res, next) => {
+        let userId, username, email;
         if (req.user) {
             userId = req.user._id;
+            username = req.user.username;
+            email = req.user.email;
         } else {
             userId = null;
+            username = req.body.userName;
+            email = req.body.userEmail
         }
 
         try {
             let newMessage = new UserMessage({
-                name: req.body.name,
-                email: req.body.email,
-                subject: req.body.subject,
-                message: req.body.message,
+                name: username,
+                email: email,
+                subject: req.body.contactSubject,
+                message: req.body.contactMessage,
                 userId: userId,
             });
 
             await newMessage.save().then(() => {
-                // @TODO: change to message sent confirmation page
-                res.render("pages/confirmation");
+                res.locals.redirect = "/contact-confirmation";
+                next();
             });
 
         } catch (error) {

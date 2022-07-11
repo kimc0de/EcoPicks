@@ -33,9 +33,6 @@ router.put("/user/update/username", userController.updateUsername);
 router.put("/user/update/email", userController.updateUserEmail);
 router.put("/user/update/password", userController.updateUserPassword);
 
-// Send message
-router.post("/user/contact", userMessage.sendNewMessage);
-
 // Send recommendation
 router.get("/user/recommendation", userController.renderRecommendPage);
 router.post("/user/recommendation", userController.saveUserRecommendation)
