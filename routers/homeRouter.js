@@ -9,6 +9,9 @@ router.get("/", ecopicksBrandsController.getPopularBrands, homeController.render
 router.get("/about", homeController.renderAboutPage);
 
 //route to confirmation page
-router.get("/confirmation", homeController.renderConfirmationPage)
+router.get("/confirmation", homeController.renderConfirmationPage);
+
+//route to thank you page
+router.get("/contact-confirmation", homeController.renderThankYouPage);
 
 module.exports = router;

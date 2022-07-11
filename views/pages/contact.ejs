@@ -1,0 +1,58 @@
+<div id="contact-page" class="container">
+    <h1 class="page-title">Contact Us</h1>
+    <div class="d-flex flex-lg-row flex-column pt-lg-3 pt-0">
+        <form action="/contact" method="post" class="col col-12 col-lg-6 contact-section contact-form">
+            <div class="required-instruction">Required fields are marked with an asterisk <span aria-hidden="true">(<span class="asterisk">*</span>)</span></div>
+
+            <% if(!loggedIn) { %>
+            <section class="pb-2 pt-2">
+                <label for="contact-user-name" class="form-group contact-label">Your name <span aria-hidden="true" class="asterisk"> *</span></label>
+                <input class="form-control" type="text" id="contact-user-name" name="userName" aria-required="true" required autocomplete="on">
+            </section>
+
+            <section class="pb-2 pt-2">
+                <label for="contact-user-email" class="form-group contact-label">Your email <span aria-hidden="true" class="asterisk"> *</span></label>
+                <input class="form-control" type="text" id="contact-user-email" name="userEmail" aria-required="true" required autocomplete="on">
+            </section>
+            <% } %>
+            <section class="pb-2 pt-2">
+                <label for="contact-subject" class="form-group contact-label">Subject <span aria-hidden="true" class="asterisk"> *</span> </label>
+                <input class="form-control" id="contact-subject" name="contactSubject" aria-required="true" required autocomplete="off">
+            </section>
+
+            <section class="pb-2 pt-2">
+                <label for="contact-message" class="form-group contact-label">Your message <span aria-hidden="true" class="asterisk"> *</span> </label>
+                <textarea class="form-control" id="contact-message" name="contactMessage" rows="4" aria-required="true" required autocomplete="off"></textarea>
+            </section>
+
+            <section class="pb-2 pt-2 d-flex flex-row justify-content-center">
+                <button onclick="location.href='/'" class="btn btn-outline-primary" type="button" >Cancel</button>
+                <button class="btn btn-primary" type="submit">Send</button>
+            </section>
+        </form>
+
+        <div class="col col-12 col-lg-6 contact-section">
+            <div class="mb-4">
+                <div class="contact-label">Our email</div>
+                <div><a href="mailto:ecopicks.contact@gmail.com">ecopicks.contact@gmail.com</a></div>
+            </div>
+            <div class="mb-4">
+                <div class="contact-label">Our social media</div>
+                <div>
+                    <a role="button" href="https://www.instagram.com/ecopicks.eu/"  class="btn btn-outline-primary mt-2 me-3 text-decoration-none social-media-button">
+                        <img src="/images/socialmedia/Instagram.png" width="48" height="48" alt="Instagram logo">
+                        <span class="ms-2">Instagram</span>
+                    </a>
+
+                    <a role="button" href="https://www.facebook.com/ecopicks.eu"  class="btn btn-outline-primary mt-2 me-3 text-decoration-none social-media-button">
+                        <img src="/images/socialmedia/Facebook.png" width="48" height="48" alt="Facebook logo">
+                        <span class="ms-2">Facebook</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
