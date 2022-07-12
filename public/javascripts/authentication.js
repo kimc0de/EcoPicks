@@ -50,23 +50,6 @@ $(() => {
        validatePassword()
     })
 
-    // if(password !== passwordRepeat){
-    //     form.classList.add('was-validated');
-    //     $('#password-repeat .invalid-feedback').addClass('d-block').html('Passwords do not match');
-    //     $('#password-repeat .valid-feedback').addClass('d-none');
-    //     $('#user-password-repeat').removeClass('valid').addClass('is-invalid');
-    //     $('#user-password-repeat').style.backgroundImage = 'unset';
-    //     $('#user-password-repeat').style.borderColor = 'none';
-    //     event.preventDefault();
-    //     event.stopPropagation();
-    // }
-    // else{
-    //     $("#validate").removeClass('error');
-    //     form.classList.add('was-validated');
-    //     $("#confirm_email").removeClass('error-text');
-    //     $("#validate").html('Looks Good!');
-    // }
-
     // Loop over them and prevent submission
     Array.prototype.slice.call(forms)
         .forEach(function (form) {
