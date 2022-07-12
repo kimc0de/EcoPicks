@@ -9,7 +9,7 @@ router.get("/user", userController.getAllRecommendedBrands, userController.rende
 
 // Register
 router.get("/registration", userController.renderRegister);
-router.post("/registration", userController.validateRegister, userController.createUser, homeController.redirectView);
+router.post("/registration", userController.createUser, homeController.redirectView);
 
 // Google SSO
 router.get("/auth/google", passport.authenticate("google", { scope: ["profile", "email"] }));
