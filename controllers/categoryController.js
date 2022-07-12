@@ -37,44 +37,44 @@ module.exports = {
   getBrandsByCategory: async (req, res, next) => {
     try {
       if (req.params.categoryName === 'all') {
-        let allApps = await EcopicksBrand.find({});
-        let apps = [];
+        let allBrands = await EcopicksBrand.find({});
+        let brands = [];
 
-        let promise = allApps.map(async (a) => {
-          apps.push({
+        let promise = allBrands.map(async (a) => {
+          brands.push({
             "_id": a._id,
             "category": await Category.findById(a.category),
             "name": a.name,
-            "endpoint": a.endpoint,
             "website": a.website,
             "slogan": a.slogan,
             "description": a.description,
+            "savedBy": a.savedBy,
             "image": a.image,
           });
         });
         await Promise.all(promise);
-        res.locals.results = apps;
+        res.locals.results = brands;
       } else {
         let categories = await Category.find({ endpoint: req.params.categoryName });
         res.locals.categoryName = categories[0].name;
 
-        let allApps = await EcopicksBrand.find({ category: categories[0]._id });
-        let apps = [];
+        let allBrands = await EcopicksBrand.find({ category: categories[0]._id });
+        let brands = [];
 
-        allApps.forEach((a) => {
-          apps.push({
+        allBrands.forEach((a) => {
+          brands.push({
             "_id": a._id,
             "category": categories[0],
             "name": a.name,
-            "endpoint": a.endpoint,
             "website": a.website,
             "slogan": a.slogan,
             "description": a.description,
+            "savedBy": a.savedBy,
             "image": a.image,
           });
         });
 
-        res.locals.results = apps;
+        res.locals.results = brands;
       }
 
       next();
