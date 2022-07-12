@@ -17,7 +17,7 @@
         <!--   User name     -->
         <div class="row mb-3" id="edit-username-section">
             <div class="d-flex align-items-center justify-content-start">
-                <div id="username-label" class="edit-label mb-2">User name</div>
+                <div id="username-label" class="edit-label mb-2">Your name</div>
                 <span class="d-none success-icon ml-3">
                     <svg focusable="false" aria-hidden="true" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M15.9998 2.66675C8.63584 2.66675 2.6665 8.63608 2.6665 16.0001C2.6665 23.3641 8.63584 29.3334 15.9998 29.3334C23.3638 29.3334 29.3332 23.3641 29.3332 16.0001C29.3332 8.63608 23.3638 2.66675 15.9998 2.66675ZM13.3332 23.2187L7.05717 16.9427L8.9425 15.0574L13.3332 19.4481L23.0572 9.72408L24.9425 11.6094L13.3332 23.2187Z" fill="#425A49"/>
@@ -30,13 +30,12 @@
                 <button class="btn btn-outline-primary edit-btn" id="username-edit-button">Edit</button>
             </div>
             <div id="editing-username" class="d-none">
-                <form action="<%=`/user/update/username`%>" method="POST" id="edit-username-form">
+                <form action="<%=`/user/update/username`%>" method="POST" id="edit-username-form" class="needs-validation" novalidate>
                     <div class="d-flex flex-column">
-                        <input aria-labelledby="username-label" type="text" id="edit-username" name="username" class="form-control edit-input" autocomplete="off" aria-required="true" value="<%= user.username %>">
+                        <input aria-labelledby="username-label" type="text" id="edit-username" name="username" class="form-control edit-input" autocomplete="off" aria-required="true" required value="<%= user.username %>">
                         <!-- Error message -->
-                        <div class="error alert alert-danger d-flex align-items-center d-none ps-0 pe-0 pt-0 pb-0 mt-1 mb-1" role="alert">
-                            <svg focusable="false" aria-hidden="true" class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-                            <div class="error-message"></div>
+                        <div class="invalid-feedback">
+                            Please provide a username
                         </div>
                         <!-- Error message -->
                         <div class="d-flex flex-row justify-content-end mt-2">
