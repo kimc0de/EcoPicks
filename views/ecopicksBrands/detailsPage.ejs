@@ -22,14 +22,14 @@
         <span>Website</span>
       </a>
     <%if (isSaved) { %>
-      <button id="save-button" class="btn btn-outline-primary m-3 saved" data-id="<%=brand._id%>">
+      <button id="save-button" class="btn btn-outline-primary m-3 saved justify-content-evenly" data-id="<%=brand._id%>">
         <svg aria-hidden="true" role="img" focusable="false" data-id="<%=brand._id%>" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path data-id="<%=brand._id%>" d="M6.01 5.00062V5C6.01 4.44575 6.4588 4 7 4H17C17.5477 4 18 4.45228 18 5V19.4835L12.3939 17.0809L12 16.912L11.6061 17.0809L6.00095 19.4831L6.01 5.00062Z"/>
         </svg>
         <span data-id="<%=brand._id%>">Unsave</span>
       </button>
       <%} else {%>
-      <button id="save-button" class="btn btn-outline-primary m-3" data-id="<%=brand._id%>">
+      <button id="save-button" class="btn btn-outline-primary m-3 justify-content-evenly" data-id="<%=brand._id%>">
         <svg aria-hidden="true" focusable="false" data-id="<%=brand._id%>" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path data-id="<%=brand._id%>" d="M6.01 5.00062V5C6.01 4.44575 6.4588 4 7 4H17C17.5477 4 18 4.45228 18 5V19.4835L12.3939 17.0809L12 16.912L11.6061 17.0809L6.00095 19.4831L6.01 5.00062Z"/>
         </svg>
