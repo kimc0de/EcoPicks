@@ -152,12 +152,11 @@ module.exports = {
             "_id": a._id,
             "category": await Category.findById(a.category),
             "name": a.name,
-            "endpoint": a.endpoint,
             "website": a.website,
             "slogan": a.slogan,
             "description": a.description,
             "image": a.image,
-            "savedBrands": a.savedBrands,
+            "savedBy": a.savedBy,
             "popular": a.popular,
           });
         });
