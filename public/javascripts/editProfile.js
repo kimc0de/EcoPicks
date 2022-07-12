@@ -90,6 +90,7 @@ $(() => {
         } else { // If username field is empty, show error message
             errorMessage.text('Please provide your name.').removeClass('d-none');
             username_inputField.addClass('invalid-field');
+            username_inputField.focus();
         }
     })
 })
@@ -258,6 +259,10 @@ $(() => {
                     newEmail_error.text('Invalid email format.');
                     newEmail_inputField.addClass('invalid-field');
                 }
+
+                let invalidFields = $('#edit-email-form .invalid-field');
+                console.log(invalidFields);
+                invalidFields[0].focus();
             }
         })
     })
@@ -306,6 +311,10 @@ $(() => {
     // Cancel button -> clear error if present, reset form, hide editing form
     $('#edit-password-cancel-button').on('click', (e) => {
         e.preventDefault();
+
+        let invalidFields = $('.invalid-field')
+        invalidFields[0].focus();
+
         passwordEditButton.toggleClass('d-none');
 
         $('#edit-password-form').trigger("reset"); //reset form
@@ -390,6 +399,10 @@ $(() => {
                     newPassword_error.removeClass('d-none');
                     newPassword_error.text('New password cannot be the same as current password.');
                 }
+
+                let invalidFields = $('#edit-password-form .invalid-field');
+                console.log(invalidFields);
+                invalidFields[0].focus();
             }
         })
     })
