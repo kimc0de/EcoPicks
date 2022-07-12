@@ -10,6 +10,11 @@ $(() => {
                 if (results.data && results.data.success) {
                     $("#save-button span").text("Unsave");
                     $("#save-button").addClass("saved");
+
+                    //Show success feedback
+                    $("#detail-page .success-icon").removeClass("d-none");
+                    $("#detail-page .success-unsave-message").addClass("d-none");
+                    $("#detail-page .success-save-message").removeClass("d-none");
                 } else {
                     alert(`Please log in to save brand.`);
                 }
@@ -18,6 +23,11 @@ $(() => {
             $.get(`/api/brand/${brandId}/remove`, (results = {}) => { // make AJAX request with the brand ID to save
                 $("#save-button span").text("Save");
                 $("#save-button").removeClass("saved");
+
+                //Show success feedback
+                $("#detail-page .success-icon").removeClass("d-none");
+                $("#detail-page .success-save-message").addClass("d-none");
+                $("#detail-page .success-unsave-message").removeClass("d-none");
             });
         }
     }));
