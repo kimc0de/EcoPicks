@@ -68,3 +68,7 @@
   background-color: var(--green-light) !important;
   color: var(--text-primary) !important;
 }
+
+.error-text{
+  border:1px solid red !important;
+}
