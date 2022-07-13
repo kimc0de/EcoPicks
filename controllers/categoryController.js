@@ -36,6 +36,25 @@ module.exports = {
 
   getBrandsByCategory: async (req, res, next) => {
     try {
+      if (req.params.categoryName === 'all') {
+        let allBrands = await EcopicksBrand.find({});
+        let brands = [];
+
+        let promise = allBrands.map(async (a) => {
+          brands.push({
+            "_id": a._id,
+            "category": await Category.findById(a.category),
+            "name": a.name,
+            "website": a.website,
+            "slogan": a.slogan,
+            "description": a.description,
+            "savedBy": a.savedBy,
+            "image": a.image,
+          });
+        });
+        await Promise.all(promise);
+        res.locals.results = brands;
+      } else {
         let categories = await Category.find({ endpoint: req.params.categoryName });
         res.locals.categoryName = categories[0].name;
 
@@ -56,8 +75,9 @@ module.exports = {
         });
 
         res.locals.results = brands;
+      }
 
-        next();
+      next();
     }
     catch (error) {
       console.log(error);
