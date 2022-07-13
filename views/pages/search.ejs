@@ -1,10 +1,10 @@
 <div id="search-page">
     <h1 class="text-center page-title">Search results</h1>
-    <div class="container mt-sm-4 mb-sm-4">
+    <div class="container mt-sm-1 mb-sm-1">
         <% if (results) { %>
             <% if (results.length > 0) { %>
                 <div id="search-results" class="d-flex flex-column">
-                    <h2 class="mt-sm-4 mb-sm-4 pl-sm-2 pr-sm-2 ml-lg-0 mr-lg-0 total-results justify-content-start"><%= results.length %> results for "<%= query%>"</h2>
+                    <h2 class="total-results justify-content-start"><%= results.length %> results for "<%= query%>"</h2>
                     <%- include ('../components/brandCard') %>
                     <button class="load-more btn btn-outline-primary ms-auto me-auto" type="button">Load More</button>
                 </div>

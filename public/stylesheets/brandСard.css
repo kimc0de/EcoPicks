@@ -1,5 +1,9 @@
 /* brand CARD */
 
+.brand-card {
+  padding: 0 1rem;
+}
+
 .brand-card .card-img-top, .brand-card .card-body {
   cursor: pointer;
 }
@@ -20,11 +24,6 @@
   outline: none !important;
 }
 
-.brand-card {
-  padding-left: 0;
-  font-size: 18px !important;
-}
-
 .brand-card li {
   list-style-type: none;
 }
@@ -37,7 +36,7 @@
 }
 
 .brand-card .card-wrapper {
-  padding: 1.5rem 0.8rem;
+  padding: 1rem 0.8rem;
 }
 
 .brand-card .brand-slogan {
@@ -131,6 +130,8 @@
   }
 }
 
-@media (min-width: 768px) {
-
+@media (min-width: 1200px) {
+  .brand-card {
+    padding: 0 5rem;
+  }
 }
