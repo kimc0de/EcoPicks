@@ -21,7 +21,7 @@
 #recommendation-page input,
 #recommendation-page textarea {
     border-radius: 5px;
-    background: var(--input-primary);
+    border-color: var(--button-primary);
 }
 
 #recommendation-page .question-field {
