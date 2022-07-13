@@ -1,28 +1,25 @@
 <!-- Saved brand cards showing on the profile page-->
-<ul class="row" id="brand-card">
+<ul class="row brand-card">
     <% savedBrands.forEach(brand => { %>
-    <li class="col col-12 col-md-6 card-wrapper">
-            <div
-                 class="card-body <%= brand.category.lightColor %> d-flex position-relative"
-                 onclick="location.href='/brand/<%=brand._id%>';"
-                 data-id="<%=brand._id%>">
-                <div class="order-2">
-                    <a href="/brand/<%=brand._id%>" class="brand-name"><%= brand.name %></a>
-                    <p class="brand-slogan"><%= brand.slogan %></p>
-                </div>
-                <img class="brand-logo order-1" src="<%= brand.image %>" alt="Logo of <%= brand.name %>">
-
-                <a role="button" class="btn btn-outline-primary p-1 unsave-button saved"
+    <li class="col col-12 col-md-6 col-xl-4 card-wrapper" >
+        <div class="card" onclick="location.href='/brand/<%=brand._id%>';" data-id="<%=brand._id%>">
+            <img class="card-img-top brand-logo order-1" src="<%= brand.image %>" alt="Logo of <%= brand.name %>">
+            <div class="saved-icon">
+                <svg focusable="false" aria-label="This brand is saved" role="img" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.3429 2H7.05714C5.92571 2 5.01029 3.05 5.01029 4.33333L5 23L12.2 16.4L19.4 23V4.33333C19.4 3.05 18.4743 2 17.3429 2Z" fill="#0D4813"/>
+                </svg>
+            </div>
+            <div class="card-body order-2">
+                <a href="/brand/<%=brand._id%>" class="card-title brand-name"><%= brand.name %></a>
+                <div class="card-text brand-slogan"><%= brand.slogan %></div>
+                <a role="button" class="btn btn-outline-primary p-1 unsave-button"
                    href="<%= `/api/brand/${brand._id}/remove` %>"
                    aria-label="Unsave brand <%=brand.name%>"
                 >
-                    <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M14.4524 1.66675H5.88097C4.93812 1.66675 4.17526 2.54175 4.17526 3.61119L4.16669 19.1667L10.1667 13.6667L16.1667 19.1667V3.61119C16.1667 2.54175 15.3953 1.66675 14.4524 1.66675Z"/>
-                    </svg>
-                    <span>Unsave</span>
+                    Unsave
                 </a>
             </div>
-
+        </div>
     </li>
     <% })%>
 </ul>

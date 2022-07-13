@@ -1,7 +1,7 @@
 #brandsByCategory h1.total-results {
-    font-size: 1.5rem;
-    margin: 1rem 0;
+    margin-top: 1rem;
     padding: 1rem;
+    font-size: 1rem;
 }
 
 #brandsByCategory .card-wrapper {
@@ -14,8 +14,9 @@
     display: none;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 1200px) {
     #brandsByCategory h1.total-results {
-        padding: 1rem;
+        margin-top: 0;
+        padding: 1rem 3rem;
     }
 }

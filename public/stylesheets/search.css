@@ -14,8 +14,9 @@
 }
 
 #search-page .total-results {
-    font-size: 1.5rem;
-    margin: 1rem 1rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    font-size: 1rem;
 }
 
 #search-page .no-results {
@@ -32,9 +33,9 @@
     margin: 3rem auto auto;
 }
 
-@media (min-width: 768px){
+@media (min-width: 1200px){
     #search-page .total-results {
-        font-size: 1.5rem;
-        margin: 1.2rem 0;
+        margin-top: 0;
+        padding: 1rem 3rem;  /*match padding of .brand-card*/
     }
 }
