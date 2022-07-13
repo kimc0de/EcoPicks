@@ -71,7 +71,7 @@
 
 #detail-page .success-save-message,
 #detail-page .success-unsave-message {
-  color: var(--text-primary);
+  color: var(--success-message) !important;
 }
 
 @media (max-width: 992px) {
