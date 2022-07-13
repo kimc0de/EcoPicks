@@ -1,7 +1,7 @@
 <!-- brand cards-->
 <ul class="row brand-card">
     <% popularBrands.forEach(brand => { %>
-    <li class="col col-3 card-wrapper" >
+    <li class="col col-12 col-sm-6 col-lg-3 card-wrapper" >
         <div class="card" onclick="location.href='/brand/<%=brand._id%>';" data-id="<%=brand._id%>">
             <img class="card-img-top brand-logo" src="<%= brand.image %>" alt="Logo of <%= brand.name %>">
             <% if(loggedIn && currentUser.savedBrands.length !== 0 && currentUser.savedBrands.includes(brand._id)) { %>
