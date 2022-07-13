@@ -22,6 +22,7 @@
   --text-secondary: #606060;
   --text-placeholder: #A7A7A7;
   --danger: #8B1A10;
+  --error-message: #dc3545;
 
   /*  Categories colors */
   --social-dark: #C94744;
@@ -165,4 +166,10 @@ a:hover {
 
 #skip-link:focus {
   top: 30%;
+}
+
+.needs-validation input,
+.needs-validation textarea {
+  border-radius: 5px;
+  border-color: var(--button-primary);
 }

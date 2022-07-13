@@ -1,17 +1,17 @@
 #error-page {
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-  padding: 0 3rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 0 1rem;
 }
 
 #error-body {
   background-color: var(--social-light);
   border-radius: 15px;
+  padding: 1rem;
 }
 
 #error-top {
-  padding-top: 3rem;
-  padding-bottom: 2rem;
+  padding: 2rem 0;
 }
 
 #error-top a{
@@ -19,43 +19,39 @@
 }
 
 #error-bottom {
-  padding: 3rem 1rem;
+  padding-bottom: 2rem;
 }
 
 #error-bottom h1 {
-  font-size: 1.2rem;
+  font-size: 2rem;
   margin-bottom: 10px;
 }
 
-#error-bottom .back-to-homepage {
-  margin-top: 5rem;
+#error-bottom .page-not-found {
+  font-size: 1.5rem;
 }
 
-@media (min-height: 700px) {
-  #error-top {
-    padding-top: 7rem;
-    padding-bottom: 2rem;
-  }
+#error-page h2 {
+  font-size: 1.2rem;
+}
+
+#error-bottom .action-buttons {
+  margin-top: 3rem;
 }
 
 /* tablet size */
-@media (min-width: 768px) and (min-height: 1024px) {
-  #error-top svg {
-    height: 160px;
-    width: 160px;
-  }
+@media (min-width: 768px) {
   #error-bottom h1 {
     font-size: 2rem;
   }
   #error-bottom p {
     font-size: 1.5rem;
   }
-}
 
-/* desktop size */
-@media (min-width: 1200px) {
-  #error-top svg {
-    height: 200px;
-    width: 200px;
+  #error-page {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    padding: 0 1rem;
   }
 }
+

@@ -4,15 +4,22 @@ module.exports = {
 
   respondNoResourceFound: (req, res) => {
     let errorCode = httpStatus.StatusCodes.NOT_FOUND;
+    let errorMessage = "We are sorry! The page you were trying to access could not be found on Ecopicks."
     res.status(errorCode);
-    res.render('pages/error');
+    res.render('pages/error', {
+      errorCode: errorCode,
+      errorMessage: errorMessage
+    });
   },
 
   respondInternalError: (error, req, res) => {
     let errorCode = httpStatus.StatusCodes.INTERNAL_SERVER_ERROR;
-    console.log('ERROR:', error);
+    let errorMessage = "We are sorry! There is an internal server problem."
     res.status(errorCode);
-    res.send(`${errorCode} | Sorry, our application is experiencing  a problem!`);
+    res.render('page/error', {
+      errorCode: errorCode,
+      errorMessage: errorMessage
+    })
   },
 
   redirectIfUnauthorized: (req, res) => {

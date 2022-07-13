@@ -18,12 +18,6 @@
     margin-bottom: 1rem;
 }
 
-#recommendation-page input,
-#recommendation-page textarea {
-    border-radius: 5px;
-    background: var(--input-primary);
-}
-
 #recommendation-page .question-field {
     margin-bottom: 0.5rem;
     font-size: 1.2rem;

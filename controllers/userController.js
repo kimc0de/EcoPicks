@@ -67,19 +67,6 @@ module.exports = {
     next();
   },
 
-  validateRegister: (req, res, next) => {
-    //validate password repeat
-    let password = req.body.password;
-    let passwordRepeat = req.body.password_repeat;
-
-    if (password === passwordRepeat) {
-      next();
-    } else {
-      req.flash("error", `Please make sure your passwords match.`);
-      res.redirect("/registration");
-    }
-  },
-
   createUser: (req, res, next) => {
     let userParams = {
       username: req.body.username,
@@ -195,6 +182,8 @@ module.exports = {
       res.json({'result': 'failed', 'error': 'Empty required fields.'});
     } else if (currentPassword === newPassword) {
       res.json({'result': 'failed', 'error': 'Invalid new password'});
+    } else if (newPasswordRepeat !== newPassword) {
+      res.json({'result': 'failed', 'error': 'Passwords do not match'});
     } else {
       User.findById(userId).then(foundUser => {
 

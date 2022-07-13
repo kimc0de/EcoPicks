@@ -17,7 +17,7 @@
         <!--   User name     -->
         <div class="row mb-3" id="edit-username-section">
             <div class="d-flex align-items-center justify-content-start">
-                <div id="username-label" class="edit-label mb-2">User name</div>
+                <div id="username-label" class="edit-label mb-2">Your name</div>
                 <span class="d-none success-icon ml-3">
                     <svg focusable="false" aria-hidden="true" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M15.9998 2.66675C8.63584 2.66675 2.6665 8.63608 2.6665 16.0001C2.6665 23.3641 8.63584 29.3334 15.9998 29.3334C23.3638 29.3334 29.3332 23.3641 29.3332 16.0001C29.3332 8.63608 23.3638 2.66675 15.9998 2.66675ZM13.3332 23.2187L7.05717 16.9427L8.9425 15.0574L13.3332 19.4481L23.0572 9.72408L24.9425 11.6094L13.3332 23.2187Z" fill="#425A49"/>
@@ -34,10 +34,7 @@
                     <div class="d-flex flex-column">
                         <input aria-labelledby="username-label" type="text" id="edit-username" name="username" class="form-control edit-input" autocomplete="off" aria-required="true" value="<%= user.username %>">
                         <!-- Error message -->
-                        <div class="error alert alert-danger d-flex align-items-center d-none ps-0 pe-0 pt-0 pb-0 mt-1 mb-1" role="alert">
-                            <svg focusable="false" aria-hidden="true" class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-                            <div class="error-message"></div>
-                        </div>
+                        <div class="d-none error-message"></div>
                         <!-- Error message -->
                         <div class="d-flex flex-row justify-content-end mt-2">
                             <button class="btn btn-outline-primary ms-2 me-2 cancel-button" id="edit-username-cancel-button">Cancel</button>
@@ -78,24 +75,18 @@
                         </div>
 
                         <div>
-                            <label id="current-email-label" for="new-email" class="email-label">New Email <span aria-hidden="true" class="asterisk"> *</span></label>
-                            <input type="text" id="new-email" name="email" class="form-control edit-input" autocomplete="off" aria-required="true">
+                            <label id="current-email-label" for="new-email" class="email-label">New email <span aria-hidden="true" class="asterisk"> *</span></label>
+                            <input type="email" id="new-email" name="email" class="form-control edit-input" autocomplete="off" aria-required="true">
                             <!-- Error message -->
-                            <div class="error alert alert-danger d-flex align-items-center d-none ps-0 pe-0 pt-0 pb-0 mt-1 mb-1" role="alert">
-                                <svg focusable="false" aria-hidden="true" class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-                                <div class="error-message"></div>
-                            </div>
+                            <div class="d-none error-message"></div>
                             <!-- Error message -->
                         </div>
 
                         <div class="mt-3">
                             <label id="confirm-email-label" for="confirm-email" class="confirm-email-label">Confirm new email <span aria-hidden="true" class="asterisk"> *</span></label>
-                            <input type="text" id="confirm-email" name="confirmEmail" class="form-control edit-input" autocomplete="off" aria-required="true" value="">
+                            <input type="email" id="confirm-email" name="confirmEmail" class="form-control edit-input" autocomplete="off" aria-required="true" value="">
                             <!-- Error message -->
-                            <div class="error alert alert-danger d-flex align-items-center d-none ps-0 pe-0 pt-0 pb-0 mt-1 mb-1" role="alert">
-                                <svg focusable="false" aria-hidden="true" class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-                                <div class="error-message"></div>
-                            </div>
+                            <div class="d-none error-message"></div>
                             <!-- Error message -->
                         </div>
                         <div class="d-flex flex-row justify-content-end  mt-2">
@@ -113,7 +104,7 @@
         <div class="row mb-3" id="edit-password-section">
             <div class="d-flex justify-content-between">
                 <div class="d-flex align-items-center justify-content-start">
-                    <div id="password-label" class="edit-label mb-2">Password</div>
+                    <div id="password-label" class="edit-label">Password</div>
                     <span class="d-none success-icon ml-3">
                         <svg focusable="false" aria-hidden="true" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M15.9998 2.66675C8.63584 2.66675 2.6665 8.63608 2.6665 16.0001C2.6665 23.3641 8.63584 29.3334 15.9998 29.3334C23.3638 29.3334 29.3332 23.3641 29.3332 16.0001C29.3332 8.63608 23.3638 2.66675 15.9998 2.66675ZM13.3332 23.2187L7.05717 16.9427L8.9425 15.0574L13.3332 19.4481L23.0572 9.72408L24.9425 11.6094L13.3332 23.2187Z" fill="#425A49"/>
@@ -124,53 +115,43 @@
                 <button class="btn btn-outline-primary edit-btn" id="password-edit-button">Edit</button>
             </div>
 
-            <div id="editing-password" class="d-none">
-                <form action="<%=`/user/update/password`%>" method="POST" id="edit-password-form">
-                    <div class="d-flex flex-column">
-                        <div>
-                            <label id="current-password-label" for="current-password" class="password-label">Current Password <span aria-hidden="true" class="asterisk"> *</span></label>
-                            <input type="password" id="current-password" name="currentPassword" class="form-control edit-input mb-2" aria-required="true" autocomplete="current-password">
-                            <!-- Error message -->
-                            <div class="error alert alert-danger d-flex align-items-center d-none ps-0 pe-0 pt-0 pb-0 mt-1 mb-1" role="alert">
-                                <svg focusable="false" aria-hidden="true" class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-                                <div class="error-message"></div>
-                            </div>
-                            <!-- Error message -->
-                        </div>
+            <form action="<%=`/user/update/password`%>" method="POST" id="edit-password-form" class="d-none mt-2">
+                <div class="d-flex flex-column">
+                    <div>
+                        <label id="current-password-label" for="current-password" class="password-label">Current password <span aria-hidden="true" class="asterisk"> *</span></label>
+                        <input type="password" id="current-password" name="currentPassword" class="form-control edit-input mb-2" aria-required="true" autocomplete="current-password">
+                        <!-- Error message -->
+                        <div class="error-message"></div>
+                        <!-- Error message -->
+                    </div>
 
-                        <div class="mt-3">
-                            <label id="new-password-label" for="new-password" class="password-label">New Password <span aria-hidden="true" class="asterisk"> *</span></label>
-                            <input type="password" id="new-password" name="newPassword" class="form-control edit-input mb-2" aria-required="true" autocomplete="off">
-                            <!-- Error message -->
-                            <div class="error alert alert-danger d-flex align-items-center d-none ps-0 pe-0 pt-0 pb-0 mt-1 mb-1" role="alert">
-                                <svg focusable="false" aria-hidden="true" class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-                                <div class="error-message"></div>
-                            </div>
-                            <!-- Error message -->
-                        </div>
+                    <div class="mt-3">
+                        <label id="new-password-label" for="new-password" class="password-label">New password <span aria-hidden="true" class="asterisk"> *</span></label>
+                        <input type="password" id="new-password" name="newPassword" class="form-control edit-input mb-2" aria-required="true" autocomplete="off">
+                        <!-- Error message -->
+                        <div class="error-message"></div>
+                        <!-- Error message -->
+                    </div>
 
-                        <div class="mt-3">
-                            <label id="new-password-repeat-label" for="new-password-repeat" class="password-label">New Password Repeat <span aria-hidden="true" class="asterisk"> *</span></label>
-                            <input type="password" id="new-password-repeat" name="newPasswordRepeat" class="form-control edit-input mb-2" aria-required="true" autocomplete="off">
-                            <!-- Error message -->
-                            <div class="error alert alert-danger d-flex align-items-center d-none ps-0 pe-0 pt-0 pb-0 mt-1 mb-1" role="alert">
-                                <svg focusable="false" aria-hidden="true" class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-                                <div class="error-message"></div>
-                            </div>
-                            <!-- Error message -->
-                        </div>
+                    <div class="mt-3">
+                        <label id="new-password-repeat-label" for="new-password-repeat" class="password-label">Confirm new password <span aria-hidden="true" class="asterisk"> *</span></label>
+                        <input type="password" id="new-password-repeat" name="newPasswordRepeat" class="form-control edit-input mb-2" aria-required="true" autocomplete="off">
+                        <!-- Error message -->
+                        <div class="error-message"></div>
+                        <!-- Error message -->
+                    </div>
 
-                        <div class="d-flex flex-column mt-1">
-                            <label for="show-edit-password" class="show-password-label"><input type="checkbox" id="show-edit-password">Show passwords</label>
+                    <div class="d-flex flex-column mt-1">
+                        <label for="show-edit-password" class="show-password-label"><input type="checkbox" id="show-edit-password">Show passwords</label>
 
-                            <div class="d-flex flex-row justify-content-end  mt-2">
-                                <button class="btn btn-outline-primary ms-2 me-2 cancel-button" id="edit-password-cancel-button">Cancel</button>
-                                <button class="btn btn-primary save-button" id="edit-password-save-button" type="submit">Save</button>
-                            </div>
+                        <div class="d-flex flex-row justify-content-end  mt-2">
+                            <button class="btn btn-outline-primary ms-2 me-2 cancel-button" id="edit-password-cancel-button">Cancel</button>
+                            <button class="btn btn-primary save-button" id="edit-password-save-button" type="submit">Save</button>
                         </div>
                     </div>
-                </form>
-            </div>
+                </div>
+            </form>
+
             <hr class="horizontal-line mt-3" aria-hidden="true">
         </div>
         <%}%>
