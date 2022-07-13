@@ -6,13 +6,24 @@
       <a id="brand-logo" class="navbar-brand" href="/">
         <img src="/images/ecopicks/logo1.svg" alt="Ecopicks homepage">
       </a>
+      <form id="search-form" method="get" action="/search">
+        <div class="input-group">
+          <button class="btn btn-outline-light bg-white border-end-0 border" type="button" id="search-button">
+            <i aria-hidden="true" class="fas fa-search"></i>
+          </button>
 
+          <%if (query !== undefined) { %>
+            <input id="search-input-desktop" class="form-control border-start-0 border" autocomplete="off"
+                   name="q" value="<%= query%>" type="search" placeholder="Search for a brand or a product" aria-label="Search for a brand or a product" aria-describedby="search-button">
+          <% } else { %>
+            <input id="search-input-desktop" class="form-control border-start-0 border" autocomplete="off"
+                   name="q" value="" type="search" placeholder="Search for a brand or a product" aria-label="Search for a brand or a product" aria-describedby="search-button">
+          <% } %>
+        </div>
+      </form>
       <div id="navbar-top">
         <% if(!loggedIn) { %>
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="/search">Search</a>
-          </li>
           <li class="nav-item nav-btn">
             <a class="btn btn-outline-primary" href="/login">Log In</a>
           </li>
@@ -65,7 +76,7 @@
           </svg>
           <span id="menu-label">Menu</span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarContent">
+      <div class="collapse navbar-collapse menu-collapse" id="navbarContent">
 
         <ul class="navbar-nav ml-auto">
           <li id="nav-logo" class="nav-item">
@@ -115,12 +126,39 @@
       </a>
 
       <!--  Search button    -->
-      <a class="navbar-toggler" aria-label="Search button" href="/search">
+      <button id="search-button"
+              class="navbar-toggler" type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#searchBar" aria-controls="searchBar" aria-expanded="false"
+      >
         <svg aria-hidden="true" focusable="false" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M19.375 17.5H18.3875L18.0375 17.1625C19.2625 15.7375 20 13.8875 20 11.875C20 7.3875 16.3625 3.75 11.875 3.75C7.3875 3.75 3.75 7.3875 3.75 11.875C3.75 16.3625 7.3875 20 11.875 20C13.8875 20 15.7375 19.2625 17.1625 18.0375L17.5 18.3875V19.375L23.75 25.6125L25.6125 23.75L19.375 17.5ZM11.875 17.5C8.7625 17.5 6.25 14.9875 6.25 11.875C6.25 8.7625 8.7625 6.25 11.875 6.25C14.9875 6.25 17.5 8.7625 17.5 11.875C17.5 14.9875 14.9875 17.5 11.875 17.5Z" fill="#0D4813"/>
         </svg>
         <span id="search-label">Search</span>
-      </a>
+      </button>
+
+      <div class="collapse navbar-collapse search-collapse fade" id="searchBar">
+        <form id="search-form" method="get" action="/search">
+          <div class="input-group align-items-stretch">
+            <button id="close-search" type="button" class="btn-close close-search-btn" aria-label="Close search"></button>
+
+            <%if (query !== undefined) { %>
+              <input id="search-input-mobile" class="form-control border-end-0" autocomplete="off"
+                     name="q" value="<%= query%>" type="search" placeholder="Search for a brand or a product" aria-label="Search for a brand or a product" aria-describedby="search-button">
+            <% } else { %>
+              <input id="search-input-mobile" class="form-control border-end-0" autocomplete="off"
+                     name="q" value="" type="search" placeholder="Search for a brand or a product" aria-label="Search for a brand or a product" aria-describedby="search-button">
+            <% } %>
+
+              <button class="btn btn-outline-light bg-white d-flex align-items-center justify-content-evenly input-search-button" type="button">
+                <i aria-hidden="true" class="fas fa-search"></i>
+                <span class="position-relative ms-2 d-none d-md-block">Search</span>
+              </button>
+
+          </div>
+        </form>
+      </div>
+
     </div>
   </nav>
 </header>

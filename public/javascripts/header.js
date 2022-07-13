@@ -1,17 +1,34 @@
 /**
  * Close button for menu navigation on mobile
  */
-const closeButton = document.getElementById('close-menu');
+const closeMenuButton = document.getElementById('close-menu');
 const navbarContent = document.getElementById('navbarContent');
 const navbarToggler = document.getElementById('menu-button');
 
-closeButton.addEventListener('click', function () {
+closeMenuButton.addEventListener('click', function () {
     if(!navbarToggler.classList.contains('collapsed')){
         navbarToggler.classList.add('collapsed');
     }
 
     if(navbarContent.classList.contains('show')) {
         navbarContent.classList.remove('show');
+    }
+})
+
+/**
+ * Close button for search bar on mobile
+ */
+const closeSearchButton = $('#close-search');
+const searchBar = $('#searchBar');
+const searchToggler = $('#search-button')
+
+closeSearchButton.on('click', function () {
+    if(!searchToggler.hasClass('collapsed')){
+        searchToggler.addClass('collapsed');
+    }
+
+    if(searchBar.hasClass('show')) {
+        searchBar.removeClass('show');
     }
 })
 

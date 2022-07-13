@@ -1,5 +1,4 @@
 const express = require('express'),
-  https = require('https'),
   app = express(),
   path = require("path"),
   layouts = require('express-ejs-layouts'),
@@ -93,6 +92,11 @@ app.use((req, res, next) => {
   res.locals.currentUser = req.user;
   res.locals.errorCode = undefined;
   res.locals.errorMessage = undefined;
+  if (req.query.q) {
+      res.locals.query = req.query.q;
+  } else {
+      res.locals.query = undefined;
+  }
   next();
 });
 
