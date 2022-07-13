@@ -35,11 +35,13 @@ $(() => {
             $('#password-repeat .invalid-feedback').text('Password does not match.');
             passwordRepeatField.addClass('is-invalid');
             passwordRepeatField.addClass('invalid-field');
+            return false;
         } else {
             $('#password-repeat .valid-feedback').removeClass('d-none');
             $('#password-repeat .invalid-feedback').text('Please repeat your password.');
             passwordRepeatField.removeClass('is-invalid');
             passwordRepeatField.removeClass('invalid-field');
+            return true;
         }
     }
     passwordRepeatField.on('keyup', () => {
@@ -55,9 +57,15 @@ $(() => {
         .forEach(function (form) {
             form.addEventListener('submit', function (event) {
                 if (!form.checkValidity()) {
-                    event.preventDefault()
-                    event.stopPropagation()
+                    event.preventDefault();
+                    event.stopPropagation();
                     let invalidFields = $('.form-control:invalid')
+                    invalidFields[0].focus();
+                }
+                if (!validatePassword()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    let invalidFields = $('.invalid-field');
                     invalidFields[0].focus();
                 }
 
