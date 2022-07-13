@@ -1,7 +1,7 @@
 /* brand CARD */
 
 .brand-card {
-  padding: 0 1rem;
+  padding: 0;
 }
 
 .brand-card .card{
@@ -126,10 +126,11 @@
   right: 0;
   top: 0;
   background-color: var(--green-medium-light);
-  width: 2rem;
-  height: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
   text-align: center;
   border-bottom-left-radius: 1rem;
+  border-top-right-radius: 1rem;
 }
 
 @media (min-width: 768px) {
@@ -142,11 +143,5 @@
 
   .brand-card .card {
     min-height: 370px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .brand-card {
-    padding: 0 5rem;
   }
 }
