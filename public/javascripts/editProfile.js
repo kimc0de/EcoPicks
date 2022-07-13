@@ -352,7 +352,6 @@ $(() => {
         });
 
         req.done((data) => {
-            console.log(data);
             if (data.result === 'success') {
                 edit_password_form.addClass('d-none');
                 passwordEditButton.toggleClass('d-none');

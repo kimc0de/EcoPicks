@@ -6,7 +6,6 @@ const navbarContent = $('#navbarContent');
 const navbarToggler = $('#menu-button');
 
 closeMenuButton.on('click', () => {
-    console.log('click');
     if(!navbarToggler.hasClass('collapsed')){
         navbarToggler.addClass('collapsed');
     }
