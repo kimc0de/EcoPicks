@@ -42,28 +42,27 @@
 
   <div class="brands-list col-12 col-xxl-8">
     <div class="brands-list-wrapper">
+      <a class="btn dropdown-toggle text-decoration-none" role="button" data-bs-toggle="collapse" href="#saved-brands-list" aria-expanded="true" aria-controls="collapseExample">
+        My saved eco brands
+      </a>
       <% if (savedBrands.length > 0) { %>
-        <a class="btn dropdown-toggle text-decoration-none" role="button" data-bs-toggle="collapse" href="#saved-brands-list" aria-expanded="true" aria-controls="collapseExample">
-          My saved eco brands
-        </a>
         <div class="collapse show mt-3" id="saved-brands-list">
           <div>
           <%- include ('../components/savedBrandCard') %>
           </div>
         </div>
       <% } else { %>
-          <h2>My saved eco brands</h2>
-          <div class="empty-collection">
+          <div class="collapse show mt-3 empty-collection" id="saved-brands-list">
             <p class="mb-0">You currently have 0 saved brand</p>
           </div>
       <% } %>
     </div>
 
     <div class="brands-list-wrapper">
+      <a class="btn dropdown-toggle text-decoration-none" role="button" data-bs-toggle="collapse" href="#recommended-brands-list" aria-expanded="true" aria-controls="collapseExample">
+        My recommendations
+      </a>
       <% if (recommendedBrands.length > 0) { %>
-        <a class="btn dropdown-toggle text-decoration-none" role="button" data-bs-toggle="collapse" href="#recommended-brands-list" aria-expanded="true" aria-controls="collapseExample">
-          My recommendations
-        </a>
         <div class="collapse show mt-3" id="recommended-brands-list">
           <div>
             <%- include ('../components/recommendedBrandCard') %>
@@ -71,7 +70,7 @@
         </div>
 
       <% } else { %>
-        <div class="empty-collection">
+        <div class="collapse show mt-3 empty-collection" id="recommended-brands-list">
           <p class="mb-0">You currently have 0 recommended brand. <a href="/user/recommendation">Send your recommendation.</a></p>
         </div>
       <% } %>
