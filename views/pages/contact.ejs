@@ -1,28 +1,52 @@
 <div id="contact-page" class="container">
     <h1 class="page-title">Contact Us</h1>
     <div class="d-flex flex-lg-row flex-column pt-lg-3 pt-0">
-        <form action="/contact" method="post" class="col col-12 col-lg-6 contact-section contact-form">
+        <form action="/contact" method="post" class="col col-12 col-lg-6 contact-section contact-form needs-validation" novalidate>
             <div class="required-instruction">Required fields are marked with an asterisk <span aria-hidden="true">(<span class="asterisk">*</span>)</span></div>
 
             <% if(!loggedIn) { %>
             <section class="pb-2 pt-2">
                 <label for="contact-user-name" class="form-group contact-label">Your name <span aria-hidden="true" class="asterisk"> *</span></label>
                 <input class="form-control" type="text" id="contact-user-name" name="userName" aria-required="true" required autocomplete="on">
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Please provide your name.
+                </div>
             </section>
 
             <section class="pb-2 pt-2">
                 <label for="contact-user-email" class="form-group contact-label">Your email <span aria-hidden="true" class="asterisk"> *</span></label>
                 <input class="form-control" type="text" id="contact-user-email" name="userEmail" aria-required="true" required autocomplete="on">
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Please provide a valid email address so that we can get back to you.
+                </div>
             </section>
             <% } %>
             <section class="pb-2 pt-2">
                 <label for="contact-subject" class="form-group contact-label">Subject <span aria-hidden="true" class="asterisk"> *</span> </label>
                 <input class="form-control" id="contact-subject" name="contactSubject" aria-required="true" required autocomplete="off">
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Please provide the subject of your message.
+                </div>
             </section>
 
             <section class="pb-2 pt-2">
                 <label for="contact-message" class="form-group contact-label">Your message <span aria-hidden="true" class="asterisk"> *</span> </label>
                 <textarea class="form-control" id="contact-message" name="contactMessage" rows="4" aria-required="true" required autocomplete="off"></textarea>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Please do not leave your message empty.
+                </div>
             </section>
 
             <section class="pb-2 pt-2 d-flex flex-row justify-content-center">
