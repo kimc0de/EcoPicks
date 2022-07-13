@@ -18,8 +18,8 @@ module.exports = {
                 res.locals.query = req.query.q;
                 // Get query string from url
                 const queryString = req.query.q;
-                const queryStrings = queryString.split(" ");
-
+                const queryStrings = queryString.trim().split(" ");
+                console.log(queryString);
                 // query for product names
                 let allProducts = [];
                 queryStrings.forEach(element => {
