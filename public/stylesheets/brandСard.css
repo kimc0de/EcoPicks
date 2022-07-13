@@ -1,57 +1,52 @@
 /* brand CARD */
 
-#brand-card .card-body {
-  background-color: var(--green-light);
+.brand-card .card-img-top, .brand-card .card-body {
   cursor: pointer;
 }
 
+.brand-card .card-body {
+  background-color: var(--green-light);
+}
+
 /* Focus style for the whole card when link inside is focused*/
-#brand-card .card:focus-within {
+.brand-card .card:focus-within {
   border-radius: 5px;
   box-shadow: 0 0 0 2px rgb(63, 163, 255), 0 0 0 4px #fff, 0 0 0 6px rgba(63, 163, 255, 0.5) !important;
 }
 
 /* Disable browser default focus style on links in card */
-#brand-card .brand-name:focus-visible {
+.brand-card .brand-name:focus-visible {
   box-shadow: none !important;
   outline: none !important;
 }
 
-#brand-card {
+.brand-card {
   padding-left: 0;
   font-size: 18px !important;
 }
 
-#brand-card li {
+.brand-card li {
   list-style-type: none;
 }
 
-#brand-card .brand-name {
+.brand-card .brand-name {
   color: black;
   font-size: 1.2rem;
   font-weight: bold;
   text-decoration: none;
 }
 
-#brand-card .card-wrapper {
-  padding: 0.5rem 0.8rem;
+.brand-card .card-wrapper {
+  padding: 1.5rem 0.8rem;
 }
 
-#brand-card .brand-slogan {
+.brand-card .brand-slogan {
   min-height: 70px;
   max-height: 80px;
   overflow: auto;
   color: black;
   font-weight: normal;
   font-size: 1rem;
-}
-
-@media (max-width: 768px){
-  #brand-card .card-wrapper {
-    padding: 0 1rem;
-    color: black;
-    text-decoration: none;
-  }
 }
 
 #categories-title,
@@ -62,24 +57,24 @@
   margin-top: 2rem;
 }
 
-#brand-card .recommended-card-body {
+.brand-card .recommended-card-body {
   border-radius: 15px;
   border: 1px solid var(--text-primary);
   margin-bottom: 1rem;
   padding: 1rem 1.5rem;
 }
 
-#brand-card .recommended-brand-name {
+.brand-card .recommended-brand-name {
   font-size: 1.2rem;
   font-weight: bolder;
 }
 
-#brand-card .recommended-link{
+.brand-card .recommended-link{
   color: var(--text-primary);
 }
 
-#brand-card .approve-icon,
-#brand-card .delete-button {
+.brand-card .approve-icon,
+.brand-card .delete-button {
   position: absolute;
   display: flex;
   justify-content: flex-end;
@@ -88,43 +83,34 @@
   align-items: center;
 }
 
-#brand-card .delete-button a {
+.brand-card .delete-button a {
   font-size: 0.8rem;
   padding: 0.25rem 0.5rem;
   color: var(--danger);
   border-color: var(--danger);
 }
 
-#brand-card .delete-button svg{
+.brand-card .delete-button svg{
   fill: var(--danger);
 }
 
-#brand-card .delete-button:hover {
-  transform: scale(1.2);
-}
-
-#brand-card .delete-button:hover svg{
+.brand-card .delete-button:hover svg{
   fill: white;
 }
 
-#brand-card .delete-button:hover a{
+.brand-card .delete-button:hover a{
   color: white;
   background-color: var(--danger);
 }
 
-#brand-card .recommended-card-wrapper {
+.brand-card .recommended-card-wrapper {
   min-width: 20rem;
 }
 
-#brand-card .saved-icon-link {
+.brand-card .saved-icon {
   position: absolute;
   right: 0;
   top: 0;
-  padding-bottom: 1rem;
-  padding-left: 1rem;
-}
-
-#brand-card .saved-icon {
   background-color: var(--green-medium-light);
   width: 2rem;
   height: 2rem;
@@ -140,8 +126,11 @@
     margin-top: 2.5rem;
   }
 
-  #brand-card .card {
+  .brand-card .card {
     min-height: 370px;
   }
 }
 
+@media (min-width: 768px) {
+
+}

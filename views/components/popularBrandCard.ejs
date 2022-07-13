@@ -1,18 +1,9 @@
 <!-- brand cards-->
-<ul class="row" id="brand-card">
+<ul class="row brand-card">
     <% popularBrands.forEach(brand => { %>
-    <li class="col col-12 col-md-6 col-xl-4 card-wrapper" >
-        <div
-                class="card-body <%= brand.category.lightColor %> d-flex"
-                onclick="location.href='/brand/<%=brand._id%>';"
-                data-id="<%=brand._id%>"
-        >
-            <div class="order-2">
-                <a href="/brand/<%=brand._id%>" class="brand-name"><%= brand.name %></a>
-                <div class="brand-slogan"><%= brand.slogan %></div>
-            </div>
-            <img class="brand-logo order-1" src="<%= brand.image %>" alt="Logo of <%= brand.name %>">
-
+    <li class="col col-3 card-wrapper" >
+        <div class="card" onclick="location.href='/brand/<%=brand._id%>';" data-id="<%=brand._id%>">
+            <img class="card-img-top brand-logo" src="<%= brand.image %>" alt="Logo of <%= brand.name %>">
             <% if(loggedIn && currentUser.savedBrands.length !== 0 && currentUser.savedBrands.includes(brand._id)) { %>
                 <div class="saved-icon">
                     <svg focusable="false" aria-label="This brand is saved" role="img" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -20,6 +11,10 @@
                     </svg>
                 </div>
             <%} %>
+            <div class="card-body">
+                <a href="/brand/<%=brand._id%>" class="card-title brand-name"><%= brand.name %></a>
+                <div class="card-text brand-slogan"><%= brand.slogan %></div>
+            </div>
         </div>
     </li>
     <% })%>
