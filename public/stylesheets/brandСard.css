@@ -4,6 +4,20 @@
   padding: 0 1rem;
 }
 
+.brand-card .card{
+  border-radius: 1rem;
+}
+
+.brand-card .card-img-top {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.brand-card .card-body {
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
 .brand-card .card-img-top, .brand-card .card-body {
   cursor: pointer;
 }
@@ -37,6 +51,7 @@
 
 .brand-card .card-wrapper {
   padding: 1rem 0.8rem;
+  border-radius: 1rem;
 }
 
 .brand-card .brand-slogan {
