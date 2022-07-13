@@ -89,7 +89,7 @@ $(() => {
             })
         } else { // If username field is empty, show error message
             errorMessage.text('Please provide your name.').removeClass('d-none');
-            username_inputField.addClass('invalid-field');
+            username_inputField.addClass('invalid-field').attr("aria-invalid", "true");
             username_inputField.focus();
         }
     })
@@ -110,26 +110,26 @@ let isEmailValid = false;
 
 const showEmailMatchError = () => {
     confirmEmail_error.removeClass('d-none');
-    confirmEmail_inputField.addClass('invalid-field');
-    confirmEmail_error.text('Emails do not match');
+    confirmEmail_inputField.addClass('invalid-field').attr("aria-invalid", "true");
+    confirmEmail_error.text('Confirmed email does not match new email');
 }
 
 const hideEmailMatchError = () => {
     confirmEmail_error.addClass('d-none');
-    confirmEmail_inputField.removeClass('invalid-field');
+    confirmEmail_inputField.removeClass('invalid-field').attr("aria-invalid", "false");
     confirmEmail_error.text('');
 }
 
 const showInvalidNewEmailError = () => {
     newEmail_error.removeClass('d-none');
-    newEmail_inputField.addClass('invalid-field');
+    newEmail_inputField.addClass('invalid-field').attr("aria-invalid", "true");
     newEmail_error.text('Invalid email address. Valid email example: example@email.com.')
 }
 
 const hideInvalidNewEmailError = () => {
     newEmail_error.text('');
     newEmail_error.addClass('d-none');
-    newEmail_inputField.removeClass('invalid-field');
+    newEmail_inputField.removeClass('invalid-field').attr("aria-invalid", "false");
 }
 
 const validateMatchingEmails = () => {
@@ -166,8 +166,8 @@ $(() => {
         newEmail_error.addClass('d-none'); //hide error
         confirmEmail_error.addClass('d-none'); //hide error
 
-        newEmail_inputField.removeClass('invalid-field');
-        confirmEmail_inputField.removeClass('invalid-field');
+        newEmail_inputField.removeClass('invalid-field').attr("aria-invalid", "false");
+        confirmEmail_inputField.removeClass('invalid-field').attr("aria-invalid", "false");
 
         showing_email.toggleClass('d-none');
         editing_email.toggleClass('d-none');
@@ -237,18 +237,18 @@ $(() => {
                     if($.trim($('#new-email').val()).length === 0) {
                         newEmail_error.text('Please provide a valid new email address. Example: example@email.com');
                         newEmail_error.removeClass('d-none');
-                        newEmail_inputField.addClass('invalid-field');
+                        newEmail_inputField.addClass('invalid-field').attr("aria-invalid", "true");
                     }
 
                     if($.trim($('#confirm-email').val()).length === 0) {
                         confirmEmail_error.text('Please confirm new email address.');
                         confirmEmail_error.removeClass('d-none');
-                        confirmEmail_inputField.addClass('invalid-field');
+                        confirmEmail_inputField.addClass('invalid-field').attr("aria-invalid", "true");
                     }
                 }
                 if (data.error.includes('Invalid new email')) {
                     newEmail_error.text('New email cannot be the same as current email.');
-                    newEmail_inputField.addClass('invalid-field');
+                    newEmail_inputField.addClass('invalid-field').attr("aria-invalid", "true");
                 }
 
                 if (data.error.includes('Confirm email does not match with your new email')) {
@@ -257,7 +257,7 @@ $(() => {
 
                 if(data.error.includes('Invalid email format')) {
                     newEmail_error.text('Invalid email format. Valid email example: example@email.com.');
-                    newEmail_inputField.addClass('invalid-field');
+                    newEmail_inputField.addClass('invalid-field').attr("aria-invalid", "true");
                 }
 
                 // autofocus ont the first invalid field
@@ -286,7 +286,7 @@ const showPasswordMatchError = () => {
     newPasswordRepeat_error.removeClass('d-none');
 }
 const hidePasswordMatchError = () => {
-    newPasswordRepeat_inputField.removeClass('invalid-field');
+    newPasswordRepeat_inputField.removeClass('invalid-field').attr("aria-invalid", "false");
     newPasswordRepeat_error.addClass('d-none');
     newPasswordRepeat_error.text('');
 }
@@ -316,19 +316,19 @@ $(() => {
 
         $('#edit-password-form').trigger("reset"); //reset form
         $('#edit-password-section .error-message').addClass('d-none'); //hide all errors
-        $('#edit-password-section .form-control').removeClass('invalid-field');
+        $('#edit-password-section .form-control').removeClass('invalid-field').attr("aria-invalid", "false");
 
         edit_password_form.toggleClass('d-none');
     });
 
     currentPassword_inputField.on('change', () => {
-        currentPassword_inputField.removeClass('invalid-field');
+        currentPassword_inputField.removeClass('invalid-field').attr("aria-invalid", "false");
         currentPassword_error.addClass('d-none');
     });
 
     // Check matching new password and new password repeat
     newPassword_inputField.on('change', () => {
-        newPassword_inputField.removeClass('invalid-field');
+        newPassword_inputField.removeClass('invalid-field').attr("aria-invalid", "false");
         newPassword_error.addClass('d-none');
         validateMatchingPasswords();
     });
@@ -368,31 +368,31 @@ $(() => {
             }
             if (data.result === 'failed'){
                 if (data.error.includes('Password or username is incorrect')) {
-                    currentPassword_inputField.addClass('invalid-field');
+                    currentPassword_inputField.addClass('invalid-field').attr("aria-invalid", "true");
                     currentPassword_error.removeClass('d-none');
                     currentPassword_error.text('Incorrect current password.');
                 }
                 if (data.error.includes('Empty required fields')) {
                     if($.trim(currentPassword_inputField.val()).length === 0) { // Check form field not empty
-                        currentPassword_inputField.addClass('invalid-field');
+                        currentPassword_inputField.addClass('invalid-field').attr("aria-invalid", "true");
                         currentPassword_error.removeClass('d-none');
                         currentPassword_error.text('Please provide your current password.');
                     }
 
                     if($.trim(newPassword_inputField.val()).length === 0) {
-                        newPassword_inputField.addClass('invalid-field');
+                        newPassword_inputField.addClass('invalid-field').attr("aria-invalid", "true");
                         newPassword_error.removeClass('d-none');
                         newPassword_error.text('Please choose a new password.');
                     }
 
                     if($.trim(newPasswordRepeat_inputField.val()).length === 0) {
-                        newPasswordRepeat_inputField.addClass('invalid-field');
+                        newPasswordRepeat_inputField.addClass('invalid-field').attr("aria-invalid", "true");
                         newPasswordRepeat_error.removeClass('d-none');
                         newPasswordRepeat_error.text('Please repeat your new password.');
                     }
                 }
                 if (data.error.includes('Invalid new password')) {
-                    newPassword_inputField.addClass('invalid-field');
+                    newPassword_inputField.addClass('invalid-field').attr("aria-invalid", "true");
                     newPassword_error.removeClass('d-none');
                     newPassword_error.text('New password cannot be the same as current password.');
                 }
