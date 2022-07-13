@@ -1,18 +1,63 @@
 /**
  * Close button for menu navigation on mobile
  */
-const closeButton = document.getElementById('close-menu');
-const navbarContent = document.getElementById('navbarContent');
-const navbarToggler = document.getElementById('menu-button');
+const closeMenuButton = $('#close-menu');
+const navbarContent = $('#navbarContent');
+const navbarToggler = $('#menu-button');
 
-closeButton.addEventListener('click', function () {
-    if(!navbarToggler.classList.contains('collapsed')){
-        navbarToggler.classList.add('collapsed');
+closeMenuButton.on('click', () => {
+    if(!navbarToggler.hasClass('collapsed')){
+        navbarToggler.addClass('collapsed');
     }
 
-    if(navbarContent.classList.contains('show')) {
-        navbarContent.classList.remove('show');
+    if(navbarContent.hasClass('show')) {
+        navbarContent.removeClass('show');
     }
+})
+
+/**
+ * Close button for search bar on mobile
+ */
+const closeSearchButton = $('#close-search');
+const searchBar = $('#searchBar');
+const searchToggler = $('.search-button')
+
+closeSearchButton.on('click', function () {
+    if(!searchToggler.hasClass('collapsed')){
+        searchToggler.addClass('collapsed');
+    }
+
+    if(searchBar.hasClass('show')) {
+        searchBar.removeClass('show');
+    }
+})
+
+/**
+ * Prevent empty search submit (Desktop)
+ */
+const searchFormLg = $('#search-form-lg');
+const searchInputLg = $('#search-input-lg');
+
+$(() => {
+    searchFormLg.on('submit', (e) => {
+        if($.trim(searchInputLg.val()).length === 0) {
+            e.preventDefault();
+        }
+    });
+});
+
+/**
+ * Prevent empty search submit (Mobile)
+ */
+const searchFormSm = $('#search-form-sm');
+const searchInputSm = $('#search-input-sm');
+
+$(() => {
+    searchFormSm.on('submit', (e) => {
+        if($.trim(searchInputSm.val()).length === 0) {
+            e.preventDefault();
+        }
+    })
 })
 
 /**

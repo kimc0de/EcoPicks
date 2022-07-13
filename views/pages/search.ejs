@@ -1,26 +1,10 @@
 <div id="search-page">
-    <form class="container" id="search-form" method="get">
-    <h1 class="text-center page-title">Find a sustainable alternative</h1>
-    <div id="search_section" class="row input-group d-flex justify-content-center">
-        <!-- Search bar-->
-        <div id="search_bar" class="col-md-8 col-12">
-        <label for="search_field" class="visually-hidden"> Search for a brand or a product </label>
-        <input id="search_field" class="textField_input form-control" autocomplete="off"
-               name="q" value="<%= query%>" type="search" placeholder="Search for a brand or a product">
-        </div>
-        <button type="submit" id="search_button" class="btn btn-primary col-12 col-md-3 col-xl-2">
-            <i aria-hidden="true" class="fas fa-search"></i>
-            <span>Search</span>
-        </button>
-    </div>
-    </form>
-
+    <h1 class="text-center page-title">Search results</h1>
     <div class="container mt-sm-4 mb-sm-4">
-
         <% if (results) { %>
             <% if (results.length > 0) { %>
                 <div id="search-results" class="d-flex flex-column">
-                    <h2 class="mt-sm-4 mb-sm-4 pl-sm-2 pr-sm-2 ml-lg-0 mr-lg-0 total-results justify-content-start"><%= results.length %> Results for "<%= query%>"</h2>
+                    <h2 class="mt-sm-4 mb-sm-4 pl-sm-2 pr-sm-2 ml-lg-0 mr-lg-0 total-results justify-content-start"><%= results.length %> results for "<%= query%>"</h2>
                     <%- include ('../components/brandCard') %>
                     <button class="load-more btn btn-outline-primary ms-auto me-auto" type="button">Load More</button>
                 </div>

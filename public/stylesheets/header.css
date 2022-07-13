@@ -11,7 +11,7 @@ header .nav-link {
   color: var(--text-dark) !important;
 }
 
-header .btn {
+header .btn:not(.search-button):not(.input-search-button) {
   padding: 0.5rem 1.5rem;
   margin: 0 1rem;
   width: 150px;
@@ -96,7 +96,8 @@ header .btn {
 }
 
 /* Mobile navigation menu dropdown */
-#header-mobile .navbar-collapse {
+#header-mobile .menu-collapse,
+#header-mobile .search-collapse{
   position: fixed;
   background-color: var(--background-color-beige);
   height: 100%;
@@ -165,7 +166,7 @@ header .btn {
   text-decoration: none;
 }
 
-#menu-label {
+#menu-label, #search-label {
   position: relative;
   top: 2px;
   color: var(--text-primary);
@@ -186,13 +187,74 @@ header .btn {
   margin: 0;
 }
 
-@media (min-width: 992px) {
+/* Search form */
+
+.search-button {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  box-shadow: none;
+  color: var(--text-primary); /* icon color */
+}
+
+#clear_button {
+  position: absolute;
+  display: flex;
+  right: 1rem;
+  top: 30%;
+  margin: 0 1rem;
+  border: none;
+  height: auto;
+  width: auto;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+#header .search-input {
+  border-color: var(--text-primary);
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+#header-mobile .close-search-btn {
+  padding: 0.65rem;
+}
+
+#header-mobile .input-search-button{
+  border-color: var(--text-primary);
+  box-shadow: none;
+  color: var(--text-primary);
+}
+
+/* https://stackoverflow.com/questions/52894166/bootstrap-4-search-input-x-clear-search */
+input[type="search"]::-webkit-search-cancel-button {
+  /* Remove default */
+  -webkit-appearance: none;
+  /* Custom styles for x button*/
+  height: 1rem;
+  width: 1rem;
+  display: block;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAn0lEQVR42u3UMQrDMBBEUZ9WfQqDmm22EaTyjRMHAlM5K+Y7lb0wnUZPIKHlnutOa+25Z4D++MRBX98MD1V/trSppLKHqj9TTBWKcoUqffbUcbBBEhTjBOV4ja4l4OIAZThEOV6jHO8ARXD+gPPvKMABinGOrnu6gTNUawrcQKNCAQ7QeTxORzle3+sDfjJpPCqhJh7GixZq4rHcc9l5A9qZ+WeBhgEuAAAAAElFTkSuQmCC);
+
+  /* setup all the background tweaks for the custom icon */
+  background-repeat: no-repeat;
+
+  /* icon size */
+  background-size: 1rem;
+}
+
+/* desktop view */
+@media (min-width: 1440px) {
   #header-mobile{
     display: none;
   }
+
+  #search-form-lg {
+    width: 45%;
+  }
 }
 
-@media (max-width: 991px) {
+/* mobile view */
+@media (max-width: 1439px) {
   header {
     padding: 0.5rem;
   }
@@ -200,5 +262,16 @@ header .btn {
   #header-large{
     display: none;
   }
+
+  #search-input {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+
+  #search-form-sm {
+    width: 100%;
+    padding: 2rem 0.25rem;
+  }
 }
+
 

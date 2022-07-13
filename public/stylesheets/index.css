@@ -101,7 +101,9 @@ header {
 /*Focus style*/
 a:focus-visible,
 button:focus-visible,
-input:focus-visible {
+input:focus-visible,
+textarea:focus-visible
+{
   border-radius: 5px;
   box-shadow: 0 0 0 2px rgb(63, 163, 255), 0 0 0 4px #fff, 0 0 0 6px rgba(63, 163, 255, 0.5) !important;
 }
