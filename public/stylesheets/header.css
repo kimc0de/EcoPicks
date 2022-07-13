@@ -19,25 +19,28 @@ header .btn:not(.search-button):not(.input-search-button) {
 
 #header-large,
 #navbar-top .navbar-nav{
-  flex-direction: row !important;
+  flex-direction: row;
 }
 
-#header-large .nav-link {
+#header-bottom .nav-link {
   /*overwrite bootstrap nav-link*/
-  padding: 0.5rem 1rem !important;
+  padding: 0.5rem 1rem;
   margin: 0 1rem;
 }
 
-#header-large .nav-link:not(.nav-btn):not(.active):hover {
+#header-top .nav-link {
+  padding: 0.5rem 1rem;
+}
+
+#header-bottom .nav-link:not(.nav-btn):not(.active):hover {
   background-color: var(--green-light);
   text-decoration: underline;
   border-radius: 5px;
   transform: scale(1.2);
 }
 
-#header-top a.btn:hover{
+#header-top a:hover{
   text-decoration: underline;
-  transform: scale(1.2);
 }
 
 #header-top {
@@ -249,7 +252,7 @@ input[type="search"]::-webkit-search-cancel-button {
   }
 
   #search-form-lg {
-    width: 45%;
+    width: 40%;
   }
 }
 

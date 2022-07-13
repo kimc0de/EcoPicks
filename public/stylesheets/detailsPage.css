@@ -38,11 +38,6 @@
   min-width: 8rem;
 }
 
-#website-button:hover,
-#save-button:hover {
-  transform: scale(1.2);
-}
-
 #website-button svg,
 #save-button svg {
   fill: var(--text-primary);
@@ -69,7 +64,6 @@
   fill: white;
   stroke: white;
 }
-
 
 #website-button:hover > svg {
   fill: white;
