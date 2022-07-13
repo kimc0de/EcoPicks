@@ -1,13 +1,12 @@
 /* brand CARD */
 
 #brand-card .card-body {
-  position: relative;
-  margin-bottom: 1rem;
+  background-color: var(--green-light);
   cursor: pointer;
 }
 
 /* Focus style for the whole card when link inside is focused*/
-#brand-card .card-body:focus-within {
+#brand-card .card:focus-within {
   border-radius: 5px;
   box-shadow: 0 0 0 2px rgb(63, 163, 255), 0 0 0 4px #fff, 0 0 0 6px rgba(63, 163, 255, 0.5) !important;
 }
@@ -34,18 +33,13 @@
   text-decoration: none;
 }
 
-#brand-card .brand-logo {
-  flex: none;
-  object-fit: cover;
-  width: 100px;
-  height: 100px;
-  margin-right: 16px;
-  border-radius: 15px;
+#brand-card .card-wrapper {
+  padding: 0.5rem 0.8rem;
 }
 
 #brand-card .brand-slogan {
-  height: 65px;
-  max-height: 70px;
+  min-height: 70px;
+  max-height: 80px;
   overflow: auto;
   color: black;
   font-weight: normal;
@@ -59,73 +53,6 @@
     text-decoration: none;
   }
 }
-
-.category-light-social {
-  background-color: var(--social-light);
-  border-radius: 15px;
-}
-
-.category-dark-social {
-  background-color: var(--social-dark);
-  border-radius: 15px;
-  padding: 0.25rem 1rem;
-}
-
-.category-light-lifestyle {
-  background-color: var(--lifestyle-light);
-  border-radius: 15px;
-}
-
-.category-dark-lifestyle {
-  background-color: var(--lifestyle-dark);
-  border-radius: 15px;
-  padding: 0.25rem 1rem;
-}
-
-.category-dark-fashion {
-  background-color: var(--fashion-dark);
-  border-radius: 15px;
-  padding: 0.25rem 1rem;
-}
-
-.category-light-fashion {
-  background-color: var(--fashion-light);
-  border-radius: 15px;
-}
-
-.category-light-food {
-  background-color: var(--food-light);
-  border-radius: 15px;
-}
-
-.category-dark-food {
-  background-color: var(--food-dark);
-  border-radius: 15px;
-  padding: 0.25rem 1rem;
-}
-
-.category-light-household {
-  background-color: var(--household-light);
-  border-radius: 15px;
-}
-
-.category-dark-household {
-  background-color: var(--household-dark);
-  border-radius: 15px;
-  padding: 0.25rem 1rem;
-}
-
-.category-light-beauty {
-  background-color: var(--beauty-light);
-  border-radius: 15px;
-}
-
-.category-dark-beauty {
-  background-color: var(--beauty-dark);
-  border-radius: 15px;
-  padding: 0.25rem 1rem;
-}
-
 
 #categories-title,
 #suggestedbrandsHeader {
@@ -189,9 +116,20 @@
   min-width: 20rem;
 }
 
-#brand-card .saved-icon {
+#brand-card .saved-icon-link {
   position: absolute;
-  right: 1rem;
+  right: 0;
+  top: 0;
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+}
+
+#brand-card .saved-icon {
+  background-color: var(--green-medium-light);
+  width: 2rem;
+  height: 2rem;
+  text-align: center;
+  border-bottom-left-radius: 1rem;
 }
 
 @media (min-width: 768px) {
@@ -201,4 +139,9 @@
     margin-bottom: 2.5rem;
     margin-top: 2.5rem;
   }
+
+  #brand-card .card {
+    min-height: 370px;
+  }
 }
+
