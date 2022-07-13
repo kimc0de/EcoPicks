@@ -36,6 +36,6 @@
 @media (min-width: 1200px){
     #search-page .total-results {
         margin-top: 0;
-        padding: 1rem 5rem;  /*match padding of .brand-card*/
+        padding: 1rem 3rem;  /*match padding of .brand-card*/
     }
 }

@@ -5,7 +5,9 @@
             <% if (results.length > 0) { %>
                 <div id="search-results" class="d-flex flex-column">
                     <h2 class="total-results justify-content-start"><%= results.length %> results for "<%= query%>"</h2>
-                    <%- include ('../components/brandCard') %>
+                    <div class="brands-container">
+                        <%- include ('../components/brandCard') %>
+                    </div>
                     <button class="load-more btn btn-outline-primary ms-auto me-auto" type="button">Load More</button>
                 </div>
             <% } else { %>

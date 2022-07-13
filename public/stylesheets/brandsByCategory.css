@@ -1,7 +1,3 @@
-#brandsByCategory .brands-container {
-    padding: 0 1rem;
-}
-
 #brandsByCategory h1.total-results {
     margin-top: 1rem;
     padding: 1rem;
@@ -22,9 +18,5 @@
     #brandsByCategory h1.total-results {
         margin-top: 0;
         padding: 1rem 3rem;
-    }
-
-    #brandsByCategory .brands-container {
-        padding: 0 3rem;
     }
 }

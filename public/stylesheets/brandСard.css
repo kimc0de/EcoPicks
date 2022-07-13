@@ -4,6 +4,10 @@
   padding: 0;
 }
 
+.brands-container {
+  padding: 0 1rem;
+}
+
 .brand-card .card{
   border-radius: 1rem;
 }
@@ -143,5 +147,11 @@
 
   .brand-card .card {
     min-height: 370px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .brands-container {
+    padding: 0 3rem;
   }
 }
