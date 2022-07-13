@@ -19,7 +19,7 @@ module.exports = {
                 // Get query string from url
                 const queryString = req.query.q;
                 const queryStrings = queryString.trim().split(" ");
-                console.log(queryString);
+
                 // query for product names
                 let allProducts = [];
                 queryStrings.forEach(element => {
