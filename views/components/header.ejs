@@ -6,19 +6,20 @@
       <a id="brand-logo" class="navbar-brand" href="/">
         <img src="/images/ecopicks/logo1.svg" alt="Ecopicks homepage">
       </a>
-      <form id="search-form" method="get" action="/search">
+      <form id="search-form-lg" method="get" action="/search">
         <div class="input-group">
-          <button class="btn btn-outline-light bg-white border-end-0 border" type="button" id="search-button">
-            <i aria-hidden="true" class="fas fa-search"></i>
-          </button>
-
+          <label for="search-input-lg" class="visually-hidden">Search for a brand or a product. </label>
           <%if (query !== undefined) { %>
-            <input id="search-input-desktop" class="form-control border-start-0 border" autocomplete="off"
-                   name="q" value="<%= query%>" type="search" placeholder="Search for a brand or a product" aria-label="Search for a brand or a product" aria-describedby="search-button">
+            <input id="search-input-lg" class="form-control border-start-0 border search-input" autocomplete="off"
+                   name="q" value="<%= query%>" type="search" placeholder="Search for a brand or a product">
           <% } else { %>
-            <input id="search-input-desktop" class="form-control border-start-0 border" autocomplete="off"
-                   name="q" value="" type="search" placeholder="Search for a brand or a product" aria-label="Search for a brand or a product" aria-describedby="search-button">
+            <input id="search-input-lg" class="form-control border-start-0 border search-input" autocomplete="off"
+                   name="q" value="" type="search" placeholder="Search for a brand or a product">
           <% } %>
+            <button class="btn btn-outline-light bg-white border-start-0 border search-button" type="submit" id="">
+              <i aria-hidden="true" class="fas fa-search"></i>
+              <span class="position-relative ms-2 d-none d-md-block">Search</span>
+            </button>
         </div>
       </form>
       <div id="navbar-top">
@@ -34,9 +35,6 @@
         <% } else { %>
 
         <ul class="navbar-nav ml-auto align-items-center">
-          <li class="nav-item">
-            <a class="nav-link" href="/search">Search</a>
-          </li>
           <li class="nav-item">
             <a class="nav-link" href="/user/recommendation">Recommend a brand</a>
           </li>
@@ -126,8 +124,8 @@
       </a>
 
       <!--  Search button    -->
-      <button id="search-button"
-              class="navbar-toggler" type="button"
+      <button id=""
+              class="navbar-toggler search-button" type="button"
               data-bs-toggle="collapse"
               data-bs-target="#searchBar" aria-controls="searchBar" aria-expanded="false"
       >
@@ -138,19 +136,19 @@
       </button>
 
       <div class="collapse navbar-collapse search-collapse fade" id="searchBar">
-        <form id="search-form" method="get" action="/search">
+        <form id="search-form-sm" method="get" action="/search">
           <div class="input-group align-items-stretch">
             <button id="close-search" type="button" class="btn-close close-search-btn" aria-label="Close search"></button>
-
+            <label for="search-input-sm" class="visually-hidden"> Search for a brand or a product </label>
             <%if (query !== undefined) { %>
-              <input id="search-input-mobile" class="form-control border-end-0" autocomplete="off"
-                     name="q" value="<%= query%>" type="search" placeholder="Search for a brand or a product" aria-label="Search for a brand or a product" aria-describedby="search-button">
+              <input id="search-input-sm" class="form-control border-end-0 search-input" autocomplete="off"
+                     name="q" value="<%= query%>" type="search" placeholder="Search for a brand or a product">
             <% } else { %>
-              <input id="search-input-mobile" class="form-control border-end-0" autocomplete="off"
-                     name="q" value="" type="search" placeholder="Search for a brand or a product" aria-label="Search for a brand or a product" aria-describedby="search-button">
+              <input id="search-input-sm" class="form-control border-end-0 search-input" autocomplete="off"
+                     name="q" value="" type="search" placeholder="Search for a brand or a product" aria-label="Search for a brand or a product">
             <% } %>
 
-              <button class="btn btn-outline-light bg-white d-flex align-items-center justify-content-evenly input-search-button" type="button">
+              <button class="btn btn-outline-light bg-white d-flex align-items-center justify-content-evenly input-search-button" type="submit" aria-label="Search">
                 <i aria-hidden="true" class="fas fa-search"></i>
                 <span class="position-relative ms-2 d-none d-md-block">Search</span>
               </button>

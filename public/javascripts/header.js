@@ -1,17 +1,17 @@
 /**
  * Close button for menu navigation on mobile
  */
-const closeMenuButton = document.getElementById('close-menu');
-const navbarContent = document.getElementById('navbarContent');
-const navbarToggler = document.getElementById('menu-button');
+const closeMenuButton = $('#close-menu');
+const navbarContent = $('#navbarContent');
+const navbarToggler = $('#menu-button');
 
-closeMenuButton.addEventListener('click', function () {
-    if(!navbarToggler.classList.contains('collapsed')){
-        navbarToggler.classList.add('collapsed');
+closeMenuButton.on('click', () => {
+    if(!navbarToggler.hasClass('collapsed')){
+        navbarToggler.addClass('collapsed');
     }
 
-    if(navbarContent.classList.contains('show')) {
-        navbarContent.classList.remove('show');
+    if(navbarContent.hasClass('show')) {
+        navbarContent.addClass('show');
     }
 })
 
@@ -20,7 +20,7 @@ closeMenuButton.addEventListener('click', function () {
  */
 const closeSearchButton = $('#close-search');
 const searchBar = $('#searchBar');
-const searchToggler = $('#search-button')
+const searchToggler = $('.search-button')
 
 closeSearchButton.on('click', function () {
     if(!searchToggler.hasClass('collapsed')){
@@ -30,6 +30,22 @@ closeSearchButton.on('click', function () {
     if(searchBar.hasClass('show')) {
         searchBar.removeClass('show');
     }
+})
+
+/**
+ * Prevent empty search submit
+ */
+const searchForm = $('#search-form-lg');
+const searchInput = $('#search-input-lg');
+
+$(() => {
+    searchForm.on('submit', (e) => {
+        console.log(searchInput.val());
+        if($.trim(searchInput.val()).length === 0) {
+            console.log('empty');
+            e.preventDefault();
+        }
+    })
 })
 
 /**
