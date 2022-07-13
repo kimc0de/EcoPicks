@@ -246,7 +246,7 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 /* desktop view */
-@media (min-width: 1440px) {
+@media (min-width: 1300px) {
   #header-mobile{
     display: none;
   }
@@ -257,7 +257,7 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 /* mobile view */
-@media (max-width: 1439px) {
+@media (max-width: 1299px) {
   header {
     padding: 0.5rem;
   }
