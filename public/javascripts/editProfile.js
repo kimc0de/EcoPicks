@@ -282,7 +282,8 @@ let newPassword_error = newPassword_inputField.siblings('.error-message');
 let newPasswordRepeat_error = newPasswordRepeat_inputField.siblings('.error-message');
 
 const showPasswordMatchError = () => {
-    newPasswordRepeat_error.text('New password repeat does not match.');
+    newPasswordRepeat_inputField.addClass('invalid-field').attr("aria-invalid", "true");
+    newPasswordRepeat_error.text('Confirmed password does not match with new password.');
     newPasswordRepeat_error.removeClass('d-none');
 }
 const hidePasswordMatchError = () => {
@@ -397,6 +398,9 @@ $(() => {
                     newPassword_error.text('New password cannot be the same as current password.');
                 }
 
+                if (data.error.includes('Passwords do not match')) {
+                    showPasswordMatchError();
+                }
                 // autofocus ont the first invalid field
                 let invalidFields = $('#edit-password-form .invalid-field');
                 invalidFields[0].focus();

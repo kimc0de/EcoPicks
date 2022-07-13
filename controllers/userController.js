@@ -182,6 +182,8 @@ module.exports = {
       res.json({'result': 'failed', 'error': 'Empty required fields.'});
     } else if (currentPassword === newPassword) {
       res.json({'result': 'failed', 'error': 'Invalid new password'});
+    } else if (newPasswordRepeat !== newPassword) {
+      res.json({'result': 'failed', 'error': 'Passwords do not match'});
     } else {
       User.findById(userId).then(foundUser => {
 
