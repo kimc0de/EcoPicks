@@ -174,10 +174,10 @@ $(() => {
     });
 
     // Check matching new email and confirm email
-    confirmEmail_inputField.on('keyup', () => {
+    confirmEmail_inputField.on('change', () => {
         validateMatchingEmails();
     });
-    newEmail_inputField.on('keyup', () => {
+    newEmail_inputField.on('change', () => {
         validateMatchingEmails();
     });
 
@@ -187,7 +187,7 @@ $(() => {
 
         if (email.length !== 0 && validateEmailFormat(email)) { // valid email
             hideInvalidNewEmailError();
-        } else {
+        } else if (email.length !== 0 && !validateEmailFormat(email)) {
             showInvalidNewEmailError();
         }
     });
@@ -256,12 +256,12 @@ $(() => {
                 }
 
                 if(data.error.includes('Invalid email format')) {
-                    newEmail_error.text('Invalid email format.');
+                    newEmail_error.text('Invalid email format. Valid email example: example@email.com.');
                     newEmail_inputField.addClass('invalid-field');
                 }
 
+                // autofocus ont the first invalid field
                 let invalidFields = $('#edit-email-form .invalid-field');
-                console.log(invalidFields);
                 invalidFields[0].focus();
             }
         })
@@ -312,9 +312,6 @@ $(() => {
     $('#edit-password-cancel-button').on('click', (e) => {
         e.preventDefault();
 
-        let invalidFields = $('.invalid-field')
-        invalidFields[0].focus();
-
         passwordEditButton.toggleClass('d-none');
 
         $('#edit-password-form').trigger("reset"); //reset form
@@ -324,19 +321,19 @@ $(() => {
         edit_password_form.toggleClass('d-none');
     });
 
-    currentPassword_inputField.on('keyup', () => {
+    currentPassword_inputField.on('change', () => {
         currentPassword_inputField.removeClass('invalid-field');
         currentPassword_error.addClass('d-none');
     });
 
     // Check matching new password and new password repeat
-    newPassword_inputField.on('keyup', () => {
+    newPassword_inputField.on('change', () => {
         newPassword_inputField.removeClass('invalid-field');
         newPassword_error.addClass('d-none');
         validateMatchingPasswords();
     });
 
-    newPasswordRepeat_inputField.on('keyup', () => {
+    newPasswordRepeat_inputField.on('change', () => {
         validateMatchingPasswords();
     });
 
@@ -400,8 +397,8 @@ $(() => {
                     newPassword_error.text('New password cannot be the same as current password.');
                 }
 
+                // autofocus ont the first invalid field
                 let invalidFields = $('#edit-password-form .invalid-field');
-                console.log(invalidFields);
                 invalidFields[0].focus();
             }
         })
