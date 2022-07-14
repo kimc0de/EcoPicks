@@ -61,8 +61,8 @@ body {
   position: absolute;
   overflow-x: hidden;
   background-color: var(--background-color-beige);
-  font-family: Garamond, sans-serif;
   font-weight: 400;
+  font-family: Garamond, Helvetica, Arial sans-serif, system-ui, -apple-system;
   letter-spacing: 0.018rem;
 }
 
@@ -175,4 +175,13 @@ a:hover {
 .needs-validation textarea {
   border-radius: 5px;
   border-color: var(--button-primary);
+}
+
+/* Hide unnecessary scrollbar in brand card */
+.no-scroll {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.no-scroll::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
 }
