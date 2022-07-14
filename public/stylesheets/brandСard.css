@@ -137,6 +137,11 @@
   border-top-right-radius: 1rem;
 }
 
+.brand-card .saved-icon svg {
+  position: relative;
+  top: 50%;
+  transform: translateY(-60%);
+}
 @media (min-width: 768px) {
   #categories-title,
   #suggestedbrandsHeader {
