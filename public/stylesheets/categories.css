@@ -1,0 +1,47 @@
+.category-light-social {
+    background-color: var(--social-light);
+}
+
+.category-dark-social {
+    background-color: var(--social-dark);
+}
+
+.category-light-lifestyle {
+    background-color: var(--lifestyle-light);
+}
+
+.category-dark-lifestyle {
+    background-color: var(--lifestyle-dark);
+}
+
+.category-dark-fashion {
+    background-color: var(--fashion-dark);
+}
+
+.category-light-fashion {
+    background-color: var(--fashion-light);
+}
+
+.category-light-food {
+    background-color: var(--food-light);
+}
+
+.category-dark-food {
+    background-color: var(--food-dark);
+}
+
+.category-light-household {
+    background-color: var(--household-light);
+}
+
+.category-dark-household {
+    background-color: var(--household-dark);
+}
+
+.category-light-beauty {
+    background-color: var(--beauty-light);
+}
+
+.category-dark-beauty {
+    background-color: var(--beauty-dark);
+}

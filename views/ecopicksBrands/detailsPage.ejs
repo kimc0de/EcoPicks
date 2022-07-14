@@ -1,13 +1,25 @@
 <div class="container-fluid" id="detail-page">
   <div class="row">
     <div class="<%= categoryClass %>" id="category-bg">
-      <img class="app-logo" src="<%= brandImg %>" alt="Logo of <%= brand.name %>">
+        <div class="brand-image">
+          <img class="app-logo" src="<%= brandImg %>" alt="Logo of <%= brand.name %>">
+        <% if(loggedIn && currentUser.savedBrands.length !== 0 && currentUser.savedBrands.includes(brand._id)) { %>
+            <div class="saved-icon" id="saved-icon-wrapper">
+                <svg focusable="false" aria-label="This brand is saved" role="img" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.3429 2H7.05714C5.92571 2 5.01029 3.05 5.01029 4.33333L5 23L12.2 16.4L19.4 23V4.33333C19.4 3.05 18.4743 2 17.3429 2Z" fill="#0D4813"/>
+                </svg>
+            </div>
+        <%} %>
+        </div>
     </div>
   </div>
   <div class="app-title">
-    <h1>
-      <%= brand.name %>
+    <h1 class="mb-3">
+      <%= brand.name%>
     </h1>
+    <div class="category-hashtag <%=categoryClass%>">
+      #<%= categoryName %>
+    </div>
   </div>
   <div class="description container">
     <p>
