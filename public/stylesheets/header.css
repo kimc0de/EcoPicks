@@ -7,6 +7,11 @@ header {
   font-size: 1.1rem;
 }
 
+header .nav-line {
+  border-right: 1px solid var(--text-primary);
+  height: 2rem;
+}
+
 header .nav-link {
   color: var(--text-dark) !important;
 }
@@ -14,7 +19,7 @@ header .nav-link {
 header .btn:not(.search-button):not(.input-search-button) {
   padding: 0.5rem 1.5rem;
   margin: 0 1rem;
-  width: 150px;
+  width: 8rem;
 }
 
 #header-large,
@@ -32,15 +37,15 @@ header .btn:not(.search-button):not(.input-search-button) {
   padding: 0.5rem 1rem;
 }
 
-#header-bottom .nav-link:not(.nav-btn):not(.active):hover {
+#header-top .nav-item:not(.nav-btn):hover {
   background-color: var(--green-light);
-  text-decoration: underline;
   border-radius: 5px;
-  transform: scale(1.2);
 }
 
-#header-top a:hover{
-  text-decoration: underline;
+#header-bottom .nav-link:not(.nav-btn):not(.active):hover {
+  background-color: var(--green-light);
+  border-radius: 5px;
+  transform: scale(1.2);
 }
 
 #header-top {
@@ -64,14 +69,14 @@ header .btn:not(.search-button):not(.input-search-button) {
   top: 80%;
   width: 80%;
   left: 10%;
-  height: 3px;
+  height: 2.5px;
   border-radius: 2px;
   background: linear-gradient(111.3deg, #425A49 9.6%, #E5EEE5 93.6%);
 }
 
 #header-bottom a.active {
   /* Scale text when link active */
-  transform: scale(1.5);
+  transform: scale(1.2);
 }
 
 /* Account dropdown*/
@@ -160,7 +165,6 @@ header .btn:not(.search-button):not(.input-search-button) {
 #header-mobile .nav-link.active{
   background-color: var(--green-medium-light);
   text-decoration: underline;
-  font-size: 1.5rem;
 }
 
 #header-mobile .navbar-toggler {

@@ -12,6 +12,10 @@
   box-shadow: 3px 3px 3px rgba(0,0,0,0.2);
 }
 
+#detail-page p {
+  line-height: 1.7rem;
+}
+
 #detail-page .brand-image {
   display: flex;
   flex-direction: column;

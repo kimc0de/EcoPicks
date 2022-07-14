@@ -36,19 +36,13 @@
 
         <ul class="navbar-nav ml-auto align-items-center">
           <li class="nav-item">
-            <a class="nav-link" href="/user/recommendation">Recommend a brand</a>
-          </li>
-          <li class="nav-item" id="navbar-top-account">
-            <a href="#" role="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <a href="/user"  class="nav-link">
               <i class="fas fa-user" aria-hidden="true"></i>
-              <span> My Account</span>
+              <span>Profile</span>
             </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/user">Profile</a></li>
-              <li class="horizontal-line" aria-hidden="true"><hr></li>
-              <li><a class="dropdown-item" href="/logout">Log out</a></li>
-            </ul>
           </li>
+          <div aria-hidden="true" class="nav-line"></div>
+          <li class="nav-item"><a class="nav-link" href="/logout">Log out</a></li>
         </ul>
         <% } %>
       </div>
@@ -86,9 +80,23 @@
           <li aria-hidden="true" class="horizontal-line"><hr></li>
           <!--  Categories links      -->
           <%- include ('./categoryNavigation') %>
+        </ul>
 
           <!-- Auth    -->
-          <li aria-hidden="true" class="horizontal-line"><hr></li>
+        <ul  aria-hidden="true" class="navbar-nav ml-auto"><li class="horizontal-line"><hr></li></ul>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/user/recommendation">Recommend a brand</a>
+          </li>
+        </ul>
+        <ul  aria-hidden="true" class="navbar-nav ml-auto"><li class="horizontal-line"><hr></li></ul>
+        <ul class="navbar-nav ml-auto">
           <% if(!loggedIn) { %>
             <li class="nav-item nav-btn">
               <a class="btn btn-outline-primary" href="/login">Log In</a>
@@ -97,9 +105,6 @@
               <a class="btn btn-primary" href="/registration">Sign Up</a>
             </li>
           <% } else { %>
-            <li class="nav-item">
-              <a class="nav-link" href="/user/recommendation">Recommend a brand</a>
-            </li>
             <li class="nav-item">
               <a class="nav-link" href="/user">
                 <i class="fas fa-user" aria-hidden="true"></i>
