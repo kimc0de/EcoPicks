@@ -33,7 +33,7 @@
 }
 
 #detail-page .description {
-  padding: 0.5rem 10rem;
+  padding: 1rem 10rem;
   text-align: justify;
 }
 
@@ -110,7 +110,7 @@
   }
 
   #detail-page .description {
-    padding: 0.5rem 1rem;
+    padding: 1rem;
   }
 }
 
