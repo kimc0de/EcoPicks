@@ -16,12 +16,7 @@
 #search-page .total-results {
     margin-top: 1rem;
     padding: 1rem;
-    font-size: 1rem;
-}
-
-#search-page .no-results {
-    font-size: 1.8rem;
-    margin: 3rem 0;
+    font-size: 1.2rem;
 }
 
 #search-page .suggestions {
@@ -31,6 +26,10 @@
 
 #search_section {
     margin: 3rem auto auto;
+}
+
+#search_button {
+    max-width: 9rem;
 }
 
 @media (min-width: 1200px){
