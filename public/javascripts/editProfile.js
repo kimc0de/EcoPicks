@@ -37,6 +37,7 @@ $(() => {
     $("#username-edit-button").on('click', () => {
         showing_username.toggleClass('d-none');
         editing_username.toggleClass('d-none');
+        username_inputField.focus();
     });
 
     // Cancel button -> clear error if present, reset form, hide editing form
@@ -156,6 +157,7 @@ $(() => {
     $("#email-edit-button").on('click', () => {
         showing_email.toggleClass('d-none');
         editing_email.toggleClass('d-none');
+        newEmail_inputField.focus();
     });
 
     // Cancel button -> clear error if present, reset form, hide editing form
@@ -307,9 +309,10 @@ $(() => {
     passwordEditButton.on('click', () => {
         edit_password_form.toggleClass('d-none');
         passwordEditButton.toggleClass('d-none');
+        currentPassword_inputField.focus();
     });
 
-    // Cancel button -> clear error if present, reset form, hide editing form
+    // Cancel button -> clear error if present, reset form, hide form
     $('#edit-password-cancel-button').on('click', (e) => {
         e.preventDefault();
 
@@ -319,7 +322,7 @@ $(() => {
         $('#edit-password-section .error-message').addClass('d-none'); //hide all errors
         $('#edit-password-section .form-control').removeClass('invalid-field').attr("aria-invalid", "false");
 
-        edit_password_form.toggleClass('d-none');
+        edit_password_form.toggleClass('d-none'); // hide editing form
     });
 
     currentPassword_inputField.on('change', () => {

@@ -8,7 +8,7 @@
       </a>
       <form id="search-form-lg" method="get" action="/search">
         <div class="input-group">
-          <label for="search-input-lg" class="visually-hidden">Search for a brand or a product. </label>
+          <label for="search-input-lg" class="visually-hidden"></label>
           <%if (query !== undefined) { %>
             <input id="search-input-lg" class="form-control border-start-0 border search-input" autocomplete="off"
                    name="q" value="<%= query%>" type="search" placeholder="Search for a brand or a product">
@@ -138,10 +138,10 @@
         <form id="search-form-sm" method="get" action="/search">
           <div class="input-group align-items-stretch">
             <button id="close-search" type="button" class="btn-close close-search-btn" aria-label="Close search"></button>
-            <label for="search-input-sm" class="visually-hidden"> Search for a brand or a product </label>
+            <label for="search-input-sm" class="visually-hidden"></label>
             <%if (query !== undefined) { %>
               <input id="search-input-sm" class="form-control border-end-0 search-input" autocomplete="off"
-                     name="q" value="<%= query%>" type="search" placeholder="Search for a brand or a product">
+                     name="q" value="<%= query%>" type="search" placeholder="Search for a brand or a product.">
             <% } else { %>
               <input id="search-input-sm" class="form-control border-end-0 search-input" autocomplete="off"
                      name="q" value="" type="search" placeholder="Search for a brand or a product" aria-label="Search for a brand or a product">
