@@ -35,6 +35,7 @@ footer {
 #footer .footer-heading {
     font-size: 1.1rem;
     padding: 0.25rem 1rem;
+    font-weight: bold;
 }
 
 #footer .footer-block {
