@@ -2,7 +2,7 @@
  * Load more button for brands by categories page and search results page
  */
 document.addEventListener("DOMContentLoaded", function(event) {
-    let limit = 12;
+    let limit = 24;
     if (window.location.pathname.includes('/category/') ||
         window.location.pathname.includes('/search')
     ) {
