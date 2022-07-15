@@ -10,10 +10,10 @@
         <div class="input-group">
           <label for="search-input-lg" class="visually-hidden"></label>
           <%if (query !== undefined) { %>
-            <input id="search-input-lg" class="form-control border-start-0 border search-input" autocomplete="off"
+            <input id="search-input-lg" class="form-control border-start-0 border search-input" autocomplete="on"
                    name="q" value="<%= query%>" type="search" placeholder="Search for a brand or a product">
           <% } else { %>
-            <input id="search-input-lg" class="form-control border-start-0 border search-input" autocomplete="off"
+            <input id="search-input-lg" class="form-control border-start-0 border search-input" autocomplete="on"
                    name="q" value="" type="search" placeholder="Search for a brand or a product">
           <% } %>
             <button class="btn btn-outline-light bg-white border-start-0 border search-button" type="submit" id="">

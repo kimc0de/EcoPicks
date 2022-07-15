@@ -1,7 +1,7 @@
 #search-page .page-title {
     margin: 1.5rem auto auto;
     color: var(--text-primary);
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 #search-results .card-wrapper {
@@ -32,9 +32,43 @@
     max-width: 9rem;
 }
 
+#search-page #search-input-lg{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+#search-page .input-group {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
 @media (min-width: 1200px){
     #search-page .total-results {
         margin-top: 0;
         padding: 1rem 3rem;  /*match padding of .brand-card*/
+    }
+
+    #search-page .input-group {
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+        padding-left: 6rem;
+        padding-right: 6rem;
+    }
+}
+
+@media(min-width: 768px) {
+    #search-page .input-group {
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+}
+
+@media(min-width: 576px) {
+    #search-page .page-title {
+        font-size: 2rem;
     }
 }

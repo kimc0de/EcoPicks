@@ -177,6 +177,7 @@ header .btn:not(.search-button):not(.input-search-button) {
   position: relative;
   top: 2px;
   color: var(--text-primary);
+  font-size: 1.1rem;
 }
 
 #close-menu {
