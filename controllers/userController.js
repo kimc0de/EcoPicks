@@ -201,7 +201,6 @@ module.exports = {
   },
 
   renderRecommendPage: (req, res) => {
-    redirectIfUnauthorized(req, res);
     res.render("user/recommendNewBrand");
   },
 

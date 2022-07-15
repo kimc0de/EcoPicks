@@ -3,7 +3,7 @@ const {
     respondInternalError,
     redirectIfUnauthorized,
     respondNoResourceFound
-} = require("../controllers/errorController");
+} = require("./errorController");
 const EcopicksBrand = require("../models/ecopicksBrand");
 const User = require("../models/user");
 

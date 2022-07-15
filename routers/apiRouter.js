@@ -1,7 +1,7 @@
 const router = require("express").Router(),
   categoryController = require("../controllers/categoryController"),
-  userSavedBrandController = require("../api/userSavedBrandsController"),
-  userFavAppsController = require("../api/userSavedBrandsController");
+  userSavedBrandController = require("../controllers/userSavedBrandsController"),
+  userFavAppsController = require("../controllers/userSavedBrandsController");
 
 router.get("/api/user/savedBrands", userFavAppsController.getAllSavedBrands, userFavAppsController.respondJSON);
 router.get("/api/categories", categoryController.getAllCategories, categoryController.respondJSON);

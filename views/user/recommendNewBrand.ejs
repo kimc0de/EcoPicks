@@ -1,53 +1,74 @@
-<div id="recommendation-page" class="container">
-    <form action="/user/recommendation" method="post" class="needs-validation" novalidate>
-
+<div id="recommendation-page">
+    <div class="position-relative">
+        <picture>
+            <source media="(min-width: 1200px)" srcset="/images/ecopicks/recommendation-cover-large.png">
+            <source media="(min-width: 768px)" srcset="/images/ecopicks/recommendation-cover-medium.png">
+            <img src="/images/ecopicks/recommendation-cover-small.png" style="width:100%;" alt="Light green back ground with green leaves on the left and right side.">
+        </picture>
+    </div>
+    <div class="container">
         <h1 class="page-title">Recommend a sustainable brand</h1>
 
-        <div class="required-instruction">Required fields are marked with an asterisk <span aria-hidden="true">(<span class="asterisk">*</span>)</span></div>
-        <section>
-            <label for="brand-name" class="form-group question-field">Brand's name <span aria-hidden="true" class="asterisk"> *</span></label>
-            <input class="form-control" type="text" id="brand-name" name="brandName" aria-required="true" required autocomplete="off">
-            <div class="valid-feedback">
-                Looks good!
+        <% if (!loggedIn) { %>
+            <div class="alert alert-primary d-flex align-items-center" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>
+                <div>
+                    Please log in to before you proceed with the form.
+                </div>
             </div>
-            <div class="invalid-feedback">
-                Please provide the brand's name.
-            </div>
-        </section>
+        <% }  %>
 
-        <section>
-            <label for="brand-website" class="form-group question-field">Brand's web site or social media link <span aria-hidden="true" class="asterisk"> *</span></label>
-            <input class="form-control" type="text" id="brand-website" name="website" aria-required="true" required autocomplete="off">
-            <div class="valid-feedback">
-                Looks good!
-            </div>
-            <div class="invalid-feedback">
-                Please provide the brand's web site or social media link.
-            </div>
-        </section>
+        <form action="/user/recommendation" method="post" class="needs-validation" novalidate>
+            <div class="required-instruction">Required fields are marked with an asterisk <span aria-hidden="true">(<span class="asterisk">*</span>)</span></div>
+            <section>
+                <label for="brand-name" class="form-group question-field">Brand's name <span aria-hidden="true" class="asterisk"> *</span></label>
+                <input class="form-control" type="text" id="brand-name" name="brandName" aria-required="true" required autocomplete="off">
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Please provide the brand's name.
+                </div>
+            </section>
 
-        <section id="app-description">
-            <label for="brand-reason" class="form-group question-field">Why do you think this brand should be on Ecopicks? <span aria-hidden="true" class="asterisk"> *</span></label>
-            <textarea class="form-control" id="brand-reason" name="reason" rows="4" aria-required="false" required autocomplete="off"></textarea>
-            <div class="valid-feedback">
-                Looks good!
-            </div>
-            <div class="invalid-feedback">
-                Please tell us the reason this brand should be on Ecopicks.
-            </div>
-        </section>
+            <section>
+                <label for="brand-website" class="form-group question-field">Brand's web site or social media link <span aria-hidden="true" class="asterisk"> *</span></label>
+                <input class="form-control" type="text" id="brand-website" name="website" aria-required="true" required autocomplete="off">
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Please provide the brand's web site or social media link.
+                </div>
+            </section>
 
-        <section id="app-description">
-            <label for="brand-description" class="form-group question-field">Tell us some more about this brand (Optional)</label>
-            <textarea class="form-control" id="brand-description" name="description" rows="4" aria-required="false" autocomplete="off"></textarea>
-            <div class="valid-feedback">
-                Looks good!
-            </div>
-        </section>
+            <section id="app-description">
+                <label for="brand-reason" class="form-group question-field">Why do you think this brand should be on Ecopicks? <span aria-hidden="true" class="asterisk"> *</span></label>
+                <textarea class="form-control" id="brand-reason" name="reason" rows="4" aria-required="false" required autocomplete="off"></textarea>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Please tell us the reason this brand should be on Ecopicks.
+                </div>
+            </section>
 
-        <section id="buttons-section">
-            <button id="cancel-button" onclick="location.href='/'" class="btn btn-outline-primary" type="button" >Cancel</button>
-            <button id="send-button" class="btn btn-primary" type="submit">Send</button>
-        </section>
-    </form>
+            <section id="app-description">
+                <label for="brand-description" class="form-group question-field">Tell us some more about this brand (Optional)</label>
+                <textarea class="form-control" id="brand-description" name="description" rows="4" aria-required="false" autocomplete="off"></textarea>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </section>
+
+            <section id="buttons-section">
+                <button id="cancel-button" onclick="location.href='/'" class="btn btn-outline-primary" type="button" >Cancel</button>
+                <% if (loggedIn) { %>
+                <button id="send-button" class="btn btn-primary" type="submit">Send</button>
+                <% } else { %>
+                <button class="btn btn-primary" disabled type="button">Send</button>
+                <% } %>
+            </section>
+        </form>
+    </div>
 </div>

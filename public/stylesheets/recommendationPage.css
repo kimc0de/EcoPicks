@@ -1,13 +1,9 @@
-#recommendation-page {
-    padding: 1rem;
-}
-
 #recommendation-page section {
     margin-bottom: 2rem;
 }
 
 #recommendation-page .page-title {
-    font-size: 2rem;
+    font-size: 1.7rem;
     color: var(--text-primary);
     margin: 1rem;
     text-align: center;
@@ -54,7 +50,11 @@
 }
 
 @media (min-width: 992px) {
-    #recommendation-page {
-        padding: 1rem 15vw;
+    #recommendation-page .container {
+        padding: 1rem 10vw;
+    }
+
+    #recommendation-page .page-title {
+        font-size: 2rem;
     }
 }
