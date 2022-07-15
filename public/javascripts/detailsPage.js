@@ -39,7 +39,7 @@ $(() => {
 
 /**
  * Read more read less
- * https://stackoverflow.com/a/45262510
+ * https://stackoverflow.com/a/62248082
  */
 $(() => {
     const readMore = () => {
@@ -50,8 +50,8 @@ $(() => {
                 let visibleString = description.substring(0, limit);
                 let hiddenString = description.substring(limit, $.trim(description).length);
                 $(this).empty().html(visibleString);
-                $(this).append('...  <a class="fw-bold" href="javascript:void(0);" class="read-more">read more</a>');
-                $(this).append('<span class="more-text">' + hiddenString + ' <a href="javascript:void(0);" class="read-less">read less</a>' + '</span>');
+                $(this).append('...  <a href="javascript:void(0);" class="fw-bold read-more">read more</a>');
+                $(this).append('<span class="more-text">' + hiddenString + ' <a href="javascript:void(0);" class="fw-bold read-less">read less</a>' + '</span>');
             }
         });
 
