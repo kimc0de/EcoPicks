@@ -1,6 +1,17 @@
 <!-- Saved brand cards showing on the profile page-->
 <ul class="row brand-card" id="saved-brand-card">
-    <% savedBrands.forEach(brand => { %>
+    <% let getCategoryById = (categoryObject) => {
+        let result;
+        categories.forEach(category => {
+            if(category._id.equals(categoryObject._id)) {
+                result = category;
+            }
+        });
+        return result;
+    } %>
+    <% savedBrands.forEach(brand => {
+        let category = getCategoryById(brand.category);
+    %>
     <li class="col col-12 col-md-6 card-wrapper">
         <div tabindex="0"
              class="card-body d-flex position-relative"
@@ -10,7 +21,7 @@
             <img class="brand-logo" src="<%= brand.image %>" alt="Logo of <%= brand.name %>" width="100" height="100">
             <div class="ms-3">
                 <a href="/brand/<%=brand._id%>" class="brand-name" tabindex="-1" aria-label="Brand's name: <%= brand.name %>"><%= brand.name %></a>
-                <p class="brand-slogan"><%= brand.slogan %></p>
+                <p class="brand-slogan">#<%= category.name %></p>
             </div>
             <a role="button" class="btn btn-outline-primary p-1 unsave-button saved"
                href="<%= `/api/brand/${brand._id}/remove` %>">
