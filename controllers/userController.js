@@ -213,6 +213,7 @@ module.exports = {
       let newRecommendation = new RecommendedBrand({
         brandName: req.body.brandName,
         website: req.body.website,
+        reason: req.body.reason,
         description: req.body.description || "",
         userId: currentUser._id,
         approved: false,
