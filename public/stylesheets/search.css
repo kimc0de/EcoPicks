@@ -28,6 +28,10 @@
     margin: 3rem auto auto;
 }
 
+#search_button {
+    max-width: 9rem;
+}
+
 @media (min-width: 1200px){
     #search-page .total-results {
         margin-top: 0;
