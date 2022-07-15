@@ -71,7 +71,7 @@
       <div class="collapse navbar-collapse menu-collapse" id="navbarContent">
 
         <ul class="navbar-nav ml-auto">
-          <li id="nav-logo" class="nav-item">
+          <li id="nav-logo">
             <a class="navbar-brand" href="/">
               <img src="/images/ecopicks/logo1.svg" alt="Ecopicks homepage">
             </a>
@@ -98,10 +98,10 @@
         <ul  aria-hidden="true" class="navbar-nav ml-auto"><li class="horizontal-line"><hr></li></ul>
         <ul class="navbar-nav ml-auto">
           <% if(!loggedIn) { %>
-            <li class="nav-item nav-btn">
+            <li class="nav-btn">
               <a class="btn btn-outline-primary" href="/login">Log In</a>
             </li>
-            <li class="nav-item nav-btn">
+            <li class="nav-btn">
               <a class="btn btn-primary" href="/registration">Sign Up</a>
             </li>
           <% } else { %>
