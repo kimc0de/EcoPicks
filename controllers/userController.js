@@ -151,7 +151,6 @@ module.exports = {
     if (newEmail.trim() === '' || confirmEmail.trim() === '') {
       res.json({'result': 'failed', 'error': 'Empty required field'});
     } else if (newEmail === currentUserEmail) {
-      console.log(newEmail === currentUserEmail);
       res.json({'result': 'failed', 'error': 'Invalid new email'});
     } else if (newEmail !== confirmEmail) {
       res.json({'result': 'failed', 'error': 'Emails do not match'});
