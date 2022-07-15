@@ -4,18 +4,19 @@
     <% } else { %>
         <h1 class="text-center page-title">We're sorry... No results were found for "<%= query%>"</h1>
         <!-- Search bar    -->
-        <div id="search_section" class="row d-flex justify-content-center">
-            <div id="search_bar" class="col-sm-6 col-12">
-                <label for="search_field" class="visually-hidden"> Search for a brand or a product </label>
-                <input id="search_field" class="textField_input form-control" autocomplete="off"
-                       name="q" value="<%= query%>" type="search" placeholder="Search for a brand or a product">
+        <form method="get" action="/search">
+            <div id="search_section" class="row d-flex justify-content-center">
+                <div id="search_bar" class="col-sm-6 col-12">
+                    <label for="search_field" class="visually-hidden"> Search for a brand or a product </label>
+                    <input id="search_field" class="textField_input form-control" autocomplete="off"
+                           name="q" value="<%= query%>" type="search" placeholder="Search for a brand or a product">
+                </div>
+                <button type="submit" id="search_button" class="btn btn-primary mt-2 mt-sm-0 col-12 col-sm-6 justify-content-center">
+                    <i aria-hidden="true" class="fas fa-search"></i>
+                    <span class="ms-2">Search</span>
+                </button>
             </div>
-            <button type="submit" id="search_button" class="btn btn-primary mt-2 mt-sm-0 col-12 col-sm-6 justify-content-center">
-                <i aria-hidden="true" class="fas fa-search"></i>
-                <span class="ms-2">Search</span>
-            </button>
-        </div>
-
+        </form>
     <% } %>
     <div class="container mt-sm-1 mb-sm-1">
         <% if (results && results.length > 0) { %>
