@@ -26,13 +26,12 @@
 
 #detail-page .category-hashtag {
   width: max-content;
-  margin: auto;
   padding: 0.25rem 0.5rem;
   border-radius: 5px;
 }
 
 #detail-page .app-title {
-  margin-top: 8rem;
+  margin-top: 6rem;
   text-align: center;
 }
 
@@ -117,9 +116,27 @@
   }
 }
 
+.description-text .more-text {
+  display: none;
+}
+
+#detail-page .short-description {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+  text-align: center;
+}
+
+#detail-page .section-title {
+  font-size: 1.25rem;
+}
+
 @media (min-width: 922px) {
   #category-bg {
     height: 12.5rem;
+  }
+
+  #detail-page .app-title {
+    margin-top: 8rem;
   }
 
   #detail-page .app-logo {
