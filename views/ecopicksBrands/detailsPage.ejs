@@ -22,14 +22,15 @@
     <h1 class="mb-3">
       <%= brand.name%>
     </h1>
-    <div class="category-hashtag <%=categoryClass%>">
-      #<%= categoryName %>
-    </div>
+      <p class="short-description"><%= brand.slogan%></p>
   </div>
   <div class="description container">
-    <h2><%= brand.slogan%></h2>
-    <p>
+    <h2 class="section-title">About <%=brand.name%></h2>
+    <p class="description-text mt-2">
       <%= brand.description %>
+    </p>
+    <p class="category-hashtag <%=categoryClass%>" aria-label="Category <%=categoryName%>">
+      #<%= categoryName %>
     </p>
   </div>
   <div class="bottom-part d-flex justify-content-center">

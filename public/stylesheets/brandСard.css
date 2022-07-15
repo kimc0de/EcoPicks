@@ -160,3 +160,15 @@
     padding: 0 3rem;
   }
 }
+
+#saved-brand-card .brand-logo,
+#popular-brand-card .brand-logo {
+  border-radius: 1rem;
+}
+
+#saved-brand-card .card-body,
+#popular-brand-card .card-body {
+  border-radius: 1rem;
+  border: solid 1px var(--green-medium-light);
+  box-shadow: 0 1px 2px 1px #ddd;
+}

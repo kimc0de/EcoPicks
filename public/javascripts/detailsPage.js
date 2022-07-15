@@ -36,3 +36,34 @@ $(() => {
         }
     }));
 });
+
+/**
+ * Read more read less
+ * https://stackoverflow.com/a/45262510
+ */
+$(() => {
+    const readMore = () => {
+        let limit = 200;
+        $(".description-text").each(function() {
+            let description = $(this).text();
+            if ($.trim(description).length > limit) {
+                let visibleString = description.substring(0, limit);
+                let hiddenString = description.substring(limit, $.trim(description).length);
+                $(this).empty().html(visibleString);
+                $(this).append('...  <a class="fw-bold" href="javascript:void(0);" class="read-more">read more</a>');
+                $(this).append('<span class="more-text">' + hiddenString + ' <a href="javascript:void(0);" class="read-less">read less</a>' + '</span>');
+            }
+        });
+
+    }
+    readMore();
+    $(document).on("click", ".read-more", function() {
+        $(this).siblings(".more-text").contents().unwrap();
+        $(this).remove();
+    });
+
+    $(document).on("click", ".read-less", function() {
+        $(this).remove();
+        readMore();
+    });
+});
