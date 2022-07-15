@@ -78,6 +78,7 @@ $(() => {
                 //show success icon and message
                 username.siblings('.success-icon').removeClass('d-none');
                 username.siblings('.success-message').removeClass('d-none');
+                username.siblings('.success-message').removeClass('visually-hidden');
 
                 //hide success icon and message
                 setTimeout(() =>{
@@ -220,12 +221,13 @@ $(() => {
                 confirmEmail_inputField.val('');
 
                 //show success icon & message
-                userEmail.siblings('.success-icon').toggleClass('d-none');
-                userEmail.siblings('.success-message').toggleClass('d-none');
+                userEmail.siblings('.success-icon').removeClass('d-none');
+                userEmail.siblings('.success-message').removeClass('d-none');
+                userEmail.siblings('.success-message').removeClass('visually-hidden');
 
                 //hide success icon
                 setTimeout(() => {
-                    userEmail.siblings('.success-icon').toggleClass('d-none');
+                    userEmail.siblings('.success-icon').addClass('d-none');
                     userEmail.siblings('.success-message').addClass('visually-hidden');
                 }, 3000);
 
@@ -391,12 +393,12 @@ $(() => {
                 passwordEditButton.toggleClass('d-none');
 
                 //show success icon & message
-                passwordLabel.siblings('.success-icon').toggleClass('d-none');
-                passwordLabel.siblings('.success-message').toggleClass('d-none');
-
+                passwordLabel.siblings('.success-icon').removeClass('d-none');
+                passwordLabel.siblings('.success-message').removeClass('d-none');
+                passwordLabel.siblings('.success-message').removeClass('visually-hidden');
                 //hide success icon
                 setTimeout(() => {
-                    passwordLabel.siblings('.success-icon').toggleClass('d-none');
+                    passwordLabel.siblings('.success-icon').addClass('d-none');
                     passwordLabel.siblings('.success-message').addClass('visually-hidden');
                 }, 3000);
             }
