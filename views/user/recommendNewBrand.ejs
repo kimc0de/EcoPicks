@@ -12,7 +12,7 @@
         <div class="required-instruction">Required fields are marked with an asterisk <span aria-hidden="true">(<span class="asterisk">*</span>)</span></div>
         <section>
             <label for="brand-name" class="form-group question-field">Brand's name <span aria-hidden="true" class="asterisk"> *</span></label>
-            <input class="form-control" type="text" id="brand-name" name="brandName" aria-required="true" required autocomplete="on">
+            <input class="form-control" type="text" id="brand-name" name="brandName" aria-required="true" required autocomplete="off">
             <div class="valid-feedback">
                 Looks good!
             </div>
@@ -23,7 +23,7 @@
 
         <section>
             <label for="brand-website" class="form-group question-field">Brand's web site or social media link <span aria-hidden="true" class="asterisk"> *</span></label>
-            <input class="form-control" type="text" id="brand-website" name="website" aria-required="true" required autocomplete="on">
+            <input class="form-control" type="text" id="brand-website" name="website" aria-required="true" required autocomplete="off">
             <div class="valid-feedback">
                 Looks good!
             </div>
@@ -33,8 +33,19 @@
         </section>
 
         <section id="app-description">
-            <label for="brand-description" class="form-group question-field">Tell us more about this brand (Optional)</label>
-            <textarea class="form-control" id="brand-description" name="description" rows="4" aria-required="false" autocomplete="on"></textarea>
+            <label for="brand-reason" class="form-group question-field">Why do you think this brand should be on Ecopicks? <span aria-hidden="true" class="asterisk"> *</span></label>
+            <textarea class="form-control" id="brand-reason" name="reason" rows="4" aria-required="false" required autocomplete="off"></textarea>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+            <div class="invalid-feedback">
+                Please tell us the reason this brand should be on Ecopicks.
+            </div>
+        </section>
+
+        <section id="app-description">
+            <label for="brand-description" class="form-group question-field">Tell us some more about this brand (Optional)</label>
+            <textarea class="form-control" id="brand-description" name="description" rows="4" aria-required="false" autocomplete="off"></textarea>
             <div class="valid-feedback">
                 Looks good!
             </div>

@@ -7,7 +7,7 @@
                 <%if (!brand.approved) { %>
                 <div class="col-8">
                     <div class="recommended-brand-name"><%= brand.brandName %></div>
-                    <a class="recommended-link" href="<%=brand.website%>"><%=brand.website%></a>
+                    <div class="recommended-link" href="<%=brand.website%>"><%=brand.website%></div>
                     <div class="pt-2">This brand is under review</div>
                 </div>
                 <div class="col-4 delete-button">

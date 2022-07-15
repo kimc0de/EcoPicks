@@ -43,6 +43,10 @@ footer {
     flex-direction: column;
 }
 
+#footer .email-link {
+    padding-left: 1rem;
+}
+
 @media (max-width : 767px) {
     #footer {
         flex-direction: column;
