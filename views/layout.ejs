@@ -18,6 +18,7 @@
 
   <%# Custom style sheets - link here to overwrite bootstrap %>
   <link href="/stylesheets/index.css" rel="stylesheet" type="text/css" />
+  <link href="/stylesheets/backToTopButton.css" rel="stylesheet" type="text/css" />
   <link href="/stylesheets/homepage.css" rel="stylesheet" type="text/css" />
   <link href="/stylesheets/categories.css" rel="stylesheet" type="text/css" />
   <link href="/stylesheets/search.css" rel="stylesheet" type="text/css" />
@@ -45,6 +46,7 @@
 
     <main id="main">
       <%- body %>
+      <button id="back-to-top" class="btn btn-primary" type="button">Back to top</button>
     </main>
     <%- include ('./components/footer') %>
 
@@ -54,6 +56,7 @@
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
   <!-- Custom scripts -->
+  <script src="/javascripts/index.js"></script>
   <script src="/javascripts/fileUpload.js"></script>
   <script src="/javascripts/flash.js"></script>
   <script src="/javascripts/header.js"></script>
