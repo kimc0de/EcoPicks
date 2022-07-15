@@ -8,7 +8,7 @@
       </a>
       <form id="search-form-lg" method="get" action="/search">
         <div class="input-group">
-          <label for="search-input-lg" class="visually-hidden">Search for a brand or a product. </label>
+          <label for="search-input-lg" class="visually-hidden"></label>
           <%if (query !== undefined) { %>
             <input id="search-input-lg" class="form-control border-start-0 border search-input" autocomplete="off"
                    name="q" value="<%= query%>" type="search" placeholder="Search for a brand or a product">
@@ -36,19 +36,13 @@
 
         <ul class="navbar-nav ml-auto align-items-center">
           <li class="nav-item">
-            <a class="nav-link" href="/user/recommendation">Recommend a brand</a>
-          </li>
-          <li class="nav-item" id="navbar-top-account">
-            <a href="#" role="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <a href="/user"  class="nav-link">
               <i class="fas fa-user" aria-hidden="true"></i>
-              <span> My Account</span>
+              <span>Profile</span>
             </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/user">Profile</a></li>
-              <li class="horizontal-line" aria-hidden="true"><hr></li>
-              <li><a class="dropdown-item" href="/logout">Log out</a></li>
-            </ul>
           </li>
+          <div aria-hidden="true" class="nav-line"></div>
+          <li class="nav-item"><a class="nav-link" href="/logout">Log out</a></li>
         </ul>
         <% } %>
       </div>
@@ -77,7 +71,7 @@
       <div class="collapse navbar-collapse menu-collapse" id="navbarContent">
 
         <ul class="navbar-nav ml-auto">
-          <li id="nav-logo" class="nav-item">
+          <li id="nav-logo">
             <a class="navbar-brand" href="/">
               <img src="/images/ecopicks/logo1.svg" alt="Ecopicks homepage">
             </a>
@@ -86,20 +80,31 @@
           <li aria-hidden="true" class="horizontal-line"><hr></li>
           <!--  Categories links      -->
           <%- include ('./categoryNavigation') %>
+        </ul>
 
           <!-- Auth    -->
-          <li aria-hidden="true" class="horizontal-line"><hr></li>
+        <ul  aria-hidden="true" class="navbar-nav ml-auto"><li class="horizontal-line"><hr></li></ul>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/user/recommendation">Promote a brand</a>
+          </li>
+        </ul>
+        <ul  aria-hidden="true" class="navbar-nav ml-auto"><li class="horizontal-line"><hr></li></ul>
+        <ul class="navbar-nav ml-auto">
           <% if(!loggedIn) { %>
-            <li class="nav-item nav-btn">
+            <li class="nav-btn">
               <a class="btn btn-outline-primary" href="/login">Log In</a>
             </li>
-            <li class="nav-item nav-btn">
+            <li class="nav-btn">
               <a class="btn btn-primary" href="/registration">Sign Up</a>
             </li>
           <% } else { %>
-            <li class="nav-item">
-              <a class="nav-link" href="/user/recommendation">Recommend a brand</a>
-            </li>
             <li class="nav-item">
               <a class="nav-link" href="/user">
                 <i class="fas fa-user" aria-hidden="true"></i>
@@ -133,10 +138,10 @@
         <form id="search-form-sm" method="get" action="/search">
           <div class="input-group align-items-stretch">
             <button id="close-search" type="button" class="btn-close close-search-btn" aria-label="Close search"></button>
-            <label for="search-input-sm" class="visually-hidden"> Search for a brand or a product </label>
+            <label for="search-input-sm" class="visually-hidden"></label>
             <%if (query !== undefined) { %>
               <input id="search-input-sm" class="form-control border-end-0 search-input" autocomplete="off"
-                     name="q" value="<%= query%>" type="search" placeholder="Search for a brand or a product">
+                     name="q" value="<%= query%>" type="search" placeholder="Search for a brand or a product.">
             <% } else { %>
               <input id="search-input-sm" class="form-control border-end-0 search-input" autocomplete="off"
                      name="q" value="" type="search" placeholder="Search for a brand or a product" aria-label="Search for a brand or a product">

@@ -27,8 +27,8 @@ $(() => {
 let editing_username = $('#editing-username');
 let showing_username = $('#showing-username');
 let edit_username_form = $('#edit-username-form');
-let username_label = $('#username-label');
 let username_inputField = $('#edit-username');
+let username = $('#user-name');
 
 $(() => {
     let errorMessage = $('#edit-username-section .error-message');
@@ -37,6 +37,7 @@ $(() => {
     $("#username-edit-button").on('click', () => {
         showing_username.toggleClass('d-none');
         editing_username.toggleClass('d-none');
+        username_inputField.focus();
     });
 
     // Cancel button -> clear error if present, reset form, hide editing form
@@ -75,13 +76,13 @@ $(() => {
             // when updating is done, show success icon, update username on username field
             req.done((data) => {
                 //show success icon and message
-                username_label.siblings('.success-icon').removeClass('d-none');
-                username_label.siblings('.success-message').removeClass('d-none');
+                username.siblings('.success-icon').removeClass('d-none');
+                username.siblings('.success-message').removeClass('d-none');
 
                 //hide success icon and message
                 setTimeout(() =>{
-                    username_label.siblings('.success-icon').addClass('d-none');
-                    username_label.siblings('.success-message').addClass('visually-hidden');
+                    username.siblings('.success-icon').addClass('d-none');
+                    username.siblings('.success-message').addClass('visually-hidden');
                 }, 3000);
 
                 //update user name on page
@@ -98,6 +99,7 @@ $(() => {
 /**
  * Edit user email
  */
+let userEmail = $('#user-email');
 let editing_email = $('#editing-email');
 let showing_email = $('#showing-email');
 let edit_email_form = $('#edit-email-form');
@@ -156,6 +158,7 @@ $(() => {
     $("#email-edit-button").on('click', () => {
         showing_email.toggleClass('d-none');
         editing_email.toggleClass('d-none');
+        newEmail_inputField.focus();
     });
 
     // Cancel button -> clear error if present, reset form, hide editing form
@@ -217,13 +220,13 @@ $(() => {
                 confirmEmail_inputField.val('');
 
                 //show success icon & message
-                email_label.siblings('.success-icon').toggleClass('d-none');
-                email_label.siblings('.success-message').toggleClass('d-none');
+                userEmail.siblings('.success-icon').toggleClass('d-none');
+                userEmail.siblings('.success-message').toggleClass('d-none');
 
                 //hide success icon
                 setTimeout(() => {
-                    email_label.siblings('.success-icon').toggleClass('d-none');
-                    email_label.siblings('.success-message').addClass('visually-hidden');
+                    userEmail.siblings('.success-icon').toggleClass('d-none');
+                    userEmail.siblings('.success-message').addClass('visually-hidden');
                 }, 3000);
 
                 // Update email on Edit profile page
@@ -248,6 +251,7 @@ $(() => {
                 }
                 if (data.error.includes('Invalid new email')) {
                     newEmail_error.text('New email cannot be the same as current email.');
+                    newEmail_error.removeClass('d-none');
                     newEmail_inputField.addClass('invalid-field').attr("aria-invalid", "true");
                 }
 
@@ -257,6 +261,7 @@ $(() => {
 
                 if(data.error.includes('Invalid email format')) {
                     newEmail_error.text('Invalid email format. Valid email example: example@email.com.');
+                    newEmail_error.removeClass('d-none');
                     newEmail_inputField.addClass('invalid-field').attr("aria-invalid", "true");
                 }
 
@@ -307,9 +312,10 @@ $(() => {
     passwordEditButton.on('click', () => {
         edit_password_form.toggleClass('d-none');
         passwordEditButton.toggleClass('d-none');
+        currentPassword_inputField.focus();
     });
 
-    // Cancel button -> clear error if present, reset form, hide editing form
+    // Cancel button -> clear error if present, reset form, hide form
     $('#edit-password-cancel-button').on('click', (e) => {
         e.preventDefault();
 
@@ -319,12 +325,40 @@ $(() => {
         $('#edit-password-section .error-message').addClass('d-none'); //hide all errors
         $('#edit-password-section .form-control').removeClass('invalid-field').attr("aria-invalid", "false");
 
-        edit_password_form.toggleClass('d-none');
+        edit_password_form.toggleClass('d-none'); // hide editing form
     });
 
     currentPassword_inputField.on('change', () => {
         currentPassword_inputField.removeClass('invalid-field').attr("aria-invalid", "false");
         currentPassword_error.addClass('d-none');
+    });
+
+    currentPassword_inputField.on('keyup', () => {
+        // Check different current password and new password while typing in current pw field
+        if($.trim(newPassword_inputField.val()).length !== 0 &&
+            $.trim(newPassword_inputField.val()) === $.trim(currentPassword_inputField.val())) {
+            newPassword_inputField.addClass('invalid-field').attr("aria-invalid", "true");
+            newPassword_error.removeClass('d-none');
+            newPassword_error.text('New password cannot be the same as current password.');
+        } else {
+            newPassword_inputField.removeClass('invalid-field').attr("aria-invalid", "false");
+            newPassword_error.addClass('d-none');
+            newPassword_error.text('');
+        }
+    });
+
+    newPassword_inputField.on('keyup', () => {
+        // Check different current password and new password while typing in new pw field
+        if($.trim(currentPassword_inputField.val()).length !== 0 &&
+            $.trim(newPassword_inputField.val()) === $.trim(currentPassword_inputField.val())) {
+            newPassword_inputField.addClass('invalid-field').attr("aria-invalid", "true");
+            newPassword_error.removeClass('d-none');
+            newPassword_error.text('New password cannot be the same as current password.');
+        } else {
+            newPassword_inputField.removeClass('invalid-field').attr("aria-invalid", "false");
+            newPassword_error.addClass('d-none');
+            newPassword_error.text('');
+        }
     });
 
     // Check matching new password and new password repeat

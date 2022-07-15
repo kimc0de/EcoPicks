@@ -34,6 +34,9 @@
   color:  var(--error-message);
 }
 
+#edit-profile .success-message {
+  color: var(--success-message);
+}
 #edit-profile .display {
   display: unset;
 }

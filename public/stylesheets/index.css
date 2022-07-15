@@ -12,7 +12,7 @@
 
   --input-primary: #E1ECE2;
   --icon: #9BBF9F;
-  --line: #2E7840;
+  --line: #9FCFA4;
 
   --green-light: #E5EEE5;
   --green-medium-light: #CDDDCE;
@@ -29,7 +29,7 @@
   --social-dark: #C94744;
   --social-light: #F1D1D0;
   --food-dark: #377E3F;
-  --food-light: #9EC2A8;
+  --food-light: #B4E2EC;
   --lifestyle-dark: #F1CA32;
   --lifestyle-light: #FBF1CA;
   --fashion-dark: #D77D3B;
@@ -61,8 +61,8 @@ body {
   position: absolute;
   overflow-x: hidden;
   background-color: var(--background-color-beige);
-  font-family: Garamond, sans-serif;
   font-weight: 400;
+  font-family: Garamond, Helvetica, Arial sans-serif, system-ui, -apple-system;
   letter-spacing: 0.018rem;
 }
 
@@ -175,4 +175,13 @@ a:hover {
 .needs-validation textarea {
   border-radius: 5px;
   border-color: var(--button-primary);
+}
+
+/* Hide unnecessary scrollbar in brand card */
+.no-scroll {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.no-scroll::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
 }

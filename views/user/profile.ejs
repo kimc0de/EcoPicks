@@ -31,9 +31,9 @@
       </div>
       <div class="summary-background">
         <div class="summary-nr">
-          <span class="visually-hidden">Number of my recommendations: </span>
+          <span class="visually-hidden">Number of submitted brands: </span>
           <span class="fw-bold"><%=recommendedBrands.length %></span>
-          <span class="d-block" aria-hidden="true">recommended</span>
+          <span class="d-block" aria-hidden="true">submitted</span>
         </div>
       </div>
     </div>
@@ -59,9 +59,35 @@
     </div>
 
     <div class="brands-list-wrapper">
-      <a class="dropdown-toggle text-decoration-none" role="button" data-bs-toggle="collapse" href="#recommended-brands-list" aria-expanded="true" aria-controls="recommended-brands-list">
-        My recommendations
-      </a>
+      <div class="d-flex flex-row align-items-center justify-content-start">
+        <a class="dropdown-toggle text-decoration-none" role="button" data-bs-toggle="collapse" href="#recommended-brands-list" aria-expanded="true" aria-controls="recommended-brands-list">
+          Submitted brands
+        </a>
+        <a class="ms-4" role="button" href="/user/recommendation" aria-label="Submit a new brand">
+          <svg focusable="false" aria-hidden="true" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_1338_2283)">
+              <g filter="url(#filter0_d_1338_2283)">
+                <path d="M34.6667 18.6663H29.3334V29.333H18.6667V34.6663H29.3334V45.333H34.6667V34.6663H45.3334V29.333H34.6667V18.6663ZM32 5.33301C17.28 5.33301 5.33337 17.2797 5.33337 31.9997C5.33337 46.7197 17.28 58.6663 32 58.6663C46.72 58.6663 58.6667 46.7197 58.6667 31.9997C58.6667 17.2797 46.72 5.33301 32 5.33301ZM32 53.333C20.24 53.333 10.6667 43.7597 10.6667 31.9997C10.6667 20.2397 20.24 10.6663 32 10.6663C43.76 10.6663 53.3334 20.2397 53.3334 31.9997C53.3334 43.7597 43.76 53.333 32 53.333Z" fill="#5E7966"/>
+              </g>
+            </g>
+            <defs>
+              <filter id="filter0_d_1338_2283" x="1.33337" y="5.33301" width="61.3334" height="61.333" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                <feOffset dy="4"/>
+                <feGaussianBlur stdDeviation="2"/>
+                <feComposite in2="hardAlpha" operator="out"/>
+                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0"/>
+                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1338_2283"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1338_2283" result="shape"/>
+              </filter>
+              <clipPath id="clip0_1338_2283">
+                <rect width="64" height="64" fill="white"/>
+              </clipPath>
+            </defs>
+          </svg>
+        </a>
+      </div>
       <% if (recommendedBrands.length > 0) { %>
         <div class="collapse show mt-3" id="recommended-brands-list">
           <div>
@@ -71,7 +97,7 @@
 
       <% } else { %>
         <div class="collapse show mt-3 empty-collection" id="recommended-brands-list">
-          <p class="mb-0">You currently have 0 recommended brand. <a href="/user/recommendation">Send your recommendation</a>.</p>
+          <p class="mb-0">You currently have 0 submitted brand. <a href="/user/recommendation">Send your recommendation</a>.</p>
         </div>
       <% } %>
     </div>

@@ -3,7 +3,7 @@
     <% results.forEach(brand => { %>
     <li class="col col-12 col-sm-6 col-md-4 col-xl-3 card-wrapper" >
         <div class="card" onclick="location.href='/brand/<%=brand._id%>';" data-id="<%=brand._id%>">
-            <img class="card-img-top brand-logo" src="<%= brand.image %>" alt="Logo of <%= brand.name %>">
+            <img class="card-img-top" src="<%= brand.image %>" alt="Logo of <%= brand.name %>">
             <% if(loggedIn && currentUser.savedBrands.length !== 0 && currentUser.savedBrands.includes(brand._id)) { %>
             <div class="saved-icon">
                 <svg focusable="false" aria-label="This brand is saved" role="img" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -13,7 +13,7 @@
             <%} %>
             <div class="card-body">
                 <a href="/brand/<%=brand._id%>" class="card-title brand-name"><%= brand.name %></a>
-                <div class="card-text brand-slogan"><%= brand.slogan %></div>
+                <div class="card-text brand-slogan no-scroll-bar"><%= brand.slogan %></div>
             </div>
         </div>
     </li>

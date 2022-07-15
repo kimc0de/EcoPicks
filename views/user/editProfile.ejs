@@ -18,16 +18,19 @@
         <div class="row mb-3" id="edit-username-section">
             <div class="d-flex align-items-center justify-content-start">
                 <div id="username-label" class="edit-label mb-2">Your name</div>
-                <span class="d-none success-icon ml-3">
-                    <svg focusable="false" aria-hidden="true" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15.9998 2.66675C8.63584 2.66675 2.6665 8.63608 2.6665 16.0001C2.6665 23.3641 8.63584 29.3334 15.9998 29.3334C23.3638 29.3334 29.3332 23.3641 29.3332 16.0001C29.3332 8.63608 23.3638 2.66675 15.9998 2.66675ZM13.3332 23.2187L7.05717 16.9427L8.9425 15.0574L13.3332 19.4481L23.0572 9.72408L24.9425 11.6094L13.3332 23.2187Z" fill="#425A49"/>
-                    </svg>
-                </span>
-                <span class="d-none ms-2 success-message">Saved</span>
             </div>
             <div class="d-flex flex-row justify-content-between align-items-center" id="showing-username">
-                <div id="user-name"><%= user.username %></div>
-                <button class="btn btn-outline-primary edit-btn" id="username-edit-button">Edit</button>
+                <div class="d-flex flex-row align-items-center">
+                    <div id="user-name"><%= user.username %></div>
+                    <span class="d-none success-icon ml-3">
+                        <svg focusable="false" aria-hidden="true" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15.9998 2.66675C8.63584 2.66675 2.6665 8.63608 2.6665 16.0001C2.6665 23.3641 8.63584 29.3334 15.9998 29.3334C23.3638 29.3334 29.3332 23.3641 29.3332 16.0001C29.3332 8.63608 23.3638 2.66675 15.9998 2.66675ZM13.3332 23.2187L7.05717 16.9427L8.9425 15.0574L13.3332 19.4481L23.0572 9.72408L24.9425 11.6094L13.3332 23.2187Z" fill="#425A49"/>
+                        </svg>
+                    </span>
+                    <span class="d-none ms-2 success-message">Successfully saved</span>
+                </div>
+
+                <button class="btn btn-outline-primary edit-btn" id="username-edit-button" aria-label="Edit your name">Edit</button>
             </div>
             <div id="editing-username" class="d-none">
                 <form action="<%=`/user/update/username`%>" method="POST" id="edit-username-form">
@@ -48,20 +51,21 @@
 
         <!--   User email     -->
         <div class="row mb-3" id="edit-email-section">
-            <div class="d-flex align-items-center justify-content-start">
-                <div id="email-label" class="edit-label mb-2">Email</div>
-                <span class="d-none success-icon ml-3">
-                    <svg focusable="false" aria-hidden="true" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15.9998 2.66675C8.63584 2.66675 2.6665 8.63608 2.6665 16.0001C2.6665 23.3641 8.63584 29.3334 15.9998 29.3334C23.3638 29.3334 29.3332 23.3641 29.3332 16.0001C29.3332 8.63608 23.3638 2.66675 15.9998 2.66675ZM13.3332 23.2187L7.05717 16.9427L8.9425 15.0574L13.3332 19.4481L23.0572 9.72408L24.9425 11.6094L13.3332 23.2187Z" fill="#425A49"/>
-                    </svg>
-                </span>
-                <span class="d-none ms-2 success-message">Saved</span>
-            </div>
+            <div id="email-label" class="edit-label mb-2">Email</div>
 
             <div class="d-flex flex-row justify-content-between align-items-center" id="showing-email">
-                <div id="user-email"><%= user.email %></div>
+                <div class="d-flex flex-row align-items-center">
+                    <div id="user-email"><%= user.email %></div>
+                    <span class="d-none success-icon ml-3">
+                        <svg focusable="false" aria-hidden="true" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15.9998 2.66675C8.63584 2.66675 2.6665 8.63608 2.6665 16.0001C2.6665 23.3641 8.63584 29.3334 15.9998 29.3334C23.3638 29.3334 29.3332 23.3641 29.3332 16.0001C29.3332 8.63608 23.3638 2.66675 15.9998 2.66675ZM13.3332 23.2187L7.05717 16.9427L8.9425 15.0574L13.3332 19.4481L23.0572 9.72408L24.9425 11.6094L13.3332 23.2187Z" fill="#425A49"/>
+                        </svg>
+                    </span>
+                    <span class="d-none ms-2 success-message">Successfully saved</span>
+                </div>
+
                 <%if(!user.googleId) {%>
-                <button class="btn btn-outline-primary edit-btn" id="email-edit-button">Edit</button>
+                <button class="btn btn-outline-primary edit-btn" id="email-edit-button" aria-label="Edit your email">Edit</button>
                 <%}%>
             </div>
             <div id="editing-email" class="d-none">
@@ -110,9 +114,9 @@
                             <path d="M15.9998 2.66675C8.63584 2.66675 2.6665 8.63608 2.6665 16.0001C2.6665 23.3641 8.63584 29.3334 15.9998 29.3334C23.3638 29.3334 29.3332 23.3641 29.3332 16.0001C29.3332 8.63608 23.3638 2.66675 15.9998 2.66675ZM13.3332 23.2187L7.05717 16.9427L8.9425 15.0574L13.3332 19.4481L23.0572 9.72408L24.9425 11.6094L13.3332 23.2187Z" fill="#425A49"/>
                         </svg>
                     </span>
-                    <span class="d-none ms-2 success-message">Saved</span>
+                    <span class="d-none ms-2 success-message">Successfully saved</span>
                 </div>
-                <button class="btn btn-outline-primary edit-btn" id="password-edit-button">Edit</button>
+                <button class="btn btn-outline-primary edit-btn" id="password-edit-button" aria-label="Edit your password">Edit</button>
             </div>
 
             <form action="<%=`/user/update/password`%>" method="POST" id="edit-password-form" class="d-none mt-2">

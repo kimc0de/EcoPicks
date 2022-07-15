@@ -120,6 +120,7 @@ module.exports = {
               id: id,
               brand: brand,
               categoryClass: category.lightColor,
+              categoryName: category.name,
               brandImg: brand.image,
               isSaved: isSaved,
             });
@@ -129,6 +130,7 @@ module.exports = {
               id: id,
               brand: brand,
               categoryClass: category.lightColor,
+              categoryName: category.name,
               brandImg: brand.image,
               isSaved: false,
             });

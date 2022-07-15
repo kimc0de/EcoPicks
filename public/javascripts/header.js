@@ -63,21 +63,39 @@ $(() => {
 /**
  * Active style for category navigation
  */
-// Desktop
-const header = document.getElementById("header");
-const categoryNav = header.getElementsByClassName("category-nav-link");
+const headerLarge = $('#header-large');
+const categoryNav = headerLarge.find('.category-nav-link');
+const navbarLinks = navbarContent.find('.nav-item a')
 
 function applyActiveStyle () {
-    let current = location.pathname.split("/")[2];
+    let current = location.pathname;
     if (current === "") return;
 
+    //desktop header navigation
     if(categoryNav) {
         for (let i = 0, length = categoryNav.length; i < length; i++) {
-            if (categoryNav[i].getAttribute("href").split("/")[2] === current) {
+            if (categoryNav[i].getAttribute("href") === current) {
                 categoryNav[i].className += " active";
                 categoryNav[i].setAttribute("aria-current", "page");
             } else {
                 categoryNav[i].removeAttribute("aria-current");
+            }
+        }
+    }
+
+    //mobile menu navigation
+    if (navbarLinks) {
+        for (let i = 0, length = navbarLinks.length; i < length; i++) {
+            let categoryLink = navbarLinks[i].getAttribute("href");
+            let pageNavigationLink = navbarLinks[i].getAttribute("href");
+            if (categoryLink !== undefined && categoryLink === current) {
+                navbarLinks[i].className += " active";
+                navbarLinks[i].setAttribute("aria-current", "page");
+            } else if (pageNavigationLink !== undefined && pageNavigationLink === current) {
+                navbarLinks[i].className += " active";
+                navbarLinks[i].setAttribute("aria-current", "page");
+            } else {
+                navbarLinks[i].removeAttribute("aria-current");
             }
         }
     }

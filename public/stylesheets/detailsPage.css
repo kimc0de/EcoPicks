@@ -8,15 +8,27 @@
 #detail-page .app-logo {
   width: 10rem;
   height: 10rem;
-  background-size: cover;
-  background-position: center;
-  border-radius: 10px;
-  position: absolute;
-  bottom: -50%;
-  left: 0;
-  right: 0;
-  margin: auto;
+  border-radius: 1rem;
   box-shadow: 3px 3px 3px rgba(0,0,0,0.2);
+}
+
+#detail-page p {
+  line-height: 1.7rem;
+}
+
+#detail-page .brand-image {
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+  transform: translateY(50%);
+  margin: auto;
+}
+
+#detail-page .category-hashtag {
+  width: max-content;
+  margin: auto;
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
 }
 
 #detail-page .app-title {
@@ -25,7 +37,7 @@
 }
 
 #detail-page .description {
-  padding: 0.5rem 10rem;
+  padding: 1rem 10rem;
   text-align: justify;
 }
 
@@ -74,6 +86,24 @@
   color: var(--success-message) !important;
 }
 
+#detail-page .saved-icon {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: var(--green-medium-light);
+  width: 2.5rem;
+  height: 2.5rem;
+  text-align: center;
+  border-bottom-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+#detail-page .saved-icon svg {
+  position: relative;
+  top: 50%;
+  transform: translateY(-60%);
+}
+
 @media (max-width: 992px) {
   #detail-page .app-title h2 {
     font-size: 1.6rem;
@@ -84,7 +114,7 @@
   }
 
   #detail-page .description {
-    padding: 0.5rem 1rem;
+    padding: 1rem;
   }
 }
 

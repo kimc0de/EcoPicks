@@ -29,8 +29,17 @@ footer {
 #footer .nav-link:hover {
     border-radius: 5px;
     background-color: var(--green-light);
-    transform: scale(1.2);
     text-decoration: underline;
+}
+
+#footer .footer-heading {
+    font-size: 1.1rem;
+    padding: 0.25rem 1rem;
+}
+
+#footer .footer-block {
+    display: flex;
+    flex-direction: column;
 }
 
 @media (max-width : 767px) {
