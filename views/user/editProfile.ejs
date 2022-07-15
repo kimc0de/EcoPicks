@@ -65,9 +65,10 @@
                 </div>
 
                 <%if(!user.googleId) {%>
-                <button class="btn btn-outline-primary edit-btn" id="email-edit-button" aria-label="Edit your email">Edit</button>
-                <%}%>
+                    <button class="btn btn-outline-primary edit-btn" id="email-edit-button" aria-label="Edit your email">Edit</button>
+                <% } %>
             </div>
+
             <div id="editing-email" class="d-none">
                 <form action="<%=`/user/update/email`%>" method="POST" id="edit-email-form">
                     <div class="d-flex flex-column">
@@ -101,6 +102,14 @@
                 </form>
             </div>
             <hr class="horizontal-line mt-3" aria-hidden="true">
+            <%if(user.googleId) {%>
+                <div class="alert alert-info d-flex align-items-center mt-1 pt-1 pb-1" role="alert">
+                    <svg focusable="false" class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>
+                    <div>
+                        You can't edit your email address because your profile is connected with your Google account. If you would like to change your email, <span><a href="/contact">please contact us</a>.</span>
+                    </div>
+                </div>
+            <%} %>
         </div>
 
         <%if(!user.googleId) {%>
