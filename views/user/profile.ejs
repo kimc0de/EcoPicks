@@ -21,16 +21,15 @@
       <a href="/user/edit" id="edit-link" class="edit-profile-link">Edit profile</a>
     </div>
 
-    <div class="d-flex flex-row profile-summary">
-      <div class="summary-background">
-        <div class="summary-nr">
+    <div class="profile-summary">
+      <div class="summary-background d-flex flex-row align-items-center justify-content-evenly">
+        <div class="summary-nr d-flex flex-column align-items-center justify-content-center">
           <span class="visually-hidden">Number of saved brands: </span>
           <span class="fw-bold"><%= savedBrands.length %></span>
           <span class="d-block" aria-hidden="true">saved</span>
         </div>
-      </div>
-      <div class="summary-background">
-        <div class="summary-nr">
+        <div class="vertical-line"></div>
+        <div class="summary-nr d-flex flex-column align-items-center justify-content-center">
           <span class="visually-hidden">Number of submitted brands: </span>
           <span class="fw-bold"><%=recommendedBrands.length %></span>
           <span class="d-block" aria-hidden="true">submitted</span>
@@ -42,7 +41,7 @@
 
   <div class="brands-list col-12 col-xxl-8">
     <div class="brands-list-wrapper">
-      <a class="dropdown-toggle text-decoration-none" role="button" data-bs-toggle="collapse" href="#saved-brands-list" aria-expanded="true" aria-controls="saved-brands-list">
+      <a class="dropdown-toggle" role="button" data-bs-toggle="collapse" href="#saved-brands-list" aria-expanded="true" aria-controls="saved-brands-list">
         My saved eco brands
       </a>
       <% if (savedBrands.length > 0) { %>
@@ -60,7 +59,7 @@
 
     <div class="brands-list-wrapper">
       <div class="d-flex flex-row align-items-center justify-content-start">
-        <a class="dropdown-toggle text-decoration-none" role="button" data-bs-toggle="collapse" href="#recommended-brands-list" aria-expanded="true" aria-controls="recommended-brands-list">
+        <a class="dropdown-toggle" role="button" data-bs-toggle="collapse" href="#recommended-brands-list" aria-expanded="true" aria-controls="recommended-brands-list">
           Submitted brands
         </a>
         <a class="ms-4" role="button" href="/user/recommendation" aria-label="Submit a new brand">

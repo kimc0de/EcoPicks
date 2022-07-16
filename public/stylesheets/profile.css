@@ -27,16 +27,12 @@
 }
 
 #profile-page .profile-summary {
-  width: 100%;
-  text-align: center;
-  justify-content: space-evenly;
+  width: 65%;
 }
 
 #profile-page .summary-background {
   border-radius: 5px;
   background-color: var(--background-profile);
-  min-width: 40%;
-  max-width: max-content;
   color: var(--text-dark);
   line-height: 2rem;
   margin: 2rem 0;
@@ -45,6 +41,7 @@
 #profile-page .summary-nr {
   font-size: 1.2rem;
   line-height: 2.5rem;
+  min-width: 6rem;
 }
 
 #profile-page .profile-general {
@@ -100,6 +97,7 @@
 #profile-page .unsave-button > svg {
   stroke: var(--text-primary);
   fill: var(--text-primary);
+  margin-right: 0.25rem;
 }
 
 #profile-page .unsave-button:hover > svg {
@@ -117,6 +115,11 @@
   font-size: 1.5rem;
   font-weight: bold;
   color: var(--text-primary);
+}
+
+#profile-page .vertical-line {
+  border-left: 1px solid green;
+  height: 3rem;
 }
 
 @media (max-width: 576px) {
