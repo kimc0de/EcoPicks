@@ -44,12 +44,8 @@ $(() => {
             return true;
         }
     }
-    passwordRepeatField.on('keyup', () => {
-        validatePassword()
-    })
-
-    passwordField.on('keyup', () => {
-       validatePassword()
+    passwordRepeatField.on('focusout', () => {
+        validatePassword();
     })
 
     // Loop over them and prevent submission
