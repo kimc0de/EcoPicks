@@ -17,9 +17,9 @@ header .nav-link {
 }
 
 header .btn:not(.search-button):not(.input-search-button) {
-  padding: 0.5rem 1.5rem;
-  margin: 0 1rem;
-  width: 8rem;
+  padding: 0.5rem 0rem;
+  margin: 0 0.75rem;
+  min-width: 6rem;
 }
 
 #header-large,
@@ -75,7 +75,7 @@ header .btn:not(.search-button):not(.input-search-button) {
 }
 
 #header-bottom a.active {
-  /* Scale text when link active */
+  /* Scale text when bottom nav link active */
   transform: scale(1.2);
 }
 
@@ -95,11 +95,6 @@ header .btn:not(.search-button):not(.input-search-button) {
 @media(max-width: 1200px) {
   #header-bottom .nav-link {
     margin: auto;
-  }
-
-  #header-bottom .nav-link.active {
-    /* Scale text when link active */
-    transform: scale(1.2);
   }
 }
 
