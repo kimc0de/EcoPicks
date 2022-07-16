@@ -27,7 +27,7 @@
 }
 
 #profile-page .profile-summary {
-  width: 80%;
+  width: 65%;
 }
 
 #profile-page .summary-background {
@@ -42,7 +42,6 @@
   font-size: 1.2rem;
   line-height: 2.5rem;
   min-width: 6rem;
-  max-width: 8rem;
 }
 
 #profile-page .profile-general {
@@ -98,6 +97,7 @@
 #profile-page .unsave-button > svg {
   stroke: var(--text-primary);
   fill: var(--text-primary);
+  margin-right: 0.25rem;
 }
 
 #profile-page .unsave-button:hover > svg {
