@@ -20,7 +20,6 @@ $(() => {
     })
 });
 
-
 /**
  * Edit user name
  */
@@ -104,7 +103,6 @@ let userEmail = $('#user-email');
 let editing_email = $('#editing-email');
 let showing_email = $('#showing-email');
 let edit_email_form = $('#edit-email-form');
-let email_label = $('#email-label');
 let newEmail_inputField = $('#new-email');
 let confirmEmail_inputField = $('#confirm-email');
 let newEmail_error = newEmail_inputField.siblings('.error-message');

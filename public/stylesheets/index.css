@@ -47,9 +47,12 @@
   --gradient: linear-gradient(-90deg, var(--button-hover) 0%, var(--green-medium-light) 100%);
 
   --main-z-index: 1;
-  --header-z-index: 2;
-  --header-overlay-z-index: 3;
-  --skip-link-z-index: 4;
+  --header-z-index: 3;
+  --header-overlay-z-index: 4;
+  --skip-link-z-index: 5;
+  --flash-z-index: 2;
+  --backToTop-z-index: 10;
+
   --box-shadow: rgba(0,0,0,0.25);
 
   font-size: 16px;

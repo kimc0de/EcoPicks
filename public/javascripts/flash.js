@@ -22,6 +22,6 @@ window.addEventListener('load', () => {
     if (successFlashMessage) {
         setTimeout(() =>{
             successFlashMessage.parentElement.remove();
-        }, 4000);
+        }, 10000);
     }
 })
