@@ -2,7 +2,7 @@
  * Event listener for save button
  */
 $(() => {
-    $("#save-button").click((event => {
+    $("#save-button").on('click', (event => {
         let brandId = $(event.target).data("id"); // get the brandId
         let isSaved = $("#save-button").hasClass("saved"); // check if brand is already saved
         if (!isSaved) {
