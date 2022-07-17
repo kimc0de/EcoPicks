@@ -39,31 +39,39 @@ $(() => {
 
 /**
  * Read more read less
- * https://stackoverflow.com/a/62248082
+ * https://www.freakyjolly.com/custom-jquery-function-read-more-and-read-less/
  */
+function addReadMore() {
+    //This limit you can set after how much characters you want to show Read More.
+    let limit = 250;
+    // Text to show when text is collapsed
+    let readMoreTxt = " ... Read More";
+    // Text to show when text is expanded
+    let readLessTxt = " Read Less";
+
+
+    //Traverse all selectors with this class and manipulate HTML part to show Read More
+    $(".addReadMore").each(function() {
+        if ($(this).find(".firstSec").length)
+            return;
+
+        let brandDescription = $(this).text();
+        if (brandDescription.length > limit) {
+            let firstSet = brandDescription.substring(0, limit);
+            let hiddenString = brandDescription.substring(limit, brandDescription.length);
+            let stringEnd = firstSet + "<span class='hidden-part'>" + hiddenString + "</span><span class='readMore' title='Click to Show More'>" + readMoreTxt + "</span><span class='readLess' title='Click to Show Less'>" + readLessTxt + "</span>";
+            $(this).html(stringEnd);
+        }
+
+    });
+
+    //Read More and Read Less click event binding
+    $(document).on("click", ".readMore,.readLess", function() {
+        $(this).closest(".addReadMore").toggleClass("showlesscontent showmorecontent");
+    });
+}
+
 $(() => {
-    const readMore = () => {
-        let limit = 200;
-        $(".description-text").each(function() {
-            let description = $(this).text();
-            if ($.trim(description).length > limit) {
-                let visibleString = description.substring(0, limit);
-                let hiddenString = description.substring(limit, $.trim(description).length);
-                $(this).empty().html(visibleString);
-                $(this).append('...  <a href="javascript:void(0);" class="fw-bold read-more">read more</a>');
-                $(this).append('<span class="more-text">' + hiddenString + ' <a href="javascript:void(0);" class="fw-bold read-less">read less</a>' + '</span>');
-            }
-        });
-
-    }
-    readMore();
-    $(document).on("click", ".read-more", function() {
-        $(this).siblings(".more-text").contents().unwrap();
-        $(this).remove();
-    });
-
-    $(document).on("click", ".read-less", function() {
-        $(this).remove();
-        readMore();
-    });
+    //Calling function after loading page
+    addReadMore();
 });

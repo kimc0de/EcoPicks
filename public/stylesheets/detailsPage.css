@@ -116,10 +116,6 @@
   }
 }
 
-.description-text .more-text {
-  display: none;
-}
-
 #detail-page .short-description {
   font-size: 1.2rem;
   margin: 0.5rem 0;
@@ -143,4 +139,26 @@
     width: 12.5rem;
     height: 12.5rem;
   }
+}
+
+.addReadMore.showlesscontent .hidden-part,
+.addReadMore.showlesscontent .readLess {
+  display: none;
+}
+
+.addReadMore.showmorecontent .readMore {
+  display: none;
+}
+
+.addReadMore .readMore,
+.addReadMore .readLess {
+  font-weight: bold;
+  margin-left: 2px;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.addReadMoreWrapTxt.showmorecontent .hidden-part,
+.addReadMoreWrapTxt.showmorecontent .readLess {
+  display: block;
 }
