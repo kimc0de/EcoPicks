@@ -63,7 +63,7 @@ module.exports = {
   logout: (req, res, next) => {
     req.logout();
     req.flash("success", "You have been logged out!");
-    res.locals.redirect = "/";
+    res.locals.redirect = "/login";
     next();
   },
 
