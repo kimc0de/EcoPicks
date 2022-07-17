@@ -4,7 +4,7 @@
     <% } else { %>
         <h1 class="text-center page-title ps-2 pe-2">We're sorry... No results were found for "<%= query%>"</h1>
         <!-- Search bar    -->
-            <form id="search-form-lg" method="get" action="/search">
+            <form class="search-form" method="get" action="/search">
                 <div class="input-group">
                     <label for="search-input-lg" class="visually-hidden"></label>
                     <%if (query !== undefined) { %>

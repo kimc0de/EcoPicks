@@ -165,7 +165,7 @@ module.exports = {
 
         await Promise.all(promise);
 
-        const brandsList = brands.sort(() => Math.random() - Math.random()).slice(0, 4)
+        const brandsList = brands.sort(() => Math.random() - Math.random()).slice(0, 6)
 
         res.locals.popularBrands = brandsList;
       }

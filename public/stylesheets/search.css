@@ -56,6 +56,11 @@
         padding-left: 6rem;
         padding-right: 6rem;
     }
+
+    #search-page .search-form {
+        width: 60%;
+        margin: auto;
+    }
 }
 
 @media(min-width: 768px) {
