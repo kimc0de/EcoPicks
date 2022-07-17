@@ -1,4 +1,11 @@
 /**
+ * Show disclaimer
+ */
+$(() => {
+    $("#disclaimerModal").modal('show');
+});
+
+/**
  * Hide and show password checkbox
  */
 $(() => {

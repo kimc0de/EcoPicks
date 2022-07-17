@@ -18,7 +18,7 @@
   padding-bottom: 1rem;
 }
 
-.auth-form .btn.btn-primary {
+.auth-form .btn.btn-primary:not(.modal-button) {
   width: 100%;
   margin-top: 1rem;
 }
