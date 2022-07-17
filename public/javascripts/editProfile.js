@@ -61,7 +61,7 @@ $(() => {
             errorMessage.addClass('d-none');
             username_inputField.removeClass('invalid-field');
 
-            let formData = edit_username_form.serialize();
+            let formData = edit_username_form.serialize(); //get all form elements at once
             let formAction = edit_username_form.attr('action');
 
             let req = $.ajax({
@@ -104,7 +104,6 @@ let userEmail = $('#user-email');
 let editing_email = $('#editing-email');
 let showing_email = $('#showing-email');
 let edit_email_form = $('#edit-email-form');
-let email_label = $('#email-label');
 let newEmail_inputField = $('#new-email');
 let confirmEmail_inputField = $('#confirm-email');
 let newEmail_error = newEmail_inputField.siblings('.error-message');
@@ -147,13 +146,6 @@ const validateMatchingEmails = () => {
     }
 }
 
-const validateEmailFormat = (email) => {
-    // https://emailregex.com/
-    let EmailRegex = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
-
-    return EmailRegex.test(email);
-}
-
 $(() => {
     // Edit button -> show editing form
     $("#email-edit-button").on('click', () => {
@@ -185,22 +177,11 @@ $(() => {
         validateMatchingEmails();
     });
 
-    // Validates email format
-    newEmail_inputField.on('focusout', () => {
-        let email = $.trim($('#new-email').val());
-
-        if (email.length !== 0 && validateEmailFormat(email)) { // valid email
-            hideInvalidNewEmailError();
-        } else if (email.length !== 0 && !validateEmailFormat(email)) {
-            showInvalidNewEmailError();
-        }
-    });
-
     // Save editing
     edit_email_form.on('submit', (e) => {
         e.preventDefault();
 
-        let formData = edit_email_form.serialize();
+        let formData = edit_email_form.serialize(); //get all form elements at once
         let formAction = edit_email_form.attr('action');
 
         let req = $.ajax({
@@ -378,7 +359,7 @@ $(() => {
     edit_password_form.on('submit', (e) => {
         e.preventDefault();
 
-        let formData = edit_password_form.serialize();
+        let formData = edit_password_form.serialize(); //get all form elements at once
         let formAction = edit_password_form.attr('action');
 
         let req = $.ajax({
@@ -443,3 +424,17 @@ $(() => {
         })
     })
 })
+
+// prevent form from closing when user presses enter while focusing on input
+$(() => {
+    let array = [username_inputField, newEmail_inputField, confirmEmail_inputField, currentPassword_inputField, newPassword_inputField, newPasswordRepeat_inputField]
+    array.forEach((input) => {
+        input.on('keydown',(e) => {
+            if (e.keyCode == 13) {
+                console.log('enter')
+                e.preventDefault();
+                return false;
+            }
+        })
+    })
+});

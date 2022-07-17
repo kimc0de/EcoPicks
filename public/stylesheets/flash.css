@@ -1,3 +1,9 @@
+#flash-message {
+    z-index: var(--flash-z-index);
+    position: absolute;
+    width: 100%;
+}
+
 #flash-message .alert {
     margin: 0 !important;
     text-align: center;

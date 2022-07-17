@@ -41,9 +41,11 @@
 
   <div class="brands-list col-12 col-xxl-8">
     <div class="brands-list-wrapper">
-      <a class="dropdown-toggle" role="button" data-bs-toggle="collapse" href="#saved-brands-list" aria-expanded="true" aria-controls="saved-brands-list">
-        My saved eco brands
-      </a>
+      <h2>
+        <a class="dropdown-toggle" role="button" data-bs-toggle="collapse" href="#saved-brands-list" aria-expanded="true" aria-controls="saved-brands-list">
+          My saved eco brands
+        </a>
+      </h2>
       <% if (savedBrands.length > 0) { %>
         <div class="collapse show mt-3" id="saved-brands-list">
           <div>
@@ -59,9 +61,11 @@
 
     <div class="brands-list-wrapper">
       <div class="d-flex flex-row align-items-center justify-content-start">
-        <a class="dropdown-toggle" role="button" data-bs-toggle="collapse" href="#recommended-brands-list" aria-expanded="true" aria-controls="recommended-brands-list">
-          Submitted brands
-        </a>
+        <h2>
+          <a class="dropdown-toggle" role="button" data-bs-toggle="collapse" href="#recommended-brands-list" aria-expanded="true" aria-controls="recommended-brands-list">
+            Submitted brands
+          </a>
+        </h2>
         <a class="ms-4" role="button" href="/user/recommendation" aria-label="Submit a new brand">
           <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_1338_2283)">

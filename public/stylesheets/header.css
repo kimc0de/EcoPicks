@@ -135,7 +135,10 @@ header .btn:not(.search-button):not(.input-search-button) {
 }
 
 #header-mobile .nav-link {
-  padding: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 2rem;
+  padding-right: 1rem;
 }
 
 #header-mobile .navbar-toggler-icon {
@@ -146,6 +149,11 @@ header .btn:not(.search-button):not(.input-search-button) {
 #header-mobile .nav-item {
   width: 100%;
   text-align: left;
+}
+
+#header-mobile .label-content {
+  padding: 0.5rem;
+  font-weight: bold;
 }
 
 #nav-logo {
