@@ -45,9 +45,9 @@ function addReadMore() {
     //This limit you can set after how much characters you want to show Read More.
     let limit = 250;
     // Text to show when text is collapsed
-    let readMoreTxt = " ... Read More";
+    let readMoreTxt = " ... Read more";
     // Text to show when text is expanded
-    let readLessTxt = " Read Less";
+    let readLessTxt = " Read less";
 
 
     //Traverse all selectors with this class and manipulate HTML part to show Read More
@@ -59,7 +59,7 @@ function addReadMore() {
         if (brandDescription.length > limit) {
             let firstSet = brandDescription.substring(0, limit);
             let hiddenString = brandDescription.substring(limit, brandDescription.length);
-            let stringEnd = firstSet + "<span class='hidden-part'>" + hiddenString + "</span><span class='readMore' title='Click to Show More'>" + readMoreTxt + "</span><span class='readLess' title='Click to Show Less'>" + readLessTxt + "</span>";
+            let stringEnd = firstSet + "<span class='hidden-part'>" + hiddenString + "</span><span class='readMore' title='Click to show more'>" + readMoreTxt + "</span><span class='readLess' title='Click to show less'>" + readLessTxt + "</span>";
             $(this).html(stringEnd);
         }
 
