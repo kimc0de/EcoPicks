@@ -72,7 +72,6 @@
           <span id="menu-label">Menu</span>
       </button>
       <div class="collapse navbar-collapse menu-collapse" id="navbarContent">
-
         <ul class="navbar-nav ml-auto">
           <li id="nav-logo">
             <a class="navbar-brand" href="/">
@@ -81,25 +80,10 @@
             <button id="close-menu" type="button" class="btn-close close_btn" aria-label="Close menu"></button>
           </li>
           <li aria-hidden="true" class="horizontal-line"><hr></li>
-          <!--  Categories links      -->
-          <%- include ('./subNavigation') %>
         </ul>
 
-          <!-- Auth    -->
-        <ul  aria-hidden="true" class="navbar-nav ml-auto"><li class="horizontal-line"><hr></li></ul>
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="/about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/contact">Contact</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/user/recommendation">Promote a brand</a>
-          </li>
-        </ul>
-        <ul  aria-hidden="true" class="navbar-nav ml-auto"><li class="horizontal-line"><hr></li></ul>
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav ml-auto mt-1">
+          <div class="label-content">Account</div>
           <% if(!loggedIn) { %>
             <li class="nav-btn">
               <a class="btn btn-outline-primary" href="/login">Log In</a>
@@ -118,6 +102,28 @@
               <a class="nav-link" href="/logout">Log out</a>
             </li>
           <% } %>
+          <li class="horizontal-line mt-2"><hr></li>
+        </ul>
+
+        <ul class="navbar-nav ml-auto mt-1">
+          <div class="label-content">Categories</div>
+          <!--  Categories links      -->
+          <%- include ('./subNavigation') %>
+          <li class="horizontal-line mt-2"><hr></li>
+        </ul>
+
+          <!-- Company    -->
+        <ul class="navbar-nav ml-auto mt-1">
+          <div class="label-content">Company</div>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/user/recommendation">Promote a brand</a>
+          </li>
         </ul>
       </div>
       <!--  Logo  -->
@@ -126,8 +132,7 @@
       </a>
 
       <!--  Search button    -->
-      <button id=""
-              class="navbar-toggler search-button" type="button"
+      <button class="navbar-toggler search-button" type="button"
               data-bs-toggle="collapse"
               data-bs-target="#searchBar" aria-controls="searchBar" aria-expanded="false"
       >
