@@ -1,15 +1,14 @@
 #flash-message {
     z-index: var(--flash-z-index);
     position: absolute;
-    width: 100%;
+    width: max-content;
+    right: 0;
 }
 
 #flash-message .alert {
     margin: 0 !important;
-    text-align: center;
 }
 
 #flash-message .close_btn {
-    position: absolute;
-    right: 1.5rem;
+    margin-left: 2rem;
 }

@@ -8,7 +8,6 @@ const successFlashMessage = document.getElementById("flash-success");
 //Move focus to the most appropriate element, so it doesn't get lost/reset to the start of the page
 //https://getbootstrap.com/docs/5.0/components/alerts/
 flashMessage.addEventListener('closed.bs.alert', function () {
-
     document.getElementById('main').focus();
 })
 
@@ -22,6 +21,6 @@ window.addEventListener('load', () => {
     if (successFlashMessage) {
         setTimeout(() =>{
             successFlashMessage.parentElement.remove();
-        }, 10000);
+        }, 8000);
     }
 })
