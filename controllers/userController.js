@@ -57,6 +57,7 @@ module.exports = {
     failureRedirect: "/login",
     failureFlash: "Your email or password is incorrect.",
     successRedirect: "/",
+    successFlash: "You're successfully logged in!"
   }),
 
   logout: (req, res, next) => {
