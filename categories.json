@@ -1,7 +1,7 @@
 [
   {
     "name": "food & drink",
-    "endpoint": "food-drink",
+    "endpoint": "food-drinks",
     "lightColor": "category-light-food",
     "darkColor": "category-dark-food",
     "keywords": [

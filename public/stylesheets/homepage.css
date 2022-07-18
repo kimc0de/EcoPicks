@@ -31,7 +31,7 @@
     font-size: 2.5rem;
 }
 
-#homepage .food-drink-image {
+#homepage .food-drinks-image {
     clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
 }
 
