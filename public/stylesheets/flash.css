@@ -1,14 +1,27 @@
 #flash-message {
     z-index: var(--flash-z-index);
     position: absolute;
-    width: max-content;
-    right: 0;
+    width: 100%;
 }
 
 #flash-message .alert {
     margin: 0 !important;
+    justify-content: space-between;
 }
 
 #flash-message .close_btn {
     margin-left: 2rem;
+}
+
+@media (min-width: 768px) {
+    #flash-message {
+        z-index: var(--flash-z-index);
+        position: absolute;
+        width: max-content;
+        right: 0;
+    }
+
+    #flash-message .alert {
+        justify-content: start;
+    }
 }

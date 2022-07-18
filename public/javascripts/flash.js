@@ -19,8 +19,8 @@ window.addEventListener('load', () => {
 
     // Auto-dismiss after 5s for success flash message
     if (successFlashMessage) {
-        setTimeout(() =>{
-            successFlashMessage.parentElement.remove();
-        }, 8000);
+        // setTimeout(() =>{
+        //     successFlashMessage.parentElement.remove();
+        // }, 8000);
     }
 })
