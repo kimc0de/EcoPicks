@@ -53,6 +53,9 @@
 
     <nav id="header-bottom">
         <ul class="nav justify-content-center">
+          <li class="nav-item">
+            <a class="nav-link category-nav-link" href="/">Home</a>
+          </li>
           <%- include ('./subNavigation') %>
         </ul>
     </nav>
@@ -79,7 +82,7 @@
             </a>
             <button id="close-menu" type="button" class="btn-close close_btn" aria-label="Close menu"></button>
           </li>
-          <li aria-hidden="true" class="horizontal-line"><hr></li>
+          <li aria-hidden="true" class="horizontal-line"><hr aria-hidden="true"></li>
         </ul>
 
         <ul class="navbar-nav ml-auto mt-1">
@@ -102,14 +105,14 @@
               <a class="nav-link" href="/logout">Log out</a>
             </li>
           <% } %>
-          <li class="horizontal-line mt-2"><hr></li>
+          <li aria-hidden="true" class="horizontal-line mt-2"><hr aria-hidden="true"></li>
         </ul>
 
         <ul class="navbar-nav ml-auto mt-1">
           <div class="label-content">Categories</div>
           <!--  Categories links      -->
           <%- include ('./subNavigation') %>
-          <li class="horizontal-line mt-2"><hr></li>
+          <li aria-hidden="true" class="horizontal-line mt-2"><hr aria-hidden="true"></li>
         </ul>
 
           <!-- Company    -->

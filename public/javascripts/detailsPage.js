@@ -10,6 +10,7 @@ $(() => {
                 if (results.data && results.data.success) {
                     $("#save-button span").text("Unsave");
                     $("#save-button").addClass("saved");
+                    $("#save-button").attr('aria-label', 'Unsave');
 
                     //Show success feedback
                     $("#detail-page .success-icon").removeClass("d-none");
@@ -22,9 +23,10 @@ $(() => {
                 }
             });
         } else {
-            $.get(`/api/brand/${brandId}/remove`, () => { // make AJAX request with the brand ID to save
+            $.get(`/api/brand/${brandId}/remove`, () => { // make AJAX request with the brand ID to unsave
                 $("#save-button span").text("Save");
                 $("#save-button").removeClass("saved");
+                $("#save-button").attr('aria-label', 'Save');
 
                 //Show success feedback
                 $("#detail-page .success-icon").removeClass("d-none");
