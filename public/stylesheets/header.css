@@ -40,12 +40,14 @@ header .btn:not(.search-button):not(.input-search-button) {
 #header-top .nav-item:not(.nav-btn):hover {
   background-color: var(--green-light);
   border-radius: 5px;
+  text-decoration: underline;
 }
 
 #header-bottom .nav-link:not(.nav-btn):not(.active):hover {
   background-color: var(--green-light);
   border-radius: 5px;
   transform: scale(1.2);
+  text-decoration: underline;
 }
 
 #header-top {
@@ -77,19 +79,6 @@ header .btn:not(.search-button):not(.input-search-button) {
 #header-bottom a.active {
   /* Scale text when bottom nav link active */
   transform: scale(1.2);
-}
-
-/* Account dropdown*/
-#navbar-top-account .dropdown-menu {
-  position: absolute;
-  top: 90%;
-  left: unset;
-  right: 0;
-  z-index: 2;
-}
-
-#navbar-top-account .dropdown-item:hover {
-  background-color: var(--green-light);
 }
 
 @media(max-width: 1200px) {
