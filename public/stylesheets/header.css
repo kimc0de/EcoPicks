@@ -215,6 +215,10 @@ header .btn:not(.search-button):not(.input-search-button) {
   border-bottom-left-radius: 5px;
 }
 
+#header .input-group {
+  height: 2.8rem;
+}
+
 #header-mobile .close-search-btn {
   padding: 0.65rem;
 }

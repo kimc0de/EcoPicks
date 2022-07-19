@@ -8,13 +8,13 @@
                 <div class="input-group">
                     <label for="search-input-lg" class="visually-hidden"></label>
                     <%if (query !== undefined) { %>
-                        <input id="search-input-lg" class="form-control border search-input" autocomplete="on"
+                        <input id="search-input-lg" class="form-control search-input" autocomplete="on"
                                name="q" value="<%= query%>" type="search" placeholder="Search for a brand or a product">
                     <% } else { %>
-                        <input id="search-input-lg" class="form-control border search-input" autocomplete="on"
+                        <input id="search-input-lg" class="form-control search-input" autocomplete="on"
                                name="q" value="" type="search" placeholder="Search for a brand or a product">
                     <% } %>
-                    <button class="btn btn-outline-light bg-white border-start-1 border search-button" type="submit" id="">
+                    <button class="btn btn-outline-primary bg-white border-start-1 border search-button" type="submit" id="">
                         <i aria-hidden="true" class="fas fa-search"></i>
                         <span class="position-relative ms-2 ">Search</span>
                     </button>

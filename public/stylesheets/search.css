@@ -35,9 +35,11 @@
 #search-page #search-input-lg{
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
+    border-color: 1px solid var(--input-primary);
 }
 
 #search-page .input-group {
+    height: 2.8rem;
     margin-top: 2rem;
     margin-bottom: 2rem;
     padding-left: 1rem;
