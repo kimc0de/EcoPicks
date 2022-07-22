@@ -94,10 +94,6 @@ form > * {
   z-index: var(--main-z-index);
 }
 
-header {
-  z-index: var(--header-z-index);
-}
-
 #navbarContent {
   z-index: var(--header-overlay-z-index);
 }
