@@ -8,18 +8,13 @@
       </a>
       <form id="search-form-lg" method="get" action="/search">
         <div class="input-group">
-          <label for="search-input-lg" class="visually-hidden"></label>
-          <%if (query !== undefined) { %>
-            <input id="search-input-lg" class="form-control border-start-0 border search-input" autocomplete="on"
-                   name="q" value="<%= query%>" type="search" placeholder="Search for a brand or a product">
-          <% } else { %>
-            <input id="search-input-lg" class="form-control border-start-0 border search-input" autocomplete="on"
-                   name="q" value="" type="search" placeholder="Search for a brand or a product">
-          <% } %>
-            <button class="btn btn-outline-light bg-white border-start-1 border search-button" type="submit" id="">
-              <i aria-hidden="true" class="fas fa-search"></i>
-              <span class="position-relative ms-2 d-none d-md-block">Search</span>
-            </button>
+          <label id="search-label" for="search-input-lg" class="visually-hidden">Search for a brand or a product</label>
+          <input id="search-input-lg" class="form-control border-start-0 border search-input" autocomplete="off"
+                 name="q" value="<%=query || '' %>" type="search">
+          <button class="btn btn-outline-light bg-white border-start-1 border search-button" type="submit" id="">
+            <i aria-hidden="true" class="fas fa-search"></i>
+            <span class="position-relative ms-2 d-none d-md-block">Search</span>
+          </button>
         </div>
       </form>
       <div id="navbar-top">
@@ -149,15 +144,8 @@
         <form id="search-form-sm" method="get" action="/search">
           <div class="input-group align-items-stretch">
             <button id="close-search" type="button" class="btn-close close-search-btn" aria-label="Close search"></button>
-            <label for="search-input-sm" class="visually-hidden"></label>
-            <%if (query !== undefined) { %>
-              <input id="search-input-sm" class="form-control border-end-0 search-input" autocomplete="off"
-                     name="q" value="<%= query%>" type="search" placeholder="Search for a brand or a product.">
-            <% } else { %>
-              <input id="search-input-sm" class="form-control border-end-0 search-input" autocomplete="off"
-                     name="q" value="" type="search" placeholder="Search for a brand or a product">
-            <% } %>
-
+              <input id="search-input-sm" aria-labelledby="search-label" class="form-control border-end-0 search-input" autocomplete="off"
+                     name="q" value="<%= query || ''%>" type="search">
               <button class="btn btn-outline-light bg-white d-flex align-items-center justify-content-evenly input-search-button" type="submit" aria-label="Search">
                 <i aria-hidden="true" class="fas fa-search"></i>
                 <span class="position-relative ms-2 d-none d-md-block">Search</span>
