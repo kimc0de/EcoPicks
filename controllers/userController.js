@@ -82,7 +82,7 @@ module.exports = {
       } else if (error) {
         console.error(`Error creating user: ${error.message}`);
         res.locals.redirect = "/registration";
-        let errormessage = ``;
+        let errormessage = `Error! `;
         if (error.message.includes('username')) {
           errormessage += `This email is already associated with an account. `;
         }
@@ -258,8 +258,8 @@ module.exports = {
           {userId: null}, {new: true});
         req.flash("success", `Your recommended brand has been deleted.`);
         res.redirect("/user");
-      } else {
-          req.flash("error", `Please do not delete Ecopicks approved brand`);
+      } else { // prevent deleting with deeplink
+          req.flash("error", `Error! Please do not delete Ecopicks approved brand`);
           res.redirect("/user");
       }
     } catch (error) {

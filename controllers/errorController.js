@@ -24,7 +24,7 @@ module.exports = {
 
   redirectIfUnauthorized: (req, res) => {
     if (!req.user) {
-      req.flash("error", "Please log in to continue.");
+      req.flash("error", "Error! Please log in to continue.");
       res.redirect("/login");
     }
   }
