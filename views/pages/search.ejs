@@ -1,8 +1,8 @@
 <div id="search-page">
     <% if (results && results.length > 0) { %>
-        <h1 class="text-center page-title">Search results</h1>
+        <div class="text-center page-title">Search results</div>
     <% } else { %>
-        <h1 class="text-center page-title ps-2 pe-2">We're sorry... No results were found for "<%= query%>"</h1>
+        <div role="status" class="text-center page-title ps-2 pe-2">We're sorry... No results were found for "<%= query%>"</div>
         <!-- Search bar    -->
             <form class="search-form" method="get" action="/search">
                 <div class="input-group">
@@ -24,7 +24,7 @@
     <div class="container mt-sm-1 mb-sm-1">
         <% if (results && results.length > 0) { %>
                 <div id="search-results" class="d-flex flex-column">
-                    <h2 class="total-results justify-content-start"><%= results.length %> results for "<%= query%>"</h2>
+                    <div role="status" class="total-results justify-content-start"><%= results.length %> results for "<%= query%>"</div>
                     <div class="brands-container">
                         <%- include ('../components/brandCard') %>
                     </div>
