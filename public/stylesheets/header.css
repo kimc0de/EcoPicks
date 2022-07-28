@@ -166,7 +166,7 @@
   text-decoration: none;
 }
 
-#menu-label, #search-label {
+#menu-label, #search-button-label {
   position: relative;
   top: 2px;
   color: var(--text-primary);
