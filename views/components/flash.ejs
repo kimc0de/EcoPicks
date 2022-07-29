@@ -17,15 +17,15 @@
                 <div>
                     <%= flashMessages.success %>
                 </div>
-                <button type="button" class="btn-close close_btn" data-bs-dismiss="alert" aria-label="Close"></button>
+                <button type="button" class="btn-close close_btn" data-bs-dismiss="alert" aria-label="Close notification"></button>
             </div>
       <% } else if (flashMessages.error) { %>
               <div id="flash-error" class="alert alert-danger d-flex align-items-center fade show" role="alert">
-                  <svg focusable="false" class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                  <svg focusable="false" class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Error:"><use xlink:href="#exclamation-triangle-fill"/></svg>
                   <div>
                       <%= flashMessages.error %>
                   </div>
-                  <button type="button" class="btn-close close_btn" data-bs-dismiss="alert" aria-label="Close"></button>
+                  <button type="button" class="btn-close close_btn" data-bs-dismiss="alert" aria-label="Close notification"></button>
               </div>
       <% } %>
   <% } %>

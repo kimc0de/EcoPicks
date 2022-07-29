@@ -77,14 +77,13 @@ $(() => {
             req.done((data) => {
                 //show success icon and message
                 username.siblings('.success-icon').removeClass('d-none');
-                username.siblings('.success-message').removeClass('d-none');
-                username.siblings('.success-message').removeClass('visually-hidden');
+                username.siblings('.success-message').removeClass('d-none').focus();
 
                 //hide success icon and message
                 setTimeout(() =>{
                     username.siblings('.success-icon').addClass('d-none');
-                    username.siblings('.success-message').addClass('visually-hidden');
-                }, 3000);
+                    username.siblings('.success-message').addClass('d-none');
+                }, 5000);
 
                 //update user name on page
                 $('#user-name').text(data.username);
@@ -203,14 +202,13 @@ $(() => {
 
                 //show success icon & message
                 userEmail.siblings('.success-icon').removeClass('d-none');
-                userEmail.siblings('.success-message').removeClass('d-none');
-                userEmail.siblings('.success-message').removeClass('visually-hidden');
+                userEmail.siblings('.success-message').removeClass('d-none').focus();
 
                 //hide success icon
                 setTimeout(() => {
                     userEmail.siblings('.success-icon').addClass('d-none');
-                    userEmail.siblings('.success-message').addClass('visually-hidden');
-                }, 3000);
+                    userEmail.siblings('.success-message').addClass('d-none');
+                }, 5000);
 
                 // Update email on Edit profile page
                 $('#user-email').text(data.newEmail);
@@ -375,12 +373,12 @@ $(() => {
 
                 //show success icon & message
                 passwordLabel.siblings('.success-icon').removeClass('d-none');
-                passwordLabel.siblings('.success-message').removeClass('d-none');
-                passwordLabel.siblings('.success-message').removeClass('visually-hidden');
+                passwordLabel.siblings('.success-message').removeClass('d-none').focus();
+
                 //hide success icon
                 setTimeout(() => {
                     passwordLabel.siblings('.success-icon').addClass('d-none');
-                    passwordLabel.siblings('.success-message').addClass('visually-hidden');
+                    passwordLabel.siblings('.success-message').addClass('d-none');
                 }, 3000);
             }
             if (data.result === 'failed'){
