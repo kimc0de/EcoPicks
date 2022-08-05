@@ -1,7 +1,8 @@
 /**
  * Load more button for brands by categories page and search results page
+ * https://www.youtube.com/watch?v=4UZdSp9PMI4
  */
-document.addEventListener("DOMContentLoaded", function(event) {
+document.addEventListener("DOMContentLoaded", function() {
     let limit = 24;
     if (window.location.pathname.includes('/category/') ||
         window.location.pathname.includes('/search')
