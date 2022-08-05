@@ -44,36 +44,32 @@ $(() => {
  * https://www.freakyjolly.com/custom-jquery-function-read-more-and-read-less/
  */
 function addReadMore() {
-    //This limit you can set after how much characters you want to show Read More.
+    // This limit you can set after how much characters you want to show Read More.
     let limit = 250;
     // Text to show when text is collapsed
     let readMoreTxt = " ... Read more";
     // Text to show when text is expanded
     let readLessTxt = " Read less";
 
-
-    //Traverse all selectors with this class and manipulate HTML part to show Read More
+    // Traverses all selectors with this class and manipulate HTML part to show Read More
     $(".addReadMore").each(function() {
-        if ($(this).find(".firstSec").length)
-            return;
-
         let brandDescription = $(this).text();
         if (brandDescription.length > limit) {
             let firstSet = brandDescription.substring(0, limit);
             let hiddenString = brandDescription.substring(limit, brandDescription.length);
-            let stringEnd = firstSet + "<span class='hidden-part'>" + hiddenString + "</span><span class='readMore' title='Click to show more'>" + readMoreTxt + "</span><span class='readLess' title='Click to show less'>" + readLessTxt + "</span>";
+            let stringEnd = firstSet + "<span class='hidden-part'>" + hiddenString + "</span><button class='readMore border-0'>" + readMoreTxt + "</button><button class='readLess border-0'>" + readLessTxt + "</button>";
             $(this).html(stringEnd);
         }
-
     });
 
-    //Read More and Read Less click event binding
+    // Read More and Read Less click event binding
     $(document).on("click", ".readMore,.readLess", function() {
         $(this).closest(".addReadMore").toggleClass("showlesscontent showmorecontent");
+        $('.readMore, .readLess').focus(); // Moves focus to the other button
     });
 }
 
 $(() => {
-    //Calling function after loading page
+    // Calling function after loading page
     addReadMore();
 });
