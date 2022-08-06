@@ -48,6 +48,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 passport.use(User.createStrategy());
 
+// https://www.passportjs.org/concepts/authentication/sessions/
 passport.serializeUser(function(user, done) {
     done(null, user.id);
 });

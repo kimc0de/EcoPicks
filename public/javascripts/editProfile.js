@@ -93,8 +93,8 @@ $(() => {
             username_inputField.addClass('invalid-field').attr("aria-invalid", "true");
             username_inputField.focus();
         }
-    })
-})
+    });
+});
 
 /**
  * Edit user email
@@ -119,18 +119,6 @@ const hideEmailMatchError = () => {
     confirmEmail_error.addClass('d-none');
     confirmEmail_inputField.removeClass('invalid-field').attr("aria-invalid", "false");
     confirmEmail_error.text('');
-}
-
-const showInvalidNewEmailError = () => {
-    newEmail_error.removeClass('d-none');
-    newEmail_inputField.addClass('invalid-field').attr("aria-invalid", "true");
-    newEmail_error.text('Invalid email address. Valid email example: example@email.com.')
-}
-
-const hideInvalidNewEmailError = () => {
-    newEmail_error.text('');
-    newEmail_error.addClass('d-none');
-    newEmail_inputField.removeClass('invalid-field').attr("aria-invalid", "false");
 }
 
 const validateMatchingEmails = () => {
@@ -415,13 +403,13 @@ $(() => {
                 if (data.error.includes('Passwords do not match')) {
                     showPasswordMatchError();
                 }
-                // autofocus ont the first invalid field
+                // autofocus on the first invalid field
                 let invalidFields = $('#edit-password-form .invalid-field');
                 invalidFields[0].focus();
             }
-        })
-    })
-})
+        });
+    });
+});
 
 // prevent form from closing when user presses enter while focusing on input
 $(() => {
@@ -433,6 +421,6 @@ $(() => {
                 e.preventDefault();
                 return false;
             }
-        })
-    })
+        });
+    });
 });

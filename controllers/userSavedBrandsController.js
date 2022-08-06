@@ -52,7 +52,7 @@ module.exports = {
     /**
      * Remove brand from saved collection
      */
-    removeBrandsFromCollection: async (req, res, next) => {
+    unsaveBrands: async (req, res, next) => {
         redirectIfUnauthorized(req, res);
         try {
             let userId = req.user._id

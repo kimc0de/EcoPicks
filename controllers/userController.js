@@ -200,7 +200,7 @@ module.exports = {
   },
 
   renderRecommendPage: (req, res) => {
-    res.render("user/recommendNewBrand");
+    res.render("pages/recommendNewBrand");
   },
 
   saveUserRecommendation: async (req, res) => {
