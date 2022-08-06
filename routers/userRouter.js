@@ -1,11 +1,11 @@
 const userController = require('../controllers/userController');
-const userMessage = require('../controllers/userMessageController');
+const userRecommendationController = require('../controllers/userRecommendationController');
 const homeController = require('../controllers/homeController');
 const router = require('express').Router();
 const passport = require("passport");
 
 // Profile
-router.get("/user", userController.getAllRecommendedBrands, userController.renderProfile);
+router.get("/user", userRecommendationController.getAllRecommendedBrands, userController.renderProfile);
 
 // Register
 router.get("/registration", userController.renderRegister);
@@ -32,10 +32,5 @@ router.get("/user/edit", userController.renderEdit);
 router.put("/user/update/username", userController.updateUsername);
 router.put("/user/update/email", userController.updateUserEmail);
 router.put("/user/update/password", userController.updateUserPassword);
-
-// Send recommendation
-router.get("/user/recommendation", userController.renderRecommendPage);
-router.post("/user/recommendation", userController.saveUserRecommendation)
-router.delete("/user/recommendation/:id/delete", userController.deleteRecommendedBrand)
 
 module.exports = router;

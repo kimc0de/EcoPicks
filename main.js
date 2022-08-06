@@ -113,6 +113,7 @@ app.use(require('./routers/apiRouter'));
 app.use(require('./routers/searchRouter'));
 app.use(require('./routers/categoryRouter'));
 app.use(require('./routers/contactRouter'));
+app.use(require('./routers/recommendationRouter'));
 app.use(require('./routers/errorRouter'));
 
 module.exports = app;
