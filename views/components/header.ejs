@@ -79,8 +79,8 @@
           <li aria-hidden="true" class="horizontal-line"><hr aria-hidden="true"></li>
         </ul>
 
+        <div class="label-content">Account</div>
         <ul class="navbar-nav ml-auto mt-1">
-          <div class="label-content">Account</div>
           <% if(!loggedIn) { %>
             <li class="nav-btn">
               <a class="btn btn-outline-primary" href="/login">Log In</a>
@@ -102,16 +102,16 @@
           <li aria-hidden="true" class="horizontal-line mt-2"><hr aria-hidden="true"></li>
         </ul>
 
+        <div class="label-content">Categories</div>
         <ul class="navbar-nav ml-auto mt-1">
-          <div class="label-content">Categories</div>
           <!--  Categories links      -->
           <%- include ('./subNavigation') %>
           <li aria-hidden="true" class="horizontal-line mt-2"><hr aria-hidden="true"></li>
         </ul>
 
           <!-- Company    -->
+        <div class="label-content">Company</div>
         <ul class="navbar-nav ml-auto mt-1">
-          <div class="label-content">Company</div>
           <li class="nav-item">
             <a class="nav-link" href="/about">About</a>
           </li>
