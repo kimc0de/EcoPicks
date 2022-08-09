@@ -33,7 +33,7 @@
     max-width: 9rem;
 }
 
-#search-page #search-input-lg{
+#search-input-lg-body{
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     border-color: 1px solid var(--input-primary);
@@ -60,7 +60,7 @@
         padding-right: 6rem;
     }
 
-    #search-page .search-form {
+    #search-form {
         width: 60%;
         margin: auto;
     }

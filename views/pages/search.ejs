@@ -4,17 +4,11 @@
     <% } else { %>
         <h1 role="status" class="text-center page-title ps-2 pe-2">We're sorry... No results were found for "<%= query%>"</h1>
         <!-- Search bar    -->
-            <form class="search-form" method="get" action="/search">
+            <form id="search-form" method="get" action="/search">
                 <div class="input-group">
-                    <label for="search-input-lg" class="visually-hidden">Search for a brand or a product</label>
-                    <%if (query !== undefined) { %>
-                        <input id="search-input-lg" class="form-control search-input" autocomplete="on"
-                               name="q" value="<%= query%>" type="search">
-                    <% } else { %>
-                        <input id="search-input-lg" class="form-control search-input" autocomplete="on"
-                               name="q" value="" type="search">
-                    <% } %>
-                    <button class="btn btn-outline-primary bg-white border-start-1 border search-button" type="submit" id="">
+                    <label for="search-input-lg-body" class="visually-hidden">Search for something else</label>
+                    <input id="search-input-lg-body" class="form-control search-input" autocomplete="on" name="q" value="<%=query || '' %>" type="search">
+                    <button class="btn btn-outline-primary bg-white border-start-1 border search-button" type="submit">
                         <i aria-hidden="true" class="fas fa-search"></i>
                         <span class="position-relative ms-2 ">Search</span>
                     </button>
