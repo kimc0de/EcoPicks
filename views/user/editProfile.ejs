@@ -35,7 +35,7 @@
             <div id="editing-username" class="d-none">
                 <form action="<%=`/user/update/username`%>" method="POST" id="edit-username-form">
                     <div class="d-flex flex-column">
-                        <input aria-labelledby="username-label" type="text" id="edit-username" name="username" class="form-control edit-input" autocomplete="off" aria-required="true" value="<%= user.username %>">
+                        <input aria-labelledby="username-label" type="text" id="edit-username" name="username" class="form-control edit-input" autocomplete="name" aria-required="true" value="<%= user.username %>">
                         <!-- Error message -->
                         <div class="d-none error-message"></div>
                         <!-- Error message -->
@@ -81,7 +81,7 @@
 
                         <div>
                             <label id="current-email-label" for="new-email" class="email-label">New email</label>
-                            <input type="email" id="new-email" name="email" class="form-control edit-input" autocomplete="off" aria-required="true">
+                            <input type="email" id="new-email" name="email" class="form-control edit-input" autocomplete="email" aria-required="true">
                             <!-- Error message -->
                             <div class="d-none error-message"></div>
                             <!-- Error message -->
@@ -89,7 +89,7 @@
 
                         <div class="mt-3">
                             <label id="confirm-email-label" for="confirm-email" class="confirm-email-label">Confirm new email</label>
-                            <input type="email" id="confirm-email" name="confirmEmail" class="form-control edit-input" autocomplete="off" aria-required="true" value="">
+                            <input type="email" id="confirm-email" name="confirmEmail" class="form-control edit-input" autocomplete="email" aria-required="true" value="">
                             <!-- Error message -->
                             <div class="d-none error-message"></div>
                             <!-- Error message -->
@@ -140,7 +140,7 @@
 
                     <div class="mt-3">
                         <label id="new-password-label" for="new-password" class="password-label">New password</label>
-                        <input type="password" id="new-password" name="newPassword" class="form-control edit-input mb-2" aria-required="true" autocomplete="off">
+                        <input type="password" id="new-password" name="newPassword" class="form-control edit-input mb-2" aria-required="true" autocomplete="new-password">
                         <!-- Error message -->
                         <div class="error-message"></div>
                         <!-- Error message -->
@@ -148,7 +148,7 @@
 
                     <div class="mt-3">
                         <label id="new-password-repeat-label" for="new-password-repeat" class="password-label">Confirm new password</label>
-                        <input type="password" id="new-password-repeat" name="newPasswordRepeat" class="form-control edit-input mb-2" aria-required="true" autocomplete="off">
+                        <input type="password" id="new-password-repeat" name="newPasswordRepeat" class="form-control edit-input mb-2" aria-required="true" autocomplete="new-password">
                         <!-- Error message -->
                         <div class="error-message"></div>
                         <!-- Error message -->
